@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C5B8EA30-1F1F-41BF-85E0-302C2EE96B92/20/6cea5ca3/Connection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695D1CC9-3CCA-4506-9C52-8C15C9FDD749/c2/ea818fe4/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/8e/db7b7bcb/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/a7/d8305f39/Exception.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/1a/2d1d3722/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/2a/0d72e35c/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/0a/8d3ccd2a/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/a1/da3e4591/ArgumentOutOfRangeException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/d0/0ff7112d/ArgumentException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/GeneralUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/45/dc0a0d21/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C5B8EA30-1F1F-41BF-85E0-302C2EE96B92/3d/c808413a/BuildPipelineInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/eb/cebff4b0/Int32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/f8/73158266/Environment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E7F43C3-8E21-4491-A21E-E815B941DBB6/5f/444fbd69/JsonUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/a5/f24cb7a0/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/69/318b25bc/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/BoardNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/GridGeneration.cs" />
+        <option value="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Singleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridTester.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Grid.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Heap.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/CoordinateUtil.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/GeneralUtility.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/ObjectSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Module.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/EdgeFilter.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Direction.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyAdjustment.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1sWh2IcMjHYYherZCl616CtXxgo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.03846154" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.03304442" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.23417722" />
+    <property name="settings.editor.selected.configurable" value="ReSpellerSettingsId" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="" />
+      <created>1620994049406</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620994049406</updated>
+      <workItem from="1620994069591" duration="5568000" />
+      <workItem from="1621144952253" duration="777000" />
+      <workItem from="1621320198666" duration="6786000" />
+      <workItem from="1621431266946" duration="7761000" />
+      <workItem from="1621481563429" duration="3230000" />
+      <workItem from="1621603080365" duration="2324000" />
+      <workItem from="1622364304457" duration="1272000" />
+      <workItem from="1623491265349" duration="3033000" />
+      <workItem from="1623567636540" duration="5532000" />
+      <workItem from="1624249193743" duration="10457000" />
+      <workItem from="1624538045109" duration="3264000" />
+      <workItem from="1624600251463" duration="11033000" />
+      <workItem from="1624693667840" duration="10080000" />
+      <workItem from="1624722430148" duration="82000" />
+      <workItem from="1624723517279" duration="7165000" />
+      <workItem from="1624766249182" duration="10864000" />
+      <workItem from="1624853164965" duration="22635000" />
+      <workItem from="1624947151261" duration="2279000" />
+      <workItem from="1624956785638" duration="21421000" />
+      <workItem from="1625022123619" duration="3003000" />
+      <workItem from="1625134789832" duration="1000" />
+      <workItem from="1625285681172" duration="6852000" />
+      <workItem from="1625385974851" duration="6723000" />
+      <workItem from="1625461493563" duration="12295000" />
+      <workItem from="1625550597612" duration="26971000" />
+      <workItem from="1625630885428" duration="4741000" />
+      <workItem from="1626179713084" duration="614000" />
+      <workItem from="1627959720628" duration="1796000" />
+      <workItem from="1628042983825" duration="8800000" />
+      <workItem from="1628078541875" duration="822000" />
+      <workItem from="1628130179916" duration="4000000" />
+      <workItem from="1628217520367" duration="7161000" />
+      <workItem from="1628254977518" duration="327000" />
+      <workItem from="1628307300935" duration="9709000" />
+      <workItem from="1628399146275" duration="8965000" />
+      <workItem from="1628468502602" duration="14567000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1628077065740">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1628077065740" />
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1625589986205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986205" />
+    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1625589986205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986205" />
+    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1625589986205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986205" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1625589986205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986205" />
+    <state width="1877" height="189" key="GridCell.Tab.1.bottom" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.1.center" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.1.left" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.1.right" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.2.bottom" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.2.center" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.2.left" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.2.right" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.3.bottom" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.3.center" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.3.left" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state width="1877" height="189" key="GridCell.Tab.3.right" timestamp="1625589986206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625589986206" />
+    <state x="1268" y="209" key="RiderGenerateDialog" timestamp="1624547113504">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1268" y="209" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624547113504" />
+    <state x="922" y="168" key="SettingsEditor" timestamp="1624721723295">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="922" y="168" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1624721723295" />
+  </component>
+</project>

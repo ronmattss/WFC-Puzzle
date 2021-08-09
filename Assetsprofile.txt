@@ -1,0 +1,1 @@
+{"userName":"test","userID":"123eqw43","initialRating":25,"currentRating":26,"gamesPlayed":25,"gamesWon":25,"levelsPlayed":[{"seed":"213dasdwe22","boardWidth":4,"boardHeight":4,"allottedTime":20,"expectedMoves":6,"levelRating":5,"playerRating":25},{"seed":"213dasdwe22","boardWidth":4,"boardHeight":4,"allottedTime":20,"expectedMoves":6,"levelRating":5,"playerRating":25}]}
