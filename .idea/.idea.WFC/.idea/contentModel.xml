@@ -34,6 +34,7 @@
             </e>
             <e p="SimpleCameraController.cs" t="Include" />
             <e p="UI" t="Include">
+              <e p="DebugTools.cs" t="Include" />
               <e p="UIManager.cs" t="Include" />
             </e>
             <e p="Util" t="Include">

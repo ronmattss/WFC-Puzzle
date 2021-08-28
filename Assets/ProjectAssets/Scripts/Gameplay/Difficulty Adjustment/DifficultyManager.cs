@@ -51,8 +51,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            playerProfile.gamesWon = 25;
            currentLevel = new LevelDetails();
            currentLevel.seed = "213dasdwe22";
-           currentLevel.boardHeight = 4;
-           currentLevel.boardWidth = 4;
            currentLevel.allottedTime = 20;
            currentLevel.expectedMoves = 6;
            currentLevel.levelRating = 5;
@@ -78,12 +76,21 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
     public class LevelDetails
     {
         public string seed;
-        public int boardWidth;
-        public int boardHeight;
+        public int boardSize;
         public int allottedTime;
         public int expectedMoves;
-        public int levelRating;    // The Rating of the level Generated
-        public int playerRating;   // The Current rating of the player playing this level
+        public int levelScore;
+        public double levelRating;    // The Rating of the level Generated
+        
+        public double playerRating;   // The Current rating of the player playing this level
+        [Range(0,200)]
+        public int playerMove;
+        [Range(0,500)]
+        public double playerRemainingTime;
+        public double playerScore;
+        public double playerEvaluatedScore;
+        
+        // should the player's performance also be here?
         
             // Set the level Details
 
@@ -91,14 +98,14 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             {
                 
             }
-            public LevelDetails(int _width,int _height, int _time, int _exMoves,int _lRating,int _pRating)
+            public LevelDetails(int time, int exMoves,int lRating,int pRating,int pMove,int pScore)
             {
-                boardWidth = _width;
-                boardHeight = _height;
-                allottedTime = _time;
-                expectedMoves = _exMoves;
-                levelRating = _lRating;
-                playerRating = _pRating;
+                allottedTime = time;
+                expectedMoves = exMoves;
+                levelRating = lRating;
+                playerRating = pRating;
+                playerMove = pMove;
+                playerScore = pScore;
             }
 
     }
