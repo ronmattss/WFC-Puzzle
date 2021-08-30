@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ProjectAssets.Scripts.Gameplay;
 using ProjectAssets.Scripts.Puzzle_Generation;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;

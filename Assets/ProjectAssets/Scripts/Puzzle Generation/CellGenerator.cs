@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using ProjectAssets.Scripts.Gameplay;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -24,6 +25,13 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         {
             // GenerateLevel On Command
             // GenerateLevel();
+        }
+
+        public void GenerateRandomLevel(int size)
+        {
+            height = size;
+            width = size;
+            GenerateLevel();
         }
 
 
@@ -185,7 +193,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             GameManager.Instance.currentCell = startCell;
             GameManager.Instance.SetStartPosition(startCell.transform.position);
             GameManager.Instance.SetGoalCell(endCell);
-            GameManager.Instance.solver.InitializeValues(cells,endCell,GameManager.Instance.debugMoves);
+            GameManager.Instance.solver.InitializeValues(cells,endCell,GameManager.Instance.solverMoves);
             // now collapse it
             
         }

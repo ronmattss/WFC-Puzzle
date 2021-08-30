@@ -73,7 +73,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
     // holds level details
     [Serializable]
-    public class LevelDetails
+    public class 
+        LevelDetails
     {
         public string seed;
         public int boardSize;
@@ -98,14 +99,25 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             {
                 
             }
-            public LevelDetails(int time, int exMoves,int lRating,int pRating,int pMove,int pScore)
+            public LevelDetails(string boardSeed,int size, int time, int exMoves,double lRating,double pRating,int pMove,double pScore, double pEvalScore,int pLevelScore)
             {
+                seed = boardSeed;
+                boardSize = size;
                 allottedTime = time;
                 expectedMoves = exMoves;
                 levelRating = lRating;
                 playerRating = pRating;
                 playerMove = pMove;
                 playerScore = pScore;
+                playerEvaluatedScore = pEvalScore;
+                levelScore = pLevelScore;
+            }
+            
+            
+
+            public LevelDetails ReturnDetails()
+            {
+                return this;
             }
 
     }
@@ -114,8 +126,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
     public class PlayerProfile
     {
         public string userName;
-        public int initialRating;
-        public int currentRating;
+        public double initialRating;
+        public double currentRating;
         public int gamesPlayed;
         public int gamesWon;
         public List<LevelDetails> levelsPlayed = new List<LevelDetails>();

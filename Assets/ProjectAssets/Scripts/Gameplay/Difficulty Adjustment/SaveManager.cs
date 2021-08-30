@@ -11,7 +11,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         // have one single Instance of the player Profile
         // if non exist create one
         private string path = "/save/profile.json";
-        private PlayerProfile _playerProfile;
+        public PlayerProfile playerProfile;
         
         // Load if one exist
         public void TryLoadProfile()
@@ -28,13 +28,13 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             }
             else
             {
-                _playerProfile = new PlayerProfile();
+                playerProfile = new PlayerProfile();
             var file = File.ReadAllText(filePath);
             Debug.Log(file.Length);
-            Debug.Log($"Loaded Profile of: {_playerProfile.userName}");
+            Debug.Log($"Loaded Profile of: {playerProfile.userName}");
 
-            _playerProfile =  JsonUtility.FromJson<PlayerProfile>(file);
-            Debug.Log($"Loaded Profile of: {_playerProfile.userName}");
+            playerProfile =  JsonUtility.FromJson<PlayerProfile>(file);
+            Debug.Log($"Loaded Profile of: {playerProfile.userName}");
             }
         }
 
@@ -42,8 +42,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public void CreateProfile()
         {
             //create a new file Test
-            _playerProfile = new PlayerProfile(); // create blank template
-            var jsonString = JsonUtility.ToJson(_playerProfile);
+            playerProfile = new PlayerProfile(); // create blank template
+            var jsonString = JsonUtility.ToJson(playerProfile);
             File.WriteAllText(Application.dataPath + path,jsonString);
 
 
@@ -51,6 +51,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         public void SaveProfile()
         {
+            var jsonString = JsonUtility.ToJson(playerProfile);
+            Debug.Log($"SaveString: {jsonString}");
+            File.WriteAllText(Application.dataPath + path,jsonString);
             //comment
         }
         

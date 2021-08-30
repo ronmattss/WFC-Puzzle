@@ -2623,6 +2623,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cccc88bf3544545ba0435ccaa050709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerProfile:
+    userName: 
+    initialRating: 0
+    currentRating: 0
+    gamesPlayed: 0
+    gamesWon: 0
+    levelsPlayed: []
 --- !u!114 &1784948920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2648,6 +2655,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4857c09f764182bcee6c96aa29d3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardSize: 6
+  moves: 6
+  levelRatingDebug: 0
+  debugMode: 1
+  nextLevelRating: 0
+  debugMoveScore: 0
+  debugTimeScore: 0
+  debugPlayerRating: 0
+  valueCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curveValues:
+    x: 0
+    y: 0
   currentPlayer:
     userName: 
     initialRating: 0
@@ -2657,12 +2699,25 @@ MonoBehaviour:
     levelsPlayed: []
   levelGenerated:
     seed: 
-    boardWidth: 0
-    boardHeight: 0
+    boardSize: 0
     allottedTime: 0
     expectedMoves: 0
+    levelScore: 0
     levelRating: 0
     playerRating: 0
+    playerMove: 0
+    playerRemainingTime: 0
+    playerScore: 0
+    playerEvaluatedScore: 0
+  parameters:
+    boardSize: 4
+    expectedMoves: 4
+    allocatedTime: 20
+    boardTime: 0
+    expectedScore: 0
+    completionScore: 0
+    timeCompletionScore: 0
+    levelRating: 0
 --- !u!1 &1927357023
 GameObject:
   m_ObjectHideFlags: 0

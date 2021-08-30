@@ -63,22 +63,28 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         }
         
-        public int SetExpectedMoves(int add = 0)
+        public int SetExpectedMoves()
         {
-            int minBoard = 4;
-            int EM = minBoard; // set the EM to the board size
-            int maxRange = boardSize * boardSize;
-            // check the current EM
-            if(EM < (maxRange - 2))
-            {
-                expectedMoves = EM + add;
-                return EM + add;
-            }
-            // if the ExpectedMoves is beyond the size of the 
-            EM = Random.Range(boardSize, (maxRange-2)); // this should be random on a range // reconfigure in the modifier
-            expectedMoves = EM;
-            return EM;
 
+            // if the ExpectedMoves is beyond the size of the 
+            expectedMoves = Random.Range(boardSize, (MaxMoves(boardSize))); // this should be random on a range // have a switch statement that handles the max limit of moves per board size
+            return expectedMoves;
+
+        }
+
+
+        private int MaxMoves(int board)
+        {
+            return boardSize switch
+            {
+                5 => 21,
+                6 => 29,
+                7 => 35,
+                8 => 50,
+                9 => 64,
+                10 => 80,
+                _ => 12
+            };
         }
         
         public double SetCompletionScore()
@@ -145,7 +151,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // these values should be tweaked for board size 6 -10
             if ( playerTime >= (levelTime * .70))
             {
-                Debug.Log(levelTime * 1);
+             //   Debug.Log(levelTime * 1);
                 return  1;
             }
             if (( levelTime * .69) >= playerTime && playerTime >= (levelTime * .50))
@@ -167,7 +173,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
 
             var secondEquation = (SetPlayerTimeCompletionScore(remainingTime) * .4);
-            Debug.Log( $"Player Completion Score: {firstEquation} Player Time Score: {secondEquation}");
+          //  Debug.Log( $"Player Completion Score: {firstEquation} Player Time Score: {secondEquation}");
             
 
             var result = ((firstEquation + secondEquation) * 100) / 10;
@@ -178,32 +184,42 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         // fuzzy membership functions
 
         // fuzzy evaluator 
-        public double EvaluatePlayerMoves(int levelMoves,int playerMoves)
+        public double EvaluatePlayerMoves(int playerMoves)
         {
-            var baseScore = levelMoves;
+            var baseScore = expectedMoves;
             var pScore = playerMoves;
-            if (pScore == baseScore)        // perfect moves
+            
+            
+            
+            if (pScore == baseScore) // perfect moves
             {
                 return 1;
             }
 
+            if (pScore < baseScore)
+            {
+                return -1;
+            }
+
             // 31 <= playerMoves 32 <= 37
-            if (( baseScore / .99) <= pScore && pScore <= (baseScore / .80)) // prolly some detours
+
+            if (pScore >= (baseScore / .99) && pScore <= (baseScore / .8))
             {
                 return .25;
+                
             }
-            if (( baseScore / .79) <= pScore && pScore <= (baseScore / .50))   // 
+            if ((pScore >= (baseScore / .79) && pScore <= (baseScore / .5))) // 
             {
                 return 0;
             }
 
-            return -1 *(baseScore/pScore);
+            return -.25;
             
         }
         
-        public double EvaluatePlayerRemainingTime(double allottedTime, double playerRemainingTime)
+        public double EvaluatePlayerRemainingTime( double playerRemainingTime)
         {
-            var baseTime = allottedTime;
+            var baseTime = allocatedTime;
             var playerTime = playerRemainingTime;
            //  36 >= 32 >= .7
             if (baseTime >= playerTime && playerTime >= (baseTime * .70))
@@ -212,13 +228,13 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             }
             if (( baseTime * .69) >= playerTime && playerTime >= (baseTime * .50))
             {
-                return 0;
+                return 0.05;
             }
         
             if (baseTime > 0)
-                return -1 * (playerTime/baseTime);
+                return -(playerTime/baseTime);
 
-            return -.75;
+            return 0;
             
         }
         

@@ -13,7 +13,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         private Cell[,] currentCells;
         [SerializeField] private List<Cell> cellPath = new List<Cell>();
         private Cell currentCell;
-        private int expectedMoves;
+        public int expectedMoves;
         private Cell previousCell;
         private int noChance = 4;
         [SerializeField] private LineRenderer debugRenderer;
@@ -133,6 +133,11 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             }
 
             return possibleNeighbors.ToArray();
+        }
+
+        public Vector3 GetStartCellPosition()
+        {
+            return cellPath[cellPath.Count-1].gameObject.transform.position;
         }
     }
 
