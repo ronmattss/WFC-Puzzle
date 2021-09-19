@@ -71,6 +71,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
                 {
                     cell.Collapse(); //collapse the cell
                     // When a Cell is solved remove from Heap
+                    
                     orderedCells.RemoveFirst();
                 }
 
@@ -93,17 +94,22 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             // ~~ END WFC ~~ \\
             // instantiate Game Objects
             // Modify Random Open Cells
+            // modify Cells
+                GameManager.Instance.cellGameObjects.Clear();
             foreach (var c in cells)
             {
+
                 var t = c.transform;
                 Instantiate(c.possibleModules[0].moduleGameObject, t.position, c.possibleModules[0].moduleGameObject.transform.rotation, t);
                 c.module = c.possibleModules[0]; 
                 c.SetEdges();
+                GameManager.Instance.cellGameObjects.Add(c.gameObject);
             }
             CheckGeneratedLevel();
 
             GameManager.Instance.SetActiveCells(cells);
             GameManager.Instance.SetPlayerPosition();
+            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
 
         }
 
@@ -192,8 +198,8 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             
             GameManager.Instance.currentCell = startCell;
             GameManager.Instance.SetStartPosition(startCell.transform.position);
-            GameManager.Instance.SetGoalCell(endCell);
             GameManager.Instance.solver.InitializeValues(cells,endCell,GameManager.Instance.solverMoves);
+            // GameManager.Instance.SetGoalCell(endCell);
             // now collapse it
             
         }

@@ -21,9 +21,12 @@ namespace ProjectAssets.Scripts.Player
         private float y = 0;
         private Transform cellObjectTransform;
         public Direction availablePath;
+        
+        public int totalMoves = 0;
 
         private void Start()
         {
+            totalMoves = 0;
             var currPosition = gameObject.transform.position;
             x = currPosition.x;
             y = currPosition.z;
@@ -44,13 +47,14 @@ namespace ProjectAssets.Scripts.Player
             x = pos.x;
             y = pos.z;
             currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x), (int) Math.Floor(y));
+            this.transform.position = new Vector3(x,1,y);
             cellObjectTransform = currentCell.gameObject.transform; // get the direction this is a culprit
             availablePath.path = new List<ConnectionType>(4);
             availablePath.path.Add(ConnectionType.Open);
             availablePath.path.Add(ConnectionType.Open);
             availablePath.path.Add(ConnectionType.Open);
             availablePath.path.Add(ConnectionType.Open);
-
+            totalMoves = 0;
             CheckAvailablePath();           
             MovePlayer();
         }
@@ -68,6 +72,7 @@ namespace ProjectAssets.Scripts.Player
                 {
                     y++;
                     MovePlayer();
+                    totalMoves++;
                 }
             }
             // else if to avoid multiple inputs
@@ -78,6 +83,7 @@ namespace ProjectAssets.Scripts.Player
                 {
                     y--;
                     MovePlayer();
+                    totalMoves++;
                 }
             }
 
@@ -88,6 +94,7 @@ namespace ProjectAssets.Scripts.Player
                 {
                     x--;
                     MovePlayer();
+                    totalMoves++;
                 }
             }
 
@@ -98,12 +105,14 @@ namespace ProjectAssets.Scripts.Player
                 {
                     x++;
                     MovePlayer();
+                    totalMoves++;
                 }
             }
+            GameManager.Instance.modifier.GetPlayerMovement(totalMoves);
         }
 
         public void MovePlayer()
-        {
+        {    // only show the current four neighbors available
             if (boardX > x && x >= 0 && boardY > y && y >= 0)
             {
                 currPosition = new Vector3(x, 1, y);
@@ -120,6 +129,8 @@ namespace ProjectAssets.Scripts.Player
                 x = position.x;
                 y = position.z;
             }
+            
+            //
         }
 
         // Instead of rotating current cell, rotate neighbor cells

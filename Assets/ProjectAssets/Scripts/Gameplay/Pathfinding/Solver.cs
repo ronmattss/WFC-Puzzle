@@ -11,11 +11,12 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
     public class Solver : MonoBehaviour
     {
         private Cell[,] currentCells;
-        [SerializeField] private List<Cell> cellPath = new List<Cell>();
+         public List<Cell> cellPath = new List<Cell>();
         private Cell currentCell;
         public int expectedMoves;
         private Cell previousCell;
         private int noChance = 4;
+       [SerializeField] private List<Module> selectedRandomCells = new List<Module>();
         [SerializeField] private LineRenderer debugRenderer;
 
         public void InitializeValues(Cell[,] cells, Cell endCell, int moves)
@@ -25,7 +26,10 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             expectedMoves = moves;
             RandomDirection();
             CheckUniqueness();
+            
             DebugShowPath();
+            RandomlyChangePathCells();
+
         }
 
         void DebugShowPath()
@@ -60,10 +64,11 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         }
 
         // Randomly selects cells for the next path
+        // should be a random walker with back tracking?
         void RandomDirection()
         {
 
-            cellPath.Clear();
+            cellPath.Clear();            // make sure 
             previousCell = currentCell;
             for (var i = 0; i < expectedMoves; i++)
             {
@@ -76,7 +81,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
                     nextCell = nextNeighbors[Random.Range(0, nextNeighbors.Length)];
                     if(noChance == 0) break;
                     noChance--;
-                } while (nextCell == null || CellMatcher(nextCell));
+                } while (nextCell == null || CellMatcher(nextCell)); // should I add a back tracker?
 
                 cellPath.Add(nextCell);
                 previousCell = cellPath[cellPath.Count-1];
@@ -90,6 +95,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             {
                 RandomDirection();
             }
+            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
 
             //Get teh current cell, randomly select a neighbor, get it, remove the cell from the list of neighbors for the next cell (meaning you have 3 choices)
             //Queue it, repeat
@@ -137,7 +143,23 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
         public Vector3 GetStartCellPosition()
         {
+            Debug.Log($"Last Cell path: {cellPath[cellPath.Count-1].gameObject.transform.position}");
             return cellPath[cellPath.Count-1].gameObject.transform.position;
+        }
+
+        // Why? Since WFC generates a good symmetric rule based world, some parts of the puzzle is kinda super symmetric
+        // but will this destory the purpose of WFC? actually no
+        // this will make the player know that SOME of the solver's Path is better than randomly jus moving in the map, so randoming some tiles can be beneficial
+        public void RandomlyChangePathCells()
+        {
+
+            for (int i = 0; i < cellPath.Count; i++)
+            {
+                cellPath[i].module = selectedRandomCells[Random.Range(0, selectedRandomCells.Count)];
+                Debug.Log($"Cell at index {i} is changed");
+            }
+            
+            
         }
     }
 

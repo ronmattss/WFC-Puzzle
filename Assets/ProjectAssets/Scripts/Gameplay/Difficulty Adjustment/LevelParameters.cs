@@ -243,14 +243,14 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         
 
-        // will be used in the level generator 
+        // will be used in the level generator  676---**/wqwoeoo9&#
+  
  
-
         // what to do first
-        // determine the board size
+        // determine the board size1111111111447//sxss
         // then The Expected Moves
         // then the Time
-        // then the Score
+        // then the Score        ``    `                            `QW2`
         // then the 2nd Score
         // then Rating    ``    
         
@@ -264,7 +264,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
 
 
-        
+        //    ````````        `    `        `
         
         
     }

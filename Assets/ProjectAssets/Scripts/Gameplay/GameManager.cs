@@ -1,4 +1,5 @@
-﻿using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
+﻿using System.Collections.Generic;
+using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
 using ProjectAssets.Scripts.Gameplay.Pathfinding;
 using ProjectAssets.Scripts.Player;
 using ProjectAssets.Scripts.Puzzle_Generation;
@@ -40,6 +41,9 @@ namespace ProjectAssets.Scripts.Gameplay
         public Solver solver; // controls the path
         public CellGenerator levelGenerator; // controls the board
         public int debugMoves = 9;
+        
+        [Header("in-game cells")]
+        public List<GameObject> cellGameObjects = new List<GameObject>(); 
      
         /// <summary>
         /// TODO: Movement with direction constrained
@@ -80,11 +84,7 @@ namespace ProjectAssets.Scripts.Gameplay
         public void SetGoalCell(Cell goalCell)
         {
             endCell = goalCell;
-
-            if (gCellObject == null) // Instantiate a GoalCellObject if not existing
-                gCellObject = Instantiate(endGoalPrefab, endCell.transform.position, Quaternion.identity);
-            else
-                gCellObject.transform.position = endCell.transform.position;
+ // set end goal to the first path
 
         }
    
@@ -103,6 +103,14 @@ namespace ProjectAssets.Scripts.Gameplay
             }
         }
 
+        public void SetGoalPosition(Vector3 ePosition)
+        {
+            if (gCellObject != null)
+                gCellObject.transform.position = ePosition;
+            else
+                gCellObject = Instantiate(endGoalPrefab, ePosition, Quaternion.identity);
+        }
+
         public Cell GetCurrentCell(int x, int y)
         {
             cellText.text = $"Current Cell:{activeCells[x, y].name} ";
@@ -113,6 +121,8 @@ namespace ProjectAssets.Scripts.Gameplay
         {
             
             player.GetComponent<BoardMovement>().SetStartPosition(solver.GetStartCellPosition());
+            SetGoalPosition(new Vector3(solver.cellPath[0].transform.position.x,1,solver.cellPath[0].transform.position.z));
+            SetGoalCell(solver.cellPath[0]); // set goal cell to the first cell in the path
         }
 
         public void SetActiveCells(Cell[,] cells) => activeCells = cells;

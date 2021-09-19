@@ -48,6 +48,12 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             currentPlayer = profile;
             
         }
+
+        public void GetPlayerMovement(int movement)
+        {
+            levelGenerated.playerMove = movement;
+        }
+        // invoke this after button press and after a level
         public void SetupDifficultyParameters()
         {
             // Setup Board Size
@@ -74,6 +80,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             if (puzzleRating >= (levelGenerated.playerRating - 5) && levelGenerated.playerRating <= puzzleRating &&
                 puzzleRating <= levelGenerated.playerRating+ 5)
             {
+                levelGenerated.playerMove = 0;
                 levelGenerated.expectedMoves = levelMoves;
                 levelGenerated.allottedTime = levelTime;
                 levelGenerated.levelScore = (int) score;
@@ -81,14 +88,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 levelGenerated.boardSize = parameters.boardSize;
                 return;
             }
+            // if no level is generated, REPEAT
             SetupDifficultyParameters();
-            
-
-
-
-
-          
-
 
         }
 
