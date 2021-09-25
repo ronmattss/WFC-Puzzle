@@ -17,16 +17,18 @@ namespace ProjectAssets.Scripts.Player
         private int boardY;
         private Vector3 currPosition;
         public Cell currentCell;
+        public GameObject currentCellGameObject;
+        public List<GameObject> traversedCells = new List<GameObject>();
         private float x = 0;
         private float y = 0;
         private Transform cellObjectTransform;
         public Direction availablePath;
-        
+
         public int totalMoves = 0;
 
         private void Start()
         {
-            totalMoves = 0;
+
             var currPosition = gameObject.transform.position;
             x = currPosition.x;
             y = currPosition.z;
@@ -43,19 +45,25 @@ namespace ProjectAssets.Scripts.Player
         }
 
         public void SetStartPosition(Vector3 pos)
-        {
+        {    traversedCells.Clear();
+            totalMoves = -1;
             x = pos.x;
             y = pos.z;
-            currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x), (int) Math.Floor(y));
-            this.transform.position = new Vector3(x,1,y);
+            currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
+                (int) Math.Floor(y));
+
+            this.transform.position = new Vector3(x,
+                1,
+                y);
             cellObjectTransform = currentCell.gameObject.transform; // get the direction this is a culprit
             availablePath.path = new List<ConnectionType>(4);
             availablePath.path.Add(ConnectionType.Open);
             availablePath.path.Add(ConnectionType.Open);
             availablePath.path.Add(ConnectionType.Open);
             availablePath.path.Add(ConnectionType.Open);
-            totalMoves = 0;
-            CheckAvailablePath();           
+            CheckAvailablePath();
+            EnableDisableNeighbor();
+            GetCurrentCellPosition();
             MovePlayer();
         }
 
@@ -73,6 +81,7 @@ namespace ProjectAssets.Scripts.Player
                     y++;
                     MovePlayer();
                     totalMoves++;
+                    GetCurrentCellPosition();
                 }
             }
             // else if to avoid multiple inputs
@@ -84,6 +93,7 @@ namespace ProjectAssets.Scripts.Player
                     y--;
                     MovePlayer();
                     totalMoves++;
+                    GetCurrentCellPosition();
                 }
             }
 
@@ -95,6 +105,7 @@ namespace ProjectAssets.Scripts.Player
                     x--;
                     MovePlayer();
                     totalMoves++;
+                    GetCurrentCellPosition();
                 }
             }
 
@@ -106,19 +117,27 @@ namespace ProjectAssets.Scripts.Player
                     x++;
                     MovePlayer();
                     totalMoves++;
+                    GetCurrentCellPosition();
                 }
             }
+
             GameManager.Instance.modifier.GetPlayerMovement(totalMoves);
+
+            // Get current coordinates of player
         }
 
         public void MovePlayer()
-        {    // only show the current four neighbors available
+        {
+            // only show the current four neighbors available
             if (boardX > x && x >= 0 && boardY > y && y >= 0)
             {
-                currPosition = new Vector3(x, 1, y);
+                currPosition = new Vector3(x,
+                    1,
+                    y);
                 gameObject.transform.position = currPosition;
-                currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x), (int) Math.Floor(y));
-             //   availablePath = currentCell.direction; // <- culprit??? available path is copied to the current cell from the prev cell after moving
+                currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
+                    (int) Math.Floor(y));
+                //   availablePath = currentCell.direction; // <- culprit??? available path is copied to the current cell from the prev cell after moving
                 CheckAvailablePath();
                 cellObjectTransform = currentCell.gameObject.transform;
                 GameManager.Instance.GoalChecker(currentCell);
@@ -129,7 +148,7 @@ namespace ProjectAssets.Scripts.Player
                 x = position.x;
                 y = position.z;
             }
-            
+
             //
         }
 
@@ -158,16 +177,18 @@ namespace ProjectAssets.Scripts.Player
 
         }
 
-        
+
         // also get the cell that will be rotated
         private void RotateCell(int degrees)
         {
             var cellQuaternion = cellObjectTransform.rotation;
             var cellEuler = cellObjectTransform.rotation.eulerAngles;
-            cellEuler += new Vector3(0, degrees, 0);
+            cellEuler += new Vector3(0,
+                degrees,
+                0);
             cellQuaternion.eulerAngles = cellEuler;
             cellObjectTransform.rotation = cellQuaternion;
-             currentCell.RotateRight(); //<- probably culprit
+            currentCell.RotateRight(); //<- probably culprit
             // If Available Path is open check if neighbor path is Open
             // if Open player can traverse if not then don't lol
         }
@@ -175,17 +196,25 @@ namespace ProjectAssets.Scripts.Player
         private void RotateNeighborCells(int degrees)
         {
             var holdPath = currentCell.direction;
-            for (int i = 0; i < currentCell.neighbors.Length; i++)
+            for (int i = 0;
+                i < currentCell.neighbors.Length;
+                i++)
             {
                 // Get object rotation
                 if (currentCell.neighbors[i] != null)
                 {
-                    var neighborRotation = currentCell.neighbors[i].transform.rotation;
-                    var neighborRotationEulerAngles = currentCell.neighbors[i].transform.rotation.eulerAngles;
-                    neighborRotationEulerAngles += new Vector3(0, degrees, 0);
+                    var neighborRotation = currentCell.neighbors[i]
+                        .transform.rotation;
+                    var neighborRotationEulerAngles = currentCell.neighbors[i]
+                        .transform.rotation.eulerAngles;
+                    neighborRotationEulerAngles += new Vector3(0,
+                        degrees,
+                        0);
                     neighborRotation.eulerAngles = neighborRotationEulerAngles;
-                    currentCell.neighbors[i].transform.rotation = neighborRotation;
-                    currentCell.neighbors[i].RotateLeft();
+                    currentCell.neighbors[i]
+                        .transform.rotation = neighborRotation;
+                    currentCell.neighbors[i]
+                        .RotateLeft();
                 }
             }
 
@@ -202,11 +231,13 @@ namespace ProjectAssets.Scripts.Player
         // Directions takes the the value of the next cell 
         private void CheckAvailablePath()
         {
-          //  Debug.Log($"neighbor at the bottom: {currentCell.neighbors[0].direction.path[2]} right: {currentCell.neighbors[1].direction.path[3]} top: {currentCell.neighbors[2].direction.path[0]} left: {currentCell.neighbors[3].direction.path[1]}");
-            
-            if (currentCell.neighbors[0] != null && 
-                currentCell.direction.path[0] == ConnectionType.Open && 
-                currentCell.neighbors[0].direction.path[2] == ConnectionType.Open )
+            //  Debug.Log($"neighbor at the bottom: {currentCell.neighbors[0].direction.path[2]} right: {currentCell.neighbors[1].direction.path[3]} top: {currentCell.neighbors[2].direction.path[0]} left: {currentCell.neighbors[3].direction.path[1]}");
+
+            if (currentCell.neighbors[0] != null &&
+                currentCell.direction.path[0] == ConnectionType.Open &&
+                currentCell.neighbors[0]
+                    .direction.path[2] ==
+                ConnectionType.Open)
             {
                 availablePath.path[0] = ConnectionType.Open;
             }
@@ -217,9 +248,11 @@ namespace ProjectAssets.Scripts.Player
             }
 
 
-            if (currentCell.neighbors[1] != null && 
-                currentCell.direction.path[1] ==  ConnectionType.Open && 
-                currentCell.neighbors[1].direction.path[3] ==  ConnectionType.Open)
+            if (currentCell.neighbors[1] != null &&
+                currentCell.direction.path[1] == ConnectionType.Open &&
+                currentCell.neighbors[1]
+                    .direction.path[3] ==
+                ConnectionType.Open)
             {
                 availablePath.path[1] = ConnectionType.Open;
             }
@@ -229,9 +262,11 @@ namespace ProjectAssets.Scripts.Player
                 availablePath.path[1] = ConnectionType.Blocked;
             }
 
-            if (currentCell.neighbors[2] != null &&  
-                currentCell.direction.path[2] == ConnectionType.Open && 
-                currentCell.neighbors[2].direction.path[0] == ConnectionType.Open)
+            if (currentCell.neighbors[2] != null &&
+                currentCell.direction.path[2] == ConnectionType.Open &&
+                currentCell.neighbors[2]
+                    .direction.path[0] ==
+                ConnectionType.Open)
 
                 availablePath.path[2] = ConnectionType.Open;
 
@@ -241,8 +276,10 @@ namespace ProjectAssets.Scripts.Player
             }
 
             if (currentCell.neighbors[3] != null &&
-                currentCell.direction.path[3] ==  ConnectionType.Open 
-                && currentCell.neighbors[3].direction.path[1] ==  ConnectionType.Open)
+                currentCell.direction.path[3] == ConnectionType.Open &&
+                currentCell.neighbors[3]
+                    .direction.path[1] ==
+                ConnectionType.Open)
                 availablePath.path[3] = ConnectionType.Open;
 
             else
@@ -250,7 +287,77 @@ namespace ProjectAssets.Scripts.Player
                 availablePath.path[3] = ConnectionType.Blocked;
             }
 
-            
+
         }
+
+        // Get current cell Object via this object's transform
+
+        public void GetCurrentCellPosition()
+        {
+            var currObjectCellList = GameManager.Instance.cellGameObjects;
+
+
+            var position = this.gameObject.transform.position;
+            var playerPos = new Vector3(position.x,
+                0,
+                position.z);
+            foreach (var cell in currObjectCellList)
+            {
+                if (playerPos == cell.transform.position)
+                {
+                    currentCellGameObject = cell;
+                    cell.gameObject.SetActive(true);
+                    if (!MatchCellsOnPath(cell.gameObject))
+                        traversedCells.Add(cell);
+                }
+                else
+                {
+
+                    cell.SetActive(false);
+                }
+            }
+
+            EnableDisableNeighbor();
+            SetTraversedCellsTrue();
+        }
+
+        public void EnableDisableNeighbor()
+        {
+            foreach (var cell in currentCell.neighbors)
+            {
+                if (cell != null)
+                {
+                    cell.gameObject.SetActive(!cell.gameObject.activeSelf);
+                }
+            }
+        }
+
+        public Boolean MatchCellsOnPath(GameObject cellObject)
+        {
+            foreach (var cell in traversedCells)
+            {
+                if (cellObject.name == cell.name)
+                    return true;
+            }
+
+            return false;
+
+
+        }
+
+        public void SetTraversedCellsTrue()
+        {
+            foreach (var cell in traversedCells)
+            {
+                cell.SetActive(true);
+            }
+
+
+        }
+
+        // TODO: Just Enable the current cell and the neighboring cells
+        // once not in proximity, go disable, IF became a path, then retain
+        // data? list of cells player used, 
+        // previous cell, current cell
     }
 }

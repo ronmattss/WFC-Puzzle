@@ -116,7 +116,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            //Debug.Log($"LevelRating: {nextLevelRating} pr + nlr: {debugPlayerRating} pr-dbr= {resultant}  New Player Rating: {levelGenerated.playerRating}");
            SaveManager.Instance.playerProfile = currentPlayer;
        }
-
+       
+       
+        // This Fuzzy Logic (?)
        private double EvaluateMemberFunctions()
        {
 

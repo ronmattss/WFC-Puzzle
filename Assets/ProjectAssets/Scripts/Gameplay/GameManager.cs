@@ -29,6 +29,7 @@ namespace ProjectAssets.Scripts.Gameplay
         private GameObject player;
         private GameObject gCellObject;
 
+
         public Cell currentCell;
         public Cell endCell;
         Cell[,] activeCells;
@@ -42,7 +43,7 @@ namespace ProjectAssets.Scripts.Gameplay
         public CellGenerator levelGenerator; // controls the board
         public int debugMoves = 9;
         
-        [Header("in-game cells")]
+        [Header("in-game cell Objects")]
         public List<GameObject> cellGameObjects = new List<GameObject>(); 
      
         /// <summary>
@@ -72,11 +73,14 @@ namespace ProjectAssets.Scripts.Gameplay
             solver.expectedMoves = solverMoves;
             levelGenerator.GenerateRandomLevel(modifier.boardSize);
         }
-
+        
+        
+        // This checks if the current Cell is the end cell
         public void GoalChecker(Cell currentPlayerCell)
         {
             if (endCell.name.Equals(currentPlayerCell.name))
-            {
+            {    // Compute the Level
+                modifier.ComputeLevelScore();
                 ObjectSpawner.Instance.generator.GenerateLevel();
             }
         }

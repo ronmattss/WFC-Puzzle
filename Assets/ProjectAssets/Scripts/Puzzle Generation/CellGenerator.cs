@@ -104,6 +104,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
                 c.module = c.possibleModules[0]; 
                 c.SetEdges();
                 GameManager.Instance.cellGameObjects.Add(c.gameObject);
+                c.gameObject.SetActive(false);
             }
             CheckGeneratedLevel();
 

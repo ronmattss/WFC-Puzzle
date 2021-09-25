@@ -253,17 +253,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         // then the Score        ``    `                            `QW2`
         // then the 2nd Score
         // then Rating    ``    
-        
-
-
-        
-
-        
-        
-        
-
-
-
         //    ````````        `    `        `
         
         

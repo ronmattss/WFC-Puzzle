@@ -26,16 +26,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/save/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/save/profile.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +94,13 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/DebugTools.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
       </list>
     </option>
   </component>
@@ -217,7 +213,10 @@
       <workItem from="1631762400809" duration="599000" />
       <workItem from="1631930407385" duration="4646000" />
       <workItem from="1631952833396" duration="7423000" />
-      <workItem from="1632021786787" duration="1224000" />
+      <workItem from="1632021786787" duration="1390000" />
+      <workItem from="1632039545772" duration="8371000" />
+      <workItem from="1632224072660" duration="1198000" />
+      <workItem from="1632318786571" duration="1760000" />
     </task>
     <servers />
   </component>
@@ -246,6 +245,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1628077065740" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1632058177256">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1632058177256" />
     <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1630249842573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
