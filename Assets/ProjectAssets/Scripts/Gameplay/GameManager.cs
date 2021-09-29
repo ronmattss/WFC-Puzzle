@@ -88,6 +88,9 @@ namespace ProjectAssets.Scripts.Gameplay
         public void SetGoalCell(Cell goalCell)
         {
             endCell = goalCell;
+            endCell.EaseToPosition(true);
+            endCell.cellOnPosition = false;
+
  // set end goal to the first path
 
         }

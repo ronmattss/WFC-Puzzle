@@ -104,10 +104,12 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
                 c.module = c.possibleModules[0]; 
                 c.SetEdges();
                 GameManager.Instance.cellGameObjects.Add(c.gameObject);
-                c.gameObject.SetActive(false);
+                c.gameObject.GetComponent<Cell>().cellOnPosition = false;
+                c.gameObject.GetComponent<Cell>().EaseToPosition(!c.gameObject.GetComponent<Cell>().cellOnPosition);
+                
             }
             CheckGeneratedLevel();
-
+            
             GameManager.Instance.SetActiveCells(cells);
             GameManager.Instance.SetPlayerPosition();
             Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");

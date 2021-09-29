@@ -28,12 +28,17 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         public Module module;
         public Direction direction;
         public ConnectionType[] edges = new ConnectionType[4];
+        public Vector3 cellPosition;
+        public Vector3 cellPositionDisabled;
+        public bool cellOnPosition = true;
         
         public int HeapIndex { get; set; }
 
         void Awake()
         {
             possibleModules = new List<Module>();
+            cellPosition = this.gameObject.transform.position;
+            cellPositionDisabled = new Vector3(cellPosition.x,cellPosition.y-50,cellPosition.z);
         }
         
         // populate cell with all Modules
@@ -217,6 +222,16 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             return new Direction(input.ToList());
 
         }
+
+        public void EaseToPosition(bool onPosition)
+        {
+            //if true go to position if not lower
+           
+            this.transform.LeanMoveY(onPosition ? cellPosition.y : cellPositionDisabled.y, .5f);
+            cellOnPosition = !cellOnPosition;
+        }
+        
+        // this controls the  Cell GameObject
 
        
     }

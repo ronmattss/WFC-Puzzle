@@ -239,22 +239,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         }
         
         
-        //create conditions for larger map size moveset time allocated
 
-        
-
-        // will be used in the level generator  676---**/wqwoeoo9&#
-  
- 
-        // what to do first
-        // determine the board size1111111111447//sxss
-        // then The Expected Moves
-        // then the Time
-        // then the Score        ``    `                            `QW2`
-        // then the 2nd Score
-        // then Rating    ``    
-        //    ````````        `    `        `
-        
         
     }
 }

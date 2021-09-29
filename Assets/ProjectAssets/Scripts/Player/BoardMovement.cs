@@ -306,14 +306,19 @@ namespace ProjectAssets.Scripts.Player
                 if (playerPos == cell.transform.position)
                 {
                     currentCellGameObject = cell;
-                    cell.gameObject.SetActive(true);
+                    // retain path
+                    cell.gameObject.GetComponent<Cell>().EaseToPosition(true);
+                    cell.gameObject.GetComponent<Cell>().cellOnPosition = false;
+
+                    //cell.gameObject.SetActive(true);
                     if (!MatchCellsOnPath(cell.gameObject))
                         traversedCells.Add(cell);
                 }
                 else
                 {
 
-                    cell.SetActive(false);
+                    cell.gameObject.GetComponent<Cell>().EaseToPosition(false);
+                    cell.gameObject.GetComponent<Cell>().cellOnPosition = true;
                 }
             }
 
@@ -327,7 +332,7 @@ namespace ProjectAssets.Scripts.Player
             {
                 if (cell != null)
                 {
-                    cell.gameObject.SetActive(!cell.gameObject.activeSelf);
+                    cell.gameObject.GetComponent<Cell>().EaseToPosition(cell.gameObject.GetComponent<Cell>().cellOnPosition);
                 }
             }
         }
