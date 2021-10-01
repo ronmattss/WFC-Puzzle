@@ -6,6 +6,8 @@ using ProjectAssets.Scripts.Puzzle_Generation;
 using ProjectAssets.Scripts.Util;
 using TMPro;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
+
 
 namespace ProjectAssets.Scripts.Gameplay
 {
@@ -24,7 +26,10 @@ namespace ProjectAssets.Scripts.Gameplay
 
         public GameObject playerPrefab;
         public GameObject endGoalPrefab; // a prefab for the goal Object 
-        
+        public GameObject keyObjectPrefab;     // this will be placed in the level which will give access to the goal
+        public int initialKeys = 3;
+        public int currentKeys;
+        private List<GameObject> keysList = new List<GameObject>();
 
         private GameObject player;
         private GameObject gCellObject;
@@ -123,14 +128,66 @@ namespace ProjectAssets.Scripts.Gameplay
             cellText.text = $"Current Cell:{activeCells[x, y].name} ";
             return activeCells[x, y];
         }
-
+        
+        // This sets all position lmao
         public void SetPlayerPosition()
         {
             
             player.GetComponent<BoardMovement>().SetStartPosition(solver.GetStartCellPosition());
             SetGoalPosition(new Vector3(solver.cellPath[0].transform.position.x,1,solver.cellPath[0].transform.position.z));
             SetGoalCell(solver.cellPath[0]); // set goal cell to the first cell in the path
+            CheckIfKeysPersist();
+            RandomlyPlaceKeys();
         }
+
+         void RandomlyPlaceKeys()
+        {
+            // three 
+            var numOfKeys = initialKeys;
+            currentKeys = numOfKeys;
+            List<Cell> cells = new List<Cell>(solver.cellPath);
+            cells.Remove(cells[cells.Count-1]);
+            cells.Remove(cells[0]);
+            
+            for (int i = 0; i < numOfKeys; i++)
+            {
+                var index = UnityEngine.Random.Range(0, cells.Count);
+                Vector3 keyPosition = new Vector3(cells[index].transform.position.x,1,cells[index].transform.position.z);
+                var key = Instantiate(keyObjectPrefab,keyPosition
+                    , Quaternion.identity);
+                cells.Remove(cells[index]);
+                keysList.Add(key);
+            }
+        }
+
+         void DecrementKeys()
+         {
+             if (currentKeys > 0)
+             {
+                 currentKeys--;
+             }
+             if (currentKeys == 0)
+             {
+                 // open
+             }
+
+         }
+
+         public void RemoveKeys(GameObject key)
+         {
+             keysList.Remove(key);
+             DecrementKeys();
+         }
+
+         void CheckIfKeysPersist()
+         {
+             if (keysList.Count == 0) return;
+             for (int i = 0; i < keysList.Count; i++)
+             {
+                 Destroy(keysList[i].gameObject);
+             }
+             keysList.Clear();
+         }
 
         public void SetActiveCells(Cell[,] cells) => activeCells = cells;
         public int GetBoardHeight() => boardHeight;

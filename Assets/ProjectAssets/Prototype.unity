@@ -2871,6 +2871,7 @@ MonoBehaviour:
   solverMoves: 0
   playerPrefab: {fileID: 6484869364922519124, guid: 8a59a2e7124962548939f695fa35b297, type: 3}
   endGoalPrefab: {fileID: 6484869364922519124, guid: 5750518ec954bf44cac03ed5c4c3aacf, type: 3}
+  keyObjectPrefab: {fileID: 6484869364922519124, guid: 2f34b3b54d0015345a1e3661b4eba5b7, type: 3}
   currentCell: {fileID: 0}
   endCell: {fileID: 0}
   text: {fileID: 382805330}
@@ -2879,6 +2880,7 @@ MonoBehaviour:
   solver: {fileID: 1784948916}
   levelGenerator: {fileID: 1605061400}
   debugMoves: 20
+  cellGameObjects: []
 --- !u!4 &1784948915
 Transform:
   m_ObjectHideFlags: 0
