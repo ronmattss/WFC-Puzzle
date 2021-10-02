@@ -35,6 +35,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
             playerProfile =  JsonUtility.FromJson<PlayerProfile>(file);
             Debug.Log($"Loaded Profile of: {playerProfile.userName}");
+            UIManager.Instance.ChangeRatingText(playerProfile.currentRating);
             }
         }
 

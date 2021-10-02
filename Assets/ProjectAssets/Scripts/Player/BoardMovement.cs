@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ProjectAssets.Scripts.Gameplay;
 using ProjectAssets.Scripts.Puzzle_Generation;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
+using UnityTemplateProjects.UI;
 using Debug = UnityEngine.Debug;
 
 namespace ProjectAssets.Scripts.Player
@@ -26,6 +28,8 @@ namespace ProjectAssets.Scripts.Player
 
         public int totalMoves = 0;
 
+        private bool canMove = true;
+
         private void Start()
         {
 
@@ -44,9 +48,16 @@ namespace ProjectAssets.Scripts.Player
             Rotate();
         }
 
+        IEnumerator MoveCoolDown()
+        {
+            canMove = false;
+            yield return new WaitForSecondsRealtime(.5f);
+            canMove = true;
+        }
+        
+
         public void SetStartPosition(Vector3 pos)
         {    traversedCells.Clear();
-            totalMoves = -1;
             x = pos.x;
             y = pos.z;
             currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
@@ -65,6 +76,9 @@ namespace ProjectAssets.Scripts.Player
             EnableDisableNeighbor();
             GetCurrentCellPosition();
             MovePlayer();
+            totalMoves = -1; // this IDK where the culprit for this
+
+            UIManager.Instance.ChangeMoveText(0);
         }
 
 // should it lerp or teleport
@@ -73,53 +87,58 @@ namespace ProjectAssets.Scripts.Player
             // Get Current Cell
             // Get axis or input button?
             //Debug.Log($"current Cell: {currentCell} Edge: Top: {currentCell.module.connections[2]} Bottom: {currentCell.module.connections[0]} Left: {currentCell.module.connections[3]} Right: {currentCell.module.connections[1]}");
-            if (Input.GetKeyDown(KeyCode.W))
+            if (canMove)
             {
-                GameManager.Instance.text.text = $"Pressed: W";
-                if (availablePath.path[2] == ConnectionType.Open)
+                if (Input.GetKeyDown(KeyCode.W))
                 {
-                    y++;
-                    MovePlayer();
-                    totalMoves++;
-                    GetCurrentCellPosition();
+                    GameManager.Instance.text.text = $"Pressed: W";
+                    if (availablePath.path[2] == ConnectionType.Open)
+                    {
+                        y++;
+                        MovePlayer();
+                        totalMoves++;
+                        GetCurrentCellPosition();
+                    
+                    }
                 }
-            }
-            // else if to avoid multiple inputs
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                GameManager.Instance.text.text = $"Pressed: S";
-                if (availablePath.path[0] == ConnectionType.Open)
+                // else if to avoid multiple inputs
+                else if (Input.GetKeyDown(KeyCode.S))
                 {
-                    y--;
-                    MovePlayer();
-                    totalMoves++;
-                    GetCurrentCellPosition();
+                    GameManager.Instance.text.text = $"Pressed: S";
+                    if (availablePath.path[0] == ConnectionType.Open)
+                    {
+                        y--;
+                        MovePlayer();
+                        totalMoves++;
+                        GetCurrentCellPosition();
+                    }
                 }
+
+                else if (Input.GetKeyDown(KeyCode.A))
+                {
+                    GameManager.Instance.text.text = $"Pressed: A";
+                    if (availablePath.path[3] == ConnectionType.Open)
+                    {
+                        x--;
+                        MovePlayer();
+                        totalMoves++;
+                        GetCurrentCellPosition();
+                    }
+                }
+
+                else if (Input.GetKeyDown(KeyCode.D))
+                {
+                    GameManager.Instance.text.text = $"Pressed: D";
+                    if (availablePath.path[1] == ConnectionType.Open)
+                    {
+                        x++;
+                        MovePlayer();
+                        totalMoves++;
+                        GetCurrentCellPosition();
+                    }
+                }  
             }
 
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                GameManager.Instance.text.text = $"Pressed: A";
-                if (availablePath.path[3] == ConnectionType.Open)
-                {
-                    x--;
-                    MovePlayer();
-                    totalMoves++;
-                    GetCurrentCellPosition();
-                }
-            }
-
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                GameManager.Instance.text.text = $"Pressed: D";
-                if (availablePath.path[1] == ConnectionType.Open)
-                {
-                    x++;
-                    MovePlayer();
-                    totalMoves++;
-                    GetCurrentCellPosition();
-                }
-            }
 
             GameManager.Instance.modifier.GetPlayerMovement(totalMoves);
 
@@ -128,6 +147,7 @@ namespace ProjectAssets.Scripts.Player
 
         public void MovePlayer()
         {
+            StartCoroutine(MoveCoolDown());
             // only show the current four neighbors available
             if (boardX > x && x >= 0 && boardY > y && y >= 0)
             {

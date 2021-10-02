@@ -6,6 +6,7 @@ using ProjectAssets.Scripts.Puzzle_Generation;
 using ProjectAssets.Scripts.Util;
 using TMPro;
 using UnityEngine;
+using UnityTemplateProjects.UI;
 using Random = Unity.Mathematics.Random;
 
 
@@ -33,6 +34,7 @@ namespace ProjectAssets.Scripts.Gameplay
 
         private GameObject player;
         private GameObject gCellObject;
+        [SerializeField] private BoardMovement playerMovement;
 
 
         public Cell currentCell;
@@ -61,6 +63,7 @@ namespace ProjectAssets.Scripts.Gameplay
         void Awake()
         {
             SaveManager.Instance.TryLoadProfile();
+            
         }
 
         // Update is called once per frame
@@ -77,6 +80,9 @@ namespace ProjectAssets.Scripts.Gameplay
             solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
             solver.expectedMoves = solverMoves;
             levelGenerator.GenerateRandomLevel(modifier.boardSize);
+            UIManager.Instance.ShowHideMainMenuGroup();
+            UIManager.Instance.ShowHideinGameUIGroup();
+
         }
         
         
@@ -86,7 +92,9 @@ namespace ProjectAssets.Scripts.Gameplay
             if (endCell.name.Equals(currentPlayerCell.name))
             {    // Compute the Level
                 modifier.ComputeLevelScore();
+                SaveManager.Instance.SaveProfile();
                 ObjectSpawner.Instance.generator.GenerateLevel();
+                playerMovement.totalMoves = 0;
             }
         }
 
@@ -134,6 +142,7 @@ namespace ProjectAssets.Scripts.Gameplay
         {
             
             player.GetComponent<BoardMovement>().SetStartPosition(solver.GetStartCellPosition());
+            playerMovement = player.GetComponent<BoardMovement>();
             SetGoalPosition(new Vector3(solver.cellPath[0].transform.position.x,1,solver.cellPath[0].transform.position.z));
             SetGoalCell(solver.cellPath[0]); // set goal cell to the first cell in the path
             CheckIfKeysPersist();

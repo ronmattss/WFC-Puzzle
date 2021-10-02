@@ -1,5 +1,6 @@
 ﻿using Unity.Mathematics;
 using UnityEngine;
+using UnityTemplateProjects.UI;
 using Random = UnityEngine.Random;
 
 namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
@@ -51,7 +52,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         public void GetPlayerMovement(int movement)
         {
+                
             levelGenerated.playerMove = movement;
+            UIManager.Instance.ChangeMoveText(movement);
+
         }
         // invoke this after button press and after a level
         public void SetupDifficultyParameters()
@@ -86,6 +90,11 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 levelGenerated.levelScore = (int) score;
                 levelGenerated.levelRating = puzzleRating;
                 levelGenerated.boardSize = parameters.boardSize;
+                levelGenerated.playerRemainingTime = levelTime;
+                
+                UIManager.Instance.expectedMoves = levelMoves;
+                UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
+
                 return;
             }
             // if no level is generated, REPEAT
