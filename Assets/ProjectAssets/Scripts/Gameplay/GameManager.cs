@@ -17,7 +17,7 @@ namespace ProjectAssets.Scripts.Gameplay
     {
     
         // Script for handling gameplay properties
-
+        // TODO LAST THING IS THE REQUIREMENT TO WIN 3 KEYS AND ABOVE EM MOVES
         [Header("Board Properties")]
         int boardWidth;
         int boardHeight;
@@ -67,8 +67,28 @@ namespace ProjectAssets.Scripts.Gameplay
         }
 
         // Update is called once per frame
-        void Update()
+        void LateUpdate()
         {
+            if (!UIManager.Instance.mainMenuGroup.activeSelf && !UIManager.Instance.postLevelMenuGroup.activeSelf && playerMovement.totalMoves > 0 && UIManager.Instance.inGameUIGroup.activeSelf) // start timer once player moves
+            {
+
+                if (modifier.levelGenerated.playerRemainingTime <= 0)
+                {
+                    modifier.ComputeLevelScore();
+                    SaveManager.Instance.SaveProfile();
+                    UIManager.Instance.ShowHideinGameUIGroup();
+                    UIManager.Instance.ShowHidePostLevelGroup();
+
+                    // ObjectSpawner.Instance.generator.GenerateLevel();
+                    playerMovement.totalMoves = 0;
+                }
+                else
+                {
+                    modifier.levelGenerated.playerRemainingTime -= Time.deltaTime;
+                    UIManager.Instance.ChangeTimeText(modifier.levelGenerated.playerRemainingTime);
+                }
+            }
+            
         
         }
         
@@ -82,8 +102,21 @@ namespace ProjectAssets.Scripts.Gameplay
             levelGenerator.GenerateRandomLevel(modifier.boardSize);
             UIManager.Instance.ShowHideMainMenuGroup();
             UIManager.Instance.ShowHideinGameUIGroup();
-
+            playerMovement.totalMoves = 0;
         }
+
+
+        public void PostLevelGenerateNewLevel()
+        {
+            modifier.SetupDifficultyParameters();
+            solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
+            solver.expectedMoves = solverMoves;
+            levelGenerator.GenerateRandomLevel(modifier.boardSize);
+            UIManager.Instance.ShowHidePostLevelGroup();
+            UIManager.Instance.ShowHideinGameUIGroup();
+            playerMovement.totalMoves = 0;
+        }
+        
         
         
         // This checks if the current Cell is the end cell
@@ -93,10 +126,15 @@ namespace ProjectAssets.Scripts.Gameplay
             {    // Compute the Level
                 modifier.ComputeLevelScore();
                 SaveManager.Instance.SaveProfile();
-                ObjectSpawner.Instance.generator.GenerateLevel();
+                UIManager.Instance.ShowHideinGameUIGroup();
+                UIManager.Instance.ShowHidePostLevelGroup();
+
+                // ObjectSpawner.Instance.generator.GenerateLevel();
                 playerMovement.totalMoves = 0;
             }
         }
+
+
 
         public void SetGoalCell(Cell goalCell)
         {
@@ -174,6 +212,7 @@ namespace ProjectAssets.Scripts.Gameplay
              if (currentKeys > 0)
              {
                  currentKeys--;
+                 UIManager.Instance.ChangeKeyText(currentKeys);
              }
              if (currentKeys == 0)
              {

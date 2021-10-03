@@ -95,13 +95,26 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             // instantiate Game Objects
             // Modify Random Open Cells
             // modify Cells
+            // all cells in the cell path should check the modules in the solved path
                 GameManager.Instance.cellGameObjects.Clear();
+                    var solvedCells = GameManager.Instance.solver.cellPath;
             foreach (var c in cells)
             {
 
                 var t = c.transform;
-                Instantiate(c.possibleModules[0].moduleGameObject, t.position, c.possibleModules[0].moduleGameObject.transform.rotation, t);
-                c.module = c.possibleModules[0]; 
+                var x = ReturnCellInSolvePathCells(c);
+
+                if (x != null)
+                {
+                    Instantiate(x.module.moduleGameObject, t.position, x.module.moduleGameObject.transform.rotation, t);
+                    c.module = x.module; 
+                }
+                else
+                {
+                    Instantiate(c.possibleModules[0].moduleGameObject, t.position, c.possibleModules[0].moduleGameObject.transform.rotation, t);
+                    c.module = c.possibleModules[0]; 
+                }
+
                 c.SetEdges();
                 GameManager.Instance.cellGameObjects.Add(c.gameObject);
                 c.gameObject.GetComponent<Cell>().cellOnPosition = false;
@@ -113,6 +126,11 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             GameManager.Instance.SetActiveCells(cells);
             GameManager.Instance.SetPlayerPosition();
             Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
+            
+            //TODO is 
+            // remove all Gameobjects in the cell path with Closed Modules
+            // Then Replace it with random modules
+            // then place it again in the board 
 
         }
 
@@ -225,5 +243,37 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             
             
         }
+        
+        // check if this cell is in the solvepath
+        private bool MatchCellInSolvePathCells(Cell cell)
+        {
+            var cellList = GameManager.Instance.solver.cellPath;
+
+            foreach (var c in cellList)
+            {
+                if (c.cellID == cell.cellID)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
+        private Cell ReturnCellInSolvePathCells(Cell cell)
+        {
+            var cellList = GameManager.Instance.solver.cellPath;
+
+            foreach (var c in cellList)
+            {
+                if (c.cellID == cell.cellID)
+                {
+                    return c;
+                }
+            }
+
+            return null;
+        }
+
     }
 }

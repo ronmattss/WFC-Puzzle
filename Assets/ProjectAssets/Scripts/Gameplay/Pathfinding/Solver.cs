@@ -16,7 +16,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         public int expectedMoves;
         private Cell previousCell;
         private int noChance = 4;
-       [SerializeField] private List<Module> selectedRandomCells = new List<Module>();
+        public List<Module> selectedRandomCells = new List<Module>();
         [SerializeField] private LineRenderer debugRenderer;
 
         public void InitializeValues(Cell[,] cells, Cell endCell, int moves)

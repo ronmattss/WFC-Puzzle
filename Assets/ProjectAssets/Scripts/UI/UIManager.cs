@@ -31,6 +31,7 @@ namespace UnityTemplateProjects.UI
             if (Input.GetKeyUp(KeyCode.Escape) && mainMenuGroup.activeSelf == false && postLevelMenuGroup.activeSelf == false)
             {
                 ShowHidePauseMenu(); // disable when playing
+                ShowHideinGameUIGroup();
             }
         }
 
@@ -50,7 +51,7 @@ namespace UnityTemplateProjects.UI
 
         public void ChangeTimeText(double remainingTime)
         {
-            time.text = $"{remainingTime}";
+            time.text = $"{(int)remainingTime}";
         }
 
         public void ShowHidePauseMenu()

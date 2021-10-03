@@ -20,6 +20,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         // edge type
         
         //[bottom,right,top,left]
+        public string cellID;
         public Cell[] neighbors = new Cell[4]; // new neighbors
 
         public List<Module> possibleModules; // all possible modules list
@@ -36,6 +37,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
 
         void Awake()
         {
+            cellID = RandomGeneratedCellName();
             possibleModules = new List<Module>();
             cellPosition = this.gameObject.transform.position;
             cellPositionDisabled = new Vector3(cellPosition.x,cellPosition.y-50,cellPosition.z);
@@ -229,6 +231,13 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
            
             this.transform.LeanMoveY(onPosition ? cellPosition.y : cellPositionDisabled.y, .5f);
             cellOnPosition = !cellOnPosition;
+        }
+
+        public string RandomGeneratedCellName()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, 20)
+                .Select(s => s[Random.Range(0,s.Length)]).ToArray());
         }
         
         // this controls the  Cell GameObject

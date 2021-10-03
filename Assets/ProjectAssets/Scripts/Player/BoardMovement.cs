@@ -26,7 +26,7 @@ namespace ProjectAssets.Scripts.Player
         private Transform cellObjectTransform;
         public Direction availablePath;
 
-        public int totalMoves = 0;
+        public int totalMoves = 1;
 
         private bool canMove = true;
 
@@ -76,7 +76,7 @@ namespace ProjectAssets.Scripts.Player
             EnableDisableNeighbor();
             GetCurrentCellPosition();
             MovePlayer();
-            totalMoves = -1; // this IDK where the culprit for this
+            totalMoves = 1; // this IDK where the culprit for this
 
             UIManager.Instance.ChangeMoveText(0);
         }
