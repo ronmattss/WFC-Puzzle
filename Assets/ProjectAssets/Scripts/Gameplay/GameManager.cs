@@ -161,6 +161,7 @@ namespace ProjectAssets.Scripts.Gameplay
             endCell.EaseToPosition(false);
             endCell.cellOnPosition = false;
             SetGoalPosition();
+            endCell.isRotatable = false;
             // set end goal to the first path
         }
 
@@ -275,6 +276,11 @@ namespace ProjectAssets.Scripts.Gameplay
             }
 
             keysList.Clear();
+        }
+
+        public void ModifyCellsIfRotatable()
+        {
+            // check if 
         }
 
         public void SetActiveCells(Cell[,] cells) => activeCells = cells;

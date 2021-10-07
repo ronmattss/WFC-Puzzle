@@ -23,22 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Base.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Base.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Cylinder.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Cylinder.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Grid.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Grid.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Sides.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Sides.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Bars.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Bars.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/PillarMetal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/PillarMetal.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/save/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/save/profile.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,9 +106,9 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
       </list>
     </option>
   </component>
@@ -249,7 +239,7 @@
       <workItem from="1633249784621" duration="7706000" />
       <workItem from="1633310729437" duration="3252000" />
       <workItem from="1633483902218" duration="26014000" />
-      <workItem from="1633571514799" duration="3052000" />
+      <workItem from="1633571514799" duration="6737000" />
     </task>
     <servers />
   </component>

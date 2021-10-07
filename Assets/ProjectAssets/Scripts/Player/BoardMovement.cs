@@ -351,27 +351,32 @@ namespace ProjectAssets.Scripts.Player
         {
             var currObjectCellList = GameManager.Instance.cellGameObjects;
 
+            var endCell = GameManager.Instance.endCell;
 
             var position = this.gameObject.transform.position;
             var playerPos = new Vector3(position.x,
                 0,
                 position.z);
+            
             foreach (var cell in currObjectCellList)
             {
                 if (playerPos == cell.transform.position)
                 {
                     currentCellGameObject = cell;
                     // retain path
-                    cell.gameObject.GetComponent<Cell>().EaseToPosition(true);
-                    cell.gameObject.GetComponent<Cell>().cellOnPosition = false;
+                    
+                        if(MatchCellsOnPath(cell))continue;
+                        cell.gameObject.GetComponent<Cell>().EaseToPosition(true);
+                        cell.gameObject.GetComponent<Cell>().cellOnPosition = false;
+                    
 
                     //cell.gameObject.SetActive(true);
                     if (!MatchCellsOnPath(cell.gameObject))
                         traversedCells.Add(cell);
                 }
                 else
-                {
-
+                {    // this is where you retain stuff
+                    if (cell.GetComponent<Cell>() == endCell || MatchCellsOnPath(cell)) continue;
                     cell.gameObject.GetComponent<Cell>().EaseToPosition(false);
                     cell.gameObject.GetComponent<Cell>().cellOnPosition = true;
                 }
@@ -383,12 +388,16 @@ namespace ProjectAssets.Scripts.Player
 
         public void EnableDisableNeighbor()
         {
+            var endCell = GameManager.Instance.endCell;
             foreach (var cell in currentCell.neighbors)
             {
                 if (cell == null) continue;
-                cell.gameObject.GetComponent<Cell>().EaseToPosition(cell.gameObject.GetComponent<Cell>().cellOnPosition);
+                if (!cell.GetComponent<Cell>() == endCell || !MatchCellsOnPath(cell.gameObject))
+                {
+                    cell.gameObject.GetComponent<Cell>().EaseToPosition(cell.gameObject.GetComponent<Cell>().cellOnPosition);
+                }
+               
                 CellVisuals.Instance.ChangeGridColor(cell,cell.GridColorBasedOnProperties());
-                // Debug.Log("BAKIT AYAW MO GUMANA");
                 CellVisuals.Instance.ChangeWallColor(cell);
             }
         }
