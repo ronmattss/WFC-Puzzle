@@ -58,6 +58,7 @@
         </e>
         <e p="ProjectAssets" t="Include">
           <e p="Scripts" t="Include">
+            <e p="CellVisuals.cs" t="Include" />
             <e p="Gameplay" t="Include">
               <e p="Difficulty Adjustment" t="Include">
                 <e p="DifficultyManager.cs" t="Include" />

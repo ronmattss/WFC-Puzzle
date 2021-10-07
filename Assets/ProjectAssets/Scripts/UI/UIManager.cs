@@ -1,4 +1,5 @@
 ﻿using System;
+using ProjectAssets.Scripts.Gameplay;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
 using TMPro;
@@ -69,6 +70,32 @@ namespace UnityTemplateProjects.UI
         public void ShowHideinGameUIGroup()
         {
             inGameUIGroup.SetActive(!inGameUIGroup.activeSelf);
+        }
+        public void ShowHideMainMenuGroupFromButton()
+        {
+            for (int i = 0; i < GameManager.Instance.cellGameObjects.Count; i++)
+            {
+                Destroy(GameManager.Instance.cellGameObjects[i]);
+            }
+            GameManager.Instance.cellGameObjects.Clear();
+            GameManager.Instance.RemoveObjects();
+
+            ShowHidePostLevelGroup();
+            mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
+
+        }
+        
+        public void ShowHideMainMenuGroupFromPause()
+        {
+            for (int i = 0; i < GameManager.Instance.cellGameObjects.Count; i++)
+            {
+                Destroy(GameManager.Instance.cellGameObjects[i]);
+            }
+            GameManager.Instance.cellGameObjects.Clear();
+            GameManager.Instance.RemoveObjects();
+            ShowHidePauseMenu();
+            mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
+
         }
     }
 }

@@ -17,13 +17,14 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         private Cell previousCell;
         private int noChance = 4;
         public List<Module> selectedRandomCells = new List<Module>();
-        [SerializeField] private LineRenderer debugRenderer;
+        public Module endGoalModule;
+         public LineRenderer debugRenderer;
 
         public void InitializeValues(Cell[,] cells, Cell endCell, int moves)
         {
             currentCells = cells;
             currentCell = endCell;
-            expectedMoves = moves;
+            expectedMoves = moves +1;
             RandomDirection();
             CheckUniqueness();
             
@@ -158,8 +159,11 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
                 cellPath[i].module = selectedRandomCells[Random.Range(0, selectedRandomCells.Count)];
                 Debug.Log($"Cell at index {i} is changed");
             }
-            
-            
+            // cell 0 should be open
+            cellPath[0].module = endGoalModule;
+
+
+
         }
     }
 

@@ -25,6 +25,8 @@ namespace ProjectAssets.Scripts.Player
         private float y = 0;
         private Transform cellObjectTransform;
         public Direction availablePath;
+        private bool isCellRotating = false;
+        private bool isNeighborCellRotating = false;
 
         public int totalMoves = 1;
 
@@ -58,13 +60,16 @@ namespace ProjectAssets.Scripts.Player
 
         public void SetStartPosition(Vector3 pos)
         {    traversedCells.Clear();
+            totalMoves = 1; // this IDK where the culprit for this
+            GameManager.Instance.modifier.GetPlayerMovement(totalMoves);
+            UIManager.Instance.ChangeMoveText(totalMoves);
             x = pos.x;
             y = pos.z;
             currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
                 (int) Math.Floor(y));
 
             this.transform.position = new Vector3(x,
-                1,
+                .25f,
                 y);
             cellObjectTransform = currentCell.gameObject.transform; // get the direction this is a culprit
             availablePath.path = new List<ConnectionType>(4);
@@ -76,9 +81,8 @@ namespace ProjectAssets.Scripts.Player
             EnableDisableNeighbor();
             GetCurrentCellPosition();
             MovePlayer();
-            totalMoves = 1; // this IDK where the culprit for this
+            
 
-            UIManager.Instance.ChangeMoveText(0);
         }
 
 // should it lerp or teleport
@@ -97,7 +101,7 @@ namespace ProjectAssets.Scripts.Player
                         y++;
                         MovePlayer();
                         totalMoves++;
-                        GetCurrentCellPosition();
+                      //  GetCurrentCellPosition();
                     
                     }
                 }
@@ -110,7 +114,7 @@ namespace ProjectAssets.Scripts.Player
                         y--;
                         MovePlayer();
                         totalMoves++;
-                        GetCurrentCellPosition();
+                       // GetCurrentCellPosition();
                     }
                 }
 
@@ -122,7 +126,7 @@ namespace ProjectAssets.Scripts.Player
                         x--;
                         MovePlayer();
                         totalMoves++;
-                        GetCurrentCellPosition();
+                      //  GetCurrentCellPosition();
                     }
                 }
 
@@ -134,7 +138,7 @@ namespace ProjectAssets.Scripts.Player
                         x++;
                         MovePlayer();
                         totalMoves++;
-                        GetCurrentCellPosition();
+                       // GetCurrentCellPosition();
                     }
                 }  
             }
@@ -152,24 +156,34 @@ namespace ProjectAssets.Scripts.Player
             if (boardX > x && x >= 0 && boardY > y && y >= 0)
             {
                 currPosition = new Vector3(x,
-                    1,
+                    .25f,
                     y);
-                gameObject.transform.position = currPosition;
-                currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
-                    (int) Math.Floor(y));
-                //   availablePath = currentCell.direction; // <- culprit??? available path is copied to the current cell from the prev cell after moving
-                CheckAvailablePath();
-                cellObjectTransform = currentCell.gameObject.transform;
-                GameManager.Instance.GoalChecker(currentCell);
+                gameObject.transform.LeanMove(currPosition, .15f).setOnComplete(OnMovementComplete);
+                //gameObject.transform.position = currPosition;// Lean Tween this
+
             }
             else
-            {
+            {    // this means that just don't move?
                 var position = gameObject.transform.position;
                 x = position.x;
                 y = position.z;
             }
 
             //
+        }
+
+        private void OnMovementComplete()
+        {
+            currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
+                (int) Math.Floor(y));
+            //   availablePath = currentCell.direction; // <- culprit??? available path is copied to the current cell from the prev cell after moving
+            CheckAvailablePath();
+            cellObjectTransform = currentCell.gameObject.transform;
+            GameManager.Instance.GoalChecker(currentCell);
+            GetCurrentCellPosition();
+            CellVisuals.Instance.ChangeGridColor(currentCell,Color.white);
+            CellVisuals.Instance.ChangeWallColor(currentCell,Color.yellow);
+            
         }
 
         // Instead of rotating current cell, rotate neighbor cells
@@ -201,20 +215,32 @@ namespace ProjectAssets.Scripts.Player
         // also get the cell that will be rotated
         private void RotateCell(int degrees)
         {
+            if (!currentCell.isRotatable) return;
             var cellQuaternion = cellObjectTransform.rotation;
             var cellEuler = cellObjectTransform.rotation.eulerAngles;
             cellEuler += new Vector3(0,
                 degrees,
                 0);
             cellQuaternion.eulerAngles = cellEuler;
-            cellObjectTransform.rotation = cellQuaternion;
-            currentCell.RotateRight(); //<- probably culprit
+            //cellObjectTransform.rotation = cellQuaternion;
+            isCellRotating = !isCellRotating;
+            cellObjectTransform.LeanRotate(cellEuler,.1f).setOnComplete(RotateCurrentCell);
+           currentCell.RotateRight();
+             //<- probably culprit
             // If Available Path is open check if neighbor path is Open
             // if Open player can traverse if not then don't lol
         }
 
+        void RotateCurrentCell()
+        {
+           
+            isCellRotating = false;
+        }
+
         private void RotateNeighborCells(int degrees)
         {
+            if (isNeighborCellRotating) return;
+            isNeighborCellRotating = true;
             var holdPath = currentCell.direction;
             for (int i = 0;
                 i < currentCell.neighbors.Length;
@@ -223,6 +249,7 @@ namespace ProjectAssets.Scripts.Player
                 // Get object rotation
                 if (currentCell.neighbors[i] != null)
                 {
+                    if (!currentCell.neighbors[i].isRotatable) continue;
                     var neighborRotation = currentCell.neighbors[i]
                         .transform.rotation;
                     var neighborRotationEulerAngles = currentCell.neighbors[i]
@@ -231,8 +258,10 @@ namespace ProjectAssets.Scripts.Player
                         degrees,
                         0);
                     neighborRotation.eulerAngles = neighborRotationEulerAngles;
+                    // currentCell.neighbors[i]
+                    //     .transform.rotation = neighborRotation;
                     currentCell.neighbors[i]
-                        .transform.rotation = neighborRotation;
+                        .transform.LeanRotate(neighborRotationEulerAngles, .1f).setOnComplete(OnNeighborCellFinishRotating);
                     currentCell.neighbors[i]
                         .RotateLeft();
                 }
@@ -240,6 +269,12 @@ namespace ProjectAssets.Scripts.Player
 
             currentCell.direction = holdPath; // <- culprit?
         }
+
+        void OnNeighborCellFinishRotating()
+        {
+            isNeighborCellRotating = false;
+        }
+        
 
         // bottom right top left
         // 0 1 2 3
@@ -350,11 +385,17 @@ namespace ProjectAssets.Scripts.Player
         {
             foreach (var cell in currentCell.neighbors)
             {
-                if (cell != null)
-                {
-                    cell.gameObject.GetComponent<Cell>().EaseToPosition(cell.gameObject.GetComponent<Cell>().cellOnPosition);
-                }
+                if (cell == null) continue;
+                cell.gameObject.GetComponent<Cell>().EaseToPosition(cell.gameObject.GetComponent<Cell>().cellOnPosition);
+                CellVisuals.Instance.ChangeGridColor(cell,cell.GridColorBasedOnProperties());
+                // Debug.Log("BAKIT AYAW MO GUMANA");
+                CellVisuals.Instance.ChangeWallColor(cell);
             }
+        }
+
+        public void ShowGoalCell()
+        {
+            GameManager.Instance.endCell.EaseToPosition(true);
         }
 
         public Boolean MatchCellsOnPath(GameObject cellObject)

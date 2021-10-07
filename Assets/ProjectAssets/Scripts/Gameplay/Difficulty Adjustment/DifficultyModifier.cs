@@ -24,8 +24,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public double debugTimeScore;
         public double debugPlayerRating;
 
-        public AnimationCurve valueCurve;
-        public float2 curveValues;
+        [Header("PostGame Analysis")] public bool playerWon = false;
       
         
         public PlayerProfile currentPlayer;
@@ -102,8 +101,23 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         }
 
+        public void CountDownTimer()
+        {
+            levelGenerated.playerRemainingTime -= Time.deltaTime;
+            UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
+        }
+
        public void ComputeLevelScore() // invoke after finishing the level this will compute the score and the rating for the next level
-       {
+       {    Debug.Log($"player remaining time: {levelGenerated.playerRemainingTime}");
+
+           if (levelGenerated.playerRemainingTime != 0 || levelGenerated.playerMove>= levelGenerated.expectedMoves)
+           {
+               playerWon = true;
+           }
+           else
+           {
+               playerWon = false;
+           }
            var playerScore = parameters.SetPlayerScore(ref levelGenerated.playerMove, ref levelGenerated.playerRemainingTime); // ref is a pointer reference to the variables
            levelGenerated.playerScore = playerScore;
            
@@ -120,8 +134,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            Debug.Log($"debugPlayerRating ${debugPlayerRating} (pR + NR)");
           currentPlayer.currentRating = debugPlayerRating;
           levelGenerated.playerRating = currentPlayer.currentRating;
-          var details = new LevelDetails(levelGenerated.seed,levelGenerated.boardSize,levelGenerated.allottedTime,levelGenerated.expectedMoves,levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerScore,levelGenerated.playerEvaluatedScore,levelGenerated.levelScore);
+          var details = new LevelDetails(levelGenerated.seed,levelGenerated.boardSize,levelGenerated.allottedTime,levelGenerated.expectedMoves,levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerRemainingTime,levelGenerated.playerScore,levelGenerated.playerEvaluatedScore,levelGenerated.levelScore);
           currentPlayer.levelsPlayed.Add(details);
+          currentPlayer.gamesPlayed = currentPlayer.levelsPlayed.Count;
+          currentPlayer.gamesWon += playerWon ? 1 : 0;
            //Debug.Log($"LevelRating: {nextLevelRating} pr + nlr: {debugPlayerRating} pr-dbr= {resultant}  New Player Rating: {levelGenerated.playerRating}");
            SaveManager.Instance.playerProfile = currentPlayer;
        }
@@ -191,7 +207,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            }
 
 
-
+            // TWEAK THE RETURN VALUES TO ADJUST THE SCORING 
            if (levelFailed)
                return -1;
            if (perfectTimeClear && absoluteWin)

@@ -99,7 +99,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             {
                 
             }
-            public LevelDetails(string boardSeed,int size, int time, int exMoves,double lRating,double pRating,int pMove,double pScore, double pEvalScore,int pLevelScore)
+            public LevelDetails(string boardSeed,int size, int time, int exMoves,double lRating,double pRating,int pMove,double pTime,double pScore, double pEvalScore,int pLevelScore)
             {
                 seed = boardSeed;
                 boardSize = size;
@@ -108,6 +108,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 levelRating = lRating;
                 playerRating = pRating;
                 playerMove = pMove;
+                playerRemainingTime = pTime;
                 playerScore = pScore;
                 playerEvaluatedScore = pEvalScore;
                 levelScore = pLevelScore;
