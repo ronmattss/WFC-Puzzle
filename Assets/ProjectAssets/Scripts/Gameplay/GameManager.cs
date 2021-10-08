@@ -17,10 +17,15 @@ namespace ProjectAssets.Scripts.Gameplay
     {
         // Script for handling gameplay properties
         // TODO LAST THING IS THE REQUIREMENT TO WIN 3 KEYS AND ABOVE EM MOVES
-        [Header("Board Properties")] int boardWidth;
+        [Header("Board Properties")] 
+        int boardWidth;
         int boardHeight;
         public int solverMoves;
+        public bool isDebugging;
+        public int debugBoard = 10;
+        public int debugMove = 50;
 
+        [Header("Properties")] 
         private Vector3 startPosition;
 
         public GameObject playerPrefab;
@@ -110,10 +115,25 @@ namespace ProjectAssets.Scripts.Gameplay
         // button to start Generating
         public void GenerateNewLevel()
         {
+            //DEBUG
+            
             modifier.SetupDifficultyParameters();
             solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
-            solver.expectedMoves = solverMoves;
-            levelGenerator.GenerateRandomLevel(modifier.boardSize);
+            //
+            // if (isDebugging)
+            // {
+            //     solver.expectedMoves = debugMove;
+            //     solverMoves = debugMove;
+            //     levelGenerator.GenerateRandomLevel(debugBoard);
+            // }
+            // else
+            // {
+                solver.expectedMoves = solverMoves;
+                levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
+            
+
+            
+            
             UIManager.Instance.ShowHideMainMenuGroup();
             UIManager.Instance.ShowHideinGameUIGroup();
             playerMovement.totalMoves = 0;
@@ -278,10 +298,7 @@ namespace ProjectAssets.Scripts.Gameplay
             keysList.Clear();
         }
 
-        public void ModifyCellsIfRotatable()
-        {
-            // check if 
-        }
+ 
 
         public void SetActiveCells(Cell[,] cells) => activeCells = cells;
         public int GetBoardHeight() => boardHeight;

@@ -19,14 +19,22 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         public List<Module> selectedRandomCells = new List<Module>();
         public Module endGoalModule;
          public LineRenderer debugRenderer;
+         public SelfAvoidingWalk walk;
+         
+         // Self Avoiding Walk
+
+
 
         public void InitializeValues(Cell[,] cells, Cell endCell, int moves)
         {
             currentCells = cells;
             currentCell = endCell;
             expectedMoves = moves +1;
-            RandomDirection();
-            CheckUniqueness();
+            walk = new SelfAvoidingWalk(currentCell,moves);
+            walk.Walk();
+            Walker();
+            //RandomDirection();
+          //  CheckUniqueness();
             
             DebugShowPath();
             RandomlyChangePathCells();
@@ -66,6 +74,17 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
         // Randomly selects cells for the next path
         // should be a random walker with back tracking?
+
+        void Walker()
+        {
+            cellPath.Clear();            // make sure 
+            cellPath = walk.completedPath;
+
+            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
+
+            
+        }
+        
         void RandomDirection()
         {
 

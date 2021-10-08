@@ -100,7 +100,7 @@ namespace ProjectAssets.Scripts.Player
                     {
                         y++;
                         MovePlayer();
-                        totalMoves++;
+                      //  totalMoves++;
                       //  GetCurrentCellPosition();
                     
                     }
@@ -113,7 +113,7 @@ namespace ProjectAssets.Scripts.Player
                     {
                         y--;
                         MovePlayer();
-                        totalMoves++;
+                      //  totalMoves++;
                        // GetCurrentCellPosition();
                     }
                 }
@@ -125,7 +125,7 @@ namespace ProjectAssets.Scripts.Player
                     {
                         x--;
                         MovePlayer();
-                        totalMoves++;
+                      //  totalMoves++;
                       //  GetCurrentCellPosition();
                     }
                 }
@@ -137,7 +137,7 @@ namespace ProjectAssets.Scripts.Player
                     {
                         x++;
                         MovePlayer();
-                        totalMoves++;
+                      //  totalMoves++;
                        // GetCurrentCellPosition();
                     }
                 }  
@@ -177,6 +177,12 @@ namespace ProjectAssets.Scripts.Player
             currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
                 (int) Math.Floor(y));
             //   availablePath = currentCell.direction; // <- culprit??? available path is copied to the current cell from the prev cell after moving
+            // check if currentCell is on the Visited Cells
+            if (!MatchIfCellOnPath(currentCell))
+            {
+                totalMoves++;
+            }
+            
             CheckAvailablePath();
             cellObjectTransform = currentCell.gameObject.transform;
             GameManager.Instance.GoalChecker(currentCell);
@@ -417,6 +423,16 @@ namespace ProjectAssets.Scripts.Player
 
             return false;
 
+        }
+        public Boolean MatchIfCellOnPath(Cell cCell)
+        {
+            foreach (var cell in traversedCells)
+            {
+                if (cCell.cellID == cell.GetComponent<Cell>().cellID)
+                    return true;
+            }
+
+            return false;
 
         }
 
@@ -424,7 +440,10 @@ namespace ProjectAssets.Scripts.Player
         {
             foreach (var cell in traversedCells)
             {
-                cell.SetActive(true);
+                var c = cell.gameObject.GetComponent<Cell>();
+                CellVisuals.Instance.ChangeGridColor(c,Color.white);
+                CellVisuals.Instance.ChangeWallColor(c,Color.green);
+
             }
 
 

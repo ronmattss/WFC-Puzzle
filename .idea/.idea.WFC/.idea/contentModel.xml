@@ -69,6 +69,7 @@
               <e p="GameManager.cs" t="Include" />
               <e p="KeyBehaviour.cs" t="Include" />
               <e p="Pathfinding" t="Include">
+                <e p="SelfAvoidingWalk.cs" t="Include" />
                 <e p="Solver.cs" t="Include" />
               </e>
             </e>

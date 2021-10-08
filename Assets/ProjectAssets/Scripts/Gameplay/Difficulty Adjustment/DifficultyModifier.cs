@@ -60,9 +60,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public void SetupDifficultyParameters()
         {
             // Setup Board Size
-
-            var randomBoardSize = Random.Range(4, 11);  
             levelGenerated.playerRating = currentPlayer.currentRating; // get current Player's Rating
+            var rating = levelGenerated.playerRating;
+            var randomBoardSize = BoardSizeRatingRange(rating);  
             parameters.SetBoardSize(randomBoardSize); // Always the initial BoardSize
            var levelMoves = parameters.SetExpectedMoves(); // add how many moves
           var levelTime = parameters.SetAllocatedTime();
@@ -79,9 +79,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             parameters.levelRating = puzzleRating;
             parameters.expectedScore = score;
             levelRatingDebug = puzzleRating;
-
-            if (puzzleRating >= (levelGenerated.playerRating - 5) && levelGenerated.playerRating <= puzzleRating &&
-                puzzleRating <= levelGenerated.playerRating+ 5)
+            // set upper bounds and lower bounds
+            var bounds = RatingBound((int) puzzleRating);
+            if (puzzleRating >= (levelGenerated.playerRating - bounds) && levelGenerated.playerRating <= puzzleRating &&
+                puzzleRating <= levelGenerated.playerRating+ bounds)
             {
                 levelGenerated.playerMove = 0;
                 levelGenerated.expectedMoves = levelMoves;
@@ -280,6 +281,76 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            return result;
        }
 
+
+       int BoardSizeRatingRange(double playerRating)
+       {
+           if (playerRating < 30)
+           {
+               return Random.Range(4, 6);
+           }
+
+           if (playerRating > 30 && playerRating < 40)
+           {
+               return Random.Range(4, 7);
+           }
+           if (playerRating > 40 && playerRating < 50)
+           {
+               return Random.Range(5, 7);
+           }
+           if (playerRating > 50 && playerRating < 60)
+           {
+               return Random.Range(5, 8);
+           }
+           if (playerRating > 70 && playerRating < 80)
+           {
+               return Random.Range(6, 9);
+           }
+           if (playerRating > 80 && playerRating < 95)
+           {
+               return Random.Range(7, 10);
+           }
+           return Random.Range(8, 11);
+           
+       }
+
+       
+       // if (puzzleRating >= (levelGenerated.playerRating - 5) && levelGenerated.playerRating <= puzzleRating &&
+       // puzzleRating <= levelGenerated.playerRating+ 5)
+       int RatingBound(int puzzleRating)
+       {
+           if (puzzleRating < 30)
+           {
+               return 3;
+           }
+
+           if (puzzleRating > 30 && puzzleRating < 40)
+           {
+               return 4;
+           }
+           if (puzzleRating > 40 && puzzleRating < 50)
+           {
+               return 10;
+           }
+           if (puzzleRating > 50 && puzzleRating < 60)
+           {
+               return 15;
+           }
+           if (puzzleRating > 60 && puzzleRating < 70)
+           {
+               return 20;
+           }
+           if (puzzleRating > 70 && puzzleRating < 80)
+           {
+               return 25;
+           }
+           if (puzzleRating > 80 && puzzleRating < 95)
+           {
+               return 35;
+           }
+            // this just means that your Rating is over one hundred
+           return 50;
+       }
+       
         void CalculateLevelRating()
         {
             var currentPlayerRating = currentPlayer.currentRating;

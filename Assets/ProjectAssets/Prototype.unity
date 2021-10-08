@@ -20509,6 +20509,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   solverMoves: 0
+  isDebugging: 0
+  debugBoard: 10
+  debugMove: 70
   playerPrefab: {fileID: 6484869364922519124, guid: 8a59a2e7124962548939f695fa35b297, type: 3}
   endGoalPrefab: {fileID: 6484869364922519124, guid: 5750518ec954bf44cac03ed5c4c3aacf, type: 3}
   keyObjectPrefab: {fileID: 6484869364922519124, guid: 2f34b3b54d0015345a1e3661b4eba5b7, type: 3}
@@ -20571,6 +20574,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 896a4db67e994c74386eae87a9f0dc73, type: 2}
   endGoalModule: {fileID: 11400000, guid: 2e7a7b87115d3bf4e8e1905c80a22681, type: 2}
   debugRenderer: {fileID: 1784948917}
+  walk:
+    startingCell: {fileID: 0}
+    steps: 0
+    completedPath: []
 --- !u!120 &1784948917
 LineRenderer:
   m_ObjectHideFlags: 0

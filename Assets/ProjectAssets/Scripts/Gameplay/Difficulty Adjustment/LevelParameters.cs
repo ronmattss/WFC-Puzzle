@@ -67,7 +67,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
 
             // if the ExpectedMoves is beyond the size of the 
-            expectedMoves = Random.Range(boardSize, (MaxMoves(boardSize))); // this should be random on a range // have a switch statement that handles the max limit of moves per board size
+            expectedMoves = Random.Range(MinMove(boardSize), (MaxMoves(boardSize))); // this should be random on a range // have a switch statement that handles the max limit of moves per board size
             return expectedMoves;
 
         }
@@ -75,7 +75,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         private int MaxMoves(int board)
         {
-            return boardSize switch
+            return board switch
             {
                 5 => 21,
                 6 => 29,
@@ -83,6 +83,19 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 8 => 50,
                 9 => 64,
                 10 => 80,
+                _ => 12
+            };
+        }
+        private int MinMove(int board)
+        {
+            return board switch
+            {
+                5 => 14,
+                6 => 16,
+                7 => 20,
+                8 => 30,
+                9 => 45,
+                10 => 50,
                 _ => 12
             };
         }
