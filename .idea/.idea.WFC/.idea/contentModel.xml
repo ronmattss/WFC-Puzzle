@@ -108,6 +108,9 @@
               <e p="Singleton.cs" t="Include" />
             </e>
           </e>
+          <e p="SFX" t="Include">
+            <e p="SoundManager.cs" t="Include" />
+          </e>
         </e>
         <e p="save" t="Include">
           <e p="profile.json" t="Include" />

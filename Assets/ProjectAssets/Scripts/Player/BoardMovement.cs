@@ -101,7 +101,7 @@ namespace ProjectAssets.Scripts.Player
                     if (availablePath.path[2] == ConnectionType.Open)
                     {
                         y++;
-                        gameObject.transform.LeanRotateY(AvatarRotation(0), 0.15f).setOnComplete(OnAvatarCompleteRotation);
+                        gameObject.transform.LeanRotateY(AvatarRotation(0), 0.05f).setOnComplete(OnAvatarCompleteRotation);
                         _degreeRotation = 0;
                         //   MovePlayer();
                         //  totalMoves++;
@@ -112,12 +112,13 @@ namespace ProjectAssets.Scripts.Player
                 // else if to avoid multiple inputs
                 else if (Input.GetKeyDown(KeyCode.S))
                 {
+                    gameObject.transform.LeanRotateY(AvatarRotation(2), 0.05f).setOnComplete(OnAvatarCompleteRotation);
+                    _degreeRotation = 2;
                     GameManager.Instance.text.text = $"Pressed: S";
                     if (availablePath.path[0] == ConnectionType.Open)
                     {
                         y--;
-                        gameObject.transform.LeanRotateY(AvatarRotation(2), 0.15f).setOnComplete(OnAvatarCompleteRotation);
-                        _degreeRotation = 2;
+
                         //MovePlayer();
                         //  totalMoves++;
                         // GetCurrentCellPosition();
@@ -130,7 +131,7 @@ namespace ProjectAssets.Scripts.Player
                     if (availablePath.path[3] == ConnectionType.Open)
                     {
                         x--;
-                        gameObject.transform.LeanRotateY(AvatarRotation(1), 0.15f).setOnComplete(OnAvatarCompleteRotation); 
+                        gameObject.transform.LeanRotateY(AvatarRotation(1), 0.05f).setOnComplete(OnAvatarCompleteRotation); 
                         _degreeRotation = 1;
                         //MovePlayer();
                       //  totalMoves++;
@@ -144,7 +145,7 @@ namespace ProjectAssets.Scripts.Player
                     if (availablePath.path[1] == ConnectionType.Open)
                     {
                         x++;
-                        gameObject.transform.LeanRotateY(AvatarRotation(3), 0.15f).setOnComplete(OnAvatarCompleteRotation);
+                        gameObject.transform.LeanRotateY(AvatarRotation(3), 0.05f).setOnComplete(OnAvatarCompleteRotation);
                         _degreeRotation = 3;
                        // MovePlayer();
                       //  totalMoves++;
