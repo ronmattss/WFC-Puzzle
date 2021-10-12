@@ -10,7 +10,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         // pass the profile to the difficulty Manager
         // have one single Instance of the player Profile
         // if non exist create one
-        private string path = "/save/profile.json";
+        private string path = "/profile.json";
         public PlayerProfile playerProfile;
         
         // Load if one exist
@@ -21,8 +21,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             Debug.Log(exists ? "Profile Found" : "create a Profile?");
             if (!exists)
             {
-                File.Create(Application.dataPath + @"\save\profile.json");
-                UIManager.Instance.createProfileButton.SetActive(true);
+              var file =  File.Create(Application.dataPath + @"\profile.json");
+                file.Close();
+                CreateProfile();
+              //  UIManager.Instance.createProfileButton.SetActive(true);
                 // Prompt Profile Creation text/ button
 
             }
@@ -46,6 +48,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             playerProfile = new PlayerProfile(); // create blank template
             var jsonString = JsonUtility.ToJson(playerProfile);
             File.WriteAllText(Application.dataPath + path,jsonString);
+            
 
 
         }

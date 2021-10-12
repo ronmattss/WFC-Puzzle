@@ -90,6 +90,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
             return board switch
             {
+                4 => 6,
                 5 => 14,
                 6 => 16,
                 7 => 20,

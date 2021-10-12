@@ -23,7 +23,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public double debugMoveScore;
         public double debugTimeScore;
         public double debugPlayerRating;
-
+        public int giveUp = 4; // used to force a generation
         [Header("PostGame Analysis")] public bool playerWon = false;
       
         
@@ -62,8 +62,19 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // Setup Board Size
             levelGenerated.playerRating = currentPlayer.currentRating; // get current Player's Rating
             var rating = levelGenerated.playerRating;
-            var randomBoardSize = BoardSizeRatingRange(rating);  
+            var randomBoardSize = 0;
+            
+
+            if (rating < 5)
+            {
+                 randomBoardSize = 4;
+            }
+            else
+            {
+                 randomBoardSize = BoardSizeRatingRange(rating);
+            }
             parameters.SetBoardSize(randomBoardSize); // Always the initial BoardSize
+            
            var levelMoves = parameters.SetExpectedMoves(); // add how many moves
           var levelTime = parameters.SetAllocatedTime();
             
@@ -80,9 +91,11 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             parameters.expectedScore = score;
             levelRatingDebug = puzzleRating;
             // set upper bounds and lower bounds
-            var bounds = RatingBound((int) puzzleRating);
-            if (puzzleRating >= (levelGenerated.playerRating - bounds) && levelGenerated.playerRating <= puzzleRating &&
-                puzzleRating <= levelGenerated.playerRating+ bounds)
+            var lowerBound = LowerRatingBound((int) puzzleRating);
+            var higherBound = HigherRatingBound((int) puzzleRating);
+
+            if ( puzzleRating >= (levelGenerated.playerRating - lowerBound) && levelGenerated.playerRating <= puzzleRating &&
+                puzzleRating <= levelGenerated.playerRating+ higherBound)
             {
                 levelGenerated.playerMove = 0;
                 levelGenerated.expectedMoves = levelMoves;
@@ -125,7 +138,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             
            //  Debug.Log($"Puzzle Rating: {puzzleRating}");
            nextLevelRating = NextLevelRating();
-           debugPlayerRating = levelGenerated.playerRating + nextLevelRating / currentPlayer.gamesPlayed;
+           if (currentPlayer.gamesPlayed < 1)
+           {
+               debugPlayerRating = levelGenerated.playerRating + nextLevelRating / 1;
+           }
+           else
+           {
+               debugPlayerRating = levelGenerated.playerRating + nextLevelRating / currentPlayer.gamesPlayed;
+
+           }
            var resultant = levelGenerated.playerRating - debugPlayerRating;
          //  levelGenerated.playerRating = debugPlayerRating;
 
@@ -134,9 +155,12 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            Debug.Log($"Current Player Rating: {currentPlayer.currentRating}");
            Debug.Log($"debugPlayerRating ${debugPlayerRating} (pR + NR)");
           currentPlayer.currentRating = debugPlayerRating;
+          
           levelGenerated.playerRating = currentPlayer.currentRating;
           var details = new LevelDetails(levelGenerated.seed,levelGenerated.boardSize,levelGenerated.allottedTime,levelGenerated.expectedMoves,levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerRemainingTime,levelGenerated.playerScore,levelGenerated.playerEvaluatedScore,levelGenerated.levelScore);
+         
           currentPlayer.levelsPlayed.Add(details);
+          
           currentPlayer.gamesPlayed = currentPlayer.levelsPlayed.Count;
           currentPlayer.gamesWon += playerWon ? 1 : 0;
            //Debug.Log($"LevelRating: {nextLevelRating} pr + nlr: {debugPlayerRating} pr-dbr= {resultant}  New Player Rating: {levelGenerated.playerRating}");
@@ -284,7 +308,11 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
        int BoardSizeRatingRange(double playerRating)
        {
-           if (playerRating < 30)
+           if (playerRating < 20)
+           {
+               return Random.Range(4, 6);
+           }
+           if (playerRating > 20 && playerRating < 30)
            {
                return Random.Range(4, 6);
            }
@@ -316,28 +344,70 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        
        // if (puzzleRating >= (levelGenerated.playerRating - 5) && levelGenerated.playerRating <= puzzleRating &&
        // puzzleRating <= levelGenerated.playerRating+ 5)
-       int RatingBound(int puzzleRating)
+       int LowerRatingBound(int puzzleRating)
        {
-           if (puzzleRating < 30)
+           if (puzzleRating < 20)        // its hard to generate puzzles lower than 20
            {
-               return 3;
+               return 6;
+           }
+           if (puzzleRating > 20 && puzzleRating < 30)
+           {
+               return 4;
            }
 
            if (puzzleRating > 30 && puzzleRating < 40)
            {
-               return 4;
+               return 5;
            }
            if (puzzleRating > 40 && puzzleRating < 50)
            {
-               return 10;
+               return 8;
            }
            if (puzzleRating > 50 && puzzleRating < 60)
            {
-               return 15;
+               return 10;
            }
            if (puzzleRating > 60 && puzzleRating < 70)
            {
+               return 15;
+           }
+           if (puzzleRating > 70 && puzzleRating < 80)
+           {
                return 20;
+           }
+           if (puzzleRating > 80 && puzzleRating < 95)
+           {
+               return 25;
+           }
+            // this just means that your Rating is over one hundred
+           return 50;
+       }
+       int HigherRatingBound(int puzzleRating)
+       {
+           if (puzzleRating < 20)
+           {
+               return 10;
+           }
+           if (puzzleRating > 20 && puzzleRating < 30)
+           {
+               return 10;
+           }
+
+           if (puzzleRating > 30 && puzzleRating < 40)
+           {
+               return 14;
+           }
+           if (puzzleRating > 40 && puzzleRating < 50)
+           {
+               return 16;
+           }
+           if (puzzleRating > 50 && puzzleRating < 60)
+           {
+               return 18;
+           }
+           if (puzzleRating > 60 && puzzleRating < 70)
+           {
+               return 22;
            }
            if (puzzleRating > 70 && puzzleRating < 80)
            {
@@ -347,7 +417,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            {
                return 35;
            }
-            // this just means that your Rating is over one hundred
+           // this just means that your Rating is over one hundred
            return 50;
        }
        

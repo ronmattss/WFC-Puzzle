@@ -137,8 +137,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public PlayerProfile()
         {
             userName = "";
-            initialRating = 0;
-            currentRating = 0;
+            initialRating = 10;
+            currentRating = 10;
             gamesPlayed = 0;
             gamesWon = 0;
         }

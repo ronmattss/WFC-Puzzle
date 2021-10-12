@@ -36,7 +36,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             //RandomDirection();
           //  CheckUniqueness();
             
-            DebugShowPath();
+           // DebugShowPath();
             RandomlyChangePathCells();
 
         }

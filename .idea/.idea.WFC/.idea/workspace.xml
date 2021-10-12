@@ -23,18 +23,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/SelfAvoidingWalk.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/SelfAvoidingWalk.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/CameraManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/CameraManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Bars.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Materials/Cell/Bars.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/AlphBumps.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/AlphBumps.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/AlphaReadyMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/AlphaReadyMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/DirectionalArrowMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/DirectionalArrowMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/Futoro_PlanetMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/Futoro_PlanetMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/Graph.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/Graph.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/GridLines.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/GridLines.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/Ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/Ground.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/LineGlowMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/LineGlowMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/Mock2d.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/Mock2d.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/PointMark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/PointMark.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/TrackCar.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/TrackCar.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/WalkingStick.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Material/WalkingStick.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/LMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/LMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/LineMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/LineMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/Material.001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/Material.001.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/Material_001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/Material_001.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/No Name.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/No Name.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarAlphaBlue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarAlphaBlue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarBlue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarBlue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarHat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarHat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarSpace.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SimpleAvatarSpace.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SubTitleText.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/SubTitleText.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/eanTween.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LeanTween/Examples/Models/Materials/eanTween.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/SimpleCameraController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/SimpleCameraController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/save/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/save/profile.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +96,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3197AD6D-70A8-4DE7-8C60-779AE2612011/a5/131f93b3/Canvas.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/ec/4cf9be4b/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/d0/0ff7112d/ArgumentException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/f8/73158266/Environment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -66,18 +103,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Direction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/a5/f24cb7a0/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/69/318b25bc/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695D1CC9-3CCA-4506-9C52-8C15C9FDD749/c2/ea818fe4/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/8e/db7b7bcb/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/2a/0d72e35c/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridGenerator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/b3/e688b04a/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/GeneralUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/45/dc0a0d21/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C5B8EA30-1F1F-41BF-85E0-302C2EE96B92/3d/c808413a/BuildPipelineInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
@@ -85,7 +117,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/eb/cebff4b0/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E7F43C3-8E21-4491-A21E-E815B941DBB6/5f/444fbd69/JsonUtility.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695D1CC9-3CCA-4506-9C52-8C15C9FDD749/e5/449b9e1a/Double.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/2f/5c1b3e1f/UnityEvent.cs" root0="SKIP_HIGHLIGHTING" />
@@ -111,18 +142,19 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/DebugTools.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/PlayerCollision.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/SelfAvoidingWalk.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/CameraManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -143,6 +175,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\Matrix Path.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -152,10 +192,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="8160">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="8160" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -255,6 +295,9 @@
       <workItem from="1633483902218" duration="26014000" />
       <workItem from="1633571514799" duration="14423000" />
       <workItem from="1633656647792" duration="18651000" />
+      <workItem from="1633833563882" duration="9821000" />
+      <workItem from="1633920644913" duration="6334000" />
+      <workItem from="1634005795012" duration="4756000" />
     </task>
     <servers />
   </component>
@@ -291,70 +334,70 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1632058177256" />
-    <state width="1877" height="354" key="GridCell.Tab.0.bottom" timestamp="1633677378354">
+    <state width="1877" height="68" key="GridCell.Tab.0.bottom" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378354" />
-    <state width="1877" height="354" key="GridCell.Tab.0.center" timestamp="1633677378354">
+    <state width="1877" height="68" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.0.center" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378354" />
-    <state width="1877" height="354" key="GridCell.Tab.0.left" timestamp="1633677378354">
+    <state width="1877" height="68" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.0.left" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378354" />
-    <state width="1877" height="354" key="GridCell.Tab.0.right" timestamp="1633677378354">
+    <state width="1877" height="68" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.0.right" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378354" />
-    <state width="1877" height="354" key="GridCell.Tab.1.bottom" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.1.bottom" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.1.center" timestamp="1633677378173">
+    <state width="1877" height="68" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.1.center" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378173" />
-    <state width="1877" height="354" key="GridCell.Tab.1.left" timestamp="1633677378173">
+    <state width="1877" height="68" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.1.left" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378173" />
-    <state width="1877" height="354" key="GridCell.Tab.1.right" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.1.right" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.2.bottom" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.2.bottom" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.2.center" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.2.center" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.2.left" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.2.left" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.2.right" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.2.right" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.3.bottom" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.3.bottom" timestamp="1633946075634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.3.center" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075634" />
+    <state width="1877" height="68" key="GridCell.Tab.3.center" timestamp="1633946075634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.3.left" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075634" />
+    <state width="1877" height="68" key="GridCell.Tab.3.left" timestamp="1633946075633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
-    <state width="1877" height="354" key="GridCell.Tab.3.right" timestamp="1633677378174">
+    <state width="1877" height="68" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075633" />
+    <state width="1877" height="68" key="GridCell.Tab.3.right" timestamp="1633946075634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="354" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633677378174" />
+    <state width="1877" height="68" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633946075634" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1631094324664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -369,29 +412,42 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs</url>
-          <line>103</line>
-          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\GameManager.cs" initialLine="98">
+          <line>145</line>
+          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\GameManager.cs" initialLine="144">
             <startOffsets>
-              <option value="3741" />
+              <option value="5039" />
             </startOffsets>
             <endOffsets>
-              <option value="3767" />
+              <option value="5076" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs</url>
-          <line>130</line>
-          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\GameManager.cs" initialLine="130">
+          <line>160</line>
+          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\GameManager.cs" initialLine="159">
             <startOffsets>
-              <option value="4563" />
+              <option value="5715" />
             </startOffsets>
             <endOffsets>
-              <option value="4598" />
+              <option value="5799" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="24" />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs</url>
+          <line>93</line>
+          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\Difficulty Adjustment\DifficultyModifier.cs" initialLine="93">
+            <startOffsets>
+              <option value="3184" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3238" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -399,6 +455,7 @@
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="this" language="C#" />
         <watch expression="this.path" language="C#" />
+        <watch expression="debugPlayerRating" language="C#" />
       </configuration>
     </watches-manager>
   </component>

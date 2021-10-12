@@ -27,6 +27,8 @@ namespace ProjectAssets.Scripts.Player
         public Direction availablePath;
         private bool isCellRotating = false;
         private bool isNeighborCellRotating = false;
+        private int _degreeRotation = 0;
+        [SerializeField] private Animator jammoAnimator;
 
         public int totalMoves = 1;
 
@@ -69,7 +71,7 @@ namespace ProjectAssets.Scripts.Player
                 (int) Math.Floor(y));
 
             this.transform.position = new Vector3(x,
-                .25f,
+                0,
                 y);
             cellObjectTransform = currentCell.gameObject.transform; // get the direction this is a culprit
             availablePath.path = new List<ConnectionType>(4);
@@ -81,7 +83,7 @@ namespace ProjectAssets.Scripts.Player
             EnableDisableNeighbor();
             GetCurrentCellPosition();
             MovePlayer();
-            
+
 
         }
 
@@ -99,10 +101,12 @@ namespace ProjectAssets.Scripts.Player
                     if (availablePath.path[2] == ConnectionType.Open)
                     {
                         y++;
-                        MovePlayer();
-                      //  totalMoves++;
-                      //  GetCurrentCellPosition();
-                    
+                        gameObject.transform.LeanRotateY(AvatarRotation(0), 0.15f).setOnComplete(OnAvatarCompleteRotation);
+                        _degreeRotation = 0;
+                        //   MovePlayer();
+                        //  totalMoves++;
+                        //  GetCurrentCellPosition();
+
                     }
                 }
                 // else if to avoid multiple inputs
@@ -112,9 +116,11 @@ namespace ProjectAssets.Scripts.Player
                     if (availablePath.path[0] == ConnectionType.Open)
                     {
                         y--;
-                        MovePlayer();
-                      //  totalMoves++;
-                       // GetCurrentCellPosition();
+                        gameObject.transform.LeanRotateY(AvatarRotation(2), 0.15f).setOnComplete(OnAvatarCompleteRotation);
+                        _degreeRotation = 2;
+                        //MovePlayer();
+                        //  totalMoves++;
+                        // GetCurrentCellPosition();
                     }
                 }
 
@@ -124,7 +130,9 @@ namespace ProjectAssets.Scripts.Player
                     if (availablePath.path[3] == ConnectionType.Open)
                     {
                         x--;
-                        MovePlayer();
+                        gameObject.transform.LeanRotateY(AvatarRotation(1), 0.15f).setOnComplete(OnAvatarCompleteRotation); 
+                        _degreeRotation = 1;
+                        //MovePlayer();
                       //  totalMoves++;
                       //  GetCurrentCellPosition();
                     }
@@ -136,7 +144,9 @@ namespace ProjectAssets.Scripts.Player
                     if (availablePath.path[1] == ConnectionType.Open)
                     {
                         x++;
-                        MovePlayer();
+                        gameObject.transform.LeanRotateY(AvatarRotation(3), 0.15f).setOnComplete(OnAvatarCompleteRotation);
+                        _degreeRotation = 3;
+                       // MovePlayer();
                       //  totalMoves++;
                        // GetCurrentCellPosition();
                     }
@@ -149,14 +159,20 @@ namespace ProjectAssets.Scripts.Player
             // Get current coordinates of player
         }
 
+        public void OnAvatarCompleteRotation()
+        {
+            MovePlayer();
+        }
+
         public void MovePlayer()
         {
             StartCoroutine(MoveCoolDown());
             // only show the current four neighbors available
             if (boardX > x && x >= 0 && boardY > y && y >= 0)
             {
+                jammoAnimator.SetBool("isRunning",true);
                 currPosition = new Vector3(x,
-                    .25f,
+                    0,
                     y);
                 gameObject.transform.LeanMove(currPosition, .15f).setOnComplete(OnMovementComplete);
                 //gameObject.transform.position = currPosition;// Lean Tween this
@@ -174,6 +190,7 @@ namespace ProjectAssets.Scripts.Player
 
         private void OnMovementComplete()
         {
+            jammoAnimator.SetBool("isRunning",false);
             currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
                 (int) Math.Floor(y));
             //   availablePath = currentCell.direction; // <- culprit??? available path is copied to the current cell from the prev cell after moving
@@ -203,6 +220,7 @@ namespace ProjectAssets.Scripts.Player
                 //  Debug.Log($"new: {availablePath.path[0]} {availablePath.path[1]} {availablePath.path[2]} {availablePath.path[3]}");
 
                 RotateCell(-90);
+               
                 CheckAvailablePath();
 
             }
@@ -217,11 +235,35 @@ namespace ProjectAssets.Scripts.Player
 
         }
 
+        float AvatarRotation(int state)
+        {
+            switch (state)
+            {
+                case 0:
+                    return 0;
+                case 1:
+                    return -90;
+                case 2:
+                    return 180;
+                case 3:
+                    return 90;
+            }
+
+            return  0;
+        }
 
         // also get the cell that will be rotated
         private void RotateCell(int degrees)
         {
             if (!currentCell.isRotatable) return;
+            // this is the current 
+            _degreeRotation ++;
+            if (_degreeRotation == 4)
+            {
+                _degreeRotation = 0;
+            }
+            gameObject.transform.LeanRotateY(AvatarRotation(_degreeRotation), .25f);
+
             var cellQuaternion = cellObjectTransform.rotation;
             var cellEuler = cellObjectTransform.rotation.eulerAngles;
             cellEuler += new Vector3(0,
@@ -397,13 +439,13 @@ namespace ProjectAssets.Scripts.Player
             var endCell = GameManager.Instance.endCell;
             foreach (var cell in currentCell.neighbors)
             {
-                if (cell == null) continue;
+                if (cell == null || cell == GameManager.Instance.endCell) continue;
                 if (!cell.GetComponent<Cell>() == endCell || !MatchCellsOnPath(cell.gameObject))
                 {
                     cell.gameObject.GetComponent<Cell>().EaseToPosition(cell.gameObject.GetComponent<Cell>().cellOnPosition);
                 }
                
-                CellVisuals.Instance.ChangeGridColor(cell,cell.GridColorBasedOnProperties());
+                //CellVisuals.Instance.ChangeGridColor(cell,cell.GridColorBasedOnProperties());
                 CellVisuals.Instance.ChangeWallColor(cell);
             }
         }

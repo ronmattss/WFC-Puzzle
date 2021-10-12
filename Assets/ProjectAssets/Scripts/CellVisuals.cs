@@ -69,6 +69,8 @@ namespace ProjectAssets.Scripts
             }
         }
         
+        
+        
         // Change Color of Current Cell Walls
         public void ChangeWallColor(Cell cell, Color color)
         {
