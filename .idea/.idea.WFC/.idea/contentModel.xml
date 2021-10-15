@@ -68,6 +68,16 @@
         <e p="profile.json" t="Include" />
         <e p="ProjectAssets" t="Include">
           <e p="Scripts" t="Include">
+            <e p="Aesthetics" t="Include">
+              <e p="Audio" t="Include">
+                <e p="AudioSpectrum.cs" t="Include" />
+                <e p="AudioSyncColor.cs" t="Include" />
+                <e p="AudioSyncer.cs" t="Include" />
+                <e p="AudioSyncScale.cs" t="Include" />
+                <e p="AudioVertexHeight.cs" t="Include" />
+              </e>
+              <e p="ProcMesh.cs" t="Include" />
+            </e>
             <e p="CellVisuals.cs" t="Include" />
             <e p="Gameplay" t="Include">
               <e p="Difficulty Adjustment" t="Include">
@@ -96,6 +106,7 @@
               <e p="Module.cs" t="Include" />
             </e>
             <e p="UI" t="Include">
+              <e p="ButtonEvents.cs" t="Include" />
               <e p="DebugTools.cs" t="Include" />
               <e p="UIManager.cs" t="Include" />
             </e>

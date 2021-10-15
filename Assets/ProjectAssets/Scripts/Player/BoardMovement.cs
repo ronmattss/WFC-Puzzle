@@ -8,6 +8,7 @@ using ProjectAssets.Scripts.Util;
 using UnityEngine;
 using UnityTemplateProjects.UI;
 using Debug = UnityEngine.Debug;
+using Random = Unity.Mathematics.Random;
 
 namespace ProjectAssets.Scripts.Player
 {
@@ -29,9 +30,10 @@ namespace ProjectAssets.Scripts.Player
         private bool isNeighborCellRotating = false;
         private int _degreeRotation = 0;
         [SerializeField] private Animator jammoAnimator;
+        [SerializeField] private float countdownToDanceIdle = 5;
 
         public int totalMoves = 1;
-
+        private int _danceIndex = 0;
         private bool canMove = true;
 
         private void Start()
@@ -154,15 +156,30 @@ namespace ProjectAssets.Scripts.Player
                 }  
             }
 
-
+            if (countdownToDanceIdle <= 0)
+            {
+                jammoAnimator.SetInteger("Dance",_danceIndex);
+                jammoAnimator.SetInteger("danceHold",0);
+            }
+            else
+            {
+                countdownToDanceIdle -= Time.deltaTime;
+                jammoAnimator.SetInteger("danceHold",(int)countdownToDanceIdle);
+            }
             GameManager.Instance.modifier.GetPlayerMovement(totalMoves);
 
             // Get current coordinates of player
         }
 
+        public void ChangeDanceIndex()
+        {
+            _danceIndex = UnityEngine.Random.Range(0, 4);
+        }
+
         public void OnAvatarCompleteRotation()
         {
             MovePlayer();
+            countdownToDanceIdle = 5;
         }
 
         public void MovePlayer()

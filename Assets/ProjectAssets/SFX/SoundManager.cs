@@ -8,7 +8,15 @@ namespace ProjectAssets.SFX
         // Test BGM
 
         [SerializeField]private AudioClip clip;
-        public AudioSource gameAudio;
+        public AudioSource gameMusic;
+        public AudioSource gameSFX;
+
+
+        public void PlaySFX(AudioClip clip)
+        {
+            gameSFX.clip = clip;
+            gameSFX.Play();
+        }
 
     }
 }

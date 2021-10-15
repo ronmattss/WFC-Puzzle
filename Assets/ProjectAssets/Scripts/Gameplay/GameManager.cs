@@ -17,7 +17,7 @@ namespace ProjectAssets.Scripts.Gameplay
     {
         // Script for handling gameplay properties
         // TODO LAST THING IS THE REQUIREMENT TO WIN 3 KEYS AND ABOVE EM MOVES
-        [Header("Board Properties")] 
+       
         int boardWidth;
         int boardHeight;
         public int solverMoves;
@@ -52,6 +52,7 @@ namespace ProjectAssets.Scripts.Gameplay
         public int debugMoves = 9;
 
         [Header("in-game cell Objects")] public List<GameObject> cellGameObjects = new List<GameObject>();
+        [Header("Build Type")] public bool hasDDA = true;
 
         /// <summary>
         /// TODO: Movement with direction constrained
@@ -90,7 +91,7 @@ namespace ProjectAssets.Scripts.Gameplay
                     modifier.ComputeLevelScore();
                     SaveManager.Instance.SaveProfile();
                     UIManager.Instance.ShowHideinGameUIGroup();
-                    UIManager.Instance.ShowHidePostLevelGroup();
+                    UIManager.Instance.ShowHidePostFailedLevelGroup();
 
                     // ObjectSpawner.Instance.generator.GenerateLevel();
                     playerMovement.totalMoves = 0;
@@ -148,6 +149,16 @@ namespace ProjectAssets.Scripts.Gameplay
             solver.expectedMoves = solverMoves;
             levelGenerator.GenerateRandomLevel(modifier.boardSize);
             UIManager.Instance.ShowHidePostLevelGroup();
+            UIManager.Instance.ShowHideinGameUIGroup();
+            playerMovement.totalMoves = 0;
+        }
+        public void PostLevelFailedGenerateNewLevel()
+        {
+            modifier.SetupDifficultyParameters();
+            solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
+            solver.expectedMoves = solverMoves;
+            levelGenerator.GenerateRandomLevel(modifier.boardSize);
+            UIManager.Instance.ShowHidePostFailedLevelGroup();
             UIManager.Instance.ShowHideinGameUIGroup();
             playerMovement.totalMoves = 0;
         }

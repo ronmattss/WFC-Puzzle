@@ -1,5 +1,6 @@
 ﻿using System;
 using ProjectAssets.Scripts.Gameplay;
+using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
 using TMPro;
@@ -17,11 +18,14 @@ namespace UnityTemplateProjects.UI
         public GameObject pauseMenuGroup;
         public GameObject inGameUIGroup;
         public GameObject postLevelMenuGroup;
+        public GameObject postFailedLevelMenuGroup;
 
         public TMP_Text moves;
         public TMP_Text keys;
         public TMP_Text time;
         public TMP_Text rating;
+        public TMP_Text games;
+        public TMP_Text wins;
 
         public int expectedMoves;
 
@@ -29,7 +33,7 @@ namespace UnityTemplateProjects.UI
         private void LateUpdate()
         {
             // Test Key
-            if (Input.GetKeyUp(KeyCode.Escape) && mainMenuGroup.activeSelf == false && postLevelMenuGroup.activeSelf == false)
+            if (Input.GetKeyUp(KeyCode.Escape) && mainMenuGroup.activeSelf == false && (postLevelMenuGroup.activeSelf == false || postFailedLevelMenuGroup.activeSelf == false))
             {
                 ShowHidePauseMenu(); // disable when playing
                 ShowHideinGameUIGroup();
@@ -39,6 +43,14 @@ namespace UnityTemplateProjects.UI
         public void ChangeRatingText(double playerRating)
         {
             rating.text = $"Rating: {playerRating}";
+        }
+        public void ChangeWinText(double win)
+        {
+            wins.text = win > 1 ? $"wins: {win}" : $"win: {win}";
+        }
+        public void ChangeGamesText(double gamesPlayed)
+        {
+            games.text = gamesPlayed > 1 ? $"games played: {gamesPlayed}" : $"game played: {gamesPlayed}";
         }
 
         public void ChangeMoveText(int pm = 0)
@@ -67,9 +79,16 @@ namespace UnityTemplateProjects.UI
         {
             postLevelMenuGroup.SetActive(!postLevelMenuGroup.activeSelf);
         }
+        public void ShowHidePostFailedLevelGroup()
+        {
+            postFailedLevelMenuGroup.SetActive(!postFailedLevelMenuGroup.activeSelf);
+        }
         public void ShowHideinGameUIGroup()
         {
             inGameUIGroup.SetActive(!inGameUIGroup.activeSelf);
+            ChangeRatingText(SaveManager.Instance.playerProfile.currentRating);
+            ChangeGamesText(SaveManager.Instance.playerProfile.gamesPlayed);
+            ChangeWinText(SaveManager.Instance.playerProfile.gamesWon);
         }
         public void ShowHideMainMenuGroupFromButton()
         {
@@ -81,6 +100,19 @@ namespace UnityTemplateProjects.UI
             GameManager.Instance.RemoveObjects();
 
             ShowHidePostLevelGroup();
+            mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
+
+        }
+        public void ShowHideMainMenuGroupFromFailedButton()
+        {
+            for (int i = 0; i < GameManager.Instance.cellGameObjects.Count; i++)
+            {
+                Destroy(GameManager.Instance.cellGameObjects[i]);
+            }
+            GameManager.Instance.cellGameObjects.Clear();
+            GameManager.Instance.RemoveObjects();
+
+            ShowHidePostFailedLevelGroup();
             mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
 
         }

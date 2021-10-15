@@ -17,6 +17,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         [Range(0,100)]
         public int moves = 4;
 
+        [Header("DDA")] public bool isDDAActive = true;
+        
         public double levelRatingDebug = 0;
         public bool debugMode = true;
         public double nextLevelRating = 0;
@@ -57,23 +59,26 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         }
         // invoke this after button press and after a level
-        public void SetupDifficultyParameters()
+        public void SetupDifficultyParameters() // we can edit this to for two builds With and wuthout DDA
         {
             // Setup Board Size
             levelGenerated.playerRating = currentPlayer.currentRating; // get current Player's Rating
             var rating = levelGenerated.playerRating;
             var randomBoardSize = 0;
-            
 
-            if (rating < 5)
+
+
+
+            if (GameManager.Instance.hasDDA)
             {
-                 randomBoardSize = 4;
+                randomBoardSize = rating < 11 ? 4 : BoardSizeRatingRange(rating); // Disable this if you want a full random board everytime (NO DDA)
+                parameters.SetBoardSize(randomBoardSize); // Always the initial BoardSize
             }
             else
             {
-                 randomBoardSize = BoardSizeRatingRange(rating);
+                parameters.SetBoardSize(Random.Range(4, 11));    // Random Board Size
             }
-            parameters.SetBoardSize(randomBoardSize); // Always the initial BoardSize
+            
             
            var levelMoves = parameters.SetExpectedMoves(); // add how many moves
           var levelTime = parameters.SetAllocatedTime();
@@ -87,13 +92,33 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            
             var score = parameters.SetExpectedScore(); // Expected Score and TIME
             var puzzleRating = parameters.SetPuzzleRating();
+            
             parameters.levelRating = puzzleRating;
             parameters.expectedScore = score;
             levelRatingDebug = puzzleRating;
+            
+            
+            // if DDA is not enabled
+            if (!GameManager.Instance.hasDDA)
+            {
+                levelGenerated.playerMove = 0;
+                levelGenerated.expectedMoves = levelMoves;
+                levelGenerated.allottedTime = levelTime;
+                levelGenerated.levelScore = (int) score;
+                levelGenerated.levelRating = puzzleRating;
+                levelGenerated.boardSize = parameters.boardSize;
+                levelGenerated.playerRemainingTime = levelTime;
+                
+                UIManager.Instance.expectedMoves = levelMoves;
+                UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
+
+                return;
+            }
             // set upper bounds and lower bounds
+            //
             var lowerBound = LowerRatingBound((int) puzzleRating);
             var higherBound = HigherRatingBound((int) puzzleRating);
-
+            // THIS is where the bounding happens, without this, the generated level will be Random
             if ( puzzleRating >= (levelGenerated.playerRating - lowerBound) && levelGenerated.playerRating <= puzzleRating &&
                 puzzleRating <= levelGenerated.playerRating+ higherBound)
             {
@@ -124,7 +149,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        public void ComputeLevelScore() // invoke after finishing the level this will compute the score and the rating for the next level
        {    Debug.Log($"player remaining time: {levelGenerated.playerRemainingTime}");
 
-           if (levelGenerated.playerRemainingTime != 0 || levelGenerated.playerMove>= levelGenerated.expectedMoves)
+           if (levelGenerated.playerRemainingTime != 0 && levelGenerated.playerMove>= levelGenerated.expectedMoves)
            {
                playerWon = true;
            }
