@@ -3874,7 +3874,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.67, z: 0}
 --- !u!114 &6484869364922519135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3893,6 +3893,7 @@ MonoBehaviour:
   availablePath:
     path: 
   jammoAnimator: {fileID: 692793065763892831}
+  countdownToDanceIdle: 5
   totalMoves: 0
 --- !u!114 &1363592082427120991
 MonoBehaviour:

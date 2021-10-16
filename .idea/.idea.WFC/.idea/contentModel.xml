@@ -7,6 +7,7 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="_www.unityassetcollection.com.txt" t="Include" />
         <e p="Jammo-Character" t="Include">
           <e p="Scripts" t="Include">
             <e p="CharacterSkinController.cs" t="Include" />
@@ -65,6 +66,24 @@
           <e p="LICENSE.txt" t="Include" />
           <e p="ReadMe.txt" t="Include" />
         </e>
+        <e p="Models" t="Include">
+          <e p="Key" t="Include">
+            <e p="readME keys.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Pixel Play" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="ExtendedFlycam.cs" t="Include" />
+            <e p="OffScreenIndicator" t="Include">
+              <e p="ArrowObjectPool.cs" t="Include" />
+              <e p="BoxObjectPool.cs" t="Include" />
+              <e p="Indicator.cs" t="Include" />
+              <e p="OffScreenIndicator.cs" t="Include" />
+              <e p="OffScreenIndicatorCore.cs" t="Include" />
+              <e p="Target.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="profile.json" t="Include" />
         <e p="ProjectAssets" t="Include">
           <e p="Scripts" t="Include">
@@ -77,6 +96,7 @@
                 <e p="AudioVertexHeight.cs" t="Include" />
               </e>
               <e p="ProcMesh.cs" t="Include" />
+              <e p="Spinner.cs" t="Include" />
             </e>
             <e p="CellVisuals.cs" t="Include" />
             <e p="Gameplay" t="Include">
@@ -87,6 +107,7 @@
                 <e p="SaveManager.cs" t="Include" />
               </e>
               <e p="GameManager.cs" t="Include" />
+              <e p="GoalBehavior.cs" t="Include" />
               <e p="KeyBehaviour.cs" t="Include" />
               <e p="Pathfinding" t="Include">
                 <e p="SelfAvoidingWalk.cs" t="Include" />
@@ -164,6 +185,31 @@
               <e p="ReadmeEditor.cs" t="Include" />
             </e>
             <e p="Readme.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Waypoint Indicators" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="demo_only" t="Include">
+              <e p="button_manager.cs" t="Include" />
+              <e p="event_manager.cs" t="Include" />
+              <e p="fpc.cs" t="Include" />
+              <e p="instruction_window.cs" t="Include" />
+              <e p="releases" t="Include">
+                <e p="Waypoint_Indicator_1_0_1.cs" t="Include" />
+                <e p="Waypoint_Indicator_1_0_2.cs" t="Include" />
+                <e p="Waypoint_Indicator_1_1_0.cs" t="Include" />
+              </e>
+              <e p="reload.cs" t="Include" />
+              <e p="reset.cs" t="Include" />
+              <e p="rotate.cs" t="Include" />
+              <e p="scene_day.cs" t="Include" />
+              <e p="scene_manager.cs" t="Include" />
+              <e p="scene_night.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="Waypoint_Indicator_Editor.cs" t="Include" />
+            </e>
+            <e p="Waypoint_Indicator.cs" t="Include" />
           </e>
         </e>
       </e>

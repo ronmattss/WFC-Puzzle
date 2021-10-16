@@ -114,13 +114,13 @@ namespace ProjectAssets.Scripts.Player
                 // else if to avoid multiple inputs
                 else if (Input.GetKeyDown(KeyCode.S))
                 {
-                    gameObject.transform.LeanRotateY(AvatarRotation(2), 0.05f).setOnComplete(OnAvatarCompleteRotation);
-                    _degreeRotation = 2;
+
                     GameManager.Instance.text.text = $"Pressed: S";
                     if (availablePath.path[0] == ConnectionType.Open)
                     {
                         y--;
-
+                        gameObject.transform.LeanRotateY(AvatarRotation(2), 0.05f).setOnComplete(OnAvatarCompleteRotation);
+                        _degreeRotation = 2;
                         //MovePlayer();
                         //  totalMoves++;
                         // GetCurrentCellPosition();
