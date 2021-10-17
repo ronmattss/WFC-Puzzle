@@ -23,18 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Spinner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Spinner.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GoalBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GoalBehavior.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Goal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Goal.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Keys.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Keys.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,10 +108,7 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/ButtonEvents.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Audio/AudioVertexHeight.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/ProcMesh.cs" />
@@ -123,6 +116,9 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Spinner.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GoalBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" />
       </list>
     </option>
   </component>
@@ -160,10 +156,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5324">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="5324" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -269,6 +265,7 @@
       <workItem from="1634093991514" duration="9942000" />
       <workItem from="1634265514168" duration="18081000" />
       <workItem from="1634357036643" duration="5712000" />
+      <workItem from="1634442927836" duration="5998000" />
     </task>
     <servers />
   </component>
@@ -387,26 +384,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs</url>
-          <line>171</line>
+          <line>173</line>
           <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\GameManager.cs" initialLine="159">
             <startOffsets>
-              <option value="6253" />
+              <option value="6311" />
             </startOffsets>
             <endOffsets>
-              <option value="6337" />
+              <option value="6395" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs</url>
-          <line>90</line>
+          <line>91</line>
           <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\GameManager.cs" initialLine="89">
             <startOffsets>
-              <option value="3157" />
+              <option value="3164" />
             </startOffsets>
             <endOffsets>
-              <option value="3186" />
+              <option value="3193" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="40" />

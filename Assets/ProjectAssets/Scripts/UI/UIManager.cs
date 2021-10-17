@@ -2,6 +2,7 @@
 using ProjectAssets.Scripts.Gameplay;
 using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
 using ProjectAssets.Scripts.Util;
+using ProjectAssets.SFX;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -26,6 +27,7 @@ namespace UnityTemplateProjects.UI
         public TMP_Text rating;
         public TMP_Text games;
         public TMP_Text wins;
+        public TMP_Text currentRating;
 
         public int expectedMoves;
 
@@ -38,11 +40,13 @@ namespace UnityTemplateProjects.UI
                 ShowHidePauseMenu(); // disable when playing
                 ShowHideinGameUIGroup();
             }
+
+
         }
 
         public void ChangeRatingText(double playerRating)
         {
-            rating.text = $"Rating: {playerRating}";
+            rating.text = $"Rating: {(float)playerRating}";
         }
         public void ChangeWinText(double win)
         {
@@ -67,13 +71,29 @@ namespace UnityTemplateProjects.UI
             time.text = $"{(int)remainingTime}";
         }
 
+        public void Resume()
+        {
+            ShowHidePauseMenu(); // disable when playing
+            ShowHideinGameUIGroup();
+        }
+
         public void ShowHidePauseMenu()
         {
             pauseMenuGroup.SetActive(!pauseMenuGroup.activeSelf);
+            if (pauseMenuGroup.activeSelf)
+            {
+                GameManager.Instance.playerMovement.enabled = false;
+            }
+            else
+            {
+                GameManager.Instance.playerMovement.enabled = true;
+            }
         }
         public void ShowHideMainMenuGroup()
         {
             mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
+            SoundManager.Instance.PlayMenuMusic();
+            
         }
         public void ShowHidePostLevelGroup()
         {
@@ -86,6 +106,10 @@ namespace UnityTemplateProjects.UI
         public void ShowHideinGameUIGroup()
         {
             inGameUIGroup.SetActive(!inGameUIGroup.activeSelf);
+            // Pause 
+
+            
+            
             ChangeRatingText(SaveManager.Instance.playerProfile.currentRating);
             ChangeGamesText(SaveManager.Instance.playerProfile.gamesPlayed);
             ChangeWinText(SaveManager.Instance.playerProfile.gamesWon);
@@ -101,6 +125,7 @@ namespace UnityTemplateProjects.UI
 
             ShowHidePostLevelGroup();
             mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
+            SoundManager.Instance.PlayMenuMusic();
 
         }
         public void ShowHideMainMenuGroupFromFailedButton()
@@ -114,6 +139,7 @@ namespace UnityTemplateProjects.UI
 
             ShowHidePostFailedLevelGroup();
             mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
+            SoundManager.Instance.PlayMenuMusic();
 
         }
         
@@ -127,6 +153,7 @@ namespace UnityTemplateProjects.UI
             GameManager.Instance.RemoveObjects();
             ShowHidePauseMenu();
             mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
+            SoundManager.Instance.PlayMenuMusic();
 
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using ProjectAssets.SFX;
 using UnityEngine;
 
 namespace ProjectAssets.Scripts.Gameplay
@@ -43,6 +44,7 @@ namespace ProjectAssets.Scripts.Gameplay
             Debug.Log(other.name);
             if (other.CompareTag("Player"))
             {
+                SoundManager.Instance.PlayPickupClip();
                 GameManager.Instance.RemoveKeys(this.gameObject);
                 Destroy(this.gameObject);
 

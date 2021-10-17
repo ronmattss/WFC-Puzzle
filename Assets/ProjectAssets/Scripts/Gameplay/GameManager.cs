@@ -4,6 +4,7 @@ using ProjectAssets.Scripts.Gameplay.Pathfinding;
 using ProjectAssets.Scripts.Player;
 using ProjectAssets.Scripts.Puzzle_Generation;
 using ProjectAssets.Scripts.Util;
+using ProjectAssets.SFX;
 using TMPro;
 using UnityEngine;
 using UnityTemplateProjects;
@@ -37,7 +38,7 @@ namespace ProjectAssets.Scripts.Gameplay
 
         public GameObject player;
         public GameObject gCellObject;
-        [SerializeField] private BoardMovement playerMovement;
+        public BoardMovement playerMovement;
 
         public Cell currentCell;
         public Cell endCell;
@@ -139,6 +140,7 @@ namespace ProjectAssets.Scripts.Gameplay
             
             UIManager.Instance.ShowHideMainMenuGroup();
             UIManager.Instance.ShowHideinGameUIGroup();
+            SoundManager.Instance.PlayGameMusic();
             playerMovement.totalMoves = 0;
         }
 
@@ -258,6 +260,7 @@ namespace ProjectAssets.Scripts.Gameplay
             player.GetComponent<BoardMovement>().SetStartPosition(solver.GetStartCellPosition());
             ChangeGridColorOfSolvedPath();
             playerMovement = player.GetComponent<BoardMovement>();
+            playerMovement.enabled = true;
             CameraManager.Instance.vCam.transform.gameObject.SetActive((true));
             CameraManager.Instance.vCam.Follow = player.transform;
             CameraManager.Instance.vCam.LookAt = player.transform;
