@@ -367,6 +367,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 0.5, y: -50, z: 3.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &32817374
 Transform:
   m_ObjectHideFlags: 0
@@ -1027,6 +1028,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 1.5, y: -50, z: 1.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &75234370
 Transform:
   m_ObjectHideFlags: 0
@@ -2330,6 +2332,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 3.5, y: -50, z: 3.5}
   cellOnPosition: 0
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &173570624
 Transform:
   m_ObjectHideFlags: 0
@@ -3047,6 +3050,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 3.5, y: -50, z: 3.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &245259201
 Transform:
   m_ObjectHideFlags: 0
@@ -4138,6 +4142,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 2.5, y: -50, z: 3.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &283262479
 Transform:
   m_ObjectHideFlags: 0
@@ -4421,6 +4426,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &307238593
 Transform:
   m_ObjectHideFlags: 0
@@ -5089,6 +5095,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 3.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &338187016
 Transform:
   m_ObjectHideFlags: 0
@@ -5232,6 +5239,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 1.5, y: -50, z: 0.5}
   cellOnPosition: 0
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &341716374
 Transform:
   m_ObjectHideFlags: 0
@@ -5903,6 +5911,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!1 &380623969
 GameObject:
   m_ObjectHideFlags: 0
@@ -6865,6 +6874,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 0.5, y: -50, z: 2.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &447479536
 Transform:
   m_ObjectHideFlags: 0
@@ -8455,6 +8465,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 3.5, y: -50, z: 0.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &541710018
 Transform:
   m_ObjectHideFlags: 0
@@ -9406,6 +9417,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 2.5, y: -50, z: 4.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &660141904
 Transform:
   m_ObjectHideFlags: 0
@@ -9631,6 +9643,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 0.5, y: -50, z: 1.5}
   cellOnPosition: 0
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &665039503
 Transform:
   m_ObjectHideFlags: 0
@@ -9860,6 +9873,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 4.5, y: -50, z: 3.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &683910534
 Transform:
   m_ObjectHideFlags: 0
@@ -10467,6 +10481,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 2.5, y: -50, z: 0.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &762972616
 Transform:
   m_ObjectHideFlags: 0
@@ -10528,6 +10543,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &764106406
 Transform:
   m_ObjectHideFlags: 0
@@ -10753,6 +10769,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 1.5, y: -50, z: 4.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &808427495
 Transform:
   m_ObjectHideFlags: 0
@@ -11099,6 +11116,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 4.5, y: -50, z: 1.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &858620934
 Transform:
   m_ObjectHideFlags: 0
@@ -12216,6 +12234,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 4.5, y: -50, z: 2.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &954023209
 Transform:
   m_ObjectHideFlags: 0
@@ -12427,6 +12446,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 1.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &972559829
 Transform:
   m_ObjectHideFlags: 0
@@ -12652,6 +12672,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 0.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &992169855
 Transform:
   m_ObjectHideFlags: 0
@@ -13620,6 +13641,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!1 &1098615343
 GameObject:
   m_ObjectHideFlags: 0
@@ -13998,6 +14020,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 1.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1135862492
 Transform:
   m_ObjectHideFlags: 0
@@ -14931,6 +14954,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 4.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1184724072
 Transform:
   m_ObjectHideFlags: 0
@@ -15235,6 +15259,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 0.5, y: -50, z: 4.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1216674998
 Transform:
   m_ObjectHideFlags: 0
@@ -15412,6 +15437,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 2.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1227474517
 Transform:
   m_ObjectHideFlags: 0
@@ -18129,6 +18155,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 0.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1419834757
 Transform:
   m_ObjectHideFlags: 0
@@ -19781,6 +19808,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 4.5, y: -50, z: 0.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1560524055
 Transform:
   m_ObjectHideFlags: 0
@@ -20562,6 +20590,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 2.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1591810216
 Transform:
   m_ObjectHideFlags: 0
@@ -20955,6 +20984,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 0.5, y: -50, z: 0.5}
   cellOnPosition: 0
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1612921370
 Transform:
   m_ObjectHideFlags: 0
@@ -21396,6 +21426,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 3.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1628000345
 Transform:
   m_ObjectHideFlags: 0
@@ -23583,6 +23614,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 3.5, y: -50, z: 4.5}
   cellOnPosition: 0
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1724627009
 Transform:
   m_ObjectHideFlags: 0
@@ -24394,6 +24426,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 3.5, y: -50, z: 1.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1758313313
 Transform:
   m_ObjectHideFlags: 0
@@ -24718,10 +24751,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4203b948028398541943a59a8c365599, type: 2}
   - {fileID: 11400000, guid: afee8a9ae429f6e429dc12911c579c9e, type: 2}
   - {fileID: 11400000, guid: cd1a5f52763dd2e469f1d8c0bd776a07, type: 2}
-  - {fileID: 11400000, guid: 6fcdb2ebcd4bc404e986017869d5662a, type: 2}
-  - {fileID: 11400000, guid: 83910263dde73d5479803bb5b69ec71b, type: 2}
-  - {fileID: 11400000, guid: 0f73ef90f91973742b026e75cb1994b9, type: 2}
-  - {fileID: 11400000, guid: 9ecf785d37768874cb1105ea8e62d2f8, type: 2}
   - {fileID: 11400000, guid: 44dbf03e9e7eae142869ff3223a7bd96, type: 2}
   - {fileID: 11400000, guid: 828f102c6ad149c40ae8c4c2ae07f298, type: 2}
   - {fileID: 11400000, guid: 934d7ccafa369ea489e751663342784f, type: 2}
@@ -25383,6 +25412,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 4.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1851017475
 Transform:
   m_ObjectHideFlags: 0
@@ -25459,6 +25489,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 5.5, y: -50, z: 5.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!1 &1859545995
 GameObject:
   m_ObjectHideFlags: 0
@@ -25621,6 +25652,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 3.5, y: -50, z: 2.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1862108799
 Transform:
   m_ObjectHideFlags: 0
@@ -26311,6 +26343,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 1.5, y: -50, z: 3.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1953352028
 Transform:
   m_ObjectHideFlags: 0
@@ -26536,6 +26569,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 2.5, y: -50, z: 2.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &1991616798
 Transform:
   m_ObjectHideFlags: 0
@@ -26813,6 +26847,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 1.5, y: -50, z: 2.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &2000543682
 Transform:
   m_ObjectHideFlags: 0
@@ -27038,6 +27073,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 4.5, y: -50, z: 4.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &2011655301
 Transform:
   m_ObjectHideFlags: 0
@@ -27341,6 +27377,7 @@ MonoBehaviour:
   cellPositionDisabled: {x: 2.5, y: -50, z: 1.5}
   cellOnPosition: 1
   isRotatable: 1
+  lockRotation: 0
 --- !u!4 &2029446054
 Transform:
   m_ObjectHideFlags: 0
@@ -28458,7 +28495,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7768762, y: 1}
+    m_SensorSize: {x: 1.7776026, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

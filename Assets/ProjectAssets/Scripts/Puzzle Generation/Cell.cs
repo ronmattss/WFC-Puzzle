@@ -30,8 +30,11 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         public ConnectionType[] edges = new ConnectionType[4];
         public Vector3 cellPosition;
         public Vector3 cellPositionDisabled;
+        
+        
         public bool cellOnPosition = true;
         public bool isRotatable = true;
+        public bool lockRotation = false;
         
         public int HeapIndex { get; set; }
 
@@ -238,6 +241,14 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, 20)
                 .Select(s => s[Random.Range(0,s.Length)]).ToArray());
+        }
+
+        public void RotationLock()
+        {
+            if (lockRotation)
+            {
+                isRotatable = false;
+            }
         }
 
 

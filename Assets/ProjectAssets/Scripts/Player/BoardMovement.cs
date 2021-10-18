@@ -209,6 +209,10 @@ namespace ProjectAssets.Scripts.Player
         private void OnMovementComplete()
         {
             jammoAnimator.SetBool("isRunning",false);
+            
+            // Have some other Condition here
+            currentCell.RotationLock();
+            
             currentCell = GameManager.Instance.GetCurrentCell((int) Math.Floor(x),
                 (int) Math.Floor(y));
             //   availablePath = currentCell.direction; // <- culprit??? available path is copied to the current cell from the prev cell after moving
@@ -222,7 +226,7 @@ namespace ProjectAssets.Scripts.Player
             cellObjectTransform = currentCell.gameObject.transform;
             GameManager.Instance.GoalChecker(currentCell);
             GetCurrentCellPosition();
-            CellVisuals.Instance.ChangeGridColor(currentCell,Color.white);
+            CellVisuals.Instance.ChangeGridColor(currentCell,Color.white); // instead of White 
             CellVisuals.Instance.ChangeWallColor(currentCell,Color.yellow);
             
         }
@@ -502,7 +506,10 @@ namespace ProjectAssets.Scripts.Player
             {
                 var c = cell.gameObject.GetComponent<Cell>();
                 CellVisuals.Instance.ChangeGridColor(c,Color.white);
-                CellVisuals.Instance.ChangeWallColor(c,Color.green);
+                if(c.isRotatable)
+                    CellVisuals.Instance.ChangeWallColor(c,Color.green);
+                else
+                    CellVisuals.Instance.ChangeWallColor(c,Color.magenta);
 
             }
 

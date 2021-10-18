@@ -79,7 +79,12 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         {
             cellPath.Clear();            // make sure 
             cellPath = walk.completedPath;
+            foreach (var cell in cellPath)
+            {
+                cell.lockRotation = true;
+            }
 
+            cellPath[cellPath.Count-1].lockRotation = false;
             Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
 
             
