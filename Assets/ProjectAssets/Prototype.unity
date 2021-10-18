@@ -24715,7 +24715,7 @@ MonoBehaviour:
   levelGenerator: {fileID: 1605061400}
   debugMoves: 20
   cellGameObjects: []
-  hasDDA: 0
+  hasDDA: 1
 --- !u!4 &1784948915
 Transform:
   m_ObjectHideFlags: 0
