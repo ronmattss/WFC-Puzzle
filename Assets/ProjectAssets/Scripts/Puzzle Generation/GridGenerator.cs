@@ -23,7 +23,7 @@ public class GridGenerator : MonoBehaviour
         {
             gridArray = new int[width,height];
             cells = new Cell[width,height];
-            Debug.Log($"{width} {height}");
+//            Debug.Log($"{width} {height}");
 
             GameManager.Instance.SetBoardSize(width,height);
             #region GridCellGeneration

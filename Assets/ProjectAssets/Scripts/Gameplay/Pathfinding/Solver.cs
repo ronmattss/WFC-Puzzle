@@ -85,7 +85,8 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             }
 
             cellPath[cellPath.Count-1].lockRotation = false;
-            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
+            DebugShowPath();
+//            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
 
             
         }
@@ -168,7 +169,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
         public Vector3 GetStartCellPosition()
         {
-            Debug.Log($"Last Cell path: {cellPath[cellPath.Count-1].gameObject.transform.position}");
+//            Debug.Log($"Last Cell path: {cellPath[cellPath.Count-1].gameObject.transform.position}");
             return cellPath[cellPath.Count-1].gameObject.transform.position;
         }
 
@@ -181,7 +182,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             for (int i = 0; i < cellPath.Count; i++)
             {
                 cellPath[i].module = selectedRandomCells[Random.Range(0, selectedRandomCells.Count)];
-                Debug.Log($"Cell at index {i} is changed");
+//                Debug.Log($"Cell at index {i} is changed");
             }
             // cell 0 should be open
             cellPath[0].module = endGoalModule;

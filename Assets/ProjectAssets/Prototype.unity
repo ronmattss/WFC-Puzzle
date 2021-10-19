@@ -24715,7 +24715,7 @@ MonoBehaviour:
   levelGenerator: {fileID: 1605061400}
   debugMoves: 20
   cellGameObjects: []
-  hasDDA: 1
+  hasDDA: 0
 --- !u!4 &1784948915
 Transform:
   m_ObjectHideFlags: 0
@@ -24768,7 +24768,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784948913}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28495,7 +28495,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7776026, y: 1}
+    m_SensorSize: {x: 1.7772585, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

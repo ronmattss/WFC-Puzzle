@@ -100,13 +100,18 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
                         Debug.Log("Help I'm Stuck Forever");
                         break;
                     }
+
                     path.Push(currentPath);
+                    Debug.Log($"Steps-in: {steps } stack: {path.Count}");
+
                     steps--;
 
                 }
                 else
                 {
                     path.Push(currentPath);
+                    Debug.Log($"Steps: {steps } Stack Count: {path.Count}");
+
                     steps--;
                 }
                 
@@ -114,7 +119,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
             }
 
-            Debug.Log("Walk Complete");
+            Debug.Log($"Walk Complete: {path.Count}");
             while (path.Count != 0)
             {
                 completedPath.Add(path.Pop().currentCell);
@@ -144,11 +149,12 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
            newPath.visitedPathCells.Add(previousPath.currentCell);
            
           var redirectedPath = new CellPath(RandomlyAssignNewCell(newPath),newPath.visitedPathCells);
+          steps++; // increment steps when popping
           if (redirectedPath.currentCell == null || redirectedPath.visitedPathCells.Contains(redirectedPath.currentCell)) // OR if this current cell is in the visited cell then backtrack again
           {
               BackTrack();
           }
-
+            
           return redirectedPath;
         }
 

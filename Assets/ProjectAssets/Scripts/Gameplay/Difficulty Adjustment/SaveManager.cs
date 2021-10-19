@@ -32,7 +32,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             {
                 playerProfile = new PlayerProfile();
             var file = File.ReadAllText(filePath);
-            Debug.Log(file.Length);
+//            Debug.Log(file.Length);
             Debug.Log($"Loaded Profile of: {playerProfile.userName}");
 
             playerProfile =  JsonUtility.FromJson<PlayerProfile>(file);

@@ -19,18 +19,7 @@ namespace ProjectAssets.Scripts.Gameplay
         // Update is called once per frame
         void LateUpdate()
         {
-            if (GetComponent<Renderer>().isVisible)
-            {
-                Debug.Log("Visible");
-       //         targetIndicator.enabled = false;
-            }
-            else
-            {
-                Debug.Log("Invisible");
 
-         //       targetIndicator.enabled = true;
-                
-            }
         }
 
         void Spin()
@@ -51,14 +40,5 @@ namespace ProjectAssets.Scripts.Gameplay
             }
         }
 
-        private void OnBecameInvisible()
-        {
-            targetIndicator.enabled = true;
-        }
-
-        private void OnBecameVisible()
-        {
-            targetIndicator.enabled = false;
-        }
     }
 }

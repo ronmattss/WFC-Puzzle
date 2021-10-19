@@ -308,13 +308,19 @@ namespace ProjectAssets.Scripts.Gameplay
             cells.Remove(cells[cells.Count - 1]);
             cells.Remove(cells[0]);
 
+            int[] keyIndex = {
+                UnityEngine.Random.Range(cells.Count-2,cells.Count-4),
+                cells.Count/2,
+                UnityEngine.Random.Range(2,4),
+
+            };
             for (int i = 0; i < numOfKeys; i++)
             {
                 var index = UnityEngine.Random.Range(0, cells.Count);
                 Vector3 keyPosition =
-                    new Vector3(cells[index].transform.position.x, .25f, cells[index].transform.position.z);
+                    new Vector3(cells[keyIndex[i]].transform.position.x, .25f, cells[keyIndex[i]].transform.position.z);
                 var key = Instantiate(keyObjectPrefab, keyPosition, Quaternion.identity);
-                cells.Remove(cells[index]);
+                cells.Remove(cells[keyIndex[i]]);
                 keysList.Add(key);
             }
         }

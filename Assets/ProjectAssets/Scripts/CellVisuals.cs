@@ -22,7 +22,7 @@ namespace ProjectAssets.Scripts
 
             for (int i = 0; i < childCount; i++)
             {
-                Debug.Log($"Current Cell Children: {gObjectObject.GetChild(i).name}");
+                //                Debug.Log($"Current Cell Children: {gObjectObject.GetChild(i).name}");
                 cellRenderers.Add(gObjectObject.GetChild(i).GetComponent<Renderer>());
             }
 
@@ -40,7 +40,7 @@ namespace ProjectAssets.Scripts
            
 
             // visualsGameObject = gObjectObject.transform.GetChildren
-            Debug.Log($"Child Count{childCount}");
+//            Debug.Log($"Child Count{childCount}");
             
             cellRenderers.Clear();
         }

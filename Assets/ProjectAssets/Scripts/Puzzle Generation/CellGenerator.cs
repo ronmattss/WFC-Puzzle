@@ -125,7 +125,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             
             GameManager.Instance.SetActiveCells(cells);
             GameManager.Instance.SetPlayerPosition();
-            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
+//            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
             
             //TODO is 
             // remove all Gameobjects in the cell path with Closed Modules
@@ -212,7 +212,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             } while (endCell == startCell);
 
             endCell.SetModule(endModule);
-            Debug.Log($"Start Cell: {startCell.name} End Cell: {endCell.name}");
+//            Debug.Log($"Start Cell: {startCell.name} End Cell: {endCell.name}");
             
             
             // Get starCell Position
