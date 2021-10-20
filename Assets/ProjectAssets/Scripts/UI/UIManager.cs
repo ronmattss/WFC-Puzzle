@@ -59,7 +59,8 @@ namespace UnityTemplateProjects.UI
 
         public void ChangeMoveText(int pm = 0)
         {
-            moves.text = $"{expectedMoves}/{pm}";
+           // moves.text = $"{expectedMoves}/{pm}";
+            moves.text = $" Expected Moves: {expectedMoves -1}";
         }
         public void ChangeKeyText(int key)
         {
