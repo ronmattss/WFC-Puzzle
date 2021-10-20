@@ -23,17 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Goal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Goal.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/SelfAvoidingWalk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/SelfAvoidingWalk.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,10 +100,8 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/DebugTools.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/PlayerCollision.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/CameraManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/ButtonEvents.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Audio/AudioVertexHeight.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/ProcMesh.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Spinner.cs" />
@@ -113,15 +109,18 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/SelfAvoidingWalk.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/SelfAvoidingWalk.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
       </list>
     </option>
   </component>
@@ -270,7 +269,8 @@
       <workItem from="1634357036643" duration="5712000" />
       <workItem from="1634442927836" duration="5998000" />
       <workItem from="1634525463067" duration="6869000" />
-      <workItem from="1634615777991" duration="6254000" />
+      <workItem from="1634615777991" duration="9565000" />
+      <workItem from="1634699333810" duration="6330000" />
     </task>
     <servers />
   </component>

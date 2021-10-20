@@ -13,7 +13,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         public CellPath StartPathCell = new CellPath();
         public Stack<CellPath> path = new Stack<CellPath>();
         public List<Cell> completedPath = new List<Cell>();
-        
+        private int giveUp;
         // Get First the starting cell
         public SelfAvoidingWalk(Cell cell,int step)
         {
@@ -21,6 +21,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             StartPathCell.currentCell = startingCell;
             StartPathCell.visitedPathCells.Add(startingCell);
             steps = step;
+            giveUp = 100;
         }
 
         void CheckIfVisited(CellPath cellPath)
@@ -149,7 +150,9 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
            newPath.visitedPathCells.Add(previousPath.currentCell);
            
           var redirectedPath = new CellPath(RandomlyAssignNewCell(newPath),newPath.visitedPathCells);
-          steps++; // increment steps when popping
+          if(giveUp> 0)
+                steps++; // increment steps when popping
+          giveUp--; // to force the algo to give up walking  (anti- stack overflow)
           if (redirectedPath.currentCell == null || redirectedPath.visitedPathCells.Contains(redirectedPath.currentCell)) // OR if this current cell is in the visited cell then backtrack again
           {
               BackTrack();

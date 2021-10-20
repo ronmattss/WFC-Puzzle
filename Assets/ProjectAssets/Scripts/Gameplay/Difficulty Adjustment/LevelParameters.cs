@@ -150,13 +150,14 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             {
                 return expectedMoves * .7;
             }
-            if (( expectedMoves * .79) >= playerMovement && playerMovement >= (expectedMoves * .50))
+            if (( expectedMoves * .69) >= playerMovement && playerMovement >= (expectedMoves * .50))
             {
                 return expectedMoves * .5;
             }
             return result;
         }
 
+        // FUZZY Logic ?
         public double SetPlayerTimeCompletionScore(double remainingTime)
         {
             var playerTime = (remainingTime);

@@ -20,6 +20,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         public Module endGoalModule;
          public LineRenderer debugRenderer;
          public SelfAvoidingWalk walk;
+
          
          // Self Avoiding Walk
 
@@ -85,7 +86,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             }
 
             cellPath[cellPath.Count-1].lockRotation = false;
-            DebugShowPath();
+            //DebugShowPath();
 //            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
 
             

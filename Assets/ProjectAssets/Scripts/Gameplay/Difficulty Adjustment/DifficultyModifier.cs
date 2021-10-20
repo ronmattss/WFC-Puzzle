@@ -330,7 +330,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            return result;
        }
 
-
+        // Rules
        int BoardSizeRatingRange(double playerRating)
        {
            if (playerRating < 20)
@@ -369,6 +369,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        
        // if (puzzleRating >= (levelGenerated.playerRating - 5) && levelGenerated.playerRating <= puzzleRating &&
        // puzzleRating <= levelGenerated.playerRating+ 5)
+       // Rules
        int LowerRatingBound(int puzzleRating)
        {
            if (puzzleRating < 20)        // its hard to generate puzzles lower than 20

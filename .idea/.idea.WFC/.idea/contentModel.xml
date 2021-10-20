@@ -103,6 +103,7 @@
               <e p="Difficulty Adjustment" t="Include">
                 <e p="DifficultyManager.cs" t="Include" />
                 <e p="DifficultyModifier.cs" t="Include" />
+                <e p="Fuzzy.cs" t="Include" />
                 <e p="LevelParameters.cs" t="Include" />
                 <e p="SaveManager.cs" t="Include" />
               </e>

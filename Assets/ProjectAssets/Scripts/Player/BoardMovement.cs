@@ -36,6 +36,8 @@ namespace ProjectAssets.Scripts.Player
         private int _danceIndex = 0;
         private bool canMove = true;
 
+        public int forceRotation = 3;
+
         private void Start()
         {
 
@@ -85,6 +87,7 @@ namespace ProjectAssets.Scripts.Player
             EnableDisableNeighbor();
             GetCurrentCellPosition();
             MovePlayer();
+            forceRotation = 3;
 
 
         }
@@ -254,6 +257,11 @@ namespace ProjectAssets.Scripts.Player
                 CheckAvailablePath();
 
             }
+            
+            else if (Input.GetKeyDown(KeyCode.F))
+            {
+                UnlockRotationOfCells();
+            }
 
         }
 
@@ -305,6 +313,41 @@ namespace ProjectAssets.Scripts.Player
         {
            
             isCellRotating = false;
+        }
+
+        private void UnlockRotationOfCells()
+        {
+            bool hasLockedCell = !currentCell.isRotatable;
+
+            for (int i = 0; i < currentCell.neighbors.Length; i++)
+            {
+                if (currentCell.neighbors[i] != null && !currentCell.neighbors[i].isRotatable )
+                {
+                    hasLockedCell = true;
+                }
+            }
+
+            if (hasLockedCell && forceRotation > 0)
+            {
+                currentCell.lockRotation = false;
+                currentCell.isRotatable = true;
+               // CellVisuals.Instance.ChangeWallColor(c,Color.green);
+
+                for (int i = 0; i < currentCell.neighbors.Length; i++)
+                {
+                    if (currentCell.neighbors[i] != null)
+                    {
+                        currentCell.neighbors[i].lockRotation = false;
+                        currentCell.neighbors[i].isRotatable = true;
+                        
+                        CellVisuals.Instance.ChangeWallColor(currentCell.neighbors[i],Color.green);
+
+                    }
+                }
+
+                forceRotation--;
+            }
+            // unlock all 
         }
 
         private void RotateNeighborCells(int degrees)
