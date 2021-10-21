@@ -37,6 +37,9 @@ namespace ProjectAssets.Scripts.Player
         private bool canMove = true;
 
         public int forceRotation = 3;
+        
+        
+        private float cellRotationSpeed = 0.075f;
 
         private void Start()
         {
@@ -87,7 +90,7 @@ namespace ProjectAssets.Scripts.Player
             EnableDisableNeighbor();
             GetCurrentCellPosition();
             MovePlayer();
-            forceRotation = 3;
+            forceRotation = 0;
 
 
         }
@@ -302,7 +305,7 @@ namespace ProjectAssets.Scripts.Player
             cellQuaternion.eulerAngles = cellEuler;
             //cellObjectTransform.rotation = cellQuaternion;
             isCellRotating = !isCellRotating;
-            cellObjectTransform.LeanRotate(cellEuler,.1f).setOnComplete(RotateCurrentCell);
+            cellObjectTransform.LeanRotate(cellEuler,cellRotationSpeed).setOnComplete(RotateCurrentCell);
            currentCell.RotateRight();
              //<- probably culprit
             // If Available Path is open check if neighbor path is Open
@@ -345,6 +348,7 @@ namespace ProjectAssets.Scripts.Player
                     }
                 }
 
+                GameManager.Instance.DecrementKeys();
                 forceRotation--;
             }
             // unlock all 
@@ -374,7 +378,7 @@ namespace ProjectAssets.Scripts.Player
                     // currentCell.neighbors[i]
                     //     .transform.rotation = neighborRotation;
                     currentCell.neighbors[i]
-                        .transform.LeanRotate(neighborRotationEulerAngles, .1f).setOnComplete(OnNeighborCellFinishRotating);
+                        .transform.LeanRotate(neighborRotationEulerAngles, cellRotationSpeed).setOnComplete(OnNeighborCellFinishRotating);
                     currentCell.neighbors[i]
                         .RotateLeft();
                 }

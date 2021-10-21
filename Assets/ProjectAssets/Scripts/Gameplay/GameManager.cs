@@ -102,7 +102,7 @@ namespace ProjectAssets.Scripts.Gameplay
                 {
                     modifier.CountDownTimer();
                 }
-                if (currentKeys == 0 && playerMovement.totalMoves >= (modifier.levelGenerated.expectedMoves-1))
+                if (/*currentKeys == 0 &&*/ playerMovement.totalMoves >= (modifier.levelGenerated.expectedMoves-1))
                 {
                     LowerGates();
                     ModifyPathOfEndGoal(true);
@@ -277,10 +277,11 @@ namespace ProjectAssets.Scripts.Gameplay
 
         void ChangeGridColorOfSolvedPath()
         {
-            foreach (var cell in solver.cellPath)
-            {
-                CellVisuals.Instance.ChangeGridColor(cell,Color.yellow);
-            }
+            CellVisuals.Instance.GradientPath(solver.cellPath);
+            // foreach (var cell in solver.cellPath)
+            // {
+            //     CellVisuals.Instance.ChangeGridColor(cell,Color.yellow);
+            // }
         }
 
         void ModifyPathOfEndGoal(bool isOpen)
@@ -303,7 +304,7 @@ namespace ProjectAssets.Scripts.Gameplay
         {
             // three 
             var numOfKeys = initialKeys;
-            currentKeys = numOfKeys;
+            //currentKeys = numOfKeys;
             List<Cell> cells = new List<Cell>(solver.cellPath);
             cells.Remove(cells[cells.Count - 1]);
             cells.Remove(cells[0]);
@@ -323,23 +324,30 @@ namespace ProjectAssets.Scripts.Gameplay
                 cells.Remove(cells[keyIndex[i]]);
                 keysList.Add(key);
             }
+            
         }
 
-        void DecrementKeys()
+       public void DecrementKeys()
         {
             if (currentKeys > 0)
             {
                 currentKeys--;
                 UIManager.Instance.ChangeKeyText(currentKeys);
             }
-
-
+        }
+        public void IncrementKeys()
+        {
+           
+                currentKeys++;
+                playerMovement.forceRotation++;
+                UIManager.Instance.ChangeKeyText(currentKeys);
+            
         }
 
         public void RemoveKeys(GameObject key)
         {
             keysList.Remove(key);
-            DecrementKeys();
+            IncrementKeys();
         }
 
         void CheckIfKeysPersist()

@@ -237,11 +237,11 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var baseTime = allocatedTime;
             var playerTime = playerRemainingTime;
            //  36 >= 32 >= .7
-            if (baseTime >= playerTime && playerTime >= (baseTime * .70))
+            if (baseTime >= playerTime && playerTime >= (baseTime * .60))
             {
                 return 1;
             }
-            if (( baseTime * .69) >= playerTime && playerTime >= (baseTime * .50))
+            if (( baseTime * .59) >= playerTime && playerTime >= (baseTime * .40))
             {
                 return 0.05;
             }

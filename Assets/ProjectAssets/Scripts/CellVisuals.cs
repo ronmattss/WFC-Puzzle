@@ -10,6 +10,7 @@ namespace ProjectAssets.Scripts
         
         private List<Renderer> cellRenderers = new List<Renderer>();
          private Color baseWallColor = new Color(9,18,91);
+         public Gradient pathGradient;
         
         // Get Cell GameObject.GameObject
 
@@ -107,9 +108,34 @@ namespace ProjectAssets.Scripts
                     //     LeanTween.easeInSine(rgbOld.y, rgbNew.y, 0.25f),
                     //     LeanTween.easeInSine(rgbOld.z, rgbNew.z, 0.25f));
                     gObjectObject.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor",baseWallColor * 0.01f);
-
-                
+          
             
+        }
+
+        public void GradientPath(List<Cell> cellPath)
+        {
+            
+            // colors = new Color[vertices.Length];
+            // for (int z = 0, i = 0; z <= zSize; z++)
+            // {
+            //     for (int x = 0; x <= xSize; x++)
+            //     {
+            //         float height =Mathf.InverseLerp(minTerrainHeight,maxTerrainHeight, verts[i].y);
+            //         colors[i] = gradient.Evaluate(height);
+            //         i++;
+            //     }
+            // }
+
+            for (var index = 0; index < cellPath.Count; index++)
+            {
+                float gradientMap =Mathf.InverseLerp(cellPath.Count,0, index);
+
+                var cell = cellPath[index];
+                var gObjectObject = cell.gameObject.transform.GetChild(0); // Get the first 
+                gObjectObject.GetChild(3).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                gObjectObject.GetChild(3).GetComponent<Renderer>().material.SetColor("_EmissionColor",pathGradient.Evaluate(gradientMap));
+
+            }
         }
         
         

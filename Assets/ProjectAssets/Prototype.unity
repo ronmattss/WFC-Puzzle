@@ -1989,7 +1989,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: eb9686220b1a164499bef5af3608b80e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.68
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2083,9 +2083,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8d78fcf5bc841004586d18671c025bec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5797e9369ec3e3449843aa3a8de3306f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11630,6 +11630,7 @@ MonoBehaviour:
   jammoAnimator: {fileID: 0}
   countdownToDanceIdle: 5
   totalMoves: 0
+  forceRotation: 3
 --- !u!136 &911762629
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24715,7 +24716,7 @@ MonoBehaviour:
   levelGenerator: {fileID: 1605061400}
   debugMoves: 20
   cellGameObjects: []
-  hasDDA: 0
+  hasDDA: 1
 --- !u!4 &1784948915
 Transform:
   m_ObjectHideFlags: 0
@@ -24761,6 +24762,7 @@ MonoBehaviour:
     startingCell: {fileID: 0}
     steps: 0
     completedPath: []
+  debugMode: 0
 --- !u!120 &1784948917
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -24768,7 +24770,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784948913}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -24980,6 +24982,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076199eed4054a2eac8e331ecafb1e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathGradient:
+    serializedVersion: 2
+    key0: {r: 0.024262428, g: 0, b: 1, a: 1}
+    key1: {r: 0, g: 0.9400835, b: 1, a: 1}
+    key2: {r: 0.56589353, g: 0, b: 0.5060865, a: 0}
+    key3: {r: 1, g: 0, b: 0.110224724, a: 0}
+    key4: {r: 0.9918109, g: 1, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 17733
+    ctime2: 34695
+    ctime3: 47224
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 5
+    m_NumAlphaKeys: 2
 --- !u!1 &1793373885
 GameObject:
   m_ObjectHideFlags: 0
@@ -27614,7 +27645,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Keys: 3'
+  m_text: "Keys: \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28495,7 +28526,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772585, y: 1}
+    m_SensorSize: {x: 1.7775468, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

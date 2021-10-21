@@ -102,7 +102,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                   _ => levelMoves
               };
           else
-              levelMoves = parameters.SetExpectedMoves(); // add how many moves
+          {
+              levelMoves = parameters.SetExpectedMoves();
+          } // add how many moves
 
 
           var levelTime = parameters.SetAllocatedTime();
@@ -123,7 +125,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             
             
             // if DDA is not enabled
-            if (!GameManager.Instance.hasDDA)
+            if (!GameManager.Instance.hasDDA || currentPlayer.gamesPlayed < 3)
             {
                 levelGenerated.playerMove = 0;
                 levelGenerated.expectedMoves = levelMoves;

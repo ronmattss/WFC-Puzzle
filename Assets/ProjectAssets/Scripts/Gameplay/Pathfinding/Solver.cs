@@ -20,7 +20,8 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         public Module endGoalModule;
          public LineRenderer debugRenderer;
          public SelfAvoidingWalk walk;
-
+        
+         public bool debugMode = false;
          
          // Self Avoiding Walk
 
@@ -44,6 +45,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
         void DebugShowPath()
         {
+            if (!debugMode) return;
             debugRenderer.enabled = true;
             debugRenderer.positionCount = cellPath.Count;
             for (var i = 0; i < cellPath.Count; i++)
@@ -53,7 +55,9 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
         }
 
-       bool CheckUniqueness()
+       
+
+        bool CheckUniqueness()
         {
             int similarCount = 0;
             var path = cellPath;
@@ -86,7 +90,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             }
 
             cellPath[cellPath.Count-1].lockRotation = false;
-            //DebugShowPath();
+            DebugShowPath();
 //            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
 
             
