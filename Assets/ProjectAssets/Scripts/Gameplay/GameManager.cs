@@ -359,6 +359,7 @@ namespace ProjectAssets.Scripts.Gameplay
             }
 
             keysList.Clear();
+            UIManager.Instance.ChangeKeyText(0);
         }
 
         public void LowerGates()
