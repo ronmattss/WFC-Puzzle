@@ -24,7 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,6 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/ProcMesh.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Spinner.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GoalBehavior.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" />
@@ -109,11 +109,12 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
       </list>
     </option>
   </component>
@@ -267,7 +268,7 @@
       <workItem from="1634723058741" duration="1189000" />
       <workItem from="1634783195260" duration="11687000" />
       <workItem from="1634864873937" duration="1780000" />
-      <workItem from="1634958324475" duration="342000" />
+      <workItem from="1634958324475" duration="3670000" />
     </task>
     <servers />
   </component>
@@ -386,23 +387,6 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634630763053" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs</url>
-          <line>91</line>
-          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\GameManager.cs" initialLine="89">
-            <startOffsets>
-              <option value="3164" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3193" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="this" language="C#" />
