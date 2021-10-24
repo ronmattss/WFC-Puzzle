@@ -24,8 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,9 +112,9 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -268,7 +268,8 @@
       <workItem from="1634723058741" duration="1189000" />
       <workItem from="1634783195260" duration="11687000" />
       <workItem from="1634864873937" duration="1780000" />
-      <workItem from="1634958324475" duration="3670000" />
+      <workItem from="1634958324475" duration="3681000" />
+      <workItem from="1635040171043" duration="3651000" />
     </task>
     <servers />
   </component>

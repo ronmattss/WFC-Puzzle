@@ -170,28 +170,38 @@ namespace ProjectAssets.Scripts.Gameplay
         {
             if (endCell.name.Equals(currentPlayerCell.name))
             {
-                // Compute the Level
-                if (modifier.levelGenerated.playerMove == (modifier.levelGenerated.expectedMoves -1))
-                {
-                    modifier.levelGenerated.playerMove = modifier.levelGenerated.expectedMoves;
-                }
-                modifier.ComputeLevelScore();
-                SaveManager.Instance.SaveProfile();
-                UIManager.Instance.ShowHideinGameUIGroup();
-                UIManager.Instance.ShowHidePostLevelGroup();
+                EndGoalAnimation();
+            }
+        }
+
+        public void EndGoalAnimation()
+        {
+            playerMovement.gameObject.transform.LeanMoveY(50, 1).setEaseInCirc().setOnComplete(PostEndGoal);
+        }
+
+        void PostEndGoal()
+        {
+            // Compute the Level
+            if (modifier.levelGenerated.playerMove == (modifier.levelGenerated.expectedMoves -1))
+            {
+                modifier.levelGenerated.playerMove = modifier.levelGenerated.expectedMoves;
+            }
+            modifier.ComputeLevelScore();
+            SaveManager.Instance.SaveProfile();
+            UIManager.Instance.ShowHideinGameUIGroup();
+            UIManager.Instance.ShowHidePostLevelGroup();
                 
-                //Stuff Remover
-                for (int i = 0; i < cellGameObjects.Count; i++)
-                {
-                    Destroy(cellGameObjects[i]);
-                }
-                cellGameObjects.Clear();
-                RemoveObjects();
+            //Stuff Remover
+            for (int i = 0; i < cellGameObjects.Count; i++)
+            {
+                Destroy(cellGameObjects[i]);
+            }
+            cellGameObjects.Clear();
+            RemoveObjects();
                
                 
                 
-                playerMovement.totalMoves = 0;
-            }
+            playerMovement.totalMoves = 0;
         }
 
         void RemoveObjectsInPlay()
@@ -324,7 +334,8 @@ namespace ProjectAssets.Scripts.Gameplay
                 cells.Remove(cells[keyIndex[i]]);
                 keysList.Add(key);
             }
-            
+            UIManager.Instance.ChangeKeyText(0);
+            currentKeys = 0;
         }
 
        public void DecrementKeys()
