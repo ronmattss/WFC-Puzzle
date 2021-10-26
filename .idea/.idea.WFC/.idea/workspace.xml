@@ -23,9 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/AForge.Fuzzy.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/AForge.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/profile.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,27 +106,27 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/DebugTools.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/PlayerCollision.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/CameraManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/ButtonEvents.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Audio/AudioVertexHeight.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/ProcMesh.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Aesthetics/Spinner.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GoalBehavior.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/SelfAvoidingWalk.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/CellVisuals.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/SFX/SoundManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" />
       </list>
     </option>
   </component>
@@ -269,7 +281,10 @@
       <workItem from="1634783195260" duration="11687000" />
       <workItem from="1634864873937" duration="1780000" />
       <workItem from="1634958324475" duration="3681000" />
-      <workItem from="1635040171043" duration="3651000" />
+      <workItem from="1635040171043" duration="4358000" />
+      <workItem from="1635125949124" duration="8746000" />
+      <workItem from="1635214412173" duration="19737000" />
+      <workItem from="1635246177166" duration="2015000" />
     </task>
     <servers />
   </component>
@@ -310,70 +325,70 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1632058177256" />
-    <state width="1877" height="105" key="GridCell.Tab.0.bottom" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.0.bottom" timestamp="1635246112262">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.0.center" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112262" />
+    <state width="1877" height="220" key="GridCell.Tab.0.center" timestamp="1635246112262">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.0.left" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112262" />
+    <state width="1877" height="220" key="GridCell.Tab.0.left" timestamp="1635246112262">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.0.right" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112262" />
+    <state width="1877" height="220" key="GridCell.Tab.0.right" timestamp="1635246112262">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.1.bottom" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112262" />
+    <state width="1877" height="220" key="GridCell.Tab.1.bottom" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.1.center" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.1.center" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.1.left" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.1.left" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.1.right" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.1.right" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.2.bottom" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.2.bottom" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.2.center" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.2.center" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.2.left" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.2.left" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.2.right" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.2.right" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.3.bottom" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.3.bottom" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.3.center" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.3.center" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.3.left" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.3.left" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
-    <state width="1877" height="105" key="GridCell.Tab.3.right" timestamp="1634813336703">
+    <state width="1877" height="220" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="220" key="GridCell.Tab.3.right" timestamp="1635246112263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="105" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1634813336703" />
+    <state width="1877" height="220" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1634630767976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -388,6 +403,23 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634630763053" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs</url>
+          <line>196</line>
+          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\Difficulty Adjustment\DifficultyModifier.cs" initialLine="191">
+            <startOffsets>
+              <option value="7390" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7464" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="this" language="C#" />
@@ -396,8 +428,23 @@
         <watch expression="debugPlayerRating" language="C#" />
         <watch expression="currentPlayer.gamesPlayed" language="C#" />
         <watch expression="levelRating" language="C#" />
+        <watch expression="ratingResult" language="C#" />
+        <watch expression="currentPlayerRating" language="C#" />
         <watch expression="moveValue" language="C#" />
         <watch expression="timeValue" language="C#" />
+        <watch expression="levelMoves" language="C#" />
+        <watch expression="randomBoardSize" language="C#" />
+        <watch expression="levelTime" language="C#" />
+        <watch expression="puzzleRating" language="C#" />
+        <watch expression="result" language="C#" />
+        <watch expression="nextLevelRating" language="C#" />
+        <watch expression="debugPlayerRating" language="C#" />
+        <watch expression="levelGenerated.playerRating" language="C#" />
+        <watch expression="currentPlayer.gamesPlayed" language="C#" />
+        <watch expression="levelGenerated.playerMoveOnSuggestedPath" language="C#" />
+        <watch expression="pathMoveScore" language="C#" />
+        <watch expression="pMovement" language="C#" />
+        <watch expression="moveRes" language="C#" />
       </configuration>
     </watches-manager>
   </component>

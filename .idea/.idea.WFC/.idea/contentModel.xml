@@ -146,6 +146,7 @@
           </e>
         </e>
         <e p="save" t="Include">
+          <e p="profile - Copy.json" t="Include" />
           <e p="profile.json" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

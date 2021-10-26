@@ -35,6 +35,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             walk = new SelfAvoidingWalk(currentCell,moves);
             walk.Walk();
             Walker();
+            GameManager.Instance.modifier.parameters.suggestedPath = cellPath.Count;
             //RandomDirection();
           //  CheckUniqueness();
             
@@ -87,6 +88,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             foreach (var cell in cellPath)
             {
                 cell.lockRotation = true;
+                cell.isSuggestedPath = true;
             }
 
             cellPath[cellPath.Count-1].lockRotation = false;

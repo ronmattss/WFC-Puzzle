@@ -368,6 +368,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &32817374
 Transform:
   m_ObjectHideFlags: 0
@@ -1029,6 +1030,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &75234370
 Transform:
   m_ObjectHideFlags: 0
@@ -2336,6 +2338,7 @@ MonoBehaviour:
   cellOnPosition: 0
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &173570624
 Transform:
   m_ObjectHideFlags: 0
@@ -3219,6 +3222,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &245259201
 Transform:
   m_ObjectHideFlags: 0
@@ -4311,6 +4315,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &283262479
 Transform:
   m_ObjectHideFlags: 0
@@ -4595,6 +4600,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &307238593
 Transform:
   m_ObjectHideFlags: 0
@@ -5264,6 +5270,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &338187016
 Transform:
   m_ObjectHideFlags: 0
@@ -5408,6 +5415,7 @@ MonoBehaviour:
   cellOnPosition: 0
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &341716374
 Transform:
   m_ObjectHideFlags: 0
@@ -6080,6 +6088,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!1 &380623969
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,6 +7127,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &447479536
 Transform:
   m_ObjectHideFlags: 0
@@ -8709,6 +8719,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &541710018
 Transform:
   m_ObjectHideFlags: 0
@@ -9736,6 +9747,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &660141904
 Transform:
   m_ObjectHideFlags: 0
@@ -9962,6 +9974,7 @@ MonoBehaviour:
   cellOnPosition: 0
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &665039503
 Transform:
   m_ObjectHideFlags: 0
@@ -10192,6 +10205,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &683910534
 Transform:
   m_ObjectHideFlags: 0
@@ -10800,6 +10814,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &762972616
 Transform:
   m_ObjectHideFlags: 0
@@ -10862,6 +10877,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &764106406
 Transform:
   m_ObjectHideFlags: 0
@@ -11088,6 +11104,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &808427495
 Transform:
   m_ObjectHideFlags: 0
@@ -11435,6 +11452,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &858620934
 Transform:
   m_ObjectHideFlags: 0
@@ -11948,6 +11966,7 @@ MonoBehaviour:
   jammoAnimator: {fileID: 0}
   countdownToDanceIdle: 5
   totalMoves: 0
+  moveOnPath: 0
   forceRotation: 3
 --- !u!136 &911762629
 CapsuleCollider:
@@ -12554,6 +12573,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &954023209
 Transform:
   m_ObjectHideFlags: 0
@@ -12841,6 +12861,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &972559829
 Transform:
   m_ObjectHideFlags: 0
@@ -13067,6 +13088,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &992169855
 Transform:
   m_ObjectHideFlags: 0
@@ -14036,6 +14058,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!1 &1098615343
 GameObject:
   m_ObjectHideFlags: 0
@@ -14451,6 +14474,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1135862492
 Transform:
   m_ObjectHideFlags: 0
@@ -15421,6 +15445,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1184724072
 Transform:
   m_ObjectHideFlags: 0
@@ -15762,6 +15787,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1216674998
 Transform:
   m_ObjectHideFlags: 0
@@ -15940,6 +15966,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1227474517
 Transform:
   m_ObjectHideFlags: 0
@@ -17122,7 +17149,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1288720235}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1784948914}
+        m_TargetAssemblyTypeName: ProjectAssets.Scripts.Gameplay.GameManager, Assembly-CSharp
+        m_MethodName: RegenerateLevelFedGenerateNewLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1288720235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18823,6 +18862,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1419834757
 Transform:
   m_ObjectHideFlags: 0
@@ -20551,6 +20591,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1560524055
 Transform:
   m_ObjectHideFlags: 0
@@ -21333,6 +21374,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1591810216
 Transform:
   m_ObjectHideFlags: 0
@@ -21727,6 +21769,7 @@ MonoBehaviour:
   cellOnPosition: 0
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1612921370
 Transform:
   m_ObjectHideFlags: 0
@@ -22169,6 +22212,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1628000345
 Transform:
   m_ObjectHideFlags: 0
@@ -24357,6 +24401,7 @@ MonoBehaviour:
   cellOnPosition: 0
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1724627009
 Transform:
   m_ObjectHideFlags: 0
@@ -25169,6 +25214,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1758313313
 Transform:
   m_ObjectHideFlags: 0
@@ -25675,6 +25721,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardSize: 6
   moves: 6
+  fuzzy:
+    curve:
+    - serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 10
+        outSlope: 10
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.1
+        value: 1
+        inSlope: 10
+        outSlope: -10
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.2
+        value: 0
+        inSlope: -10
+        outSlope: -10
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    - serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.15
+        value: 0
+        inSlope: 0
+        outSlope: 5.0000005
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.35
+        value: 1
+        inSlope: 5.0000005
+        outSlope: -2.857143
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0
+        inSlope: -2.857143
+        outSlope: 0.05212629
+        tangentMode: 5
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    - serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.65
+        value: 0
+        inSlope: -6.796118
+        outSlope: 9.999998
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.75
+        value: 1
+        inSlope: 9.999998
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: -0
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    curveRule: 
+    points: []
   isDDAActive: 1
   levelRatingDebug: 0
   debugMode: 0
@@ -25696,16 +25842,19 @@ MonoBehaviour:
     boardSize: 0
     allottedTime: 0
     expectedMoves: 0
+    suggestedPath: 0
     levelScore: 0
     levelRating: 0
     playerRating: 0
     playerMove: 0
+    playerMoveOnSuggestedPath: 0
     playerRemainingTime: 0
     playerScore: 0
     playerEvaluatedScore: 0
   parameters:
     boardSize: 4
     expectedMoves: 4
+    suggestedPath: 0
     allocatedTime: 20
     boardTime: 0
     expectedScore: 0
@@ -26186,6 +26335,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1851017475
 Transform:
   m_ObjectHideFlags: 0
@@ -26263,6 +26413,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!1 &1859545995
 GameObject:
   m_ObjectHideFlags: 0
@@ -26426,6 +26577,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1862108799
 Transform:
   m_ObjectHideFlags: 0
@@ -27117,6 +27269,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1953352028
 Transform:
   m_ObjectHideFlags: 0
@@ -27379,6 +27532,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &1991616798
 Transform:
   m_ObjectHideFlags: 0
@@ -27657,6 +27811,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &2000543682
 Transform:
   m_ObjectHideFlags: 0
@@ -27883,6 +28038,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &2011655301
 Transform:
   m_ObjectHideFlags: 0
@@ -28187,6 +28343,7 @@ MonoBehaviour:
   cellOnPosition: 1
   isRotatable: 1
   lockRotation: 0
+  isSuggestedPath: 0
 --- !u!4 &2029446054
 Transform:
   m_ObjectHideFlags: 0
@@ -29341,7 +29498,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786753, y: 1}
+    m_SensorSize: {x: 1.7789474, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

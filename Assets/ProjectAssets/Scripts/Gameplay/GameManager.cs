@@ -164,6 +164,17 @@ namespace ProjectAssets.Scripts.Gameplay
             UIManager.Instance.ShowHideinGameUIGroup();
             playerMovement.totalMoves = 0;
         }
+        public void RegenerateLevelFedGenerateNewLevel()
+        {
+            //modifier.ComputeLevelScore();
+            modifier.SetupDifficultyParameters();
+            solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
+            solver.expectedMoves = solverMoves;
+            levelGenerator.GenerateRandomLevel(modifier.boardSize);
+            UIManager.Instance.ShowHidePauseMenu();
+            UIManager.Instance.ShowHideinGameUIGroup();
+            playerMovement.totalMoves = 0;
+        }
 
         // This checks if the current Cell is the end cell
         public void GoalChecker(Cell currentPlayerCell)

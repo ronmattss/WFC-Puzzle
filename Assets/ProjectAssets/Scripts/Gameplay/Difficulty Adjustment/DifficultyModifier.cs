@@ -17,6 +17,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         [Range(0,100)]
         public int moves = 4;
 
+        public Fuzzy fuzzy;
+        
+        
         [Header("DDA")] public bool isDDAActive = true;
         
         public double levelRatingDebug = 0;
@@ -51,13 +54,30 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             
         }
 
-        public void GetPlayerMovement(int movement)
+        public void GetPlayerMovement(int movement,int pathMovement)
         {
                 
             levelGenerated.playerMove = movement;
+            levelGenerated.playerMoveOnSuggestedPath = pathMovement;
             UIManager.Instance.ChangeMoveText(movement);
-
         }
+        
+
+        void GetInitialRating()
+        {
+            if (currentPlayer.gamesPlayed == 3)
+            {
+                double average = 0;
+                for (int i = 0; i < 3; i++)
+                {
+                    average += currentPlayer.levelsPlayed[i].playerRating;
+                }
+
+                average /= 3;
+                currentPlayer.currentRating = average;
+            }
+        }
+        
         // invoke this after button press and after a level
         public void SetupDifficultyParameters() // we can edit this to for two builds With and wuthout DDA
         {
@@ -66,7 +86,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var rating = levelGenerated.playerRating;
             var randomBoardSize = 0;
 
-            // WHAT
+            // 
             if (currentPlayer.gamesPlayed < 3)
             {
                 randomBoardSize = currentPlayer.gamesPlayed switch
@@ -83,7 +103,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 if (GameManager.Instance.hasDDA)
                 {
                     randomBoardSize = rating < 11 ? 4 : BoardSizeRatingRange(rating); // Disable this if you want a full random board everytime (NO DDA)
-                    parameters.SetBoardSize(randomBoardSize); // Always the initial BoardSize
+                    parameters.SetBoardSize(randomBoardSize); // Always the initial BoardSize // Use data from previous levels
                 }
                 else
                 {
@@ -103,11 +123,11 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
               };
           else
           {
-              levelMoves = parameters.SetExpectedMoves();
+              levelMoves = parameters.SetExpectedMoves();        // use data from previous levels
           } // add how many moves
 
 
-          var levelTime = parameters.SetAllocatedTime();
+          var levelTime = parameters.SetAllocatedTime();     // use data from previous levels instead of computing it?
             
             var timeScore = parameters.SetTimeCompletionScore();
             var completionScore = parameters.SetCompletionScore();
@@ -117,7 +137,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             parameters.expectedMoves = levelMoves;
            
             var score = parameters.SetExpectedScore(); // Expected Score and TIME
-            var puzzleRating = parameters.SetPuzzleRating();
+            var puzzleRating = parameters.SetPuzzleRating();  // determines the rating of the puzzle, might be a conflict
             
             parameters.levelRating = puzzleRating;
             parameters.expectedScore = score;
@@ -145,6 +165,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var lowerBound = LowerRatingBound((int) puzzleRating);
             var higherBound = HigherRatingBound((int) puzzleRating);
             // THIS is where the bounding happens, without this, the generated level will be Random
+            // the bounds can be measured depending on the streak?
             if ( puzzleRating >= levelGenerated.playerRating - lowerBound && levelGenerated.playerRating <= puzzleRating &&
                 puzzleRating <= levelGenerated.playerRating+ higherBound)
             {
@@ -179,16 +200,24 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                playerWon = true;
            else
                playerWon = false;
-           var playerScore = parameters.SetPlayerScore(ref levelGenerated.playerMove, ref levelGenerated.playerRemainingTime); // ref is a pointer reference to the variables
-           levelGenerated.playerScore = playerScore;
            
+           
+           var playerScore = parameters.SetPlayerScore(ref levelGenerated.playerMove, ref levelGenerated.playerRemainingTime, levelGenerated.playerMoveOnSuggestedPath); // ref is a pointer reference to the variables
+           levelGenerated.playerScore = playerScore;
+           playerScore = playerWon ? playerScore : -playerScore;
             
            //  Debug.Log($"Puzzle Rating: {puzzleRating}");
            nextLevelRating = NextLevelRating();
            if (currentPlayer.gamesPlayed < 1)
-               debugPlayerRating = levelGenerated.playerRating + nextLevelRating / 1;
+           {
+               debugPlayerRating = (playerScore / 2.5) + levelGenerated.playerRating + nextLevelRating / 1;
+
+           }
            else
-               debugPlayerRating = levelGenerated.playerRating + nextLevelRating / currentPlayer.gamesPlayed;
+           {
+               debugPlayerRating = playerScore + levelGenerated.playerRating + nextLevelRating / currentPlayer.gamesPlayed;
+
+           }
            var resultant = levelGenerated.playerRating - debugPlayerRating;
          //  levelGenerated.playerRating = debugPlayerRating;
 
@@ -199,7 +228,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
           currentPlayer.currentRating = debugPlayerRating;
           
           levelGenerated.playerRating = currentPlayer.currentRating;
-          var details = new LevelDetails(levelGenerated.seed,levelGenerated.boardSize,levelGenerated.allottedTime,levelGenerated.expectedMoves,levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerRemainingTime,levelGenerated.playerScore,levelGenerated.playerEvaluatedScore,levelGenerated.levelScore);
+          var details = new LevelDetails(levelGenerated.seed, levelGenerated.boardSize,levelGenerated.allottedTime, levelGenerated.expectedMoves, levelGenerated.suggestedPath, levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerMoveOnSuggestedPath,levelGenerated.playerRemainingTime,levelGenerated.playerScore,levelGenerated.playerEvaluatedScore,levelGenerated.levelScore);
          
           currentPlayer.levelsPlayed.Add(details);
           
@@ -217,13 +246,13 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            var moveValue= parameters.EvaluatePlayerMoves(levelGenerated.playerMove);
            var timeValue = parameters.EvaluatePlayerRemainingTime(levelGenerated.playerRemainingTime);
 
-           var absoluteWin = false;
-           var levelMoveClear = true;
-           var tooMuchMoveClear = false;
+           bool absoluteWin = false;
+           bool levelMoveClear = true;
+           bool tooMuchMoveClear = false;
 
-           var perfectTimeClear = true;
-           var halfTimeClear = false;
-           var belowfHalfTimeClear = false;
+           bool perfectTimeClear = true;
+           bool halfTimeClear = false;
+           bool belowfHalfTimeClear = false;
            var levelFailed = false;
 
   
@@ -347,7 +376,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            if (puzzleRating < 20)        // its hard to generate puzzles lower than 20
                return 6;
            if (puzzleRating > 20 && puzzleRating < 30) return 4;
-
            if (puzzleRating > 30 && puzzleRating < 40) return 5;
            if (puzzleRating > 40 && puzzleRating < 50) return 8;
            if (puzzleRating > 50 && puzzleRating < 60) return 10;
@@ -362,7 +390,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        {
            if (puzzleRating < 20) return 10;
            if (puzzleRating > 20 && puzzleRating < 30) return 10;
-
            if (puzzleRating > 30 && puzzleRating < 40) return 14;
            if (puzzleRating > 40 && puzzleRating < 50) return 16;
            if (puzzleRating > 50 && puzzleRating < 60) return 18;

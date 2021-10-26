@@ -12,7 +12,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public int boardSize = 4; //BS    // set to 4 as default
 
         public int expectedMoves = 4; //EM // Computation 1<= EM <= (Board Size – 2)
-        
+        public int suggestedPath; // number of cells suggested by the solver
+
         public double allocatedTime = 20; // AT // (BT * (Expected moves / 10)) + BT
         public double boardTime; //BT Computation boardSize * 5
         
@@ -67,6 +68,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
 
             // if the ExpectedMoves is beyond the size of the 
+            // instead of bounded numbers, use rules from a crisp Output
             expectedMoves = Random.Range(MinMove(boardSize), (MaxMoves(boardSize))); // this should be random on a range // have a switch statement that handles the max limit of moves per board size
             return expectedMoves;
 
@@ -133,9 +135,30 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             return result;
             // var thirdEquation = (remainingTime *)
         }
+
+        double SetComputeSuggestedPathScore(int suggestedMovePlayerPath)
+        {
+            var sPath = suggestedPath;
+            var pPath = suggestedMovePlayerPath;
+            var extra = 0;
+            if (sPath < expectedMoves)
+            {
+                sPath = expectedMoves;
+                extra = expectedMoves - sPath;
+                pPath += extra;
+            }
+
+            return (double) pPath / sPath;
+
+            // the goal of sPath is to guide the player to the exit
+
+        }
+        
+        
         
         public double SetPlayerCompletionScore(int playerMovement)
         {
+            
 
             if (playerMovement < expectedMoves)
                 return 0;
@@ -146,14 +169,14 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 return 1;
             }
 
-            if (( expectedMoves * .99) >= playerMovement && playerMovement >= (expectedMoves * .70))
-            {
-                return expectedMoves * .7;
-            }
-            if (( expectedMoves * .69) >= playerMovement && playerMovement >= (expectedMoves * .50))
-            {
-                return expectedMoves * .5;
-            }
+            // if (( expectedMoves * .99) >= playerMovement && playerMovement >= (expectedMoves * .60))
+            // {
+            //     return expectedMoves * .6;
+            // }
+            // if (( expectedMoves * .59) >= playerMovement && playerMovement >= (expectedMoves * .40))
+            // {
+            //     return expectedMoves * .5;
+            // }
             return result;
         }
 
@@ -164,26 +187,33 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var levelTime = ((SetAllocatedTime())); // outer .7 is Score Percentage (SP) // but this is static I guess
             
             // these values should be tweaked for board size 6 -10
-            if ( playerTime >= (levelTime * .70))
+            if ( playerTime >= (levelTime * .60))
             {
              //   Debug.Log(levelTime * 1);
                 return  1;
             }
-            if (( levelTime * .69) >= playerTime && playerTime >= (levelTime * .50))
+            if (( levelTime * .59) >= playerTime && playerTime >= (levelTime * .40))
             {
                 return .50;
             }
-            if (( levelTime * .49) >= playerTime && playerTime >= (levelTime * .25)) // these values should be tweaked for board size 6 -10
+            if (( levelTime * .39) >= playerTime && playerTime >= (levelTime * .25)) // these values should be tweaked for board size 6 -10
             {
                 return .25;
             }
 
             return remainingTime/levelTime;
         }
+
+
         
-        public double SetPlayerScore(ref int playerMovement,ref double remainingTime)    // ((EM/PM) * 100% * 60%) + ((70% of AT * SP(70%)) / (RT * PS)) * 40%
+        
+        public double SetPlayerScore(ref int playerMovement,ref double remainingTime, int playerPathMovement)    // ((EM/PM) * 100% * 60%) + ((70% of AT * SP(70%)) / (RT * PS)) * 40%
         {
-            var firstEquation =  (SetPlayerCompletionScore(playerMovement) * .6);
+            var pathMoveScore = SetComputeSuggestedPathScore(playerPathMovement) * .5;
+            var pMovement = SetPlayerCompletionScore(playerMovement) * .5;
+            var moveRes = pathMoveScore + pMovement;
+            
+            var firstEquation =  (moveRes * .6);
 
 
 
@@ -243,7 +273,11 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             }
             if (( baseTime * .59) >= playerTime && playerTime >= (baseTime * .40))
             {
-                return 0.05;
+                return 0.75; // .05
+            }
+            if (( baseTime * .39) >= playerTime && playerTime >= (baseTime * .10))
+            {
+                return 0.5; // .05
             }
         
             if (baseTime > 0)

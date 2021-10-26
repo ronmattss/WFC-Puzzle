@@ -33,6 +33,7 @@ namespace ProjectAssets.Scripts.Player
         [SerializeField] private float countdownToDanceIdle = 5;
 
         public int totalMoves = 1;
+        public int moveOnPath = 0;
         private int _danceIndex = 0;
         private bool canMove = true;
 
@@ -70,7 +71,8 @@ namespace ProjectAssets.Scripts.Player
         public void SetStartPosition(Vector3 pos)
         {    traversedCells.Clear();
             totalMoves = 1; // this IDK where the culprit for this
-            GameManager.Instance.modifier.GetPlayerMovement(totalMoves);
+            moveOnPath = 0; // ????
+            GameManager.Instance.modifier.GetPlayerMovement(totalMoves,moveOnPath);
             UIManager.Instance.ChangeMoveText(totalMoves);
             x = pos.x;
             y = pos.z;
@@ -172,7 +174,7 @@ namespace ProjectAssets.Scripts.Player
                 countdownToDanceIdle -= Time.deltaTime;
                 jammoAnimator.SetInteger("danceHold",(int)countdownToDanceIdle);
             }
-            GameManager.Instance.modifier.GetPlayerMovement(totalMoves);
+            GameManager.Instance.modifier.GetPlayerMovement(totalMoves,moveOnPath);
 
             // Get current coordinates of player
         }
@@ -226,6 +228,11 @@ namespace ProjectAssets.Scripts.Player
             if (!MatchIfCellOnPath(currentCell))
             {
                 totalMoves++;
+                if (currentCell.isSuggestedPath)
+                {
+                    moveOnPath++;
+                }
+
             }
             
             CheckAvailablePath();

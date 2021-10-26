@@ -80,12 +80,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public int boardSize;
         public int allottedTime;
         public int expectedMoves;
+        public int suggestedPath;
         public int levelScore;
         public double levelRating;    // The Rating of the level Generated
         
         public double playerRating;   // The Current rating of the player playing this level
         [Range(0,200)]
         public int playerMove;
+
+        public int playerMoveOnSuggestedPath;
         [Range(0,500)]
         public double playerRemainingTime;
         public double playerScore;
@@ -99,15 +102,17 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             {
                 
             }
-            public LevelDetails(string boardSeed,int size, int time, int exMoves,double lRating,double pRating,int pMove,double pTime,double pScore, double pEvalScore,int pLevelScore)
+            public LevelDetails(string boardSeed,int size, int time, int exMoves,int exPath,double lRating,double pRating,int pMove,int pSMove,double pTime,double pScore, double pEvalScore,int pLevelScore)
             {
                 seed = boardSeed;
                 boardSize = size;
                 allottedTime = time;
                 expectedMoves = exMoves;
+                suggestedPath = exPath;
                 levelRating = lRating;
                 playerRating = pRating;
                 playerMove = pMove;
+                playerMoveOnSuggestedPath = pSMove;
                 playerRemainingTime = pTime;
                 playerScore = pScore;
                 playerEvaluatedScore = pEvalScore;

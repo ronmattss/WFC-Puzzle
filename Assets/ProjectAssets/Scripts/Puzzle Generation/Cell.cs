@@ -35,6 +35,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         public bool cellOnPosition = true;
         public bool isRotatable = true;
         public bool lockRotation = false;
+        public bool isSuggestedPath = false;
         
         public int HeapIndex { get; set; }
 
