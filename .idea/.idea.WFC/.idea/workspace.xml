@@ -23,21 +23,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/AForge.Fuzzy.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/AForge.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/CentroidBasedDefuzzifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/CentroidBasedDefuzzifier.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Clause.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Clause.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/DataBank.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/DataBank.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzyOutput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzyOutput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzySet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzySet.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/DoublePoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/DoublePoint.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/IntPoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/IntPoint.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/Point.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/Point.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/ICoNorm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/ICoNorm.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IDefuzzify.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IDefuzzify.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IMembershipFunction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IMembershipFunction.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/INorm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/INorm.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IUnaryOperator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IUnaryOperator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Inference.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Inference.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/LinguisticVariable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/LinguisticVariable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MaximumCoNorm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MaximumCoNorm.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MinimumNorm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MinimumNorm.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/NotOperator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/NotOperator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/PiecewiseFunction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/PiecewiseFunction.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Rule.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Rule.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/RuleBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/RuleBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/TrapezoidFunction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/TrapezoidFunction.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Pathfinding/Solver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/profile.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,26 +95,35 @@
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/DebugTools.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/a1/da3e4591/ArgumentOutOfRangeException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3197AD6D-70A8-4DE7-8C60-779AE2612011/a5/131f93b3/Canvas.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/c5/dcd6b31f/FuzzySet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/ec/4cf9be4b/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/d0/0ff7112d/ArgumentException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/15/bdba70cf/IMembershipFunction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/56/d3e2feb6/TrapezoidalFunction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/f8/73158266/Environment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Player/BoardMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Direction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/a6/152d4887/Rulebase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/a5/f24cb7a0/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/69/318b25bc/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695D1CC9-3CCA-4506-9C52-8C15C9FDD749/c2/ea818fe4/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/de/6dc79346/PiecewiseLinearFunction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/8e/db7b7bcb/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/2a/0d72e35c/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/73/6c463c27/LinguisticVariable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Cell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/b3/e688b04a/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/GeneralUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/b5/8053f198/CentroidDefuzzifier.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9244FB83-44E8-4288-877B-43B45B29C242/45/dc0a0d21/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/88/d9710da8/InferenceSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C5B8EA30-1F1F-41BF-85E0-302C2EE96B92/3d/c808413a/BuildPipelineInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/KeyBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0076F58A-B6CC-45B3-9A1A-0C8D11082E36/d3/c0447a73/FuzzyOutput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/eb/cebff4b0/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E7F43C3-8E21-4491-A21E-E815B941DBB6/5f/444fbd69/JsonUtility.cs" root0="SKIP_HIGHLIGHTING" />
@@ -89,15 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/BoardNode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Editor/GridGeneration.cs" />
-        <option value="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Singleton.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/GridTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Grid.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Heap.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/CoordinateUtil.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/GeneralUtility.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/ObjectSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Module.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/EdgeFilter.cs" />
@@ -126,7 +162,29 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IMembershipFunction.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzySet.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/IntPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/DoublePoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/Point.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/PiecewiseFunction.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/TrapezoidFunction.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/DataBank.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/ICoNorm.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/INorm.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IDefuzzify.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IUnaryOperator.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Clause.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Rule.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/NotOperator.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MinimumNorm.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MaximumCoNorm.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/RuleBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzyOutput.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/CentroidBasedDefuzzifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/LinguisticVariable.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Inference.cs" />
       </list>
     </option>
   </component>
@@ -285,6 +343,7 @@
       <workItem from="1635125949124" duration="8746000" />
       <workItem from="1635214412173" duration="19737000" />
       <workItem from="1635246177166" duration="2015000" />
+      <workItem from="1635299494745" duration="20709000" />
     </task>
     <servers />
   </component>
@@ -389,6 +448,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="220" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state x="1268" y="197" key="RiderGenerateDialog" timestamp="1635323649543">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1268" y="197" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1635323649543" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1634630767976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -397,23 +460,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634268612948" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1634630763053">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1635334866357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634630763053" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1635334866357" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs</url>
-          <line>196</line>
+          <line>204</line>
           <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\Difficulty Adjustment\DifficultyModifier.cs" initialLine="191">
             <startOffsets>
-              <option value="7390" />
+              <option value="7738" />
             </startOffsets>
             <endOffsets>
-              <option value="7464" />
+              <option value="7812" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />

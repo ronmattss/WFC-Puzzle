@@ -99,6 +99,32 @@
               <e p="Spinner.cs" t="Include" />
             </e>
             <e p="CellVisuals.cs" t="Include" />
+            <e p="Fuzzy" t="Include">
+              <e p="CentroidBasedDefuzzifier.cs" t="Include" />
+              <e p="Clause.cs" t="Include" />
+              <e p="DataBank.cs" t="Include" />
+              <e p="FuzzyOutput.cs" t="Include" />
+              <e p="FuzzySet.cs" t="Include" />
+              <e p="Helpers" t="Include">
+                <e p="DoublePoint.cs" t="Include" />
+                <e p="IntPoint.cs" t="Include" />
+                <e p="Point.cs" t="Include" />
+              </e>
+              <e p="ICoNorm.cs" t="Include" />
+              <e p="IDefuzzify.cs" t="Include" />
+              <e p="IMembershipFunction.cs" t="Include" />
+              <e p="Inference.cs" t="Include" />
+              <e p="INorm.cs" t="Include" />
+              <e p="IUnaryOperator.cs" t="Include" />
+              <e p="LinguisticVariable.cs" t="Include" />
+              <e p="MaximumCoNorm.cs" t="Include" />
+              <e p="MinimumNorm.cs" t="Include" />
+              <e p="NotOperator.cs" t="Include" />
+              <e p="PiecewiseFunction.cs" t="Include" />
+              <e p="Rule.cs" t="Include" />
+              <e p="RuleBase.cs" t="Include" />
+              <e p="TrapezoidFunction.cs" t="Include" />
+            </e>
             <e p="Gameplay" t="Include">
               <e p="Difficulty Adjustment" t="Include">
                 <e p="DifficultyManager.cs" t="Include" />

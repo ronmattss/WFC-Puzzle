@@ -21,7 +21,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         
         
         [Header("DDA")] public bool isDDAActive = true;
-        
+        [Header("DEBUG FUZZY")] public float moveInput = 16;
+        public float timeInput = 0 ;
+        public float moveOutput = 0;
+        [Header(" ")]
         public double levelRatingDebug = 0;
         public bool debugMode = true;
         public double nextLevelRating = 0;
@@ -39,10 +42,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         private void Awake()
         {
             GetProfile(SaveManager.Instance.playerProfile);
+            fuzzy.SetMoves();
+            fuzzy.SetTime();
+            fuzzy.SetIncrementalMoves();
+            fuzzy.AddToDatabase();
         }
 
         private void LateUpdate()
         {
+            moveOutput = fuzzy.AcceptInput(moveInput,timeInput);
             if (!debugMode) return;
             SetupDifficultyParameters();
 
