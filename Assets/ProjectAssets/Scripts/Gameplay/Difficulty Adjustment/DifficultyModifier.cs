@@ -22,6 +22,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         
         [Header("DDA")] public bool isDDAActive = true;
         [Header("DEBUG FUZZY")] public float moveInput = 16;
+        public int debugMoves = 0 ;
+        public float debugTime = 0 ;
+
         public float timeInput = 0 ;
         public float moveOutput = 0;
         [Header(" ")]
@@ -42,8 +45,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         private void Awake()
         {
             GetProfile(SaveManager.Instance.playerProfile);
-            fuzzy.SetMoves();
-            fuzzy.SetTime();
+            fuzzy.SetMoves(debugMoves);
+            fuzzy.SetTime(debugTime);
             fuzzy.SetIncrementalMoves();
             fuzzy.AddToDatabase();
         }
@@ -244,6 +247,17 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
           currentPlayer.gamesWon += playerWon ? 1 : 0;
            //Debug.Log($"LevelRating: {nextLevelRating} pr + nlr: {debugPlayerRating} pr-dbr= {resultant}  New Player Rating: {levelGenerated.playerRating}");
            SaveManager.Instance.playerProfile = currentPlayer;
+
+           debugMoves = levelGenerated.expectedMoves;
+           debugTime = levelGenerated.allottedTime;
+           timeInput = (float) levelGenerated.playerRemainingTime;
+           moveInput = levelGenerated.playerMove;
+
+           // fuzzy.SetMoves(levelGenerated.expectedMoves);
+           // fuzzy.SetTime(levelGenerated.allottedTime);
+           // fuzzy.SetIncrementalMoves();
+           // fuzzy.AddToDatabase();
+           // moveOutput = fuzzy.AcceptInput(levelGenerated.playerMove,(float)levelGenerated.playerRemainingTime);
        }
        
        

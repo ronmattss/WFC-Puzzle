@@ -76,6 +76,8 @@
                     float firingStrength = r.EvaluateFiringStrength( );
                     if ( firingStrength > 0 )
                         fuzzyOutput.AddOutput( labelName, firingStrength );
+                    
+                    Debug.Log($"Firing Strength of: {labelName}: {firingStrength}");
                 }
             }
 

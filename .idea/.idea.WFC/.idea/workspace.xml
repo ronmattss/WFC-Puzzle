@@ -23,54 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/CentroidBasedDefuzzifier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/CentroidBasedDefuzzifier.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Clause.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Clause.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/DataBank.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/DataBank.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzyOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzyOutput.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzySet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzySet.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/DoublePoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/DoublePoint.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/IntPoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/IntPoint.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/Point.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/Point.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/ICoNorm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/ICoNorm.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IDefuzzify.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IDefuzzify.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IMembershipFunction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IMembershipFunction.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/INorm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/INorm.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IUnaryOperator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IUnaryOperator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Inference.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Inference.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/LinguisticVariable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/LinguisticVariable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MaximumCoNorm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MaximumCoNorm.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MinimumNorm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/MinimumNorm.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/NotOperator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/NotOperator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/PiecewiseFunction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/PiecewiseFunction.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Rule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Rule.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/RuleBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/RuleBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/TrapezoidFunction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/TrapezoidFunction.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prototype.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Inference.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Inference.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json" afterDir="false" />
@@ -134,7 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/ObjectSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/Module.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/EdgeFilter.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Direction.cs" />
@@ -161,7 +116,6 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/IMembershipFunction.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzySet.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Helpers/IntPoint.cs" />
@@ -183,8 +137,10 @@
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/FuzzyOutput.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/CentroidBasedDefuzzifier.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/LinguisticVariable.cs" />
-        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" />
         <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Inference.cs" />
+        <option value="$PROJECT_DIR$/Assets/profile.json" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs" />
       </list>
     </option>
   </component>
@@ -222,10 +178,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="14280">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="14280" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -343,7 +299,8 @@
       <workItem from="1635125949124" duration="8746000" />
       <workItem from="1635214412173" duration="19737000" />
       <workItem from="1635246177166" duration="2015000" />
-      <workItem from="1635299494745" duration="20709000" />
+      <workItem from="1635299494745" duration="21552000" />
+      <workItem from="1635388421534" duration="21919000" />
     </task>
     <servers />
   </component>
@@ -384,70 +341,70 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1632058177256" />
-    <state width="1877" height="220" key="GridCell.Tab.0.bottom" timestamp="1635246112262">
+    <state width="1877" height="158" key="GridCell.Tab.0.bottom" timestamp="1635422408871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112262" />
-    <state width="1877" height="220" key="GridCell.Tab.0.center" timestamp="1635246112262">
+    <state width="1877" height="158" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408871" />
+    <state width="1877" height="158" key="GridCell.Tab.0.center" timestamp="1635422408871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112262" />
-    <state width="1877" height="220" key="GridCell.Tab.0.left" timestamp="1635246112262">
+    <state width="1877" height="158" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408871" />
+    <state width="1877" height="158" key="GridCell.Tab.0.left" timestamp="1635422408871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112262" />
-    <state width="1877" height="220" key="GridCell.Tab.0.right" timestamp="1635246112262">
+    <state width="1877" height="158" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408871" />
+    <state width="1877" height="158" key="GridCell.Tab.0.right" timestamp="1635422408871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112262" />
-    <state width="1877" height="220" key="GridCell.Tab.1.bottom" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408871" />
+    <state width="1877" height="158" key="GridCell.Tab.1.bottom" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.1.center" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.1.center" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.1.left" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.1.left" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.1.right" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.1.right" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.2.bottom" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.2.bottom" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.2.center" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.2.center" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.2.left" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.2.left" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.2.right" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.2.right" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.3.bottom" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.3.bottom" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.3.center" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.3.center" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.3.left" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.3.left" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
-    <state width="1877" height="220" key="GridCell.Tab.3.right" timestamp="1635246112263">
+    <state width="1877" height="158" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
+    <state width="1877" height="158" key="GridCell.Tab.3.right" timestamp="1635422408872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635246112263" />
+    <state width="1877" height="158" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635422408872" />
     <state x="1268" y="197" key="RiderGenerateDialog" timestamp="1635323649543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -469,17 +426,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs</url>
-          <line>204</line>
-          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\Difficulty Adjustment\DifficultyModifier.cs" initialLine="191">
+          <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/Fuzzy.cs</url>
+          <line>223</line>
+          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\Difficulty Adjustment\Fuzzy.cs" initialLine="196">
             <startOffsets>
-              <option value="7738" />
+              <option value="9008" />
             </startOffsets>
             <endOffsets>
-              <option value="7812" />
+              <option value="9051" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
