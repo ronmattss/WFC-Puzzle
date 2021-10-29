@@ -45,15 +45,35 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         private void Awake()
         {
             GetProfile(SaveManager.Instance.playerProfile);
-            fuzzy.SetMoves(debugMoves);
-            fuzzy.SetTime(debugTime);
+
+            // fuzzy.SetMoves(debugMoves);
+            // fuzzy.SetTime(debugTime);
+            // fuzzy.SetIncrementalMoves();
+            // fuzzy.AddToDatabase();
+        }
+
+        private void FuzzyBasedMoves(int expectedMoves,float allottedTime)
+        {   fuzzy = new Fuzzy();
+            fuzzy.SetMoves(expectedMoves);
+            fuzzy.SetTime(allottedTime);
             fuzzy.SetIncrementalMoves();
             fuzzy.AddToDatabase();
+            // Debug Stuff
+            debugMoves = expectedMoves;
+            debugTime = allottedTime;
+        }
+
+        private int OutputFuzzyBasedMoves(float playerMoves, float timeRemaining)
+        {
+
+            moveInput = playerMoves;
+            timeInput = timeRemaining;
+            return Mathf.FloorToInt(fuzzy.AcceptInput(playerMoves, timeRemaining));
         }
 
         private void LateUpdate()
         {
-            moveOutput = fuzzy.AcceptInput(moveInput,timeInput);
+          //  moveOutput = fuzzy.AcceptInput(moveInput,timeInput);
             if (!debugMode) return;
             SetupDifficultyParameters();
 
@@ -88,16 +108,13 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 currentPlayer.currentRating = average;
             }
         }
-        
-        // invoke this after button press and after a level
-        public void SetupDifficultyParameters() // we can edit this to for two builds With and wuthout DDA
+
+
+
+        void SetupBoardSize(double rating)
         {
-            // Setup Board Size
-            levelGenerated.playerRating = currentPlayer.currentRating; // get current Player's Rating
-            var rating = levelGenerated.playerRating;
             var randomBoardSize = 0;
 
-            // 
             if (currentPlayer.gamesPlayed < 3)
             {
                 randomBoardSize = currentPlayer.gamesPlayed switch
@@ -114,6 +131,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 if (GameManager.Instance.hasDDA)
                 {
                     randomBoardSize = rating < 11 ? 4 : BoardSizeRatingRange(rating); // Disable this if you want a full random board everytime (NO DDA)
+                    randomBoardSize = FitMovesOnBoard(randomBoardSize);
                     parameters.SetBoardSize(randomBoardSize); // Always the initial BoardSize // Use data from previous levels
                 }
                 else
@@ -121,21 +139,64 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                     parameters.SetBoardSize(Random.Range(4, 11));    // Random Board Size
                 }
             }
+        }
 
+        int FitMovesOnBoard(int board)
+        {
+            var newSize = board;
+            
+            
+            //check if moves is greater than board
+
+            while (moveOutput > (parameters.MaxMoves(newSize)))
+            {
+                newSize++;
+                
+            }
+            return newSize;
+        }
+
+        int SetupMoves(int moves)
+        {
+            if (currentPlayer.gamesPlayed < 3)
+                moves = currentPlayer.gamesPlayed switch
+                {
+                    0 => 12,
+                    1 => 16,
+                    2 => 25,
+                    _ => moves
+                };
+            else
+            {
+                moves = parameters.SetExpectedMoves();        // use data from previous levels /// Fuzzy Logic Based
+            } // add how many moves
+
+            return moves;
+        }
+        
+        // invoke this after button press and after a level
+        public void SetupDifficultyParameters() // we can edit this to for two builds With and wuthout DDA
+        {
+            var previousLevelIndex = SaveManager.Instance.playerProfile.levelsPlayed.Count-1;
+            var previousLevel = SaveManager.Instance.playerProfile.levelsPlayed[previousLevelIndex];
+
+
+            FuzzyBasedMoves(previousLevel.expectedMoves,previousLevel.allottedTime);
+            moveOutput = OutputFuzzyBasedMoves(previousLevel.playerMove, (float)previousLevel.playerRemainingTime);
+            // Setup Board Size
+            levelGenerated.playerRating = currentPlayer.currentRating; // get current Player's Rating
+            var rating = levelGenerated.playerRating;
+            var randomBoardSize = 0;
+
+            // 
             var levelMoves = 12;
+
+            levelMoves = SetupMoves(levelMoves);
+
+            SetupBoardSize(rating);
+
           // gamesplayed Conditions
-          if (currentPlayer.gamesPlayed < 3)
-              levelMoves = currentPlayer.gamesPlayed switch
-              {
-                  0 => 12,
-                  1 => 16,
-                  2 => 25,
-                  _ => levelMoves
-              };
-          else
-          {
-              levelMoves = parameters.SetExpectedMoves();        // use data from previous levels
-          } // add how many moves
+
 
 
           var levelTime = parameters.SetAllocatedTime();     // use data from previous levels instead of computing it?
@@ -257,6 +318,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            // fuzzy.SetTime(levelGenerated.allottedTime);
            // fuzzy.SetIncrementalMoves();
            // fuzzy.AddToDatabase();
+
            // moveOutput = fuzzy.AcceptInput(levelGenerated.playerMove,(float)levelGenerated.playerRemainingTime);
        }
        

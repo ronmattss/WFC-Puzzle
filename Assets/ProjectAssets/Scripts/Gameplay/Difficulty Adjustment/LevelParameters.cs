@@ -75,7 +75,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         }
 
 
-        private int MaxMoves(int board)
+        public int MaxMoves(int board)
         {
             return board switch
             {
