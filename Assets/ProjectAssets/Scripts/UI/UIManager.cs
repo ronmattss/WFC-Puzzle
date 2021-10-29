@@ -20,7 +20,10 @@ namespace UnityTemplateProjects.UI
         public GameObject inGameUIGroup;
         public GameObject postLevelMenuGroup;
         public GameObject postFailedLevelMenuGroup;
+        
+        //UI from Main Menu
         public GameObject settingsMenuGroup;
+        public GameObject menuCanvas;
 
         public TMP_Text moves;
         public TMP_Text keys;
@@ -45,9 +48,10 @@ namespace UnityTemplateProjects.UI
 
         }
 
-        public void ShowHideSettingsGroup()
+        public void ShowHideSettingsGroup() //settings button (from main menu)
         {
             settingsMenuGroup.SetActive(!settingsMenuGroup.activeSelf);
+            menuCanvas.SetActive(!menuCanvas.activeSelf);
         }
 
         public void ChangeRatingText(double playerRating)
