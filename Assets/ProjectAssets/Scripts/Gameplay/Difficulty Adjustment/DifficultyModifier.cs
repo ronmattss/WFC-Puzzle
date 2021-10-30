@@ -329,7 +329,11 @@ CalculateLevelRating();
            debugTime = levelGenerated.allottedTime;
            timeInput = (float) levelGenerated.playerRemainingTime;
            moveInput = levelGenerated.playerMove;
-           
+
+           if (currentPlayer.gamesPlayed == 3)
+           {
+               CalculateLevelRating();
+           }
 
            // fuzzy.SetMoves(levelGenerated.expectedMoves);
            // fuzzy.SetTime(levelGenerated.allottedTime);
@@ -550,14 +554,12 @@ CalculateLevelRating();
 
             var suggestedRatingMultiplier = sTime + sMoves + sScore + sRating;
 
-            if (SaveManager.Instance.playerProfile.gamesPlayed == 3)
-            {
                 SaveManager.Instance.playerProfile.initialRating = suggestedRatingMultiplier * lRating;
                 SaveManager.Instance.playerProfile.currentRating = suggestedRatingMultiplier * lRating;
             
                 SaveManager.Instance.SaveProfile();
                 UIManager.Instance.ChangeRatingText( SaveManager.Instance.playerProfile.currentRating);
-            }
+            
             
             
             
