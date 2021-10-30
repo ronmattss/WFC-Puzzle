@@ -45,7 +45,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         private void Awake()
         {
             GetProfile(SaveManager.Instance.playerProfile);
-
+CalculateLevelRating();
             // fuzzy.SetMoves(debugMoves);
             // fuzzy.SetTime(debugTime);
             // fuzzy.SetIncrementalMoves();
@@ -156,33 +156,43 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             return newSize;
         }
 
-        int SetupMoves(int moves)
-        {
+        int SetupMoves(int moveOut)
+        {   
             if (currentPlayer.gamesPlayed < 3)
-                moves = currentPlayer.gamesPlayed switch
+                return currentPlayer.gamesPlayed switch
                 {
                     0 => 12,
                     1 => 16,
                     2 => 25,
-                    _ => moves
+                    _ => moveOut
                 };
-            else
-            {
-                moves = parameters.SetExpectedMoves();        // use data from previous levels /// Fuzzy Logic Based
-            } // add how many moves
+            
+            var previousLevelIndex = SaveManager.Instance.playerProfile.levelsPlayed.Count-1;
+            var previousLevel = null ?? SaveManager.Instance.playerProfile.levelsPlayed[previousLevelIndex];
+            return (int) (previousLevel.won
+                ?  moveOutput + previousLevel.expectedMoves
+                :  previousLevel.expectedMoves - moveOutput);
+            // moveOut = parameters.SetExpectedMoves();        // use data from previous levels /// Fuzzy Logic Based
 
-            return moves;
         }
         
         // invoke this after button press and after a level
         public void SetupDifficultyParameters() // we can edit this to for two builds With and wuthout DDA
         {
-            var previousLevelIndex = SaveManager.Instance.playerProfile.levelsPlayed.Count-1;
-            var previousLevel = SaveManager.Instance.playerProfile.levelsPlayed[previousLevelIndex];
+            CalculateLevelRating();
+
+            /// FIX THIS TOMORROW: WITHOUT GAMES PLAYED
+            if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2)
+            {
+                
+                var previousLevelIndex = SaveManager.Instance.playerProfile.levelsPlayed.Count-1;
+                var previousLevel =  SaveManager.Instance.playerProfile.levelsPlayed[previousLevelIndex];
 
 
-            FuzzyBasedMoves(previousLevel.expectedMoves,previousLevel.allottedTime);
-            moveOutput = OutputFuzzyBasedMoves(previousLevel.playerMove, (float)previousLevel.playerRemainingTime);
+                FuzzyBasedMoves(previousLevel.expectedMoves,previousLevel.allottedTime);
+                moveOutput = OutputFuzzyBasedMoves(previousLevel.playerMove, (float)previousLevel.playerRemainingTime);
+            }
+
             // Setup Board Size
             levelGenerated.playerRating = currentPlayer.currentRating; // get current Player's Rating
             var rating = levelGenerated.playerRating;
@@ -191,7 +201,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // 
             var levelMoves = 12;
 
-            levelMoves = SetupMoves(levelMoves);
+            levelMoves = SetupMoves(levelMoves); // what is this?
 
             SetupBoardSize(rating);
 
@@ -232,14 +242,20 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
                 return;
             }
+            
+            
             // set upper bounds and lower bounds
             //
-            var lowerBound = LowerRatingBound((int) puzzleRating);
-            var higherBound = HigherRatingBound((int) puzzleRating);
+            
+            
+            var lowerBound = 100;//LowerRatingBound((int) puzzleRating);
+            var higherBound = 100; //HigherRatingBound((int) puzzleRating);
             // THIS is where the bounding happens, without this, the generated level will be Random
             // the bounds can be measured depending on the streak?
-            if ( puzzleRating >= levelGenerated.playerRating - lowerBound && levelGenerated.playerRating <= puzzleRating &&
-                puzzleRating <= levelGenerated.playerRating+ higherBound)
+            
+            // if ( puzzleRating >= levelGenerated.playerRating - lowerBound && levelGenerated.playerRating <= puzzleRating &&
+            //     puzzleRating <= levelGenerated.playerRating+ higherBound)
+            if(puzzleRating != 0)
             {
                 levelGenerated.playerMove = 0;
                 levelGenerated.expectedMoves = levelMoves;
@@ -300,7 +316,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
           currentPlayer.currentRating = debugPlayerRating;
           
           levelGenerated.playerRating = currentPlayer.currentRating;
-          var details = new LevelDetails(levelGenerated.seed, levelGenerated.boardSize,levelGenerated.allottedTime, levelGenerated.expectedMoves, levelGenerated.suggestedPath, levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerMoveOnSuggestedPath,levelGenerated.playerRemainingTime,levelGenerated.playerScore,levelGenerated.playerEvaluatedScore,levelGenerated.levelScore);
+          var details = new LevelDetails(levelGenerated.seed,playerWon, levelGenerated.boardSize,levelGenerated.allottedTime, levelGenerated.expectedMoves, levelGenerated.suggestedPath, levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerMoveOnSuggestedPath,levelGenerated.playerRemainingTime,levelGenerated.playerScore,levelGenerated.levelScore);
          
           currentPlayer.levelsPlayed.Add(details);
           
@@ -313,6 +329,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            debugTime = levelGenerated.allottedTime;
            timeInput = (float) levelGenerated.playerRemainingTime;
            moveInput = levelGenerated.playerMove;
+           
 
            // fuzzy.SetMoves(levelGenerated.expectedMoves);
            // fuzzy.SetTime(levelGenerated.allottedTime);
@@ -486,14 +503,67 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
        private void CalculateLevelRating()
         {
+            
             var currentPlayerRating = currentPlayer.currentRating;
+            var levelStats = SaveManager.Instance.playerProfile.levelsPlayed;
+            if (levelStats.Count < 1) return;
+
+            var games = levelStats.Count;
+            
+            double pClearTime = 0; // average clearTime dfq
+            int pMoves = 0; // average moves
+            double pScore =0; // average score
+
+            var allottedTime = 0;
+            var expectedMoves = 0;
+            var score = 0;
+            double lRating = 0;
+
+            foreach (var details in levelStats)
+            {
+                pMoves += details.playerMove;
+                pScore += details.playerScore;
+                pClearTime += details.playerRemainingTime;
+                currentPlayerRating += details.playerRating;
+                
+                allottedTime += details.allottedTime;
+                expectedMoves += details.expectedMoves;
+                score += 10;
+                lRating += details.levelRating;
+
+            }
+
+            pClearTime /= games;
+            pMoves /= games;
+            pScore /= games;
+            currentPlayerRating /= games;
+            
+            allottedTime /= games;
+            expectedMoves /= games;
+            score /= games;
+            lRating /= games;
+
+            var sTime = (pClearTime / allottedTime) *.20;
+            var sMoves = (expectedMoves / pMoves) *.25;
+            var sScore = (pScore / score) *.5;
+            var sRating = (currentPlayerRating / lRating) *.05;
+
+            var suggestedRatingMultiplier = sTime + sMoves + sScore + sRating;
+
+            if (SaveManager.Instance.playerProfile.gamesPlayed == 3)
+            {
+                SaveManager.Instance.playerProfile.initialRating = suggestedRatingMultiplier * lRating;
+                SaveManager.Instance.playerProfile.currentRating = suggestedRatingMultiplier * lRating;
+            
+                SaveManager.Instance.SaveProfile();
+                UIManager.Instance.ChangeRatingText( SaveManager.Instance.playerProfile.currentRating);
+            }
             
             
-            // first randomly create a level Rating
-            // compare playerRating to the level Rating
-            // if is not in range reduce or add level rating 
-            // next is to apply the DDA to the level generator
-            // save new profile 
+            
+            
+
+
 
 
         }
