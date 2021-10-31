@@ -21,7 +21,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             StartPathCell.currentCell = startingCell;
             StartPathCell.visitedPathCells.Add(startingCell);
             steps = step;
-            giveUp = 100;
+            giveUp = 1000;
         }
 
         void CheckIfVisited(CellPath cellPath)
@@ -95,12 +95,23 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
                     Debug.Log("Help I'm Stuck" + x);
                     // recursive Backtrack here and pop and increment walk
                     currentPath = BackTrack();
-                    if (currentPath.currentCell == null && path.Count == 0)
+
+                    try
                     {
-                        steps = 0;
-                        Debug.Log("Help I'm Stuck Forever");
-                        break;
+                        if (currentPath.currentCell == null && path.Count == 0)
+                        {
+                            steps = 0;
+                            Debug.Log("Help I'm Stuck Forever");
+                            break;
+                        }
                     }
+                    catch (Exception e)
+                    {
+                        Debug.Log(e);
+   //                     Walk();
+                    }
+
+
 
                     path.Push(currentPath);
                     Debug.Log($"Steps-in: {steps } stack: {path.Count}");
@@ -157,7 +168,11 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
           {
               BackTrack();
           }
-            
+
+          if (redirectedPath == null)
+          {
+              Debug.Log("Path is Null");
+          }
           return redirectedPath;
         }
 

@@ -450,7 +450,7 @@
               </e>
             </e>
           </e>
-          <e p="com.unity.collab-proxy@1.9.0" t="Include">
+          <e p="com.unity.collab-proxy@1.11.2" t="Include">
             <e p="Editor" t="Include">
               <e p="Collaborate" t="Include">
                 <e p="Assets" t="Include">
@@ -760,6 +760,7 @@
                 </e>
                 <e p="DrawGuiModeSwitcher.cs" t="Include" />
                 <e p="DrawIncomingChangesNotificationPanel.cs" t="Include" />
+                <e p="DrawStatusBar.cs" t="Include" />
                 <e p="EnumExtensions.cs" t="Include" />
                 <e p="FindWorkspace.cs" t="Include" />
                 <e p="GetRelativePath.cs" t="Include" />
@@ -972,6 +973,7 @@
                       <e p="CheckinConflictsDialog.cs" t="Include" />
                       <e p="CheckinMergeNeededDialog.cs" t="Include" />
                       <e p="DependenciesDialog.cs" t="Include" />
+                      <e p="EmptyCheckinMessageDialog.cs" t="Include" />
                       <e p="FilterRulesConfirmationDialog.cs" t="Include" />
                       <e p="LaunchCheckinConflictsDialog.cs" t="Include" />
                       <e p="LaunchDependenciesDialog.cs" t="Include" />
@@ -1373,13 +1375,29 @@
               </e>
             </e>
           </e>
-          <e p="com.unity.recorder@2.0.3-preview.1" t="Include">
+          <e p="com.unity.recorder@2.5.5" t="Include">
             <e p="Editor" t="Include">
+              <e p="Assets" t="Include">
+                <e p="Styles" t="Include">
+                  <e p="recorder.uss" t="Include" />
+                  <e p="recorder_darkSkin.uss" t="Include" />
+                  <e p="recorder_lightSkin.uss" t="Include" />
+                </e>
+              </e>
+              <e p="Encoding" t="Include">
+                <e p="CoreMediaEncoder.cs" t="Include" />
+                <e p="MediaEncoder.cs" t="Include" />
+              </e>
+              <e p="ProRes" t="Include">
+                <e p="ProResEncoderPlugin.cs" t="Include" />
+                <e p="ProResPreset.cs" t="Include" />
+                <e p="ProResWrapper.cs" t="Include" />
+              </e>
               <e p="Sources" t="Include">
+                <e p="_FrameRequestComponent.cs" t="Include" />
                 <e p="_RecorderComponent.cs" t="Include" />
                 <e p="AspectRatio.cs" t="Include" />
                 <e p="AspectRatioPropertyDrawer.cs" t="Include" />
-                <e p="AssemblyInfo.cs" t="Include" />
                 <e p="BaseRenderTextureInput.cs" t="Include" />
                 <e p="BaseTextureRecorder.cs" t="Include" />
                 <e p="CameraCapture.cs" t="Include" />
@@ -1405,13 +1423,13 @@
                 <e p="InputSettingsSelector.cs" t="Include" />
                 <e p="InputSettingsSelectorDrawer.cs" t="Include" />
                 <e p="InternalEnums.cs" t="Include" />
-                <e p="Options.cs" t="Include" />
                 <e p="OutputPath.cs" t="Include" />
                 <e p="OutputPathDrawer.cs" t="Include" />
                 <e p="OutputResolution.cs" t="Include" />
                 <e p="OutputResolutionPropertyDrawer.cs" t="Include" />
                 <e p="PanelSplitter.cs" t="Include" />
                 <e p="Recorder.cs" t="Include" />
+                <e p="RecorderAnalytics.cs" t="Include" />
                 <e p="RecorderController.cs" t="Include" />
                 <e p="RecorderControllerSettings.cs" t="Include" />
                 <e p="RecorderControllerSettingsPreset.cs" t="Include" />
@@ -1419,6 +1437,7 @@
                 <e p="RecorderEditor.cs" t="Include" />
                 <e p="RecorderInput.cs" t="Include" />
                 <e p="RecorderItem.cs" t="Include" />
+                <e p="RecorderOptions.cs" t="Include" />
                 <e p="Recorders" t="Include">
                   <e p="_Inputs" t="Include">
                     <e p="Animation" t="Include">
@@ -1438,6 +1457,7 @@
                       <e p="Shaders" t="Include">
                         <e p="CameraInputCopy.shader" t="Include" />
                         <e p="CopyFB.shader" t="Include" />
+                        <e p="MakeOpaque.shader" t="Include" />
                       </e>
                     </e>
                     <e p="Camera360" t="Include">
@@ -1543,13 +1563,6 @@
                 <e p="RecorderWindow.cs" t="Include" />
                 <e p="RecordingSession.cs" t="Include" />
                 <e p="RecordModePropertyDrawer.cs" t="Include" />
-                <e p="Resources" t="Include">
-                  <e p="Styles" t="Include">
-                    <e p="recorder.uss" t="Include" />
-                    <e p="recorder_darkSkin.uss" t="Include" />
-                    <e p="recorder_lightSkin.uss" t="Include" />
-                  </e>
-                </e>
                 <e p="SceneHook.cs" t="Include" />
                 <e p="TargetedPropertyDrawer.cs" t="Include" />
                 <e p="TextureFlipper.cs" t="Include" />
@@ -1559,6 +1572,7 @@
                 <e p="_WaitForEndOfFrameComponent.cs" t="Include" />
                 <e p="RecorderClip.cs" t="Include" />
                 <e p="RecorderClipEditor.cs" t="Include" />
+                <e p="RecorderClipTimelineEditor.cs" t="Include" />
                 <e p="RecorderPlayableBehaviour.cs" t="Include" />
                 <e p="RecorderSelector.cs" t="Include" />
                 <e p="RecorderTrack.cs" t="Include" />
@@ -1566,17 +1580,13 @@
               <e p="Unity.Recorder.Editor.asmdef" t="Include" />
             </e>
             <e p="Runtime" t="Include">
+              <e p="Base" t="Include">
+                <e p="RefHandle.cs" t="Include" />
+                <e p="Unity.Recorder.Base.asmdef" t="Include" />
+              </e>
               <e p="RecorderBindings.cs" t="Include" />
               <e p="SerializedDictionnary.cs" t="Include" />
               <e p="Unity.Recorder.asmdef" t="Include" />
-            </e>
-            <e p="Tests" t="Include">
-              <e p="Editor" t="Include">
-                <e p="Unity.Recorder.Editor.Tests.asmdef" t="Include" />
-              </e>
-              <e p="Runtime" t="Include">
-                <e p="Unity.Recorder.Tests.asmdef" t="Include" />
-              </e>
             </e>
           </e>
           <e p="com.unity.render-pipelines.core@11.0.0" t="Include">
@@ -4357,10 +4367,9 @@
       <e p="Unity.Postprocessing.Editor.Tests.csproj" t="IncludeRecursive" />
       <e p="Unity.Postprocessing.Runtime.csproj" t="IncludeRecursive" />
       <e p="Unity.Postprocessing.Runtime.Tests.csproj" t="IncludeRecursive" />
+      <e p="Unity.Recorder.Base.csproj" t="IncludeRecursive" />
       <e p="Unity.Recorder.csproj" t="IncludeRecursive" />
       <e p="Unity.Recorder.Editor.csproj" t="IncludeRecursive" />
-      <e p="Unity.Recorder.Editor.Tests.csproj" t="IncludeRecursive" />
-      <e p="Unity.Recorder.Tests.csproj" t="IncludeRecursive" />
       <e p="Unity.RenderPipeline.Universal.ShaderLibrary.csproj" t="IncludeRecursive" />
       <e p="Unity.RenderPipelines.Core.Editor.csproj" t="IncludeRecursive" />
       <e p="Unity.RenderPipelines.Core.Editor.Tests.csproj" t="IncludeRecursive" />

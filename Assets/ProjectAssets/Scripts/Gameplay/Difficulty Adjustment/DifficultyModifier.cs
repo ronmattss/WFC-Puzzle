@@ -45,7 +45,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         private void Awake()
         {
             GetProfile(SaveManager.Instance.playerProfile);
-CalculateLevelRating();
+// CalculateLevelRating();
             // fuzzy.SetMoves(debugMoves);
             // fuzzy.SetTime(debugTime);
             // fuzzy.SetIncrementalMoves();
@@ -111,7 +111,7 @@ CalculateLevelRating();
 
 
 
-        void SetupBoardSize(double rating)
+        void SetupBoardSize(double rating,int moveNumber)
         {
             var randomBoardSize = 0;
 
@@ -131,7 +131,7 @@ CalculateLevelRating();
                 if (GameManager.Instance.hasDDA)
                 {
                     randomBoardSize = rating < 11 ? 4 : BoardSizeRatingRange(rating); // Disable this if you want a full random board everytime (NO DDA)
-                    randomBoardSize = FitMovesOnBoard(randomBoardSize);
+                    randomBoardSize = FitMovesOnBoard(randomBoardSize,moveNumber);
                     parameters.SetBoardSize(randomBoardSize); // Always the initial BoardSize // Use data from previous levels
                 }
                 else
@@ -141,14 +141,14 @@ CalculateLevelRating();
             }
         }
 
-        int FitMovesOnBoard(int board)
+        int FitMovesOnBoard(int board, int eMoves)
         {
             var newSize = board;
-            
+            var eM = eMoves;
             
             //check if moves is greater than board
 
-            while (moveOutput > (parameters.MaxMoves(newSize)))
+            while (eM >= (parameters.MaxMoves(newSize)))
             {
                 newSize++;
                 
@@ -169,6 +169,13 @@ CalculateLevelRating();
             
             var previousLevelIndex = SaveManager.Instance.playerProfile.levelsPlayed.Count-1;
             var previousLevel = null ?? SaveManager.Instance.playerProfile.levelsPlayed[previousLevelIndex];
+            if (SaveManager.Instance.playerProfile.levelsPlayed.Count == 3)
+            {
+                var average =  (double)((SaveManager.Instance.playerProfile.levelsPlayed[0].expectedMoves +  SaveManager.Instance.playerProfile.levelsPlayed[1].expectedMoves +  SaveManager.Instance.playerProfile.levelsPlayed[2].expectedMoves) /3.0)*.7;
+                return (int) (previousLevel.won
+                    ?  moveOutput + average
+                    :  average - moveOutput);
+            }
             return (int) (previousLevel.won
                 ?  moveOutput + previousLevel.expectedMoves
                 :  previousLevel.expectedMoves - moveOutput);
@@ -179,7 +186,7 @@ CalculateLevelRating();
         // invoke this after button press and after a level
         public void SetupDifficultyParameters() // we can edit this to for two builds With and wuthout DDA
         {
-            CalculateLevelRating();
+           // CalculateLevelRating();
 
             /// FIX THIS TOMORROW: WITHOUT GAMES PLAYED
             if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2)
@@ -203,7 +210,7 @@ CalculateLevelRating();
 
             levelMoves = SetupMoves(levelMoves); // what is this?
 
-            SetupBoardSize(rating);
+            SetupBoardSize(rating,levelMoves);
 
           // gamesplayed Conditions
 
