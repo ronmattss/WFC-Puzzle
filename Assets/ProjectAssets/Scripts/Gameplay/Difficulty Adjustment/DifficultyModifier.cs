@@ -172,13 +172,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             if (SaveManager.Instance.playerProfile.levelsPlayed.Count == 3)
             {
                 var average =  (double)((SaveManager.Instance.playerProfile.levelsPlayed[0].expectedMoves +  SaveManager.Instance.playerProfile.levelsPlayed[1].expectedMoves +  SaveManager.Instance.playerProfile.levelsPlayed[2].expectedMoves) /3.0)*.7;
-                return (int) (previousLevel.won
-                    ?  moveOutput + average
-                    :  average - moveOutput);
+                return (int) ( average + moveOutput);
             }
-            return (int) (previousLevel.won
-                ?  moveOutput + previousLevel.expectedMoves
-                :  previousLevel.expectedMoves - moveOutput);
+
+            return (int) ((int) previousLevel.expectedMoves + moveOutput);
             // moveOut = parameters.SetExpectedMoves();        // use data from previous levels /// Fuzzy Logic Based
 
         }
