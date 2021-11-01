@@ -21,7 +21,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             StartPathCell.currentCell = startingCell;
             StartPathCell.visitedPathCells.Add(startingCell);
             steps = step;
-            giveUp = 1000;
+            giveUp = 10000;
         }
 
         void CheckIfVisited(CellPath cellPath)

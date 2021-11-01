@@ -305,12 +305,12 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            nextLevelRating = NextLevelRating();
            if (currentPlayer.gamesPlayed < 1)
            {
-               debugPlayerRating = (playerScore / 2.5) + levelGenerated.playerRating + nextLevelRating / 1;
+               debugPlayerRating = (playerScore / 2.5) + levelGenerated.playerRating + (nextLevelRating* .5f) / 1;
 
            }
            else
            {
-               debugPlayerRating = playerScore + levelGenerated.playerRating + nextLevelRating / currentPlayer.gamesPlayed;
+               debugPlayerRating = playerScore + levelGenerated.playerRating + (nextLevelRating * .5f) / currentPlayer.gamesPlayed;
 
            }
            var resultant = levelGenerated.playerRating - debugPlayerRating;
@@ -352,6 +352,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        
        
         // This Fuzzy Logic (?)
+        // this not fuzzy
        private double EvaluateMemberFunctions()
        {
 

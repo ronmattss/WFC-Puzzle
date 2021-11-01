@@ -141,7 +141,7 @@
         
         public void SetIncrementalMoves()
         {
-            var x1 = 0; // 0
+            var x1 = -4; // 0
             var x2 = 1; // 5
 
             // trapezoid
@@ -163,7 +163,7 @@
             fsMinimal = new FuzzySet("Minimal",new TrapezoidFunction(x5,x4,x6,x7));
             fsPlenty = new FuzzySet("Plenty",new TrapezoidFunction(x8,x9,TrapezoidFunction.EdgeType.Left));
             
-            newMoves = new LinguisticVariable("moveIncrement",0,15);
+            newMoves = new LinguisticVariable("moveIncrement",-4,15);
             newMoves.AddLabel(fsNone);
             newMoves.AddLabel(fsZero);
             newMoves.AddLabel(fsMinimal);

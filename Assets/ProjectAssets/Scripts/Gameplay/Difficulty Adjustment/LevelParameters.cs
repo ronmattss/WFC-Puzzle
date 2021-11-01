@@ -43,7 +43,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // m is the timePercentage
             // x is the expecteMoves
             // b is the boardsize
-            var y = (timePercentage * boardSize + expectedMoves) * .07; 
+            var y = (timePercentage * boardSize + expectedMoves) * .015; 
            return /*((timePercentage * boardSize) / (expectedMoves * .7)) * 100*/ y;
         }
 
