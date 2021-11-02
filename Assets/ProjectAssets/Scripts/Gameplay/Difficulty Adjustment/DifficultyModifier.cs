@@ -302,12 +302,12 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            nextLevelRating = NextLevelRating();
            if (currentPlayer.gamesPlayed < 1)
            {
-               debugPlayerRating = (playerScore / 2.5) + levelGenerated.playerRating + (nextLevelRating* .5f) / 1;
+               debugPlayerRating =  (levelGenerated.playerRating + (nextLevelRating* .01f) / 1) + (playerScore / 2.5);
 
            }
            else
            {
-               debugPlayerRating = playerScore + levelGenerated.playerRating + (nextLevelRating * .5f) / currentPlayer.gamesPlayed;
+               debugPlayerRating = (levelGenerated.playerRating + (nextLevelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore / 5);
 
            }
            var resultant = levelGenerated.playerRating - debugPlayerRating;

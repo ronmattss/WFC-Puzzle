@@ -43,7 +43,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // m is the timePercentage
             // x is the expecteMoves
             // b is the boardsize
-            var y = (timePercentage * boardSize + expectedMoves) * .015; 
+            var y = (timePercentage * boardSize + expectedMoves) * .075; 
            return /*((timePercentage * boardSize) / (expectedMoves * .7)) * 100*/ y;
         }
 
@@ -57,7 +57,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public int SetAllocatedTime()
         {
             var boardT = SetBoardTime();
-        allocatedTime = (boardT * ((double) expectedMoves / 10)) + boardT;
+        allocatedTime = boardT * ((double) expectedMoves / 10) + boardT;
         boardTime = boardT;
        // Debug.Log($"allocated Time: {allocatedTime}");
         return (int) allocatedTime;
@@ -69,7 +69,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
             // if the ExpectedMoves is beyond the size of the 
             // instead of bounded numbers, use rules from a crisp Output
-            expectedMoves = Random.Range(MinMove(boardSize), (MaxMoves(boardSize))); // this should be random on a range // have a switch statement that handles the max limit of moves per board size
+            expectedMoves = Random.Range(MinMove(boardSize), MaxMoves(boardSize)); // this should be random on a range // have a switch statement that handles the max limit of moves per board size
             return expectedMoves;
 
         }
@@ -112,8 +112,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         public double SetTimeCompletionScore()
         {
-            var firstEquation = ((SetAllocatedTime() * .7)); // outer .7 is Score Percentage (SP) // but this is static I guess // I think this will be tweaked
-            var secondEquation = (allocatedTime * .7); 
+            var firstEquation = SetAllocatedTime() * .7; // outer .7 is Score Percentage (SP) // but this is static I guess // I think this will be tweaked
+            var secondEquation = allocatedTime * .7; 
             
             timeCompletionScore =  firstEquation / secondEquation;
             return timeCompletionScore;
@@ -122,21 +122,21 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         // used twice, to determine the Level's Score and to Compute the Player's Score
         public double SetExpectedScore()    // ((EM/PM) * 100% * 60%) + ((70% of AT * SP(70%)) / (RT * PS)) * 40%
         {
-            var firstEquation =  (completionScore * .6);
+            var firstEquation =  completionScore * .6;
         //    Debug.Log($"Completion Score: {firstEquation}");
 
 
-            var secondEquation = (timeCompletionScore * .4);
+            var secondEquation = timeCompletionScore * .4;
         //    Debug.Log($"Time Score: {secondEquation}");
             
 
-            var result = ((firstEquation + secondEquation) * 100) / 10;
+            var result = (firstEquation + secondEquation) * 100 / 10;
             
             return result;
             // var thirdEquation = (remainingTime *)
         }
 
-        double SetComputeSuggestedPathScore(int suggestedMovePlayerPath)
+        private double SetComputeSuggestedPathScore(int suggestedMovePlayerPath)
         {
             var sPath = suggestedPath;
             var pPath = suggestedMovePlayerPath;
@@ -164,10 +164,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 return 0;
             var result  = (double) expectedMoves / playerMovement;
             
-            if (playerMovement == expectedMoves)
-            {
-                return 1;
-            }
+            if (playerMovement == expectedMoves) return 1;
 
             // if (( expectedMoves * .99) >= playerMovement && playerMovement >= (expectedMoves * .60))
             // {
@@ -183,23 +180,16 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         // FUZZY Logic ?
         public double SetPlayerTimeCompletionScore(double remainingTime)
         {
-            var playerTime = (remainingTime);
-            var levelTime = ((SetAllocatedTime())); // outer .7 is Score Percentage (SP) // but this is static I guess
+            var playerTime = remainingTime;
+            var levelTime = SetAllocatedTime(); // outer .7 is Score Percentage (SP) // but this is static I guess
             
             // these values should be tweaked for board size 6 -10
-            if ( playerTime >= (levelTime * .60))
-            {
-             //   Debug.Log(levelTime * 1);
+            if ( playerTime >= levelTime * .60)
+            //   Debug.Log(levelTime * 1);
                 return  1;
-            }
-            if (( levelTime * .59) >= playerTime && playerTime >= (levelTime * .40))
-            {
-                return .50;
-            }
-            if (( levelTime * .39) >= playerTime && playerTime >= (levelTime * .25)) // these values should be tweaked for board size 6 -10
-            {
+            if (levelTime * .59 >= playerTime && playerTime >= levelTime * .40) return .50;
+            if (levelTime * .39 >= playerTime && playerTime >= levelTime * .25) // these values should be tweaked for board size 6 -10
                 return .25;
-            }
 
             return remainingTime/levelTime;
         }
@@ -213,15 +203,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var pMovement = SetPlayerCompletionScore(playerMovement) * .5;
             var moveRes = pathMoveScore + pMovement;
             
-            var firstEquation =  (moveRes * .6);
+            var firstEquation =  moveRes * .6;
 
 
 
-            var secondEquation = (SetPlayerTimeCompletionScore(remainingTime) * .4);
+            var secondEquation = SetPlayerTimeCompletionScore(remainingTime) * .4;
           //  Debug.Log( $"Player Completion Score: {firstEquation} Player Time Score: {secondEquation}");
             
 
-            var result = ((firstEquation + secondEquation) * 100) / 10;
+            var result = (firstEquation + secondEquation) * 100 / 10;
             return result;
             // var thirdEquation = (remainingTime *)
         }
@@ -237,26 +227,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             
             
             if (pScore == baseScore) // perfect moves
-            {
                 return 1;
-            }
 
-            if (pScore < baseScore)
-            {
-                return -1;
-            }
+            if (pScore < baseScore) return -1;
 
             // 31 <= playerMoves 32 <= 37
 
-            if (pScore >= (baseScore / .99) && pScore <= (baseScore / .8))
-            {
-                return .25;
-                
-            }
-            if ((pScore >= (baseScore / .79) && pScore <= (baseScore / .5))) // 
-            {
+            if (pScore >= baseScore / .99 && pScore <= baseScore / .8) return .25;
+            if (pScore >= baseScore / .79 && pScore <= baseScore / .5) // 
                 return 0;
-            }
 
             return -.25;
             
@@ -267,19 +246,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var baseTime = allocatedTime;
             var playerTime = playerRemainingTime;
            //  36 >= 32 >= .7
-            if (baseTime >= playerTime && playerTime >= (baseTime * .60))
-            {
-                return 1;
-            }
-            if (( baseTime * .59) >= playerTime && playerTime >= (baseTime * .40))
-            {
-                return 0.75; // .05
-            }
-            if (( baseTime * .39) >= playerTime && playerTime >= (baseTime * .10))
-            {
-                return 0.5; // .05
-            }
-        
+            if (baseTime >= playerTime && playerTime >= baseTime * .60) return 1;
+            if (baseTime * .59 >= playerTime && playerTime >= baseTime * .40) return 0.75; // .05
+            if (baseTime * .39 >= playerTime && playerTime >= baseTime * .10) return 0.5; // .05
+
             if (baseTime > 0)
                 return -(playerTime/baseTime);
 
