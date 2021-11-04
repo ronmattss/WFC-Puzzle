@@ -73,8 +73,8 @@ namespace UnityTemplateProjects.UI
         {
             // moves.text = $"{expectedMoves}/{pm}";
             var subtractedExpectedMoves = expectedMoves - 1;
-            var percentage = (pm / subtractedExpectedMoves) * 100f;
-            moves.text = pm == 0 ? $" Explored: {100}% / {0}%" : $" Explored: {100f}% / {percentage}%";
+            var percentage = (pm / subtractedExpectedMoves) * 100;
+            moves.text = pm == 0 ? $" Explored: {100}% / {0}%" : $" Explored: {100f}% / {Mathf.Floor(percentage)}%";
         }
         public void ChangeKeyText(int key)
         {
