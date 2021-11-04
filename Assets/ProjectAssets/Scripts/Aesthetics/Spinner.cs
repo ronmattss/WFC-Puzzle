@@ -17,5 +17,7 @@ namespace ProjectAssets.Scripts.Aesthetics
             LeanTween.rotateAround(objectToRotate, Vector3.up, 360, rotateTime).setRepeat(-1);
             //  currentRotation = gameObject.transform.rotation.y;
         }
+        
+        
     }
 }

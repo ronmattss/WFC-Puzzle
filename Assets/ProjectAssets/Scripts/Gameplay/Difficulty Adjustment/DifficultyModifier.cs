@@ -564,16 +564,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             
                 SaveManager.Instance.SaveProfile();
                 UIManager.Instance.ChangeRatingText( SaveManager.Instance.playerProfile.currentRating);
-            
-            
-            
-            
-            
-
-
-
-
         }
+       
+       
 
 
     }

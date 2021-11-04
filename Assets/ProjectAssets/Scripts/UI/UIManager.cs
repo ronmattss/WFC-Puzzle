@@ -67,10 +67,14 @@ namespace UnityTemplateProjects.UI
             games.text = gamesPlayed > 1 ? $"games played: {gamesPlayed}" : $"game played: {gamesPlayed}";
         }
 
-        public void ChangeMoveText(int pm = 0)
+        
+
+        public void ChangeMoveText(float pm = 0)
         {
-           // moves.text = $"{expectedMoves}/{pm}";
-            moves.text = $" Expected Moves: {expectedMoves -1} / {pm}";
+            // moves.text = $"{expectedMoves}/{pm}";
+            var subtractedExpectedMoves = expectedMoves - 1;
+            var percentage = (pm / subtractedExpectedMoves) * 100f;
+            moves.text = pm == 0 ? $" Explored: {100}% / {0}%" : $" Explored: {100f}% / {percentage}%";
         }
         public void ChangeKeyText(int key)
         {

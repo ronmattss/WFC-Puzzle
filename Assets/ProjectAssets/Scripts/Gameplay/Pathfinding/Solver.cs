@@ -43,6 +43,8 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             RandomlyChangePathCells();
 
         }
+        
+        
 
         void DebugShowPath()
         {

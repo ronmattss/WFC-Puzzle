@@ -188,11 +188,15 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
 
         }
+
+
+        
         
         
 
 
     }
+    
 
     // 
     public class CellPath
