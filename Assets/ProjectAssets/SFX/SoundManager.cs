@@ -42,6 +42,32 @@ namespace ProjectAssets.SFX
             inGameMusic.volume = musicSlider.value;
             gameSFX.volume = sfxSlider.value;
         }
+        
+        public void MuteUnMuteMusic()
+        {
+            if (menuMusic.volume == 0)
+            {
+                menuMusic.volume = 1;
+                inGameMusic.volume = 1;
+            }
+            else
+            {
+                menuMusic.volume = 0;
+                inGameMusic.volume = 0;
+            }
+        }
+        
+        public void MuteUnMuteSfx()
+        {
+            if (gameSFX.volume == 0)
+            {
+                gameSFX.volume = 1;
+            }
+            else
+            {
+                gameSFX.volume = 0;
+            }
+        }
 
 
         public void PlayMenuMusic()
