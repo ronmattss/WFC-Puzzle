@@ -139,6 +139,7 @@
 
         }
         
+        // Tweak this to your liking
         public void SetIncrementalMoves()
         {
             var x1 = -5; // 0

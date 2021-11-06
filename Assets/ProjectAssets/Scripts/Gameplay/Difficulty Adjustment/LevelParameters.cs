@@ -27,7 +27,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         // increment board size when the allowed EM is achieved??????
         public double SetBoardTime()
         {
-            return boardSize * 5;
+            return boardSize * 3; // default is 5
         }
 
 
@@ -43,7 +43,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // m is the timePercentage
             // x is the expecteMoves
             // b is the boardsize
-            var y = (timePercentage * boardSize + expectedMoves) * .075; 
+            var y = (timePercentage * boardSize + expectedMoves) * .15; 
            return /*((timePercentage * boardSize) / (expectedMoves * .7)) * 100*/ y;
         }
 

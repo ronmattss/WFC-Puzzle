@@ -94,20 +94,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         }
         
 
-        void GetInitialRating()
-        {
-            if (currentPlayer.gamesPlayed == 3)
-            {
-                double average = 0;
-                for (int i = 0; i < 3; i++)
-                {
-                    average += currentPlayer.levelsPlayed[i].playerRating;
-                }
-
-                average /= 3;
-                currentPlayer.currentRating = average;
-            }
-        }
+      
 
 
 
@@ -180,11 +167,26 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
         }
         
+        public double SetLevelRating(double rating,double moveIncrement, bool previousLevelWon)
+        {
+            var newRating = rating;
+            if (previousLevelWon)
+            {
+                newRating+=moveIncrement;
+            }
+            else
+            {
+                newRating-= Mathf.Abs((int)moveIncrement);
+            }
+
+            return newRating;
+        }
+        
         // invoke this after button press and after a level
         public void SetupDifficultyParameters() // we can edit this to for two builds With and wuthout DDA
         {
            // CalculateLevelRating();
-
+           var puzzleRating = 0;
             /// FIX THIS TOMORROW: WITHOUT GAMES PLAYED
             if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2)
             {
@@ -205,9 +207,20 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // 
             var levelMoves = 12;
 
-            levelMoves = SetupMoves(levelMoves); // what is this?
+            if (isDDAActive)
+            {
+                levelMoves = SetupMoves(levelMoves);
+                SetupBoardSize(rating,levelMoves);
+            }
+            else
+            {
+                parameters.SetBoardSize(Random.Range(4, 11));
+                levelMoves = parameters.SetExpectedMoves();
 
-            SetupBoardSize(rating,levelMoves);
+            }
+               
+
+           
 
           // gamesplayed Conditions
 
@@ -223,7 +236,14 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             parameters.expectedMoves = levelMoves;
            
             var score = parameters.SetExpectedScore(); // Expected Score and TIME
-            var puzzleRating = parameters.SetPuzzleRating();  // determines the rating of the puzzle, might be a conflict
+            if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2)
+            {
+                puzzleRating = (int)SetLevelRating(SaveManager.Instance.playerProfile.currentRating,moveOutput,SaveManager.Instance.playerProfile.levelsPlayed[SaveManager.Instance.playerProfile.levelsPlayed.Count-1].won);  // determines the rating of the puzzle, via move increment
+            }
+            else
+            {
+                puzzleRating = (int)parameters.SetPuzzleRating(); // determines the rating of the puzzle, might be a conflict
+            }
             
             parameters.levelRating = puzzleRating;
             parameters.expectedScore = score;
@@ -296,7 +316,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            
            var playerScore = parameters.SetPlayerScore(ref levelGenerated.playerMove, ref levelGenerated.playerRemainingTime, levelGenerated.playerMoveOnSuggestedPath); // ref is a pointer reference to the variables
            levelGenerated.playerScore = playerScore;
-           playerScore = playerWon ? playerScore : -playerScore;
+           playerScore = playerWon ? playerScore : -(playerScore * 3);
             
            //  Debug.Log($"Puzzle Rating: {puzzleRating}");
            nextLevelRating = NextLevelRating();
@@ -307,7 +327,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            }
            else
            {
-               debugPlayerRating = (levelGenerated.playerRating + (nextLevelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore / 5);
+               if(playerWon)
+                debugPlayerRating = (levelGenerated.playerRating + (nextLevelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore / 6);
+               else
+                   debugPlayerRating = (levelGenerated.playerRating + (nextLevelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore);
 
            }
            var resultant = levelGenerated.playerRating - debugPlayerRating;
