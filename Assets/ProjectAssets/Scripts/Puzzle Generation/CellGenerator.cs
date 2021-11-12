@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using ProjectAssets.Scripts.Gameplay;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
+using UnityEngine.Events;
 using Debug = UnityEngine.Debug;
 
 
@@ -20,8 +22,13 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
 
         public int seed;
 
+        [Header("Tools")] 
+        public float genSpeed = .15f;
+        public int genSize = 5;
+        public UnityEvent onApplyConstraints;
 
-        private void Awake()
+
+            private void Awake()
         {
             // GenerateLevel On Command
             // GenerateLevel();
@@ -32,6 +39,86 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             height = size;
             width = size;
             GenerateLevel();
+        }
+
+        public void GenerateBoard()
+        {
+            height = genSize;
+            width = genSize;
+            StartCoroutine(BoardGeneration());
+        }
+        
+        IEnumerator BoardGeneration()
+        {
+            RemoveGrid();
+             GenerateGrid(this); 
+            
+                // then Generate Cells
+                var finalSeed = seed != -1 ? seed : Environment.TickCount;
+            
+                UnityEngine.Random.InitState(finalSeed);
+
+                // contain all cells into a heap
+                orderedCells = new Heap<Cell>(cells.GetLength(0) * cells.GetLength(1));
+                for (var i = 0; i < cells.GetLength(0); i++)
+                for (var j = 0; j < cells.GetLength(1); j++)
+                {
+                    orderedCells.Add(cells[i, j]);
+                }
+            
+                var stopwatch = new Stopwatch(); // check exec Time
+            
+                //TODO: APPLY CONSTRAINTS
+                ApplyInitialConstraints(); //<- Set Start and End Modules Constraints
+                // ~~ Main Wave Function Collapse Algorithm ~~\\
+            
+                // HAHA WHILE LOOP
+
+                // Loop until
+                while (orderedCells.Count > 0)
+                {
+                    // get the first cell in the heap
+                    var cell = orderedCells.GetFirst();
+
+                    if (cell.possibleModules.Count == 1)
+                    {
+                        cell.Collapse(); //collapse the cell
+                        // When a Cell is solved remove from Heap
+
+                        orderedCells.RemoveFirst();
+                    }
+
+                    else
+                    {
+                        // set a random module for this cell // can be modified to what module has the lowest entropy cost
+                        // this should not happen
+                        //  Debug.Log($"Cell that caused an error: {cell.name} number of possible modules: {cell.possibleModules.Count}");
+                        // we fix this
+                        cell.SetModule(cell.possibleModules[UnityEngine.Random.Range(0, cell.possibleModules.Count)]);
+                    }
+                }
+                
+                foreach (var c in cells)
+                {
+
+                    var t = c.transform;
+
+
+                        Instantiate(c.possibleModules[0].moduleGameObject, t.position, c.possibleModules[0].moduleGameObject.transform.rotation, t);
+                        c.module = c.possibleModules[0];
+
+                        c.SetEdges();
+                    GameManager.Instance.cellGameObjects.Add(c.gameObject);
+                    // c.gameObject.GetComponent<Cell>().cellOnPosition = false;
+                    // c.gameObject.GetComponent<Cell>().EaseToPosition(!c.gameObject.GetComponent<Cell>().cellOnPosition);
+
+                    yield return new WaitForSeconds(genSpeed);
+                }
+                CheckGeneratedLevel();
+            
+                // GameManager.Instance.SetActiveCells(cells);
+                // GameManager.Instance.SetPlayerPosition();
+
         }
 
 
@@ -159,12 +246,13 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         private void ApplyInitialConstraints()
         {
             // apply the Difficulty Constraint here
-            
-            StartGoalConstraint();
-            OutsideGridBorderConstraint();
+            // apply the initial constraints
+            onApplyConstraints.Invoke();
+            // StartGoalConstraint();
+            // OutsideGridBorderConstraint();
         }
 
-        private void OutsideGridBorderConstraint()
+        public void OutsideGridBorderConstraint()
         {
             // check if this side is outside meaning out of bounds
             // make this edge a BLOCKED edge
@@ -198,7 +286,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             }
         }
 
-        private void StartGoalConstraint()
+        public void StartGoalConstraint()
         {
             // Instead of StartCell, EndCell then Difficulty constraint for how many tiles then 
             // Goal Constraint

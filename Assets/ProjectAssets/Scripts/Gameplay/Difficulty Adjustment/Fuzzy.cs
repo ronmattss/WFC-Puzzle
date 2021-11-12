@@ -186,7 +186,7 @@
             // Plenty Minimal None
             
             // The system will now guess
-            // Inference Class uses string manipulation (using stack and RPN)
+            // Inference Class uses string manipulation (using stack and RPN to Read the Rules)
             // 
             infSystem.NewRule("Rule 1", "IF clearMoves IS Great AND clearTime IS Fast THEN moveIncrement IS Plenty");
             infSystem.NewRule("Rule 2", "IF clearMoves IS Great AND clearTime IS Normal THEN moveIncrement IS Minimal");
