@@ -24,7 +24,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Tools/Canvas (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Tools/Canvas (1).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scenes/Tools.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scenes/Tools.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/AForge.Fuzzy.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/AForge.Fuzzy.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/AForge.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/AForge.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Rule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Fuzzy/Rule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Tools/GenerateEmptyBoard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Tools/GenerateEmptyBoard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assetstoken.json/Google.Apis.Auth.OAuth2.Responses.TokenResponse-user" beforeDir="false" afterPath="$PROJECT_DIR$/Assetstoken.json/Google.Apis.Auth.OAuth2.Responses.TokenResponse-user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,6 +326,7 @@
       <workItem from="1636544012489" duration="599000" />
       <workItem from="1636598712687" duration="13380000" />
       <workItem from="1636686166080" duration="10352000" />
+      <workItem from="1636762828702" duration="24538000" />
     </task>
     <servers />
   </component>

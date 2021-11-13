@@ -1,5 +1,4 @@
-﻿using AForge.Fuzzy;
-
+﻿
 namespace ProjectAssets.Scripts.Fuzzy
 {
     using System;

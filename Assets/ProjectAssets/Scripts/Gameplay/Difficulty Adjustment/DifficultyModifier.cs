@@ -183,7 +183,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         }
 
 
-        double SetLevelRating(double em,double at)
+       public double SetLevelRating(double em,double at)
         {
             return (em / ((at * 0.7) * 0.7)) * 15;
         }
@@ -311,6 +311,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
         }
 
+        // To be used in the demonstration
+        public double SetPlayerScore(int pMoves, double pTime,int pMoveOnSuggestedPath,bool won )
+        {
+ 
+            var playerScore = parameters.SetPlayerScore(ref pMoves, ref pTime, pMoveOnSuggestedPath); // ref is a pointer reference to the variables
+            playerScore = won ? playerScore : -(playerScore * 3);
+            return playerScore;
+        }
+
        public void ComputeLevelScore() // invoke after finishing the level this will compute the score and the rating for the next level
        {    Debug.Log($"player remaining time: {levelGenerated.playerRemainingTime}");
 
@@ -380,7 +389,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        
         // This Fuzzy Logic (?)
         // this not fuzzy
-       private double EvaluateMemberFunctions()
+       private double EvaluatePlayerPerformance()
        {
 
            var moveValue= parameters.EvaluatePlayerMoves(levelGenerated.playerMove);
@@ -468,7 +477,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            // (LR + PS)/GP + CR
            var currentPlayerRating = levelGenerated.playerRating;
            var levelRating = levelGenerated.levelRating;
-           var  multiplier = EvaluateMemberFunctions();
+           var  multiplier = EvaluatePlayerPerformance();
            var playerScore =levelGenerated.playerScore;
            var ratingResult = 0.0;
 
@@ -490,6 +499,55 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
            Debug.Log($"Next Level Rating/Player Rating Computation: CurrentPR: {currentPlayerRating} levelRating: {levelRating}  multiplier: {multiplier} ratingResult: {ratingResult} playerScore: {playerScore}  result: {result} ");
            return result;
+       }
+
+       public double NextLevelRating(double lRating,  double pRating)
+       {
+
+               // (LR + PS)/GP + CR
+               var currentPlayerRating = levelGenerated.playerRating;
+               var levelRating = lRating;
+               var  multiplier = EvaluatePlayerPerformance();
+               var ratingResult = 0.0;
+
+               if ((int) multiplier == 1)
+               {
+               
+                   ratingResult = levelRating - currentPlayerRating;
+                   currentPlayerRating += ratingResult;
+                   currentPlayerRating /= 2;
+
+               }
+               else if (multiplier >= .5 && multiplier < 1)
+               {
+                   currentPlayerRating /= 1.75;
+               }
+
+               pRating = currentPlayerRating * multiplier;
+               return pRating;
+
+
+       }
+
+       public double AddPlayerRating(int gamesPlayed,int playerRating,double levelRating, int playerScore,bool playerWon)
+       {
+           var pRating = playerRating; 
+           if (gamesPlayed < 1)
+           {
+               pRating =  (int)((playerRating + (levelRating* .01f) / 1) + (playerScore / 2.5)); // This is based from elo rating of chess
+
+           }
+           // This is based from elo rating of chess
+           else
+           {
+               if(playerWon)
+                   pRating = (int)((playerRating + (levelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore / 6)); // divided by 6 so player Rating will not go up to much
+               else
+                   pRating = (int)((playerRating + (levelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore));
+
+           }
+
+           return pRating;
        }
 
         // Rules
