@@ -2,16 +2,18 @@
 using UnityEngine;
 using TMPro;
 using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
+using ProjectAssets.Scripts.Util;
+
 namespace ProjectAssets.Scripts.Tools
 {
-    public class GenerateEmptyBoard : MonoBehaviour
+    public class GenerateEmptyBoard : Singleton<GenerateEmptyBoard>
     {
         // This class will Generate an empty board for Tool Demonstration purposes.
         // contains board generation code
         
         
         public Gameplay.Difficulty_Adjustment.Fuzzy fuzzy;
-        [Header("Tool Simulation Parameters")]
+        [Header("Tool  Parameters")]
         [Header("Level Information")]
         public int boardSize; 
         public int expectedMoves; 
@@ -30,7 +32,7 @@ namespace ProjectAssets.Scripts.Tools
  
         
         public DifficultyModifier difficultyModifier;
-        [Header("Tool Simulation UI")]
+        [Header("Tool  UI")]
        public TMP_Text expectedMovesText; 
        public TMP_Text timeLeftText; 
        public TMP_Text allottedTimeText; 
@@ -81,6 +83,7 @@ namespace ProjectAssets.Scripts.Tools
         
         public void LateUpdate()
         {
+            allottedTime = difficultyModifier.parameters.SetAllocatedTime(expectedMoves,boardSize);
             moveIncrementText.text = $"Move Increment: {OutputFuzzyBasedMoves(playerMoves, timeLeft)}";
             expectedMovesText.text = $"expected Moves: {expectedMoves}";
             playerMovesText.text = $"player Moves: {playerMoves}";

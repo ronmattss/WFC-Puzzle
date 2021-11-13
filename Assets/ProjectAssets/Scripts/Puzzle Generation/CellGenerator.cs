@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using ProjectAssets.Scripts.Gameplay;
+using ProjectAssets.Scripts.Tools;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
 using UnityEngine.Events;
@@ -52,7 +53,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         {
             RemoveGrid();
              GenerateGrid(this); 
-            
+             GameManager.Instance.solver.debugRenderer.enabled = false;
                 // then Generate Cells
                 var finalSeed = seed != -1 ? seed : Environment.TickCount;
             
@@ -113,6 +114,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
                     // c.gameObject.GetComponent<Cell>().EaseToPosition(!c.gameObject.GetComponent<Cell>().cellOnPosition);
 
                     yield return new WaitForSeconds(genSpeed);
+                    GameManager.Instance.solver.debugRenderer.enabled = true;
                 }
                 CheckGeneratedLevel();
             
@@ -146,7 +148,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             ApplyInitialConstraints(); //<- Set Start and End Modules Constraints
             // ~~ Main Wave Function Collapse Algorithm ~~\\
             
-            // HAHA WHILE LOOP
+            
 
             // Loop until
             while (orderedCells.Count > 0)
@@ -312,7 +314,32 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             // now collapse it
             
         }
+        public void GoalConstraint()
+        {
+            // Instead of StartCell, EndCell then Difficulty constraint for how many tiles then 
+            // Goal Constraint
+            var startCell = cells[UnityEngine.Random.Range(0, cells.GetLength(0)), UnityEngine.Random.Range(0, cells.GetLength(1) - 1)];
+            Cell endCell;
 
+            startCell.SetModule(startModule);
+            do
+            {
+                endCell = cells[UnityEngine.Random.Range(0, cells.GetLength(0)), UnityEngine.Random.Range(1, cells.GetLength(1))];
+            } while (endCell == startCell);
+
+            endCell.SetModule(endModule);
+//            Debug.Log($"Start Cell: {startCell.name} End Cell: {endCell.name}");
+            
+            
+            // Get starCell Position
+            
+            GameManager.Instance.currentCell = startCell;
+            GameManager.Instance.SetStartPosition(startCell.transform.position);
+            GameManager.Instance.solver.InitializeSolver(cells,endCell,GenerateEmptyBoard.Instance.expectedMoves);
+            // GameManager.Instance.SetGoalCell(endCell);
+            // now collapse it
+            
+        }
         private void RemoveGrid()
         {
             foreach (Transform child in gameObject.transform)

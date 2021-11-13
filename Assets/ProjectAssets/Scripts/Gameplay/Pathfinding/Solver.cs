@@ -43,13 +43,29 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             RandomlyChangePathCells();
 
         }
+        public void InitializeSolver(Cell[,] cells, Cell endCell, int moves)
+        {
+            currentCells = cells;
+            currentCell = endCell;
+            expectedMoves = moves +1;
+            walk = new SelfAvoidingWalk(currentCell,moves);
+            walk.Walk();
+            Walker();
+            GameManager.Instance.modifier.parameters.suggestedPath = cellPath.Count;
+            //RandomDirection();
+            //  CheckUniqueness();
+            
+             DebugShowPath();
+            RandomlyChangePathCells();
+
+        }
         
         
 
         void DebugShowPath()
         {
-            if (!debugMode) return;
-            debugRenderer.enabled = true;
+            
+            
             debugRenderer.positionCount = cellPath.Count;
             for (var i = 0; i < cellPath.Count; i++)
             {

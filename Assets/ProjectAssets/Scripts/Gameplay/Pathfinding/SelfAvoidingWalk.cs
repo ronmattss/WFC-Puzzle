@@ -144,7 +144,69 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         public void BeginWalk(CellPath cellPath)
         {
           
-            
+             var currentPath = new CellPath(RandomlyAssignNewCell(StartPathCell),StartPathCell.visitedPathCells); // walk start here now repeat it
+            path.Push(currentPath);
+            while (steps > 0)
+            {
+                // RandomlyAssignNewCellAgain
+                if (currentPath.currentCell == null && path.Count >0)
+                {
+                    currentPath = BackTrack();
+                }
+                // final options
+                if (currentPath == null)
+                {
+                    Walk();
+                }
+                currentPath = new CellPath(RandomlyAssignNewCell(currentPath),currentPath.visitedPathCells);
+                // what is this, If there is no current path, backtrack
+                if (currentPath.currentCell == null)
+                {
+                    var x = 2; // DEBUG ONLY just checking if the possibility 
+                    Debug.Log("Help I'm Stuck" + x);
+                    // recursive Backtrack here and pop and increment walk
+                    currentPath = BackTrack();
+
+                    try
+                    {
+                        if (currentPath.currentCell == null && path.Count == 0)
+                        {
+                            steps = 0;
+                            Debug.Log("Help I'm Stuck Forever");
+                            break;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log(e);
+   //                     Walk();
+                    }
+
+
+
+                    path.Push(currentPath);
+                    Debug.Log($"Steps-in: {steps } stack: {path.Count}");
+
+                    steps--;
+
+                }
+                else
+                {
+                    path.Push(currentPath);
+                    Debug.Log($"Steps: {steps } Stack Count: {path.Count}");
+
+                    steps--;
+                }
+                
+                
+
+            }
+
+            Debug.Log($"Walk Complete: {path.Count}");
+            while (path.Count != 0)
+            {
+                completedPath.Add(path.Pop().currentCell);
+            }
             
         }
         

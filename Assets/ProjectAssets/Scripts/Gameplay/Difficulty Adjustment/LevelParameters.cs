@@ -63,6 +63,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         return (int) allocatedTime;
 
         }
+        public int SetAllocatedTime(double moves,int bSize)
+        {
+            var boardT = bSize * 3;
+            allocatedTime = boardT * ((double) moves / 10) + boardT;
+            boardTime = boardT;
+            // Debug.Log($"allocated Time: {allocatedTime}");
+            return (int) allocatedTime;
+
+        }
         
         public int SetExpectedMoves()
         {
