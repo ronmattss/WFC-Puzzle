@@ -24,6 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Tools/Canvas (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Prefabs/Tools/Canvas (1).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Tools/GenerateEmptyBoard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Tools/GenerateEmptyBoard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assetstoken.json/Google.Apis.Auth.OAuth2.Responses.TokenResponse-user" beforeDir="false" afterPath="$PROJECT_DIR$/Assetstoken.json/Google.Apis.Auth.OAuth2.Responses.TokenResponse-user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

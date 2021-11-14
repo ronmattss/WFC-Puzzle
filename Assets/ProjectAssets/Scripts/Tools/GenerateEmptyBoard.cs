@@ -42,15 +42,21 @@ namespace ProjectAssets.Scripts.Tools
        public TMP_Text levelScoreText; 
        public TMP_Text levelRatingText;
        public TMP_Text playerRatingText; 
+       public TMP_InputField boardSizeInput; 
+       public TMP_InputField movesInput;
+       public TMP_InputField playerMovesInput;
+       public TMP_InputField playerRemainingTimeInput;
+       public TMP_InputField playerRatingInput;  
 
 
 
 
 
 
-        
-        
-        private void FuzzyBasedMoves(int _expectedMoves,float _allottedTime)
+
+
+
+       private void FuzzyBasedMoves(int _expectedMoves,float _allottedTime)
         {   fuzzy = new Gameplay.Difficulty_Adjustment.Fuzzy();
             fuzzy.SetMoves(_expectedMoves);
             fuzzy.SetTime(_allottedTime);
@@ -92,12 +98,32 @@ namespace ProjectAssets.Scripts.Tools
             BoardSizeText.text = $"Board Size: {boardSize}";
             levelScoreText.text = $"Level Score: { difficultyModifier.SetPlayerScore(playerMoves,timeLeft,playerMovedOnSuggestedPath,playerWon)}";
             playerRatingText.text = $"Player Rating:{difficultyModifier.AddPlayerRating(gamesplayed, (int)playerRating, difficultyModifier.NextLevelRating(levelRating, playerRating), playerScore, playerWon)} ";
-            levelRatingText.text = $"Player Rating:{difficultyModifier.SetLevelRating(expectedMoves,allottedTime)} ";
-
+            levelRatingText.text = $"level Rating:{Math.Round(difficultyModifier.SetLevelRating(expectedMoves,allottedTime),2)} ";
+            
             Debug.Log(
                 $"PlayerRating Increment: {difficultyModifier.AddPlayerRating(gamesplayed, (int)playerRating, difficultyModifier.NextLevelRating(levelRating, playerRating), playerScore, playerWon)}");
         }
-        
+
+        public void ChangeBoardSize()
+        {
+            boardSize = int.Parse(boardSizeInput.text);
+        }
+        public void ChangeMoves()
+        {
+            expectedMoves = int.Parse(movesInput.text);
+        }
+        public void ChangePlayerMoves()
+        {
+            playerMoves = int.Parse(playerMovesInput.text);
+        }
+        public void ChangeRemainingTime()
+        {
+            timeLeft = float.Parse(playerRemainingTimeInput.text);
+        }
+        public void ChangePlayerRating()
+        {
+            playerRating = float.Parse(playerRatingInput.text);
+        }
         
     }
 }
