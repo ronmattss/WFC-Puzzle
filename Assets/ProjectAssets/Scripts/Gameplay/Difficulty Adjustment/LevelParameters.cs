@@ -162,12 +162,28 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // the goal of sPath is to guide the player to the exit
 
         }
+        private double SetComputeSuggestedPathScore(int suggestedMovePlayerPath,int eMoves,int sugPath)
+        {
+            var sPath = sugPath;
+            var pPath = suggestedMovePlayerPath;
+            var extra = 0;
+            if (sPath < eMoves)
+            {
+                sPath = eMoves;
+                extra = eMoves - sPath;
+                pPath += extra;
+            }
+
+            return (double) pPath / sPath;
+
+            // the goal of sPath is to guide the player to the exit
+
+        }
         
         
         
         public double SetPlayerCompletionScore(int playerMovement)
         {
-            
 
             if (playerMovement < expectedMoves)
                 return 0;
@@ -175,16 +191,19 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             
             if (playerMovement == expectedMoves) return 1;
 
-            // if (( expectedMoves * .99) >= playerMovement && playerMovement >= (expectedMoves * .60))
-            // {
-            //     return expectedMoves * .6;
-            // }
-            // if (( expectedMoves * .59) >= playerMovement && playerMovement >= (expectedMoves * .40))
-            // {
-            //     return expectedMoves * .5;
-            // }
+            return result;
+        }        public double SetPlayerCompletionScore(int playerMovement,int eMoves)
+        {
+
+            if (playerMovement < eMoves)
+                return 0;
+            var result  = (double) eMoves / playerMovement;
+            
+            if (playerMovement == eMoves) return 1;
+
             return result;
         }
+
 
         // FUZZY Logic ?
         public double SetPlayerTimeCompletionScore(double remainingTime)
@@ -218,6 +237,24 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
             var secondEquation = SetPlayerTimeCompletionScore(remainingTime) * .4;
           //  Debug.Log( $"Player Completion Score: {firstEquation} Player Time Score: {secondEquation}");
+            
+
+            var result = (firstEquation + secondEquation) * 100 / 10;
+            return result;
+            // var thirdEquation = (remainingTime *)
+        }
+        public double SetScoreOfPlayer( int playerMovement,int eMoves, double remainingTime, int playerPathMovement)    // ((EM/PM) * 100% * 60%) + ((70% of AT * SP(70%)) / (RT * PS)) * 40%
+        {
+            var pathMoveScore = SetComputeSuggestedPathScore(playerPathMovement,eMoves,playerPathMovement) * .5;
+            var pMovement = SetPlayerCompletionScore(playerMovement) * .5;
+            var moveRes = pathMoveScore + pMovement;
+            
+            var firstEquation =  moveRes * .6;
+
+
+
+            var secondEquation = SetPlayerTimeCompletionScore(remainingTime) * .4;
+            //  Debug.Log( $"Player Completion Score: {firstEquation} Player Time Score: {secondEquation}");
             
 
             var result = (firstEquation + secondEquation) * 100 / 10;

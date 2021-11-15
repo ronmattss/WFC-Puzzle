@@ -288,6 +288,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2125130010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6950419331409232352, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
+  m_PrefabInstance: {fileID: 6095958566949261102}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &573509517846259210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -472,293 +483,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 81922161, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_text
-      value: Level Moves
-      objectReference: {fileID: 0}
-    - target: {fileID: 81922161, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 81922161, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 81922161, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 81922161, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 81922161, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 992888426, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_Name
-      value: InputPlayerRating
-      objectReference: {fileID: 0}
-    - target: {fileID: 992888428, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 992888428, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 992888428, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7783246753483497544}
-    - target: {fileID: 992888428, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 992888428, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangePlayerRating
-      objectReference: {fileID: 0}
-    - target: {fileID: 992888428, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProjectAssets.Scripts.Tools.GenerateEmptyBoard, ProjectScripts
-      objectReference: {fileID: 0}
-    - target: {fileID: 992888428, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1020913112, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6079234009703725109}
-    - target: {fileID: 1038806600, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_text
-      value: Board Size
+      objectReference: {fileID: 7783246753483497544}
+    - target: {fileID: 1020913112, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ComputePlayerRating
       objectReference: {fileID: 0}
-    - target: {fileID: 1038806600, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1038806600, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1038806600, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1038806600, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1038806600, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094718922, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_text
-      value: Player Time Remaining
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094718922, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094718922, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094718922, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094718922, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094718922, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234940262, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_text
-      value: Player Rating
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234940262, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234940262, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234940262, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234940262, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234940262, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 1283446004, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_text
-      value: Player Moves
-      objectReference: {fileID: 0}
-    - target: {fileID: 1283446004, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1283446004, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1283446004, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1283446004, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1283446004, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
+    - target: {fileID: 1020913112, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProjectAssets.Scripts.Tools.GenerateEmptyBoard, ProjectScripts
       objectReference: {fileID: 0}
     - target: {fileID: 1496052408, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6079234009703725109}
-    - target: {fileID: 1557404838, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_Name
-      value: InputLevelMove
-      objectReference: {fileID: 0}
-    - target: {fileID: 1557404840, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1557404840, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1557404840, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7783246753483497544}
-    - target: {fileID: 1557404840, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1557404840, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMoves
-      objectReference: {fileID: 0}
-    - target: {fileID: 1557404840, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProjectAssets.Scripts.Tools.GenerateEmptyBoard, ProjectScripts
-      objectReference: {fileID: 0}
-    - target: {fileID: 1557404840, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695301519, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_Name
-      value: InputBoard
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695301521, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695301521, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1695301521, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7783246753483497544}
-    - target: {fileID: 1695301521, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695301521, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeBoardSize
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695301521, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProjectAssets.Scripts.Tools.GenerateEmptyBoard, ProjectScripts
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695301521, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721200306, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_Name
-      value: InputPlayerTimeRemaining
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721200308, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721200308, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1721200308, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7783246753483497544}
-    - target: {fileID: 1721200308, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721200308, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeRemainingTime
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721200308, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProjectAssets.Scripts.Tools.GenerateEmptyBoard, ProjectScripts
-      objectReference: {fileID: 0}
-    - target: {fileID: 1721200308, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944417121, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_Name
-      value: InputPlayerMove
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944417123, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944417123, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1944417123, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7783246753483497544}
-    - target: {fileID: 1944417123, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+    - target: {fileID: 837671387785265528, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
+      propertyPath: m_Name
+      value: InputPlayerGamesPlayed
       objectReference: {fileID: 0}
-    - target: {fileID: 1944417123, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
+    - target: {fileID: 6950419331409232352, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7783246753483497544}
+    - target: {fileID: 6950419331409232352, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangePlayerMoves
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944417123, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProjectAssets.Scripts.Tools.GenerateEmptyBoard, ProjectScripts
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944417123, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: ChangeGamesPlayed
       objectReference: {fileID: 0}
     - target: {fileID: 7511500195842045107, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_Name
@@ -1085,3 +856,4 @@ MonoBehaviour:
   playerMovesInput: {fileID: 773304385}
   playerRemainingTimeInput: {fileID: 71824648}
   playerRatingInput: {fileID: 353398438}
+  gamesPlayedInput: {fileID: 2125130010}

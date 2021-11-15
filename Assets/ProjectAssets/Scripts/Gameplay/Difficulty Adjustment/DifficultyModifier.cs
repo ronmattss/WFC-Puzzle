@@ -184,9 +184,18 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
 
        public double SetLevelRating(double em,double at)
-        {
+       {
+           var firstEquation = ((at * 0.7) * .7);
+           var secondEquation = em / firstEquation;
             return (em / ((at * 0.7) * 0.7)) * 15;
         }
+       public double SetLevelRating(double em,double at,int size)
+       {
+           var firstEquation = ((at * 0.7) * .7);
+           // var secondEquation = em / firstEquation;
+           var y = (firstEquation * size + em) * .15; 
+           return y;
+       }
 
         
         // Why Does Dis not work sometimes LMAO
@@ -317,6 +326,13 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
  
             var playerScore = parameters.SetPlayerScore(ref pMoves, ref pTime, pMoveOnSuggestedPath); // ref is a pointer reference to the variables
             playerScore = won ? playerScore : -(playerScore * 3);
+            return playerScore;
+        }
+        public double SetScore(int pMoves,int eMoves, double pTime,int pMoveOnSuggestedPath,bool won )
+        {
+ 
+            var playerScore = parameters.SetScoreOfPlayer( pMoves,  eMoves,pTime, pMoveOnSuggestedPath); // ref is a pointer reference to the variables
+            playerScore = won ? playerScore : -(playerScore);
             return playerScore;
         }
 
@@ -541,12 +557,12 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            else
            {
                if(playerWon)
-                   pRating = (int)((playerRating + (levelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore / 6)); // divided by 6 so player Rating will not go up to much
+                   pRating = (int)((playerRating + (levelRating * .01f) / gamesPlayed) + (playerScore / 2.5f)); // divided by 6 so player Rating will not go up to much
                else
-                   pRating = (int)((playerRating + (levelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore));
+                   pRating = (int)((playerRating + (levelRating * .01f) / gamesPlayed) + (playerScore));
 
            }
-
+            Debug.Log($"Player Rating Computation: PlayerRating: {playerRating} levelRating: {levelRating}  playerScore: {playerScore} games played: {gamesPlayed}  pRating: {pRating} ");
            return pRating;
        }
 

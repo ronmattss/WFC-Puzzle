@@ -47,6 +47,8 @@ namespace ProjectAssets.Scripts.Tools
        public TMP_InputField playerMovesInput;
        public TMP_InputField playerRemainingTimeInput;
        public TMP_InputField playerRatingInput;  
+       public TMP_InputField gamesPlayedInput;  
+
 
 
 
@@ -86,22 +88,29 @@ namespace ProjectAssets.Scripts.Tools
             FuzzyBasedMoves(expectedMoves,allottedTime);
           //  difficultyModifier.SetPlayerScore(playerMoves,timeLeft,playerMovedOnSuggestedPath);
         }
+
+        public void ComputePlayerRating()
+        {
+            playerRating = difficultyModifier.AddPlayerRating(gamesplayed, (int)playerRating,
+                levelRating, playerScore, playerWon);
+        }
         
         public void LateUpdate()
         {
             allottedTime = difficultyModifier.parameters.SetAllocatedTime(expectedMoves,boardSize);
-            moveIncrementText.text = $"Move Increment: {OutputFuzzyBasedMoves(playerMoves, timeLeft)}";
+            levelRating = Math.Round(difficultyModifier.SetLevelRating(expectedMoves, allottedTime, boardSize), 2);
+            playerScore =
+                (int)difficultyModifier.SetScore(playerMoves, expectedMoves,timeLeft ,playerMovedOnSuggestedPath, playerWon);
+            moveIncrementText.text = $"Move Increment: {OutputFuzzyBasedMoves(playerMoves, timeLeft)} Next Level Moves: {OutputFuzzyBasedMoves(playerMoves, timeLeft) + expectedMoves}";
             expectedMovesText.text = $"expected Moves: {expectedMoves}";
             playerMovesText.text = $"player Moves: {playerMoves}";
             allottedTimeText.text = $"Allotted Time: {allottedTime}";
             timeLeftText.text = $"Time Left: {timeLeft}";
             BoardSizeText.text = $"Board Size: {boardSize}";
-            levelScoreText.text = $"Level Score: { difficultyModifier.SetPlayerScore(playerMoves,timeLeft,playerMovedOnSuggestedPath,playerWon)}";
-            playerRatingText.text = $"Player Rating:{difficultyModifier.AddPlayerRating(gamesplayed, (int)playerRating, difficultyModifier.NextLevelRating(levelRating, playerRating), playerScore, playerWon)} ";
-            levelRatingText.text = $"level Rating:{Math.Round(difficultyModifier.SetLevelRating(expectedMoves,allottedTime),2)} ";
+            levelScoreText.text = $"Level Score: { playerScore}";
+            playerRatingText.text = $"Player Rating:{playerRating} ";
+            levelRatingText.text = $"level Rating:{Math.Round(difficultyModifier.SetLevelRating(expectedMoves,allottedTime,boardSize),2)} ";
             
-            Debug.Log(
-                $"PlayerRating Increment: {difficultyModifier.AddPlayerRating(gamesplayed, (int)playerRating, difficultyModifier.NextLevelRating(levelRating, playerRating), playerScore, playerWon)}");
         }
 
         public void ChangeBoardSize()
@@ -123,6 +132,10 @@ namespace ProjectAssets.Scripts.Tools
         public void ChangePlayerRating()
         {
             playerRating = float.Parse(playerRatingInput.text);
+        }
+        public void ChangeGamesPlayed()
+        {
+            gamesplayed = int.Parse(gamesPlayedInput.text);
         }
         
     }
