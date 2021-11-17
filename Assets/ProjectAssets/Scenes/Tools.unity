@@ -491,14 +491,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7783246753483497544}
-    - target: {fileID: 1020913112, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ComputePlayerRating
-      objectReference: {fileID: 0}
-    - target: {fileID: 1020913112, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ProjectAssets.Scripts.Tools.GenerateEmptyBoard, ProjectScripts
-      objectReference: {fileID: 0}
     - target: {fileID: 1496052408, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -519,18 +511,10 @@ PrefabInstance:
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7783246753483497544}
-    - target: {fileID: 837671387785265528, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_Name
-      value: InputPlayerGamesPlayed
-      objectReference: {fileID: 0}
     - target: {fileID: 6950419331409232352, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7783246753483497544}
-    - target: {fileID: 6950419331409232352, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeGamesPlayed
-      objectReference: {fileID: 0}
     - target: {fileID: 7511500195842045107, guid: 7bdde976fa1f757499ccf3b2ab145696, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
