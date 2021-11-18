@@ -351,7 +351,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             
            //  Debug.Log($"Puzzle Rating: {puzzleRating}"); 
            nextLevelRating = NextLevelRating();
-           if (currentPlayer.gamesPlayed < 1)
+           if (currentPlayer.gamesPlayed < 3)
            {
                debugPlayerRating =  (levelGenerated.playerRating + (nextLevelRating* .01f) / 1) + (playerScore / 2.5); // This is based from elo rating of chess
 

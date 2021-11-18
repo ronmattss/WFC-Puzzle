@@ -12,7 +12,7 @@ namespace ProjectAssets.Scripts.Tools
         // contains board generation code
         
         
-        public Gameplay.Difficulty_Adjustment.Fuzzy fuzzy;
+        private Gameplay.Difficulty_Adjustment.Fuzzy fuzzy;
         [Header("Tool  Parameters")]
         [Header("Level Information")]
         public int boardSize; 
