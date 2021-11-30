@@ -44,83 +44,112 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
 
         public void GenerateBoard()
         {
-            height = genSize;
-            width = genSize;
+            height = GenerateEmptyBoard.Instance.boardSize;
+            width = GenerateEmptyBoard.Instance.boardSize;
             StartCoroutine(BoardGeneration());
         }
-        
+
         IEnumerator BoardGeneration()
         {
             RemoveGrid();
-             GenerateGrid(this); 
-             GameManager.Instance.solver.debugRenderer.enabled = false;
-                // then Generate Cells
-                var finalSeed = seed != -1 ? seed : Environment.TickCount;
-            
-                UnityEngine.Random.InitState(finalSeed);
+            GenerateGrid(this);
+            GameManager.Instance.solver.debugRenderer.enabled = false;
+            // then Generate Cells
+            var finalSeed = seed != -1 ? seed : Environment.TickCount;
 
-                // contain all cells into a heap
-                orderedCells = new Heap<Cell>(cells.GetLength(0) * cells.GetLength(1));
-                for (var i = 0; i < cells.GetLength(0); i++)
-                for (var j = 0; j < cells.GetLength(1); j++)
+            UnityEngine.Random.InitState(finalSeed);
+
+            // contain all cells into a heap
+            orderedCells = new Heap<Cell>(cells.GetLength(0) * cells.GetLength(1));
+            for (var i = 0; i < cells.GetLength(0); i++)
+            for (var j = 0; j < cells.GetLength(1); j++)
+            {
+                orderedCells.Add(cells[i, j]);
+            }
+
+            var stopwatch = new Stopwatch(); // check exec Time
+
+            //TODO: APPLY CONSTRAINTS
+            ApplyInitialConstraints(); //<- Set Start and End Modules Constraints
+            // ~~ Main Wave Function Collapse Algorithm ~~\\
+
+            // HAHA WHILE LOOP
+
+            // Loop until
+            while (orderedCells.Count > 0)
+            {
+                // get the first cell in the heap
+                var cell = orderedCells.GetFirst();
+
+                if (cell.possibleModules.Count == 1)
                 {
-                    orderedCells.Add(cells[i, j]);
-                }
-            
-                var stopwatch = new Stopwatch(); // check exec Time
-            
-                //TODO: APPLY CONSTRAINTS
-                ApplyInitialConstraints(); //<- Set Start and End Modules Constraints
-                // ~~ Main Wave Function Collapse Algorithm ~~\\
-            
-                // HAHA WHILE LOOP
+                    cell.Collapse(); //collapse the cell
+                    // When a Cell is solved remove from Heap
 
-                // Loop until
-                while (orderedCells.Count > 0)
+                    orderedCells.RemoveFirst();
+                }
+
+                else
                 {
-                    // get the first cell in the heap
-                    var cell = orderedCells.GetFirst();
-
-                    if (cell.possibleModules.Count == 1)
-                    {
-                        cell.Collapse(); //collapse the cell
-                        // When a Cell is solved remove from Heap
-
-                        orderedCells.RemoveFirst();
-                    }
-
-                    else
-                    {
-                        // set a random module for this cell // can be modified to what module has the lowest entropy cost
-                        // this should not happen
-                        //  Debug.Log($"Cell that caused an error: {cell.name} number of possible modules: {cell.possibleModules.Count}");
-                        // we fix this
-                        cell.SetModule(cell.possibleModules[UnityEngine.Random.Range(0, cell.possibleModules.Count)]);
-                    }
+                    // set a random module for this cell // can be modified to what module has the lowest entropy cost
+                    // this should not happen
+                    //  Debug.Log($"Cell that caused an error: {cell.name} number of possible modules: {cell.possibleModules.Count}");
+                    // we fix this
+                    cell.SetModule(cell.possibleModules[UnityEngine.Random.Range(0, cell.possibleModules.Count)]);
                 }
-                
-                foreach (var c in cells)
+            }
+
+
+            GameManager.Instance.cellGameObjects.Clear();
+            var solvedCells = GameManager.Instance.solver.cellPath;
+            foreach (var c in cells)
+            {
+
+                var t = c.transform;
+                var x = ReturnCellInSolvePathCells(c);
+
+                if (x != null)
                 {
-
-                    var t = c.transform;
-
-
-                        Instantiate(c.possibleModules[0].moduleGameObject, t.position, c.possibleModules[0].moduleGameObject.transform.rotation, t);
-                        c.module = c.possibleModules[0];
-
-                        c.SetEdges();
-                    GameManager.Instance.cellGameObjects.Add(c.gameObject);
-                    // c.gameObject.GetComponent<Cell>().cellOnPosition = false;
-                    // c.gameObject.GetComponent<Cell>().EaseToPosition(!c.gameObject.GetComponent<Cell>().cellOnPosition);
-
-                    yield return new WaitForSeconds(genSpeed);
-                    GameManager.Instance.solver.debugRenderer.enabled = true;
+                    Instantiate(x.module.moduleGameObject, t.position, x.module.moduleGameObject.transform.rotation, t);
+                    c.module = x.module;
                 }
-                CheckGeneratedLevel();
-            
-                // GameManager.Instance.SetActiveCells(cells);
-                // GameManager.Instance.SetPlayerPosition();
+                else
+                {
+                    Instantiate(c.possibleModules[0].moduleGameObject, t.position,
+                        c.possibleModules[0].moduleGameObject.transform.rotation, t);
+                    c.module = c.possibleModules[0];
+                }
 
+                c.SetEdges();
+                GameManager.Instance.cellGameObjects.Add(c.gameObject);
+                c.gameObject.GetComponent<Cell>().cellOnPosition = false;
+                c.gameObject.GetComponent<Cell>().EaseToPosition(!c.gameObject.GetComponent<Cell>().cellOnPosition);
+                yield return new WaitForSeconds(genSpeed);
+                GameManager.Instance.solver.debugRenderer.enabled = true;
+            }
+
+            // foreach (var c in cells)
+            // {
+            //
+            //     var t = c.transform;
+            //
+            //
+            //         Instantiate(c.possibleModules[0].moduleGameObject, t.position, c.possibleModules[0].moduleGameObject.transform.rotation, t);
+            //         c.module = c.possibleModules[0];
+            //
+            //         c.SetEdges();
+            //     GameManager.Instance.cellGameObjects.Add(c.gameObject);
+            //     // c.gameObject.GetComponent<Cell>().cellOnPosition = false;
+            //     // c.gameObject.GetComponent<Cell>().EaseToPosition(!c.gameObject.GetComponent<Cell>().cellOnPosition);
+            //
+
+            // }
+            CheckGeneratedLevel();
+
+
+            // GameManager.Instance.SetActiveCells(cells);
+            // GameManager.Instance.SetPlayerPosition();
+            //
         }
 
 

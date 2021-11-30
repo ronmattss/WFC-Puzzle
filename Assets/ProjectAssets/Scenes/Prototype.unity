@@ -879,6 +879,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 171164903}
+    - target: {fileID: 2130801394440230856, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
+      propertyPath: m_text
+      value: 'Wins: '
+      objectReference: {fileID: 0}
     - target: {fileID: 2130801394465260570, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -895,6 +899,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1784948920}
+    - target: {fileID: 2130801394695828303, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
+      propertyPath: m_text
+      value: 'Games:'
+      objectReference: {fileID: 0}
     - target: {fileID: 2130801394708464333, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

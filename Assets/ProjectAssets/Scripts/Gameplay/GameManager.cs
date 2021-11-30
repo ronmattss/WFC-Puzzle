@@ -330,6 +330,10 @@ namespace ProjectAssets.Scripts.Gameplay
             cells.Remove(cells[cells.Count - 1]);
             cells.Remove(cells[0]);
 
+            if (cells.Count < 4)
+            {
+                return;
+            }
             int[] keyIndex = {
                 UnityEngine.Random.Range(cells.Count-2,cells.Count-4),
                 cells.Count/2,

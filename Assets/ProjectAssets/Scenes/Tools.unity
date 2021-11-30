@@ -818,8 +818,8 @@ MonoBehaviour:
   expectedMoves: 10
   allottedTime: 20
   levelRating: 31
-  playerMoves: 5
-  timeLeft: 10
+  playerMoves: 10
+  timeLeft: 15
   playerMovedOnSuggestedPath: 10
   playerWon: 1
   playerScore: 10
