@@ -74,12 +74,13 @@ namespace UnityTemplateProjects.UI
             // moves.text = $"{expectedMoves}/{pm}";
             var subtractedExpectedMoves = expectedMoves - 1;
             var percentage = (pm / subtractedExpectedMoves) * 100;
-            if(pm <= subtractedExpectedMoves)
-                moves.text = pm == 0 ? $" Total Explored Tiles: {Mathf.Floor(pm)} Explored: {100f}% / {Mathf.Floor(percentage)}% " : $"Total Explored Tiles: {Mathf.Floor(pm)} Explored: {100f}% / {Mathf.Floor(percentage)}%";
+
+            moves.text = pm == 0 ? $" Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}% " : $"Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}%";
+
         }
         public void ChangeKeyText(int key)
         {
-            keys.text = key > 1 ? $"keys remaining: {key}" : $"key remaining: {key}";
+            keys.text = key > 1 ? $"keys collected: {key}" : $"key collected: {key}";
         }
 
         public void ChangeTimeText(double remainingTime)
