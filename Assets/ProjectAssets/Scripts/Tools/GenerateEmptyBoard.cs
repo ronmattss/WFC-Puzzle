@@ -6,6 +6,10 @@ using ProjectAssets.Scripts.Util;
 
 namespace ProjectAssets.Scripts.Tools
 {
+    
+    /// <summary>
+    /// This class is used to display data used in the system for the Tool Defense.
+    /// </summary>
     public class GenerateEmptyBoard : Singleton<GenerateEmptyBoard>
     {
         // This class will Generate an empty board for Tool Demonstration purposes.
@@ -57,7 +61,7 @@ namespace ProjectAssets.Scripts.Tools
 
 
 
-
+        // Use Fuzzy Logic to Score the movement input of the player.
        private void FuzzyBasedMoves(int _expectedMoves,float _allottedTime)
         {   fuzzy = new Gameplay.Difficulty_Adjustment.Fuzzy();
             fuzzy.SetMoves(_expectedMoves);
@@ -69,7 +73,8 @@ namespace ProjectAssets.Scripts.Tools
             // debugTime = allottedTime;
         }
         
-        private int OutputFuzzyBasedMoves(int pMoves, float pTimeRemaining)
+       // Output the data to the UI
+       private int OutputFuzzyBasedMoves(int pMoves, float pTimeRemaining)
         {
 
             playerMoves = pMoves;
@@ -82,32 +87,38 @@ namespace ProjectAssets.Scripts.Tools
             ComputeMoves();
         }
 
-
+        
+        // Recompute the input based on the data input
         public void ComputeMoves()
         {
             FuzzyBasedMoves(expectedMoves,allottedTime);
           //  difficultyModifier.SetPlayerScore(playerMoves,timeLeft,playerMovedOnSuggestedPath);
         }
 
+        // Computes Player Rating
         public void ComputePlayerRating()
         {
             playerRating = difficultyModifier.AddPlayerRating(gamesplayed, (int)playerRating,
                 levelRating, playerScore, playerWon);
         }
         
+        // This function is used to output the data to the UI
+        
         public void LateUpdate()
         {
             allottedTime = difficultyModifier.parameters.SetAllocatedTime(expectedMoves,boardSize);
             levelRating = Math.Round(difficultyModifier.SetLevelRating(expectedMoves, allottedTime, boardSize), 2);
-            playerScore =
-                (int)difficultyModifier.SetScore(playerMoves, expectedMoves,timeLeft ,playerMovedOnSuggestedPath, playerWon);
+            playerScore = (int)difficultyModifier.SetScore(playerMoves, expectedMoves,timeLeft ,playerMovedOnSuggestedPath, playerWon);
             moveIncrementText.text = $"Move Increment: {OutputFuzzyBasedMoves(playerMoves, timeLeft)} Next Level Moves: {OutputFuzzyBasedMoves(playerMoves, timeLeft) + expectedMoves}";
+            
             expectedMovesText.text = $"expected Moves: {expectedMoves}";
             playerMovesText.text = $"player Moves: {playerMoves}";
             allottedTimeText.text = $"Allotted Time: {allottedTime}";
+            
             timeLeftText.text = $"Time Left: {timeLeft}";
             BoardSizeText.text = $"Board Size: {boardSize}";
             levelScoreText.text = $"Level Score: { playerScore}";
+            
             playerRatingText.text = $"Player Rating:{playerRating} ";
             levelRatingText.text = $"level Rating:{Math.Round(difficultyModifier.SetLevelRating(expectedMoves,allottedTime,boardSize),2)} ";
             

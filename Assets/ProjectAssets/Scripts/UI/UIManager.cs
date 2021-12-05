@@ -7,6 +7,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 namespace UnityTemplateProjects.UI
 {
     public class UIManager : Singleton<UIManager>
@@ -32,6 +33,8 @@ namespace UnityTemplateProjects.UI
         public TMP_Text games;
         public TMP_Text wins;
         public TMP_Text currentRating;
+        public TMP_Text levelRating;
+        public Slider timerBar;
 
         public int expectedMoves;
 
@@ -41,11 +44,16 @@ namespace UnityTemplateProjects.UI
             // Test Key
             if (Input.GetKeyUp(KeyCode.Escape) && mainMenuGroup.activeSelf == false && (postLevelMenuGroup.activeSelf == false || postFailedLevelMenuGroup.activeSelf == false))
             {
-                ShowHidePauseMenu(); // disable when playing
-                ShowHideinGameUIGroup();
+                PauseUnpause();// disable when playing
             }
 
 
+        }
+
+        public void PauseUnpause()
+        {
+            ShowHidePauseMenu(); // disable when playing
+            ShowHideinGameUIGroup();
         }
 
         public void ShowHideSettingsGroup() //settings button (from main menu)
@@ -53,10 +61,21 @@ namespace UnityTemplateProjects.UI
             settingsMenuGroup.SetActive(!settingsMenuGroup.activeSelf);
             menuCanvas.SetActive(!menuCanvas.activeSelf);
         }
+        
+        
 
         public void ChangeRatingText(double playerRating)
         {
             rating.text = $"Rating: {(float)playerRating}";
+        }
+
+        public void ChangeCurrentRatingText(double playerRating)
+        {
+            currentRating.text = "Current Rating: " + (float)playerRating;
+        }
+        public void ChangeLevelRatingText(double lRating)
+        {
+            levelRating.text = "Level Rating: " + (float)lRating;
         }
         public void ChangeWinText(double win)
         {
@@ -126,7 +145,9 @@ namespace UnityTemplateProjects.UI
             // Pause 
 
             
-            
+            ChangeCurrentRatingText(SaveManager.Instance.playerProfile.currentRating);
+            ChangeLevelRatingText(GameManager.Instance.modifier.levelGenerated.levelRating);
+
             ChangeRatingText(SaveManager.Instance.playerProfile.currentRating);
             ChangeGamesText(SaveManager.Instance.playerProfile.gamesPlayed);
             ChangeWinText(SaveManager.Instance.playerProfile.gamesWon);
