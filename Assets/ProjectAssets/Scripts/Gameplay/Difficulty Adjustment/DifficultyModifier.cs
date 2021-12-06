@@ -277,9 +277,11 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 levelGenerated.playerRemainingTime = levelTime;
                 
                 UIManager.Instance.expectedMoves = levelMoves;
+                UIManager.Instance.timerBar.maxValue = levelMoves - 1;
+                UIManager.Instance.timerBar.value = 0;
+
                 UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
-                UIManager.Instance.timerBar.maxValue = (float)levelGenerated.playerRemainingTime;
-                UIManager.Instance.timerBar.value = (float)levelGenerated.playerRemainingTime;
+
 
 
                 return;
@@ -308,9 +310,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 levelGenerated.playerRemainingTime = levelTime;
                 
                 UIManager.Instance.expectedMoves = levelMoves;
+                UIManager.Instance.timerBar.maxValue = levelMoves - 1;
+                UIManager.Instance.timerBar.value = 0;
                 UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
-                UIManager.Instance.timerBar.maxValue = (float)levelGenerated.playerRemainingTime;
-                UIManager.Instance.timerBar.value = (float)levelGenerated.playerRemainingTime;
 
                 return;
             }
@@ -323,7 +325,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
             levelGenerated.playerRemainingTime -= Time.deltaTime;
             UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
-            UIManager.Instance.timerBar.value = (float)levelGenerated.playerRemainingTime;
 
         }
 

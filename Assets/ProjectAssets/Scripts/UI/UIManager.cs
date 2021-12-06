@@ -35,6 +35,9 @@ namespace UnityTemplateProjects.UI
         public TMP_Text currentRating;
         public TMP_Text levelRating;
         public Slider timerBar;
+        public Image timerBarFill; 
+        
+        public Gradient timerBarGradient;
 
         public int expectedMoves;
 
@@ -93,9 +96,13 @@ namespace UnityTemplateProjects.UI
             // moves.text = $"{expectedMoves}/{pm}";
             var subtractedExpectedMoves = expectedMoves - 1;
             var percentage = (pm / subtractedExpectedMoves) * 100;
+           // moves.text = pm == 0 ? $" Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}% " : $"Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}%";
+            moves.text = $" Total Tiles \n Explored: {pm} ";
 
-            moves.text = pm == 0 ? $" Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}% " : $"Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}%";
+            
+            timerBar.value = pm;
 
+            ChangeFillColorBasedOnProgress( pm);
         }
         public void ChangeKeyText(int key)
         {
@@ -179,6 +186,13 @@ namespace UnityTemplateProjects.UI
             mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
             SoundManager.Instance.PlayMenuMusic();
 
+        }
+
+        public void ChangeFillColorBasedOnProgress(float playerMoves)
+        {
+            var currentMove = playerMoves;
+            float gradientMap =Mathf.InverseLerp(timerBar.minValue,timerBar.maxValue, currentMove);
+            timerBarFill.color = timerBarGradient.Evaluate(gradientMap);
         }
         
         public void ShowHideMainMenuGroupFromPause()
