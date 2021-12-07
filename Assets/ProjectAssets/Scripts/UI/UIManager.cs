@@ -7,6 +7,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 namespace UnityTemplateProjects.UI
 {
     public class UIManager : Singleton<UIManager>
@@ -32,6 +33,11 @@ namespace UnityTemplateProjects.UI
         public TMP_Text games;
         public TMP_Text wins;
         public TMP_Text currentRating;
+        public TMP_Text levelRating;
+        public Slider timerBar;
+        public Image timerBarFill; 
+        
+        public Gradient timerBarGradient;
 
         public int expectedMoves;
 
@@ -41,11 +47,16 @@ namespace UnityTemplateProjects.UI
             // Test Key
             if (Input.GetKeyUp(KeyCode.Escape) && mainMenuGroup.activeSelf == false && (postLevelMenuGroup.activeSelf == false || postFailedLevelMenuGroup.activeSelf == false))
             {
-                ShowHidePauseMenu(); // disable when playing
-                ShowHideinGameUIGroup();
+                PauseUnpause();// disable when playing
             }
 
 
+        }
+
+        public void PauseUnpause()
+        {
+            ShowHidePauseMenu(); // disable when playing
+            ShowHideinGameUIGroup();
         }
 
         public void ShowHideSettingsGroup() //settings button (from main menu)
@@ -53,10 +64,21 @@ namespace UnityTemplateProjects.UI
             settingsMenuGroup.SetActive(!settingsMenuGroup.activeSelf);
             menuCanvas.SetActive(!menuCanvas.activeSelf);
         }
+        
+        
 
         public void ChangeRatingText(double playerRating)
         {
             rating.text = $"Rating: {(float)playerRating}";
+        }
+
+        public void ChangeCurrentRatingText(double playerRating)
+        {
+            currentRating.text = "Current Rating: " + (float)playerRating;
+        }
+        public void ChangeLevelRatingText(double lRating)
+        {
+            levelRating.text = "Level Rating: " + (float)lRating;
         }
         public void ChangeWinText(double win)
         {
@@ -74,9 +96,13 @@ namespace UnityTemplateProjects.UI
             // moves.text = $"{expectedMoves}/{pm}";
             var subtractedExpectedMoves = expectedMoves - 1;
             var percentage = (pm / subtractedExpectedMoves) * 100;
+           // moves.text = pm == 0 ? $" Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}% " : $"Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}%";
+            moves.text = $" Total Tiles \n Explored: {pm} ";
 
-            moves.text = pm == 0 ? $" Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}% " : $"Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}%";
+            
+            timerBar.value = pm;
 
+            ChangeFillColorBasedOnProgress( pm);
         }
         public void ChangeKeyText(int key)
         {
@@ -126,7 +152,9 @@ namespace UnityTemplateProjects.UI
             // Pause 
 
             
-            
+            ChangeCurrentRatingText(SaveManager.Instance.playerProfile.currentRating);
+            ChangeLevelRatingText(GameManager.Instance.modifier.levelGenerated.levelRating);
+
             ChangeRatingText(SaveManager.Instance.playerProfile.currentRating);
             ChangeGamesText(SaveManager.Instance.playerProfile.gamesPlayed);
             ChangeWinText(SaveManager.Instance.playerProfile.gamesWon);
@@ -158,6 +186,13 @@ namespace UnityTemplateProjects.UI
             mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
             SoundManager.Instance.PlayMenuMusic();
 
+        }
+
+        public void ChangeFillColorBasedOnProgress(float playerMoves)
+        {
+            var currentMove = playerMoves;
+            float gradientMap =Mathf.InverseLerp(timerBar.minValue,timerBar.maxValue, currentMove);
+            timerBarFill.color = timerBarGradient.Evaluate(gradientMap);
         }
         
         public void ShowHideMainMenuGroupFromPause()

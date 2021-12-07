@@ -251,13 +251,13 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var score = parameters.SetExpectedScore(); // Expected Score and TIME
             if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2)
             {
-             //   puzzleRating = (int)SetLevelRating(SaveManager.Instance.playerProfile.currentRating,moveOutput,SaveManager.Instance.playerProfile.levelsPlayed[SaveManager.Instance.playerProfile.levelsPlayed.Count-1].won);  // determines the rating of the puzzle, via move increment
-             puzzleRating = (int)SetLevelRating(levelMoves, levelTime);
+                puzzleRating = (int)SetLevelRating(SaveManager.Instance.playerProfile.currentRating,moveOutput,SaveManager.Instance.playerProfile.levelsPlayed[SaveManager.Instance.playerProfile.levelsPlayed.Count-1].won);  // determines the rating of the puzzle, via move increment
+            // puzzleRating = (int)SetLevelRating(levelMoves, levelTime,parameters.boardSize);
             }
             else
             {
               //  puzzleRating = (int)parameters.SetPuzzleRating(); // determines the rating of the puzzle, might be a conflict
-              puzzleRating = (int)SetLevelRating(levelMoves, levelTime);
+              puzzleRating = (int)SetLevelRating(levelMoves, levelTime,parameters.boardSize);
             }
             
             parameters.levelRating = puzzleRating;
@@ -277,7 +277,12 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 levelGenerated.playerRemainingTime = levelTime;
                 
                 UIManager.Instance.expectedMoves = levelMoves;
+                UIManager.Instance.timerBar.maxValue = levelMoves - 1;
+                UIManager.Instance.timerBar.value = 0;
+
                 UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
+
+
 
                 return;
             }
@@ -305,6 +310,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 levelGenerated.playerRemainingTime = levelTime;
                 
                 UIManager.Instance.expectedMoves = levelMoves;
+                UIManager.Instance.timerBar.maxValue = levelMoves - 1;
+                UIManager.Instance.timerBar.value = 0;
                 UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
 
                 return;
@@ -318,6 +325,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
             levelGenerated.playerRemainingTime -= Time.deltaTime;
             UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
+
         }
 
         // To be used in the demonstration

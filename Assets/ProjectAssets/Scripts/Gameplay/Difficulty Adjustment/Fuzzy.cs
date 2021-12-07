@@ -117,25 +117,18 @@
             var x8 = allottedTime *.62f; // 15
             var x9 = allottedTime *.7f;
             var x10 = allottedTime * .25f;
-            var x11 = allottedTime * .45f;
+            var x11 = allottedTime * .40f;
 
             fsFailed = new FuzzySet("Failed",new TrapezoidFunction(x1,x10,TrapezoidFunction.EdgeType.Right));
             fsSlow = new FuzzySet("Slow",new TrapezoidFunction(x3,x10,x4,x11));
-            fsNormal = new FuzzySet("Normal",new TrapezoidFunction(x4,x5,x6,x7));
-            fsFast = new FuzzySet("Fast",new TrapezoidFunction(x6,x9,TrapezoidFunction.EdgeType.Left));
+            fsNormal = new FuzzySet("Normal",new TrapezoidFunction(x10,x5,x6,x7));
+            fsFast = new FuzzySet("Fast",new TrapezoidFunction(5,x9,TrapezoidFunction.EdgeType.Left));
             clearTime = new LinguisticVariable("clearTime",0,allottedTime);
             clearTime.AddLabel(fsFast);
             clearTime.AddLabel(fsNormal);
             clearTime.AddLabel(fsSlow);
             clearTime.AddLabel(fsFailed);
-
-            // members[0].curve.AddKey(x1, 1);
-            // members[0].curve.AddKey(x2, 0);
-            // members[1].curve.AddKey(x2, 0);
-            // members[1].curve.AddKey(x3, 1);
-            // members[1].curve.AddKey(x4, 0);
-            // members[2].curve.AddKey(x3, 0);
-            // members[2].curve.AddKey(x4, 1);
+            
 
         }
         
@@ -196,10 +189,7 @@
             infSystem.NewRule("Rule 5", "IF clearMoves IS Average AND clearTime IS Normal THEN moveIncrement IS Minimal");
             infSystem.NewRule("Rule 6", "IF clearMoves IS Average AND clearTime IS Slow THEN moveIncrement IS Minimal");
             
-            // infSystem.NewRule("Rule 7", "IF clearMoves IS SlowClear AND clearTime IS Fast THEN moveIncrement IS Minimal");
-            // infSystem.NewRule("Rule 8", "IF clearMoves IS SlowClear AND clearTime IS Normal THEN moveIncrement IS Minimal");
-            // infSystem.NewRule("Rule 9", "IF clearMoves IS SlowClear AND clearTime IS Slow THEN moveIncrement IS None");
-            //
+
             infSystem.NewRule("Rule 7", "IF clearMoves IS Clear AND clearTime IS Fast THEN moveIncrement IS Minimal");
             infSystem.NewRule("Rule 8", "IF clearMoves IS Clear AND clearTime IS Normal THEN moveIncrement IS None");
             infSystem.NewRule("Rule 9", "IF clearMoves IS Clear AND clearTime IS Slow THEN moveIncrement IS None");
