@@ -21,7 +21,7 @@
         //returns true if a module matches this type of filter
         public bool CheckModule(Module module)
         {
-            var edge = (_edgeDirection + 2) % 4; // this is a weird equation to get the edge direction but it works LMAO
+            var edge = (_edgeDirection + 2) % 4; // this is a weird equation to get the edge direction but it works
             var match = module.connections[edge] == _filterType; // does this module's edge match with the filter type?
 
             return _isInclusive ? !match : match;

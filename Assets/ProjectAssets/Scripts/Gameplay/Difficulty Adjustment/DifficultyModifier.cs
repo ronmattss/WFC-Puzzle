@@ -593,34 +593,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        // if (puzzleRating >= (levelGenerated.playerRating - 5) && levelGenerated.playerRating <= puzzleRating &&
        // puzzleRating <= levelGenerated.playerRating+ 5)
        // Rules
-       private int LowerRatingBound(int puzzleRating)
-       {
-           if (puzzleRating < 20)        // its hard to generate puzzles lower than 20
-               return 6;
-           if (puzzleRating > 20 && puzzleRating < 30) return 4;
-           if (puzzleRating > 30 && puzzleRating < 40) return 5;
-           if (puzzleRating > 40 && puzzleRating < 50) return 8;
-           if (puzzleRating > 50 && puzzleRating < 60) return 10;
-           if (puzzleRating > 60 && puzzleRating < 70) return 15;
-           if (puzzleRating > 70 && puzzleRating < 80) return 20;
-           if (puzzleRating > 80 && puzzleRating < 95) return 25;
-           // this just means that your Rating is over one hundred
-           return 50;
-       }
-
-       private int HigherRatingBound(int puzzleRating)
-       {
-           if (puzzleRating < 20) return 10;
-           if (puzzleRating > 20 && puzzleRating < 30) return 10;
-           if (puzzleRating > 30 && puzzleRating < 40) return 14;
-           if (puzzleRating > 40 && puzzleRating < 50) return 16;
-           if (puzzleRating > 50 && puzzleRating < 60) return 18;
-           if (puzzleRating > 60 && puzzleRating < 70) return 22;
-           if (puzzleRating > 70 && puzzleRating < 80) return 25;
-           if (puzzleRating > 80 && puzzleRating < 95) return 35;
-           // this just means that your Rating is over one hundred
-           return 50;
-       }
+     
 
        private void CalculateLevelRating()
         {

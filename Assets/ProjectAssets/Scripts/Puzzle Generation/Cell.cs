@@ -5,6 +5,11 @@ using UnityEngine;
 
 namespace ProjectAssets.Scripts.Puzzle_Generation
 {
+    
+    /// <summary>
+    /// Cell class the main component of the puzzle.
+    /// This is what the generator generates and where the player moves in game space
+    /// </summary>
     public class Cell : MonoBehaviour, IHeapItem<Cell>
     {
         // cell properties

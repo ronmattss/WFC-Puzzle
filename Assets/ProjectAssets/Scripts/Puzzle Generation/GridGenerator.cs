@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace ProjectAssets.Scripts.Puzzle_Generation
 {
+    /// <summary>
+    /// Base Grid and Cell Generator
+    /// </summary>
 public class GridGenerator : MonoBehaviour
     {
         public int width;

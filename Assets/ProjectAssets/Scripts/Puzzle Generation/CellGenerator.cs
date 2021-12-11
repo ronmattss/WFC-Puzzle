@@ -12,6 +12,9 @@ using Debug = UnityEngine.Debug;
 
 namespace ProjectAssets.Scripts.Puzzle_Generation
 {
+    /// <summary>
+    /// Cell Generator using WFC Algorithm
+    /// </summary>
     public class CellGenerator : GridGenerator
     {
         public List<Module> modules;
@@ -69,7 +72,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
 
             var stopwatch = new Stopwatch(); // check exec Time
 
-            //TODO: APPLY CONSTRAINTS
+  
             ApplyInitialConstraints(); //<- Set Start and End Modules Constraints
             // ~~ Main Wave Function Collapse Algorithm ~~\\
 

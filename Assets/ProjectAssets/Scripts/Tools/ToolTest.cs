@@ -23,7 +23,7 @@ namespace ProjectAssets.Scripts.Tools
 
         private void Awake()
         {
-            TestGoogleApi();
+         //   TestGoogleApi();
         }
 
         void TestGoogleApi()

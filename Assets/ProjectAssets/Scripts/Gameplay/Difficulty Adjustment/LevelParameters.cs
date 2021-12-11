@@ -4,6 +4,9 @@ using Random = UnityEngine.Random;
 
 namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 {
+    /// <summary>
+    /// This class is responsible for adjusting the difficulty of the game based on the player's performance.
+    /// </summary>
     [Serializable]
     public class LevelParameters
     {
@@ -29,9 +32,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
             return boardSize * 3; // default is 5
         }
-
-
-
+        
+        // puzzle rating scoring
         public double SetPuzzleRating()
         {
             var timePercentage = SetAllocatedTime() * .7;

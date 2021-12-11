@@ -12,6 +12,9 @@ using Random = Unity.Mathematics.Random;
 
 namespace ProjectAssets.Scripts.Player
 {
+    /// <summary>
+    /// Script that handles the player's movement and interaction with the game world.
+    /// </summary>
     public class BoardMovement : MonoBehaviour
     {
         // Start is called before the first frame update

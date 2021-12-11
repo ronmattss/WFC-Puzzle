@@ -5,6 +5,9 @@ using UnityTemplateProjects.UI;
 
 namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 {
+    /// <summary>
+    /// Class that handles the Saving and Loading of the Player's Profile
+    /// </summary>
     public class SaveManager : Singleton<SaveManager>
     {
         // pass the profile to the difficulty Manager

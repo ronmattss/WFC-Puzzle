@@ -17,8 +17,7 @@ namespace ProjectAssets.Scripts.Gameplay
 
     {
         // Script for handling gameplay properties
-        // TODO LAST THING IS THE REQUIREMENT TO WIN 3 KEYS AND ABOVE EM MOVES
-       
+
         int boardWidth;
         int boardHeight;
         public int solverMoves;
@@ -123,21 +122,8 @@ namespace ProjectAssets.Scripts.Gameplay
             
             modifier.SetupDifficultyParameters();
             solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
-            //
-            // if (isDebugging)
-            // {
-            //     solver.expectedMoves = debugMove;
-            //     solverMoves = debugMove;
-            //     levelGenerator.GenerateRandomLevel(debugBoard);
-            // }
-            // else
-            // {
-                solver.expectedMoves = solverMoves;
-                levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
-            
-
-            
-            
+            solver.expectedMoves = solverMoves;
+            levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHideMainMenuGroup();
             UIManager.Instance.ShowHideinGameUIGroup();
             SoundManager.Instance.PlayGameMusic();

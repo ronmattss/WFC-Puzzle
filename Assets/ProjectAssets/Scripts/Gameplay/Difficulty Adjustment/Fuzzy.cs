@@ -9,6 +9,10 @@
     using ProjectAssets.Scripts.Fuzzy;
 
 
+    /// <summary>
+    /// class that handles the difficulty adjustment via Fuzzy Logic
+    /// used in determining the next number of moves based on the current number of moves AND the current score of the player
+    /// </summary>
     [Serializable]
     public class Fuzzy
     {

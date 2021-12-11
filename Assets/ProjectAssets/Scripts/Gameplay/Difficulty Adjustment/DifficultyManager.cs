@@ -12,33 +12,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         private PlayerProfile testProfile = new PlayerProfile("userTest",25,25,5,5);
 
         private LevelDetails currentLevel = new LevelDetails();
-        // Monobehavior that helps place end goals better
-        // DDA 
-        // adjusts the difficulty accordingly
-        
-        // Needs Player Profile
-        // 
-        // Check the players current Rating
-        // modify necessary level details
-        // after checking pass its info to the level generator
-
-        void CheckPlayerProfile()
-        {
-            // if non exist prompt to create a new profile
-            // else load an existing profile
-        }
-        
-        
-        void CheckPlayerRating()
-        {
-            //get the players Initial Rating
-            // then process it when generating a new level
-        }
-
-        void ProcessDifficulty()
-        {
-            
-        }
 
         // create a Button to test this
        public void TestSaveJson()
@@ -73,8 +46,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
     // holds level details
     [Serializable]
-    public class 
-        LevelDetails
+    public class LevelDetails
     {
         public string seed;
         public bool won;// The Rating of the level Generated

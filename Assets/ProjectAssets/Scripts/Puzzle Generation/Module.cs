@@ -2,6 +2,9 @@
 
 namespace ProjectAssets.Scripts.Puzzle_Generation
 {
+    /// <summary>
+    /// Class that handles the type of Module or Game Object the cell will be.
+    /// </summary>
     public enum ConnectionType
     {
         Blocked,

@@ -10,6 +10,10 @@ using UnityEngine.UI;
 
 namespace UnityTemplateProjects.UI
 {
+    /// <summary>
+    /// This class handles every UI in the game.
+    /// Responsible for updating the UI elements.
+    /// </summary>
     public class UIManager : Singleton<UIManager>
     {
         // handles UI Objects in the scene

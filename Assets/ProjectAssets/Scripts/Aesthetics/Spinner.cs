@@ -2,6 +2,9 @@
 
 namespace ProjectAssets.Scripts.Aesthetics
 {
+    /// <summary>
+    /// Monobehaviour that handles the rotation of the keys
+    /// </summary>
     public class Spinner : MonoBehaviour
     {
         public GameObject objectToRotate;
