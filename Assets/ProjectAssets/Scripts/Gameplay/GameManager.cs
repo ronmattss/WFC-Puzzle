@@ -13,6 +13,10 @@ using Random = Unity.Mathematics.Random;
 
 namespace ProjectAssets.Scripts.Gameplay
 {
+    /// <summary>
+    /// Handles the game logic for the game.
+    /// 
+    /// </summary>
     public class GameManager : Singleton<GameManager>
 
     {

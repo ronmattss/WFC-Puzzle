@@ -48,12 +48,16 @@ namespace ProjectAssets.SFX
             if (menuMusic.volume == 0)
             {
                 menuMusic.volume = 1;
-                inGameMusic.volume = 1;
+                inGameMusic.volume = .5f;
+                musicSlider.value = .5f;
+
             }
             else
             {
                 menuMusic.volume = 0;
                 inGameMusic.volume = 0;
+                musicSlider.value = 0;
+
             }
         }
         
@@ -61,11 +65,14 @@ namespace ProjectAssets.SFX
         {
             if (gameSFX.volume == 0)
             {
-                gameSFX.volume = 1;
+                gameSFX.volume = .5f;
+                sfxSlider.value = .5f;
             }
             else
             {
                 gameSFX.volume = 0;
+                sfxSlider.value = 0;
+
             }
         }
 

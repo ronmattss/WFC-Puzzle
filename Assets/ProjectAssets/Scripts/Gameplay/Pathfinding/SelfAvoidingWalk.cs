@@ -5,6 +5,12 @@ using UnityEngine;
 
 namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 {
+    
+    /// <summary>
+    ///
+    /// Saw Algorithm, used to generate a path from start to end without having duplicate points
+    /// 
+    /// </summary>
     [Serializable]
     public class SelfAvoidingWalk
     {
@@ -114,7 +120,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
 
                     path.Push(currentPath);
-                    Debug.Log($"Steps-in: {steps } stack: {path.Count}");
+//                    Debug.Log($"Steps-in: {steps } stack: {path.Count}");
 
                     steps--;
 
@@ -122,7 +128,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
                 else
                 {
                     path.Push(currentPath);
-                    Debug.Log($"Steps: {steps } Stack Count: {path.Count}");
+              //      Debug.Log($"Steps: {steps } Stack Count: {path.Count}");
 
                     steps--;
                 }

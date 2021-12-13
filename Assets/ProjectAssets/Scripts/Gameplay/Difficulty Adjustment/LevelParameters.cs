@@ -59,7 +59,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public int SetAllocatedTime()
         {
             var boardT = SetBoardTime();
-        allocatedTime = boardT * ((double) expectedMoves / 10) + boardT;
+        allocatedTime = (boardT * ((double) expectedMoves / 10)) + boardT;
         boardTime = boardT;
        // Debug.Log($"allocated Time: {allocatedTime}");
         return (int) allocatedTime;

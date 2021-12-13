@@ -722,6 +722,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4061792422831954035, guid: 1b0222fd1431b6e4eb915149ef7cd4df, type: 3}
+      propertyPath: genSpeed
+      value: 0.00005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061792422831954035, guid: 1b0222fd1431b6e4eb915149ef7cd4df, type: 3}
       propertyPath: onApplyConstraints.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -796,24 +800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a14325aa4064448acc096ac8719e52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuzzy:
-    members: []
-    points: []
-    moves:
-    - 15
-    - 20
-    - 25
-    - 30
-    time:
-    - 0
-    - 10
-    - 30
-    - 40
-    moveIncrease:
-    - 0
-    - 5
-    - 7
-    - 15
   boardSize: 6
   expectedMoves: 10
   allottedTime: 20

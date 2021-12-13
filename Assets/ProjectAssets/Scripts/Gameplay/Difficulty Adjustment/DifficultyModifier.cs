@@ -24,7 +24,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         [Header("DEBUG FUZZY")] public float moveInput = 16;
         public int debugMoves = 0 ;
         public float debugTime = 0 ;
-
         public float timeInput = 0 ;
         public float moveOutput = 0;
         [Header(" ")]
@@ -45,7 +44,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         private void Awake()
         {
             GetProfile(SaveManager.Instance.playerProfile);
-// CalculateLevelRating();
+            // CalculateLevelRating();
             // fuzzy.SetMoves(debugMoves);
             // fuzzy.SetTime(debugTime);
             // fuzzy.SetIncrementalMoves();
@@ -92,11 +91,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             levelGenerated.playerMoveOnSuggestedPath = pathMovement;
             UIManager.Instance.ChangeMoveText(movement);
         }
-        
-
-      
-
-
 
         void SetupBoardSize(double rating,int moveNumber)
         {
@@ -219,15 +213,16 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // Setup Board Size
             levelGenerated.playerRating = currentPlayer.currentRating; // get current Player's Rating
             var rating = levelGenerated.playerRating;
-            var randomBoardSize = 0;
 
-            // 
+
+            // Setup Level Moves
             var levelMoves = 12;
 
             if (isDDAActive)
             {
                 levelMoves = SetupMoves(levelMoves);
                 SetupBoardSize(rating,levelMoves);
+                parameters.expectedMoves = levelMoves;
             }
             else
             {
@@ -238,7 +233,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
 
 
-
+            // pass all data
             var levelTime = parameters.SetAllocatedTime();     // use data from previous levels instead of computing it?
             
             var timeScore = parameters.SetTimeCompletionScore();
@@ -247,16 +242,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             parameters.timeCompletionScore = timeScore;
             parameters.completionScore = completionScore;
             parameters.expectedMoves = levelMoves;
-           
             var score = parameters.SetExpectedScore(); // Expected Score and TIME
+            // determines the rating of the puzzle, via move increment
+
             if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2)
             {
-                puzzleRating = (int)SetLevelRating(SaveManager.Instance.playerProfile.currentRating,moveOutput,SaveManager.Instance.playerProfile.levelsPlayed[SaveManager.Instance.playerProfile.levelsPlayed.Count-1].won);  // determines the rating of the puzzle, via move increment
-            // puzzleRating = (int)SetLevelRating(levelMoves, levelTime,parameters.boardSize);
+                puzzleRating = (int)SetLevelRating(SaveManager.Instance.playerProfile.currentRating,moveOutput,SaveManager.Instance.playerProfile.levelsPlayed[SaveManager.Instance.playerProfile.levelsPlayed.Count-1].won);  
             }
             else
             {
-              //  puzzleRating = (int)parameters.SetPuzzleRating(); // determines the rating of the puzzle, might be a conflict
               puzzleRating = (int)SetLevelRating(levelMoves, levelTime,parameters.boardSize);
             }
             
@@ -279,26 +273,13 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 UIManager.Instance.expectedMoves = levelMoves;
                 UIManager.Instance.timerBar.maxValue = levelMoves - 1;
                 UIManager.Instance.timerBar.value = 0;
-
                 UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
 
 
 
                 return;
             }
-            
-            
-            // set upper bounds and lower bounds
-            //
-            
-            
-            var lowerBound = 100;//LowerRatingBound((int) puzzleRating);
-            var higherBound = 100; //HigherRatingBound((int) puzzleRating);
-            // THIS is where the bounding happens, without this, the generated level will be Random
-            // the bounds can be measured depending on the streak?
-            
-            // if ( puzzleRating >= levelGenerated.playerRating - lowerBound && levelGenerated.playerRating <= puzzleRating &&
-            //     puzzleRating <= levelGenerated.playerRating+ higherBound)
+
             if(puzzleRating != 0)
             {
                 levelGenerated.playerMove = 0;
@@ -325,17 +306,10 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
             levelGenerated.playerRemainingTime -= Time.deltaTime;
             UIManager.Instance.ChangeTimeText(levelGenerated.playerRemainingTime);
-
         }
 
         // To be used in the demonstration
-        public double SetPlayerScore(int pMoves, double pTime,int pMoveOnSuggestedPath,bool won )
-        {
- 
-            var playerScore = parameters.SetPlayerScore(ref pMoves, ref pTime, pMoveOnSuggestedPath); // ref is a pointer reference to the variables
-            playerScore = won ? playerScore : -(playerScore * 3);
-            return playerScore;
-        }
+
         public double SetScore(int pMoves,int eMoves, double pTime,int pMoveOnSuggestedPath,bool won )
         {
  
@@ -345,7 +319,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         }
 
        public void ComputeLevelScore() // invoke after finishing the level this will compute the score and the rating for the next level
-       {    Debug.Log($"player remaining time: {levelGenerated.playerRemainingTime}");
+       {    
+           Debug.Log($"player remaining time: {levelGenerated.playerRemainingTime}");
 
            if (levelGenerated.playerRemainingTime != 0 && levelGenerated.playerMove>= levelGenerated.expectedMoves)
                playerWon = true;
@@ -411,8 +386,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        }
        
        
-        // This Fuzzy Logic (?)
-        // this not fuzzy
        private double EvaluatePlayerPerformance()
        {
 
@@ -525,34 +498,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            return result;
        }
 
-       public double NextLevelRating(double lRating,  double pRating)
-       {
-
-               // (LR + PS)/GP + CR
-               var currentPlayerRating = levelGenerated.playerRating;
-               var levelRating = lRating;
-               var  multiplier = EvaluatePlayerPerformance();
-               var ratingResult = 0.0;
-
-               if ((int) multiplier == 1)
-               {
-               
-                   ratingResult = levelRating - currentPlayerRating;
-                   currentPlayerRating += ratingResult;
-                   currentPlayerRating /= 2;
-
-               }
-               else if (multiplier >= .5 && multiplier < 1)
-               {
-                   currentPlayerRating /= 1.75;
-               }
-
-               pRating = currentPlayerRating * multiplier;
-               return pRating;
-
-
-       }
-
+       
+       // Computation for the Player Rating based on Elo Rating System
        public double AddPlayerRating(int gamesPlayed,int playerRating,double levelRating, int playerScore,bool playerWon)
        {
            var pRating = playerRating; 
@@ -574,7 +521,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            return pRating;
        }
 
-        // Rules
+        // Rules for board size and level difficulty when DDA is not Active
         private int BoardSizeRatingRange(double playerRating)
        {
            if (playerRating < 20) return Random.Range(4, 6);
@@ -588,23 +535,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            return Random.Range(8, 11);
            
        }
-
-       
-       // if (puzzleRating >= (levelGenerated.playerRating - 5) && levelGenerated.playerRating <= puzzleRating &&
-       // puzzleRating <= levelGenerated.playerRating+ 5)
-       // Rules
-     
-
+        
        private void CalculateLevelRating()
         {
             
             var currentPlayerRating = currentPlayer.currentRating;
             var levelStats = SaveManager.Instance.playerProfile.levelsPlayed;
-            if (levelStats.Count < 1) return;
-
             var games = levelStats.Count;
             
-            double pClearTime = 0; // average clearTime dfq
+            double pClearTime = 0; // average clearTime 
             int pMoves = 0; // average moves
             double pScore =0; // average score
 
@@ -612,7 +551,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var expectedMoves = 0;
             var score = 0;
             double lRating = 0;
-
+            if (levelStats.Count < 1) return;
+            
+            // add all the stats
             foreach (var details in levelStats)
             {
                 pMoves += details.playerMove;
@@ -626,7 +567,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
                 lRating += details.levelRating;
 
             }
-
+            // then average it
             pClearTime /= games;
             pMoves /= games;
             pScore /= games;
@@ -636,7 +577,8 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             expectedMoves /= games;
             score /= games;
             lRating /= games;
-
+            
+            // compute to 100%
             var sTime = (pClearTime / allottedTime) *.20;
             var sMoves = (expectedMoves / pMoves) *.25;
             var sScore = (pScore / score) *.5;
@@ -644,6 +586,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
             var suggestedRatingMultiplier = sTime + sMoves + sScore + sRating;
 
+            // Save to player profile
                 SaveManager.Instance.playerProfile.initialRating = suggestedRatingMultiplier * lRating;
                 SaveManager.Instance.playerProfile.currentRating = suggestedRatingMultiplier * lRating;
             

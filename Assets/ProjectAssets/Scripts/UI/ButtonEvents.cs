@@ -1,4 +1,5 @@
-﻿using ProjectAssets.SFX;
+﻿using System.Collections;
+using ProjectAssets.SFX;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -9,7 +10,8 @@ namespace UnityTemplateProjects.UI
     {
         public UnityEvent onClick;
         public UnityEvent onHighlight;
-        public AudioClip sfx; 
+        public AudioClip sfx;
+        private bool clickable = true;
         void Update()
         {
 
@@ -23,8 +25,21 @@ namespace UnityTemplateProjects.UI
 
             if (IsPressed())
             {
-                onClick.Invoke();
+                if (clickable)
+                {
+                    onClick.Invoke();
+                    clickable = false;
+//                    StartCoroutine(DisableButton());
+                }
+                
             }
+        }
+
+        IEnumerator DisableButton()
+        {
+            
+            yield return new WaitForSeconds(.25f);
+            clickable = true;
         }
 
         public void PlayClip()

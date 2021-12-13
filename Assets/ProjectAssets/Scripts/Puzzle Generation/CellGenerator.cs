@@ -341,11 +341,22 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             
             GameManager.Instance.currentCell = startCell;
             GameManager.Instance.SetStartPosition(startCell.transform.position);
-            GameManager.Instance.solver.InitializeValues(cells,endCell,GameManager.Instance.solverMoves);
+            try
+            {
+                GameManager.Instance.solver.InitializeValues(cells, endCell, GameManager.Instance.solverMoves);
+            }
+            catch (Exception e)
+            {
+                Debug.Log($"Error: {e.Message}");
+                StartGoalConstraint();
+            }
             // GameManager.Instance.SetGoalCell(endCell);
             // now collapse it
             
         }
+
+
+        
         public void GoalConstraint()
         {
             // Instead of StartCell, EndCell then Difficulty constraint for how many tiles then 

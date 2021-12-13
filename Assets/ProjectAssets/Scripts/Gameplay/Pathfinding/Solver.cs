@@ -8,73 +8,71 @@ using Random = UnityEngine.Random;
 
 namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 {
+    /// <summary>
+    /// Class that handles that solves the given board using SAW algorithm
+    /// </summary>
     public class Solver : MonoBehaviour
     {
         private Cell[,] currentCells;
-         public List<Cell> cellPath = new List<Cell>();
+        public List<Cell> cellPath = new List<Cell>();
         private Cell currentCell;
         public int expectedMoves;
         private Cell previousCell;
         private int noChance = 4;
         public List<Module> selectedRandomCells = new List<Module>();
         public Module endGoalModule;
-         public LineRenderer debugRenderer;
-         public SelfAvoidingWalk walk;
-        
-         public bool debugMode = false;
-         
-         // Self Avoiding Walk
+        public LineRenderer debugRenderer;
+        public SelfAvoidingWalk walk;
 
+        public bool debugMode = false;
+
+        // Self Avoiding Walk
 
 
         public void InitializeValues(Cell[,] cells, Cell endCell, int moves)
         {
             currentCells = cells;
             currentCell = endCell;
-            expectedMoves = moves +1;
-            walk = new SelfAvoidingWalk(currentCell,moves);
+            expectedMoves = moves + 1;
+            walk = new SelfAvoidingWalk(currentCell, moves);
             walk.Walk();
             Walker();
+            
+            
             GameManager.Instance.modifier.parameters.suggestedPath = cellPath.Count;
             //RandomDirection();
-          //  CheckUniqueness();
-            
-           // DebugShowPath();
-            RandomlyChangePathCells();
+            //  CheckUniqueness();
 
+            // DebugShowPath();
+            RandomlyChangePathCells();
         }
+
         public void InitializeSolver(Cell[,] cells, Cell endCell, int moves)
         {
             currentCells = cells;
             currentCell = endCell;
-            expectedMoves = moves +1;
-            walk = new SelfAvoidingWalk(currentCell,moves);
+            expectedMoves = moves + 1;
+            walk = new SelfAvoidingWalk(currentCell, moves);
             walk.Walk();
             Walker();
             GameManager.Instance.modifier.parameters.suggestedPath = cellPath.Count;
             //RandomDirection();
             //  CheckUniqueness();
-            
-             DebugShowPath();
-            RandomlyChangePathCells();
 
+            DebugShowPath();
+            RandomlyChangePathCells();
         }
-        
-        
+
 
         void DebugShowPath()
         {
-            
-            
             debugRenderer.positionCount = cellPath.Count;
             for (var i = 0; i < cellPath.Count; i++)
             {
-                debugRenderer.SetPosition(i,cellPath[i].transform.position);
+                debugRenderer.SetPosition(i, cellPath[i].transform.position);
             }
-
         }
 
-       
 
         bool CheckUniqueness()
         {
@@ -87,11 +85,11 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
                     if (path[i] == cellPath[j] && i != j)
                     {
                         similarCount++;
-                  //      cellPath.Remove(cellPath[i]);
+                        //      cellPath.Remove(cellPath[i]);
                     }
-                    
                 }
             }
+
             Debug.Log($"Similar paths: {similarCount}");
             return similarCount > 0;
         }
@@ -101,52 +99,50 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
         void Walker()
         {
-            cellPath.Clear();            // make sure 
+            cellPath.Clear(); // make sure 
             cellPath = walk.completedPath;
             foreach (var cell in cellPath)
             {
                 cell.lockRotation = true;
                 cell.isSuggestedPath = true;
             }
-
-            cellPath[cellPath.Count-1].lockRotation = false;
+            Debug.Log($"Cell path Count: ${cellPath.Count}");
+            cellPath[cellPath.Count - 1].lockRotation = false;
             DebugShowPath();
 //            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
-
-            
         }
-        
+
         void RandomDirection()
         {
-
-            cellPath.Clear();            // make sure 
+            cellPath.Clear(); // make sure 
             previousCell = currentCell;
             for (var i = 0; i < expectedMoves; i++)
             {
-                 noChance = 4;
+                noChance = 4;
                 Cell nextCell;
                 do
                 {
                     var nextNeighbors = NeighborFilter(currentCell);
 
                     nextCell = nextNeighbors[Random.Range(0, nextNeighbors.Length)];
-                    if(noChance == 0) break;
+                    if (noChance == 0) break;
                     noChance--;
                 } while (nextCell == null || CellMatcher(nextCell)); // should I add a back tracker?
 
                 cellPath.Add(nextCell);
-                previousCell = cellPath[cellPath.Count-1];
+                previousCell = cellPath[cellPath.Count - 1];
                 currentCell = nextCell;
-                
             }
-            
+
             // repeat until Unique
 
             if (CheckUniqueness())
             {
                 RandomDirection();
             }
-            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
+
+            Debug.Log(
+                $"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count - 1].gameObject.transform.position}");
 
             //Get teh current cell, randomly select a neighbor, get it, remove the cell from the list of neighbors for the next cell (meaning you have 3 choices)
             //Queue it, repeat
@@ -161,6 +157,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
                 {
                     return true;
                 }
+
                 for (var index = 1; index < cellPath.Count - 1; index++)
                 {
                     var pathCell = cellPath[index];
@@ -172,6 +169,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
                     }
                 }
             }
+
             noChance = 0;
             return false;
         }
@@ -195,7 +193,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         public Vector3 GetStartCellPosition()
         {
 //            Debug.Log($"Last Cell path: {cellPath[cellPath.Count-1].gameObject.transform.position}");
-            return cellPath[cellPath.Count-1].gameObject.transform.position;
+            return cellPath[cellPath.Count - 1].gameObject.transform.position;
         }
 
         // Why? Since WFC generates a good symmetric rule based world, some parts of the puzzle is kinda super symmetric
@@ -203,17 +201,14 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
         // this will make the player know that SOME of the solver's Path is better than randomly jus moving in the map, so randoming some tiles can be beneficial
         public void RandomlyChangePathCells()
         {
-
             for (int i = 0; i < cellPath.Count; i++)
             {
                 cellPath[i].module = selectedRandomCells[Random.Range(0, selectedRandomCells.Count)];
 //                Debug.Log($"Cell at index {i} is changed");
             }
+
             // cell 0 should be open
             cellPath[0].module = endGoalModule;
-
-
-
         }
     }
 
