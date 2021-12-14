@@ -22,21 +22,19 @@ namespace ProjectAssets.Scripts.Gameplay
     {
         // Script for handling gameplay properties
 
-        int boardWidth;
-        int boardHeight;
+        private int boardWidth;
+        private int boardHeight;
         public int solverMoves;
-        public bool isDebugging;
-        public int debugBoard = 10;
-        public int debugMove = 50;
+
 
         [Header("Properties")] 
-        private Vector3 startPosition;
+        public Vector3 startPosition;
 
         public GameObject playerPrefab;
         public GameObject endGoalPrefab; // a prefab for the goal Object 
         public GameObject keyObjectPrefab; // this will be placed in the level which will give access to the goal
-        public int initialKeys = 3;
-        public int currentKeys;
+        private int initialKeys = 3;
+        private int currentKeys;
         private List<GameObject> keysList = new List<GameObject>();
 
         public GameObject player;
@@ -45,7 +43,7 @@ namespace ProjectAssets.Scripts.Gameplay
 
         public Cell currentCell;
         public Cell endCell;
-        Cell[,] activeCells;
+        private Cell[,] activeCells;
 
         public TMP_Text text;
         public TMP_Text cellText;
@@ -56,6 +54,8 @@ namespace ProjectAssets.Scripts.Gameplay
         public int debugMoves = 9;
 
         [Header("in-game cell Objects")] public List<GameObject> cellGameObjects = new List<GameObject>();
+        // bruteforce tries 
+        
         [Header("Build Type")] public bool hasDDA = true;
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace ProjectAssets.Scripts.Gameplay
         /// Rotation Dilemma: move edge Constraints or just swap it out with other modules?
         /// If player is in goal, create new board
         /// </summary>
-        void Awake()
+        private void Awake()
         {
             SaveManager.Instance.TryLoadProfile();
         }
@@ -75,16 +75,13 @@ namespace ProjectAssets.Scripts.Gameplay
             Destroy(gCellObject.gameObject);
 
             solver.debugRenderer.enabled = false;
-            for (int i = 0; i < keysList.Count; i++)
-            {
-                Destroy(keysList[i]);
-            }
+            for (var i = 0; i < keysList.Count; i++) Destroy(keysList[i]);
 
             keysList.Clear();
         }
 
         // Update is called once per frame
-        void LateUpdate()
+        private void LateUpdate()
         {
             if (!UIManager.Instance.mainMenuGroup.activeSelf && !UIManager.Instance.postLevelMenuGroup.activeSelf &&
                 playerMovement.totalMoves > 0 &&
@@ -105,17 +102,14 @@ namespace ProjectAssets.Scripts.Gameplay
                 {
                     modifier.CountDownTimer();
                 }
-                if (/*currentKeys == 0 &&*/ playerMovement.totalMoves >= (modifier.levelGenerated.expectedMoves-1))
+                if (/*currentKeys == 0 &&*/ playerMovement.totalMoves >= modifier.levelGenerated.expectedMoves-1)
                 {
                     LowerGates();
                     ModifyPathOfEndGoal(true);
                 }
             }
 
-            if (endCell != null && endCell.cellOnPosition)
-            {
-                SetGoalPosition();
-            }
+            if (endCell != null && endCell.cellOnPosition) SetGoalPosition();
         }
 
         // TODO: some paths are blocked by a closed block 
@@ -169,10 +163,7 @@ namespace ProjectAssets.Scripts.Gameplay
         // This checks if the current Cell is the end cell
         public void GoalChecker(Cell currentPlayerCell)
         {
-            if (endCell.name.Equals(currentPlayerCell.name))
-            {
-                EndGoalAnimation();
-            }
+            if (endCell.name.Equals(currentPlayerCell.name)) EndGoalAnimation();
         }
 
         public void EndGoalAnimation()
@@ -180,23 +171,17 @@ namespace ProjectAssets.Scripts.Gameplay
             playerMovement.gameObject.transform.LeanMoveY(50, 1).setEaseInCirc().setOnComplete(PostEndGoal);
         }
 
-        void PostEndGoal()
+        private void PostEndGoal()
         {
             // Compute the Level
-            if (modifier.levelGenerated.playerMove == (modifier.levelGenerated.expectedMoves -1))
-            {
-                modifier.levelGenerated.playerMove = modifier.levelGenerated.expectedMoves;
-            }
+            if (modifier.levelGenerated.playerMove == modifier.levelGenerated.expectedMoves -1) modifier.levelGenerated.playerMove = modifier.levelGenerated.expectedMoves;
             modifier.ComputeLevelScore();
             SaveManager.Instance.SaveProfile();
             UIManager.Instance.ShowHideinGameUIGroup();
             UIManager.Instance.ShowHidePostLevelGroup();
                 
             //Stuff Remover
-            for (int i = 0; i < cellGameObjects.Count; i++)
-            {
-                Destroy(cellGameObjects[i]);
-            }
+            for (var i = 0; i < cellGameObjects.Count; i++) Destroy(cellGameObjects[i]);
             cellGameObjects.Clear();
             RemoveObjects();
                
@@ -205,12 +190,9 @@ namespace ProjectAssets.Scripts.Gameplay
             playerMovement.totalMoves = 0;
         }
 
-        void RemoveObjectsInPlay()
+        private void RemoveObjectsInPlay()
         {
-            for (int i = 0; i < cellGameObjects.Count; i++)
-            {
-                Destroy(cellGameObjects[i]);
-            }
+            for (var i = 0; i < cellGameObjects.Count; i++) Destroy(cellGameObjects[i]);
             cellGameObjects.Clear();
             RemoveObjects();
                
@@ -244,10 +226,7 @@ namespace ProjectAssets.Scripts.Gameplay
         public void SetStartPosition(Vector3 sPosition)
         {
             startPosition = sPosition;
-            if (player == null)
-            {
-                player = Instantiate(playerPrefab, startPosition, Quaternion.identity);
-            }
+            if (player == null) player = Instantiate(playerPrefab, startPosition, Quaternion.identity);
         }
 
         public void SetGoalPosition(Vector3 ePosition)
@@ -272,7 +251,7 @@ namespace ProjectAssets.Scripts.Gameplay
             ChangeGridColorOfSolvedPath();
             playerMovement = player.GetComponent<BoardMovement>();
             playerMovement.enabled = true;
-            CameraManager.Instance.vCam.transform.gameObject.SetActive((true));
+            CameraManager.Instance.vCam.transform.gameObject.SetActive(true);
             CameraManager.Instance.vCam.Follow = player.transform;
             CameraManager.Instance.vCam.LookAt = player.transform;
             
@@ -286,7 +265,7 @@ namespace ProjectAssets.Scripts.Gameplay
             CellVisuals.Instance.GetCellMesh(playerMovement.currentCell);
         }
 
-        void ChangeGridColorOfSolvedPath()
+        private void ChangeGridColorOfSolvedPath()
         {
             CellVisuals.Instance.GradientPath(solver.cellPath);
             // foreach (var cell in solver.cellPath)
@@ -295,45 +274,36 @@ namespace ProjectAssets.Scripts.Gameplay
             // }
         }
 
-        void ModifyPathOfEndGoal(bool isOpen)
+        private void ModifyPathOfEndGoal(bool isOpen)
         {
            var pathCount =  endCell.direction.path.Count;
-           for (int i = 0; i < pathCount; i++)
-           {
+           for (var i = 0; i < pathCount; i++)
                if (isOpen)
-               {
                    endCell.direction.path[i] = ConnectionType.Open;
-               }
                else
-               {
                    endCell.direction.path[i] = ConnectionType.Blocked;
-               }
-           }
         }
 
-        void RandomlyPlaceKeys()
+        private void RandomlyPlaceKeys()
         {
             // three 
             var numOfKeys = initialKeys;
             //currentKeys = numOfKeys;
-            List<Cell> cells = new List<Cell>(solver.cellPath);
+            var cells = new List<Cell>(solver.cellPath);
             cells.Remove(cells[cells.Count - 1]);
             cells.Remove(cells[0]);
 
-            if (cells.Count < 4)
-            {
-                return;
-            }
+            if (cells.Count < 4) return;
             int[] keyIndex = {
                 UnityEngine.Random.Range(cells.Count-2,cells.Count-4),
                 cells.Count/2,
-                UnityEngine.Random.Range(2,4),
+                UnityEngine.Random.Range(2,4)
 
             };
-            for (int i = 0; i < numOfKeys; i++)
+            for (var i = 0; i < numOfKeys; i++)
             {
                 var index = UnityEngine.Random.Range(0, cells.Count);
-                Vector3 keyPosition =
+                var keyPosition =
                     new Vector3(cells[keyIndex[i]].transform.position.x, .25f, cells[keyIndex[i]].transform.position.z);
                 var key = Instantiate(keyObjectPrefab, keyPosition, Quaternion.identity);
                 cells.Remove(cells[keyIndex[i]]);
@@ -366,13 +336,10 @@ namespace ProjectAssets.Scripts.Gameplay
             IncrementKeys();
         }
 
-        void CheckIfKeysPersist()
+        private void CheckIfKeysPersist()
         {
             if (keysList.Count == 0) return;
-            for (int i = 0; i < keysList.Count; i++)
-            {
-                Destroy(keysList[i].gameObject);
-            }
+            for (var i = 0; i < keysList.Count; i++) Destroy(keysList[i].gameObject);
 
             keysList.Clear();
             UIManager.Instance.ChangeKeyText(0);
@@ -391,8 +358,19 @@ namespace ProjectAssets.Scripts.Gameplay
 
  
 
-        public void SetActiveCells(Cell[,] cells) => activeCells = cells;
-        public int GetBoardHeight() => boardHeight;
-        public int GetBoardWidth() => boardWidth;
+        public void SetActiveCells(Cell[,] cells)
+        {
+            activeCells = cells;
+        }
+
+        public int GetBoardHeight()
+        {
+            return boardHeight;
+        }
+
+        public int GetBoardWidth()
+        {
+            return boardWidth;
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         public float genSpeed = .15f;
         public int genSize = 5;
         public UnityEvent onApplyConstraints;
+        private int numberOfTries = 10;
 
 
             private void Awake()
@@ -348,7 +349,19 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             catch (Exception e)
             {
                 Debug.Log($"Error: {e.Message}");
-                StartGoalConstraint();
+              
+
+                if(numberOfTries > 0)
+                {
+                    numberOfTries--;
+                    StartGoalConstraint();
+                }
+                else
+                {
+                    Debug.LogError($"Cannot Generate board, don't panic just click it again, it will work");
+                }
+                
+
             }
             // GameManager.Instance.SetGoalCell(endCell);
             // now collapse it
@@ -431,6 +444,11 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             }
 
             return null;
+        }
+
+        public void ResetTries()
+        {
+            numberOfTries = 10;
         }
 
     }

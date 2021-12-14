@@ -30,7 +30,27 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         // increment board size when the allowed EM is achieved??????
         public double SetBoardTime()
         {
-            return boardSize * 3; // default is 5
+            if (expectedMoves <= 20)
+            {
+                return boardSize * 2.15;
+            }
+            if (expectedMoves <= 30)
+            {
+                return boardSize * 2.15;
+            }
+
+            if (expectedMoves <= 50)
+            {
+                return boardSize * 2.25;
+            }
+
+            if (expectedMoves <= 60)
+            {
+                return boardSize * 2.75;
+            }
+
+            return boardSize * 2.75;
+
         }
         
         // puzzle rating scoring
@@ -90,26 +110,26 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
             return board switch
             {
-                5 => 21,
+                5 => 18,
                 6 => 29,
-                7 => 35,
-                8 => 50,
-                9 => 64,
-                10 => 80,
-                _ => 12
+                7 => 38,
+                8 => 52,
+                9 => 62,
+                10 => 70,
+                _ => 10
             };
         }
         private int MinMove(int board)
         {
             return board switch
             {
-                4 => 6,
-                5 => 14,
-                6 => 16,
-                7 => 20,
-                8 => 30,
-                9 => 45,
-                10 => 50,
+                4 => 5,
+                5 => 12,
+                6 => 25,
+                7 => 30,
+                8 => 45,
+                9 => 50,
+                10 => 60,
                 _ => 12
             };
         }

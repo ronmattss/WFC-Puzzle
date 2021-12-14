@@ -1,6 +1,8 @@
 ﻿namespace ProjectAssets.Scripts.Puzzle_Generation
 {
-    // This is from the sample, check if we can modify filtering of cells and modules
+   /// <summary>
+   /// Filters the edges of the cells in the puzzle.
+   /// </summary>
     public class EdgeFilter
     {
 

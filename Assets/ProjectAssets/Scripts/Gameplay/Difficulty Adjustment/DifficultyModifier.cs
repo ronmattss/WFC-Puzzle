@@ -44,6 +44,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         private void Awake()
         {
             GetProfile(SaveManager.Instance.playerProfile);
+            isDDAActive = GameManager.Instance.hasDDA;
             // CalculateLevelRating();
             // fuzzy.SetMoves(debugMoves);
             // fuzzy.SetTime(debugTime);
@@ -199,7 +200,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            // CalculateLevelRating();
            var puzzleRating = 0;
 
-            if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2)
+            if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2 && isDDAActive)
             {
                 
                 var previousLevelIndex = SaveManager.Instance.playerProfile.levelsPlayed.Count-1;
@@ -245,9 +246,14 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             var score = parameters.SetExpectedScore(); // Expected Score and TIME
             // determines the rating of the puzzle, via move increment
 
-            if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2)
+            if (SaveManager.Instance.playerProfile.levelsPlayed.Count > 2 && isDDAActive)
             {
                 puzzleRating = (int)SetLevelRating(SaveManager.Instance.playerProfile.currentRating,moveOutput,SaveManager.Instance.playerProfile.levelsPlayed[SaveManager.Instance.playerProfile.levelsPlayed.Count-1].won);  
+            }
+            else if (!isDDAActive)
+            {
+                puzzleRating = (int)SetLevelRating(levelMoves, levelTime,parameters.boardSize);
+
             }
             else
             {

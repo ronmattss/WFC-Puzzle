@@ -4,6 +4,9 @@ using ProjectAssets.Scripts.Puzzle_Generation;
 
 namespace ProjectAssets.Scripts.Util
 {
+    /// <summary>
+    /// Handles the type of connection is on this direction
+    /// </summary>
     [Serializable]
     public class Direction
     {

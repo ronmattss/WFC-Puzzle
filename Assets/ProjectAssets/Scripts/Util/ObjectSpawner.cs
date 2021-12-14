@@ -26,7 +26,7 @@ namespace ProjectAssets.Scripts.Util
         {
             if (Input.GetKeyUp(KeyCode.R))
             {
-                generator.GenerateLevel();
+              //  generator.GenerateLevel();
             }
         }
     }

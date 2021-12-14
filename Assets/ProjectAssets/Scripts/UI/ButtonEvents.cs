@@ -28,7 +28,7 @@ namespace UnityTemplateProjects.UI
                 if (clickable)
                 {
                     onClick.Invoke();
-                    clickable = false;
+                   // clickable = false;
 //                    StartCoroutine(DisableButton());
                 }
                 
