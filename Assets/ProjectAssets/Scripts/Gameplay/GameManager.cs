@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
 using ProjectAssets.Scripts.Gameplay.Pathfinding;
 using ProjectAssets.Scripts.Player;
@@ -51,7 +52,7 @@ namespace ProjectAssets.Scripts.Gameplay
         [Header("Generator")] public DifficultyModifier modifier; // controls the difficulty
         public Solver solver; // controls the path
         public CellGenerator levelGenerator; // controls the board
-        public int debugMoves = 9;
+        public int keyPlacementTries = 10;
 
         [Header("in-game cell Objects")] public List<GameObject> cellGameObjects = new List<GameObject>();
         // bruteforce tries 
@@ -133,7 +134,7 @@ namespace ProjectAssets.Scripts.Gameplay
             modifier.SetupDifficultyParameters();
             solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
             solver.expectedMoves = solverMoves;
-            levelGenerator.GenerateRandomLevel(modifier.boardSize);
+            levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHidePostLevelGroup();
             UIManager.Instance.ShowHideinGameUIGroup();
             playerMovement.totalMoves = 0;
@@ -143,7 +144,7 @@ namespace ProjectAssets.Scripts.Gameplay
             modifier.SetupDifficultyParameters();
             solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
             solver.expectedMoves = solverMoves;
-            levelGenerator.GenerateRandomLevel(modifier.boardSize);
+            levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHidePostFailedLevelGroup();
             UIManager.Instance.ShowHideinGameUIGroup();
             playerMovement.totalMoves = 0;
@@ -154,7 +155,7 @@ namespace ProjectAssets.Scripts.Gameplay
             modifier.SetupDifficultyParameters();
             solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
             solver.expectedMoves = solverMoves;
-            levelGenerator.GenerateRandomLevel(modifier.boardSize);
+            levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHidePauseMenu();
             UIManager.Instance.ShowHideinGameUIGroup();
             playerMovement.totalMoves = 0;
@@ -258,7 +259,22 @@ namespace ProjectAssets.Scripts.Gameplay
             SetGoalPosition(new Vector3(solver.cellPath[0].transform.position.x, .25f,
                 solver.cellPath[0].transform.position.z));
             CheckIfKeysPersist();
-            RandomlyPlaceKeys();
+            
+
+            try
+            {
+                RandomlyPlaceKeys();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"{e.Message}");
+                if (keyPlacementTries > 0)
+                {
+                    RandomlyPlaceKeys();
+                    
+                }
+            }
+            
             SetGoalCell(solver.cellPath[0]); // set goal cell to the first cell in the path
             ModifyPathOfEndGoal(false);
             
@@ -287,6 +303,7 @@ namespace ProjectAssets.Scripts.Gameplay
         private void RandomlyPlaceKeys()
         {
             // three 
+            keyPlacementTries--;
             var numOfKeys = initialKeys;
             //currentKeys = numOfKeys;
             var cells = new List<Cell>(solver.cellPath);
@@ -302,7 +319,7 @@ namespace ProjectAssets.Scripts.Gameplay
             };
             for (var i = 0; i < numOfKeys; i++)
             {
-                var index = UnityEngine.Random.Range(0, cells.Count);
+           //     var index = UnityEngine.Random.Range(0, cells.Count);
                 var keyPosition =
                     new Vector3(cells[keyIndex[i]].transform.position.x, .25f, cells[keyIndex[i]].transform.position.z);
                 var key = Instantiate(keyObjectPrefab, keyPosition, Quaternion.identity);

@@ -209,7 +209,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
             if (playerMovement < expectedMoves)
                 return 0;
-            var result  = (double) expectedMoves / playerMovement;
+            var result  = (double)-(expectedMoves / playerMovement);
             
             if (playerMovement == expectedMoves) return 1;
 

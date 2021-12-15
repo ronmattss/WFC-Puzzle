@@ -49,9 +49,10 @@ namespace UnityTemplateProjects.UI
         private void LateUpdate()
         {
             // Test Key
-            if (Input.GetKeyUp(KeyCode.Escape) && mainMenuGroup.activeSelf == false && (postLevelMenuGroup.activeSelf == false || postFailedLevelMenuGroup.activeSelf == false))
+            if (Input.GetKeyUp(KeyCode.Escape) && mainMenuGroup.activeSelf == false)
             {
-                PauseUnpause();// disable when playing
+                if(postLevelMenuGroup.activeSelf == false && postFailedLevelMenuGroup.activeSelf == false)
+                    PauseUnpause();// disable when playing
             }
 
 

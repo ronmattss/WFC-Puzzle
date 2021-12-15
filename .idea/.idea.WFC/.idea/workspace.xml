@@ -24,18 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7454dfdf-00e4-4287-8bd1-c4dd1fa2ca56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WFC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scenes/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scenes/Prototype.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/CellGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/EdgeFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Puzzle Generation/EdgeFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/ButtonEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/ButtonEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Direction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/Direction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/ObjectSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Util/ObjectSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectAssets/Scripts/UI/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/profile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,10 +184,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11860">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="3300">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="11860" />
+      <option name="pid" value="3300" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -365,7 +358,8 @@
       <workItem from="1639288547139" duration="4028000" />
       <workItem from="1639380471625" duration="5474000" />
       <workItem from="1639446899171" duration="3026000" />
-      <workItem from="1639457448546" duration="8731000" />
+      <workItem from="1639457448546" duration="9319000" />
+      <workItem from="1639529205643" duration="7466000" />
     </task>
     <servers />
   </component>
@@ -395,19 +389,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs</url>
-          <line>350</line>
-          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\Difficulty Adjustment\DifficultyModifier.cs" initialLine="361" containingFunctionPresentation="method 'ComputeLevelScore'">
-            <startOffsets>
-              <option value="13236" />
-            </startOffsets>
-            <endOffsets>
-              <option value="13249" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/DifficultyModifier.cs</url>
           <line>200</line>
           <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\Difficulty Adjustment\DifficultyModifier.cs" initialLine="199" containingFunctionPresentation="method 'SetupDifficultyParameters'">
             <startOffsets>
@@ -418,6 +399,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/ProjectAssets/Scripts/Gameplay/Difficulty Adjustment/LevelParameters.cs</url>
+          <line>251</line>
+          <properties documentPath="E:\OneDrive - Polytechnic University of the Philippines\Thesis I\WFC\Assets\ProjectAssets\Scripts\Gameplay\Difficulty Adjustment\LevelParameters.cs" initialLine="251" containingFunctionPresentation="method 'SetPlayerScore'">
+            <startOffsets>
+              <option value="8276" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8350" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

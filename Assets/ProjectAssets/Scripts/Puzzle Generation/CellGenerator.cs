@@ -354,7 +354,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
                 if(numberOfTries > 0)
                 {
                     numberOfTries--;
-                    StartGoalConstraint();
+                    GameManager.Instance.GenerateNewLevel();
                 }
                 else
                 {
