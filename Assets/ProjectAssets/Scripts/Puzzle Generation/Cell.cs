@@ -39,6 +39,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         
         public bool cellOnPosition = true;
         public bool isRotatable = true;
+        public bool isDeathCell = false;    // Cell that instantly cause lose condition
         public bool lockRotation = false;
         public bool isSuggestedPath = false;
         

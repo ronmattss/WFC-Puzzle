@@ -274,6 +274,7 @@ namespace ProjectAssets.Scripts.Player
             else if (Input.GetKeyDown(KeyCode.F))
             {
                 UnlockRotationOfCells();
+                RemoveDeathCells();
             }
 
         }
@@ -328,6 +329,16 @@ namespace ProjectAssets.Scripts.Player
             isCellRotating = false;
         }
 
+        private void RemoveDeathCells()
+        {
+            for (int i = 0; i < currentCell.neighbors.Length; i++)
+            {
+                if (currentCell.neighbors[i] != null && currentCell.neighbors[i].isDeathCell )
+                {
+                    currentCell.neighbors[i].isDeathCell = false;
+                }
+            }
+        }
         private void UnlockRotationOfCells()
         {
             bool hasLockedCell = !currentCell.isRotatable;
@@ -339,6 +350,7 @@ namespace ProjectAssets.Scripts.Player
                     hasLockedCell = true;
                 }
             }
+
 
             if (hasLockedCell && forceRotation > 0)
             {

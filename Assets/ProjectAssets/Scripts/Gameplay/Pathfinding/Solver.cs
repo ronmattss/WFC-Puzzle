@@ -40,13 +40,17 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
             
             
             GameManager.Instance.modifier.parameters.suggestedPath = cellPath.Count;
+            
             //RandomDirection();
             //  CheckUniqueness();
 
             // DebugShowPath();
             RandomlyChangePathCells();
+            
+
         }
 
+        // used in tools
         public void InitializeSolver(Cell[,] cells, Cell endCell, int moves)
         {
             currentCells = cells;
@@ -61,6 +65,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
             DebugShowPath();
             RandomlyChangePathCells();
+
         }
 
 
@@ -112,41 +117,7 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 //            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
         }
 
-        void RandomDirection()
-        {
-            cellPath.Clear(); // make sure 
-            previousCell = currentCell;
-            for (var i = 0; i < expectedMoves; i++)
-            {
-                noChance = 4;
-                Cell nextCell;
-                do
-                {
-                    var nextNeighbors = NeighborFilter(currentCell);
-
-                    nextCell = nextNeighbors[Random.Range(0, nextNeighbors.Length)];
-                    if (noChance == 0) break;
-                    noChance--;
-                } while (nextCell == null || CellMatcher(nextCell)); // should I add a back tracker?
-
-                cellPath.Add(nextCell);
-                previousCell = cellPath[cellPath.Count - 1];
-                currentCell = nextCell;
-            }
-
-            // repeat until Unique
-
-            if (CheckUniqueness())
-            {
-                RandomDirection();
-            }
-
-            Debug.Log(
-                $"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count - 1].gameObject.transform.position}");
-
-            //Get teh current cell, randomly select a neighbor, get it, remove the cell from the list of neighbors for the next cell (meaning you have 3 choices)
-            //Queue it, repeat
-        }
+        
 
 
         Boolean CellMatcher(Cell cCell)
@@ -209,6 +180,41 @@ namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 
             // cell 0 should be open
             cellPath[0].module = endGoalModule;
+        }
+
+        public void RandomDeathCell(List<GameObject> cells, int percent = 50)
+        {
+            // check if cell is in cellPath
+            var listOfDeathCells = 0;
+            var listOfCells =cells;
+            
+            // check if cell is in cellPath
+            for (int i = 0;i< listOfCells.Count; i++)
+            {
+                if (!MatchCells(listOfCells[i].GetComponent<Cell>()))
+                {
+                    var randomNumber = Random.Range(0, 100);
+                    listOfCells[i].GetComponent<Cell>().isDeathCell = randomNumber < percent;
+                    CellVisuals.Instance.DeathPath( listOfCells[i].GetComponent<Cell>());
+                    listOfDeathCells++;
+                }
+
+            }
+            Debug.Log($"Death Cells: {listOfDeathCells}");
+            
+
+        }
+
+        bool MatchCells(Cell cell)
+        {
+            for(int i =0; i< cellPath.Count; i++)
+            {
+                if (cellPath[i].cellID == cell.cellID)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 

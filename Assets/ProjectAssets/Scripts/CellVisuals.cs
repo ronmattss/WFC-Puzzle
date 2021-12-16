@@ -97,6 +97,8 @@ namespace ProjectAssets.Scripts
         }
         public void ChangeWallColor(Cell cell)
         {
+            if (cell.isDeathCell) return;
+             
             var gObjectObject = cell.gameObject.transform.GetChild(0); // Get the first 
            // var childCount = gObjectObject.transform.childCount;
 
@@ -136,6 +138,22 @@ namespace ProjectAssets.Scripts
                 gObjectObject.GetChild(3).GetComponent<Renderer>().material.SetColor("_EmissionColor",pathGradient.Evaluate(gradientMap));
 
             }
+        }
+
+        public void DeathPath(Cell cell)
+        {
+
+            var gObjectObject = cell.gameObject.transform.GetChild(0); // Get the first 
+            if ( gObjectObject.childCount == 4)
+            {
+                gObjectObject.GetChild(3).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                gObjectObject.GetChild(3).GetComponent<Renderer>().material.SetColor("_EmissionColor",Color.red);
+                gObjectObject.GetChild(2).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                gObjectObject.GetChild(2).GetComponent<Renderer>().material.SetColor("_EmissionColor",Color.red);
+                gObjectObject.GetChild(1).GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                gObjectObject.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor",Color.red);
+            }
+
         }
         
         

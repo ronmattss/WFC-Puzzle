@@ -34,8 +34,8 @@ namespace ProjectAssets.Scripts.Gameplay
         public GameObject playerPrefab;
         public GameObject endGoalPrefab; // a prefab for the goal Object 
         public GameObject keyObjectPrefab; // this will be placed in the level which will give access to the goal
-        private int initialKeys = 3;
-        private int currentKeys;
+        private readonly int _initialKeys = 3;
+        private int _currentKeys;
         private List<GameObject> keysList = new List<GameObject>();
 
         public GameObject player;
@@ -44,7 +44,7 @@ namespace ProjectAssets.Scripts.Gameplay
 
         public Cell currentCell;
         public Cell endCell;
-        private Cell[,] activeCells;
+        private Cell[,] _activeCells;
 
         public TMP_Text text;
         public TMP_Text cellText;
@@ -57,7 +57,9 @@ namespace ProjectAssets.Scripts.Gameplay
         [Header("in-game cell Objects")] public List<GameObject> cellGameObjects = new List<GameObject>();
         // bruteforce tries 
         
-        [Header("Build Type")] public bool hasDDA = true;
+        [Header("Build Type")] 
+        public bool hasDDA = true;
+        public int deathCellPercentage = 50;
 
         /// <summary>
         /// TODO: Movement with direction constrained
@@ -79,6 +81,18 @@ namespace ProjectAssets.Scripts.Gameplay
             for (var i = 0; i < keysList.Count; i++) Destroy(keysList[i]);
 
             keysList.Clear();
+        }
+
+       public void InstantLose()
+        {
+            modifier.ComputeLevelScore();
+            SaveManager.Instance.SaveProfile();
+            UIManager.Instance.ShowHideinGameUIGroup();
+            UIManager.Instance.ShowHidePostFailedLevelGroup();
+
+            // ObjectSpawner.Instance.generator.GenerateLevel();
+            playerMovement.totalMoves = 0;
+            RemoveObjectsInPlay();
         }
 
         // Update is called once per frame
@@ -164,7 +178,12 @@ namespace ProjectAssets.Scripts.Gameplay
         // This checks if the current Cell is the end cell
         public void GoalChecker(Cell currentPlayerCell)
         {
+            endCell.isDeathCell = false; // make sure the end cell is not a death cell
             if (endCell.name.Equals(currentPlayerCell.name)) EndGoalAnimation();
+            if (currentPlayerCell.isDeathCell)
+            {
+                InstantLose();
+            }
         }
 
         public void EndGoalAnimation()
@@ -175,6 +194,7 @@ namespace ProjectAssets.Scripts.Gameplay
         private void PostEndGoal()
         {
             // Compute the Level
+            
             if (modifier.levelGenerated.playerMove == modifier.levelGenerated.expectedMoves -1) modifier.levelGenerated.playerMove = modifier.levelGenerated.expectedMoves;
             modifier.ComputeLevelScore();
             SaveManager.Instance.SaveProfile();
@@ -240,8 +260,8 @@ namespace ProjectAssets.Scripts.Gameplay
 
         public Cell GetCurrentCell(int x, int y)
         {
-            cellText.text = $"Current Cell:{activeCells[x, y].name} ";
-            return activeCells[x, y];
+            cellText.text = $"Current Cell:{_activeCells[x, y].name} ";
+            return _activeCells[x, y];
         }
 
         // This sets all position lmao
@@ -304,7 +324,7 @@ namespace ProjectAssets.Scripts.Gameplay
         {
             // three 
             keyPlacementTries--;
-            var numOfKeys = initialKeys;
+            var numOfKeys = _initialKeys;
             //currentKeys = numOfKeys;
             var cells = new List<Cell>(solver.cellPath);
             cells.Remove(cells[cells.Count - 1]);
@@ -327,23 +347,29 @@ namespace ProjectAssets.Scripts.Gameplay
                 keysList.Add(key);
             }
             UIManager.Instance.ChangeKeyText(0);
-            currentKeys = 0;
+            _currentKeys = 0;
+        }
+
+        public void SetRandomDeathCells()
+        {
+            solver.RandomDeathCell(cellGameObjects,deathCellPercentage);
+
         }
 
        public void DecrementKeys()
         {
-            if (currentKeys > 0)
+            if (_currentKeys > 0)
             {
-                currentKeys--;
-                UIManager.Instance.ChangeKeyText(currentKeys);
+                _currentKeys--;
+                UIManager.Instance.ChangeKeyText(_currentKeys);
             }
         }
         public void IncrementKeys()
         {
            
-                currentKeys++;
+                _currentKeys++;
                 playerMovement.forceRotation++;
-                UIManager.Instance.ChangeKeyText(currentKeys);
+                UIManager.Instance.ChangeKeyText(_currentKeys);
             
         }
 
@@ -377,7 +403,7 @@ namespace ProjectAssets.Scripts.Gameplay
 
         public void SetActiveCells(Cell[,] cells)
         {
-            activeCells = cells;
+            _activeCells = cells;
         }
 
         public int GetBoardHeight()

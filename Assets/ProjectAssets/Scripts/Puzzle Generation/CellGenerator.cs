@@ -30,7 +30,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         public float genSpeed = .15f;
         public int genSize = 5;
         public UnityEvent onApplyConstraints;
-        private int numberOfTries = 10;
+        private int _numberOfTries = 10;
 
 
             private void Awake()
@@ -53,6 +53,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             StartCoroutine(BoardGeneration());
         }
 
+        // used in tools
         IEnumerator BoardGeneration()
         {
             RemoveGrid();
@@ -77,7 +78,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
             ApplyInitialConstraints(); //<- Set Start and End Modules Constraints
             // ~~ Main Wave Function Collapse Algorithm ~~\\
 
-            // HAHA WHILE LOOP
+      
 
             // Loop until
             while (orderedCells.Count > 0)
@@ -131,29 +132,11 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
                 yield return new WaitForSeconds(genSpeed);
                 GameManager.Instance.solver.debugRenderer.enabled = true;
             }
+            
+             // obstacle
 
-            // foreach (var c in cells)
-            // {
-            //
-            //     var t = c.transform;
-            //
-            //
-            //         Instantiate(c.possibleModules[0].moduleGameObject, t.position, c.possibleModules[0].moduleGameObject.transform.rotation, t);
-            //         c.module = c.possibleModules[0];
-            //
-            //         c.SetEdges();
-            //     GameManager.Instance.cellGameObjects.Add(c.gameObject);
-            //     // c.gameObject.GetComponent<Cell>().cellOnPosition = false;
-            //     // c.gameObject.GetComponent<Cell>().EaseToPosition(!c.gameObject.GetComponent<Cell>().cellOnPosition);
-            //
-
-            // }
             CheckGeneratedLevel();
 
-
-            // GameManager.Instance.SetActiveCells(cells);
-            // GameManager.Instance.SetPlayerPosition();
-            //
         }
 
 
@@ -244,7 +227,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
                 
             }
             CheckGeneratedLevel();
-            
+            GameManager.Instance.SetRandomDeathCells();
             GameManager.Instance.SetActiveCells(cells);
             GameManager.Instance.SetPlayerPosition();
 //            Debug.Log($"Start Path: {GameManager.Instance.solver.cellPath[GameManager.Instance.solver.cellPath.Count-1].gameObject.transform.position}");
@@ -351,9 +334,9 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
                 Debug.Log($"Error: {e.Message}");
               
 
-                if(numberOfTries > 0)
+                if(_numberOfTries > 0)
                 {
-                    numberOfTries--;
+                    _numberOfTries--;
                     GameManager.Instance.GenerateNewLevel();
                 }
                 else
@@ -448,7 +431,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
 
         public void ResetTries()
         {
-            numberOfTries = 10;
+            _numberOfTries = 10;
         }
 
     }
