@@ -17,7 +17,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         [Range(0,100)]
         public int moves = 4;
 
-        public Fuzzy fuzzy;
+        public FuzzyCalculation fuzzyCalculation;
         
         
         [Header("DDA")] public bool isDDAActive = true;
@@ -45,19 +45,15 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         {
             GetProfile(SaveManager.Instance.playerProfile);
             isDDAActive = GameManager.Instance.hasDDA;
-            // CalculateLevelRating();
-            // fuzzy.SetMoves(debugMoves);
-            // fuzzy.SetTime(debugTime);
-            // fuzzy.SetIncrementalMoves();
-            // fuzzy.AddToDatabase();
+
         }
 
         private void FuzzyBasedMoves(int expectedMoves,float allottedTime)
-        {   fuzzy = new Fuzzy();
-            fuzzy.SetMoves(expectedMoves);
-            fuzzy.SetTime(allottedTime);
-            fuzzy.SetIncrementalMoves();
-            fuzzy.AddToDatabase();
+        {   fuzzyCalculation = new FuzzyCalculation();
+            fuzzyCalculation.SetMoves(expectedMoves);
+            fuzzyCalculation.SetTime(allottedTime);
+            fuzzyCalculation.SetIncrementalMoves();
+            fuzzyCalculation.AddToDataBank();
             // Debug Stuff
             debugMoves = expectedMoves;
             debugTime = allottedTime;
@@ -68,7 +64,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 
             moveInput = playerMoves;
             timeInput = timeRemaining;
-            return Mathf.FloorToInt(fuzzy.AcceptInput(playerMoves, timeRemaining));
+            return Mathf.FloorToInt(fuzzyCalculation.AcceptInput(playerMoves, timeRemaining));
         }
 
         private void LateUpdate()
@@ -532,7 +528,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
        {
            if (playerRating < 20) return Random.Range(4, 6);
            if (playerRating > 20 && playerRating < 30) return Random.Range(4, 6);
-
            if (playerRating > 30 && playerRating < 40) return Random.Range(4, 7);
            if (playerRating > 40 && playerRating < 50) return Random.Range(5, 7);
            if (playerRating > 50 && playerRating < 60) return Random.Range(5, 8);

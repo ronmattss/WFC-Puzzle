@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: PlanetN-VXDV
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 856916317
   material: {fileID: 8498853327936931951}
-  materialHashCode: 0
+  materialHashCode: -2136370083
   m_Version: 1.1.0
   m_SourceFontFileGUID: c0b01049d3a6df641b7465b011a54993
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: c0b01049d3a6df641b7465b011a54993, type: 3}

@@ -4,9 +4,9 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using ProjectAssets.Scripts.Util;
+    using Util;
     using UnityEngine;
-    using ProjectAssets.Scripts.Fuzzy;
+    using Fuzzy;
 
 
     /// <summary>
@@ -14,9 +14,9 @@
     /// used in determining the next number of moves based on the current number of moves AND the current score of the player
     /// </summary>
     [Serializable]
-    public class Fuzzy
+    public class FuzzyCalculation
     {
-        // This class is a test for Fuzzy Logic Implementation with Animation Curve
+        #region Variables
 
         public MembershipFunction[] members;
         public float[] points;
@@ -25,15 +25,15 @@
 
         public FuzzySet fsGreat, fsAverage, fsClear;
         public LinguisticVariable clearMoves;
-        public float[] moves = {15, 20, 25, 30}; // sample moves, we 
+      //public  float[] moves = {15, 20, 25, 30}; // sample moves, we 
         
         public FuzzySet fsFast, fsNormal, fsSlow,fsFailed;
         public LinguisticVariable clearTime;
-        public float[] time = {0, 10, 30, 40};
+       // public float[] time = {0, 10, 30, 40};
         
         public FuzzySet fsPlenty, fsMinimal, fsNone,fsZero;
         public LinguisticVariable newMoves;
-        public float[] moveIncrease = {0, 5, 7, 15};
+       // public float[] moveIncrease = {0, 5, 7, 15};
         
         
         public FuzzySet fsLow, fsMid, fsHigh;
@@ -43,7 +43,7 @@
         private DataBank db;
         private Inference infSystem;
         
-        
+        #endregion
         
         
         
@@ -68,24 +68,22 @@
             
             
         }
-        public void SetBoardSize()
-        {
-            
-        }
+  
         public void SetMoves(int em)
         {
             // Set specified moves based on percentage of EM from the previous level
             // match the player's move 
             var x1 = em; // EM
-            var x2 = (em / .93f); // EM / .93
-            var x3 = (em / .75f); // EM / .75
-            var x4 = (em / .62f); // EM /.62
-            var x5 = (em / .60f); // EM / .6
-            var x6 = (em / .51f); // EM / .51
-            var x7 = (em / .50f); // EM / .5
+            var x2 = em / .93f; // EM / .93
+            var x3 = em / .75f; // EM / .75
+            var x4 = em / .62f; // EM /.62
+            var x5 = em / .60f; // EM / .6
+            var x6 = em / .51f; // EM / .51
+            var x7 = em / .50f; // EM / .5
 
 
-                // Gonna Tweak This Tomorrow
+            // Fuzzy Sets
+            // 
             fsGreat = new FuzzySet("Great",new TrapezoidFunction(x1,x3,TrapezoidFunction.EdgeType.Right)); // m1 min  m2 max
             fsAverage = new FuzzySet("Average",new TrapezoidFunction(x2,x3,x6,x7));
             fsClear = new FuzzySet("Clear",new TrapezoidFunction(x5,x7,TrapezoidFunction.EdgeType.Left));// m1 max  m2 min 
@@ -168,7 +166,8 @@
             newMoves.AddLabel(fsPlenty);
         }
 
-        public void AddToDatabase()
+        // add Rules to the databank where rules will be applied
+        public void AddToDataBank()
         {
             db = new DataBank();
             db.AddVariable(clearMoves);
@@ -212,6 +211,7 @@
 
         }
 
+        // accept input from the Difficulty modifier
         public float AcceptInput(float move,float timeInput)
         {
             infSystem.SetInput("clearMoves",move);

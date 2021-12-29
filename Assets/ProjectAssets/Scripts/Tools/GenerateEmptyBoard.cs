@@ -16,7 +16,7 @@ namespace ProjectAssets.Scripts.Tools
         // contains board generation code
         
         
-        private Gameplay.Difficulty_Adjustment.Fuzzy fuzzy;
+        private Gameplay.Difficulty_Adjustment.FuzzyCalculation _fuzzyCalculation;
         [Header("Tool  Parameters")]
         [Header("Level Information")]
         public int boardSize; 
@@ -63,11 +63,11 @@ namespace ProjectAssets.Scripts.Tools
 
         // Use Fuzzy Logic to Score the movement input of the player.
        private void FuzzyBasedMoves(int _expectedMoves,float _allottedTime)
-        {   fuzzy = new Gameplay.Difficulty_Adjustment.Fuzzy();
-            fuzzy.SetMoves(_expectedMoves);
-            fuzzy.SetTime(_allottedTime);
-            fuzzy.SetIncrementalMoves();
-            fuzzy.AddToDatabase();
+        {   _fuzzyCalculation = new Gameplay.Difficulty_Adjustment.FuzzyCalculation();
+            _fuzzyCalculation.SetMoves(_expectedMoves);
+            _fuzzyCalculation.SetTime(_allottedTime);
+            _fuzzyCalculation.SetIncrementalMoves();
+            _fuzzyCalculation.AddToDataBank();
             // Debug Stuff
             // debugMoves = expectedMoves;
             // debugTime = allottedTime;
@@ -79,7 +79,7 @@ namespace ProjectAssets.Scripts.Tools
 
             playerMoves = pMoves;
             timeLeft = pTimeRemaining;
-            return Mathf.FloorToInt(fuzzy.AcceptInput(pMoves, pTimeRemaining));
+            return Mathf.FloorToInt(_fuzzyCalculation.AcceptInput(pMoves, pTimeRemaining));
         }
 
         private void Awake()

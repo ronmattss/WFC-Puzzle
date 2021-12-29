@@ -320,7 +320,7 @@ namespace ProjectAssets.Scripts.Player
            currentCell.RotateRight();
              //<- probably culprit
             // If Available Path is open check if neighbor path is Open
-            // if Open player can traverse if not then don't lol
+            // if Open player can traverse if not then don't 
         }
 
         void RotateCurrentCell()
