@@ -740,7 +740,7 @@ MonoBehaviour:
   nextLevelRating: 0
   debugMoveScore: 0
   debugTimeScore: 0
-  debugPlayerRating: 0
+  newPlayerRating: 0
   giveUp: 4
   playerWon: 0
   currentPlayer:
@@ -751,7 +751,6 @@ MonoBehaviour:
     gamesWon: 0
     levelsPlayed: []
   levelGenerated:
-    seed: 
     won: 0
     boardSize: 0
     allottedTime: 0
@@ -900,6 +899,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 689553505, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2130801393795555091, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1080,6 +1083,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1784948920}
+    - target: {fileID: 2191692586387726514, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 734
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191692586387726514, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -255
+      objectReference: {fileID: 0}
     - target: {fileID: 7319778707024823622, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

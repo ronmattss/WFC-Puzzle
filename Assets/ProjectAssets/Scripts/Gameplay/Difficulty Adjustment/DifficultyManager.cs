@@ -23,7 +23,6 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            playerProfile.gamesPlayed = 25;
            playerProfile.gamesWon = 25;
            currentLevel = new LevelDetails();
-           currentLevel.seed = "213dasdwe22";
            currentLevel.allottedTime = 20;
            currentLevel.expectedMoves = 6;
            currentLevel.levelRating = 5;
@@ -48,7 +47,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
     [Serializable]
     public class LevelDetails
     {
-        public string seed;
+
         public bool won;// The Rating of the level Generated
         public int boardSize;
         public int allottedTime;
@@ -74,9 +73,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             {
                 
             }
-            public LevelDetails(string boardSeed,bool win,int size, int time, int exMoves,int exPath,double lRating,double pRating,int pMove,int pSMove,double pTime,double pScore,int pLevelScore)
+            public LevelDetails(bool win,int size, int time, int exMoves,int exPath,double lRating,double pRating,int pMove,int pSMove,double pTime,double pScore,int pLevelScore)
             {
-                seed = boardSeed;
+
                 won = win;
                 boardSize = size;
                 allottedTime = time;

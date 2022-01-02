@@ -32,7 +32,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
         public double nextLevelRating = 0;
         public double debugMoveScore;
         public double debugTimeScore;
-        public double debugPlayerRating;
+        public double newPlayerRating;
         public int giveUp = 4; // used to force a generation
         [Header("PostGame Analysis")] public bool playerWon = false;
       
@@ -211,6 +211,11 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             levelGenerated.playerRating = currentPlayer.currentRating; // get current Player's Rating
             var rating = levelGenerated.playerRating;
 
+            // prevent the rating from going below 0
+            if (rating <= 3)
+            {
+                rating = 3;
+            }
 
             // Setup Level Moves
             var levelMoves = 12;
@@ -249,6 +254,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             else if (!isDDAActive)
             {
                 puzzleRating = (int)SetLevelRating(levelMoves, levelTime,parameters.boardSize);
+                puzzleRating = Mathf.Abs(puzzleRating); // prevent negative rating
 
             }
             else
@@ -338,29 +344,30 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
            nextLevelRating = NextLevelRating();
            if (currentPlayer.gamesPlayed < 3)
            {
-               debugPlayerRating =  (levelGenerated.playerRating + (nextLevelRating* .01f) / 1) + (playerScore / 2.5); // This is based from elo rating of chess
+               newPlayerRating =  (levelGenerated.playerRating + (nextLevelRating* .01f) / 1) + (playerScore / 2.5); // This is based from elo rating of chess
 
            }
            // This is based from elo rating of chess
            else
            {
                if(playerWon)
-                debugPlayerRating = (levelGenerated.playerRating + (nextLevelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore / 6); // divided by 6 so player Rating will not go up to much
+                newPlayerRating = (levelGenerated.playerRating + (nextLevelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore / 6); // divided by 6 so player Rating will not go up to much
                else
-                   debugPlayerRating = (levelGenerated.playerRating + (nextLevelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore);
+                   newPlayerRating = (levelGenerated.playerRating + (nextLevelRating * .01f) / currentPlayer.gamesPlayed) + (playerScore);
 
            }
-           var resultant = levelGenerated.playerRating - debugPlayerRating;
+           newPlayerRating = newPlayerRating <= 0 ? newPlayerRating = 0 : newPlayerRating;
+           var resultant = levelGenerated.playerRating - newPlayerRating;
          //  levelGenerated.playerRating = debugPlayerRating;
 
          
            Debug.Log("Next Level Rating: "+ nextLevelRating);
            Debug.Log($"Current Player Rating: {currentPlayer.currentRating}");
-           Debug.Log($"debugPlayerRating ${debugPlayerRating} (pR + NR)");
-          currentPlayer.currentRating = debugPlayerRating;
+           Debug.Log($"debugPlayerRating ${newPlayerRating} (pR + NR)");
+          currentPlayer.currentRating = newPlayerRating;
           
           levelGenerated.playerRating = currentPlayer.currentRating;
-          var details = new LevelDetails(levelGenerated.seed,playerWon, levelGenerated.boardSize,levelGenerated.allottedTime, levelGenerated.expectedMoves, levelGenerated.suggestedPath, levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerMoveOnSuggestedPath,levelGenerated.playerRemainingTime,levelGenerated.playerScore,levelGenerated.levelScore);
+          var details = new LevelDetails(playerWon, levelGenerated.boardSize,levelGenerated.allottedTime, levelGenerated.expectedMoves, levelGenerated.suggestedPath, levelGenerated.levelRating,levelGenerated.playerRating,levelGenerated.playerMove,levelGenerated.playerMoveOnSuggestedPath,levelGenerated.playerRemainingTime,levelGenerated.playerScore,levelGenerated.levelScore);
          
           currentPlayer.levelsPlayed.Add(details);
           

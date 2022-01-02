@@ -166,6 +166,8 @@ namespace ProjectAssets.Scripts.Gameplay
         public void RegenerateLevelFedGenerateNewLevel()
         {
             //modifier.ComputeLevelScore();
+            // return if games played is below 20
+            if (SaveManager.Instance.playerProfile.gamesPlayed < 20) return;
             modifier.SetupDifficultyParameters();
             solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
             solver.expectedMoves = solverMoves;
@@ -186,7 +188,7 @@ namespace ProjectAssets.Scripts.Gameplay
             }
         }
 
-        public void EndGoalAnimation()
+        private void EndGoalAnimation()
         {
             playerMovement.gameObject.transform.LeanMoveY(50, 1).setEaseInCirc().setOnComplete(PostEndGoal);
         }
@@ -222,7 +224,7 @@ namespace ProjectAssets.Scripts.Gameplay
             playerMovement.totalMoves = 0;
         }
 
-        public void SetGoalCell(Cell goalCell)
+        private void SetGoalCell(Cell goalCell)
         {
             endCell = goalCell;
             endCell.EaseToPosition(false);
@@ -232,7 +234,7 @@ namespace ProjectAssets.Scripts.Gameplay
             // set end goal to the first path
         }
 
-        public void SetGoalPosition()
+        private void SetGoalPosition()
         {
             endCell.EaseToPosition(true);
             endCell.cellOnPosition = false;
@@ -250,7 +252,7 @@ namespace ProjectAssets.Scripts.Gameplay
             if (player == null) player = Instantiate(playerPrefab, startPosition, Quaternion.identity);
         }
 
-        public void SetGoalPosition(Vector3 ePosition)
+        private void SetGoalPosition(Vector3 ePosition)
         {
             if (gCellObject != null)
                 gCellObject.transform.position = ePosition;
@@ -364,7 +366,8 @@ namespace ProjectAssets.Scripts.Gameplay
                 UIManager.Instance.ChangeKeyText(_currentKeys);
             }
         }
-        public void IncrementKeys()
+
+       private void IncrementKeys()
         {
            
                 _currentKeys++;
@@ -388,7 +391,7 @@ namespace ProjectAssets.Scripts.Gameplay
             UIManager.Instance.ChangeKeyText(0);
         }
 
-        public void LowerGates()
+        private void LowerGates()
         {
             var endCellObject = endCell.transform.GetChild(0).GetChild(4);
             endCellObject.LeanMoveY(-100, 0.5f);
