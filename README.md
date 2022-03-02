@@ -7,10 +7,14 @@ The Game generates it's puzzle by utilizing WFC Algorithm. The Difficulty Adjust
 
 Systems:
 WFC - Main Puzzle Generator
+
 Fuzzy Logic - Main Difficulty Adjuster
+
 Puzzle Solver - part of the DDA system, creates a path for the board.
 
 
 Requirements:
-> Unity 2020+
-> URP
+
+Unity 2020+
+
+URP
