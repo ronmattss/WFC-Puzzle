@@ -18,3 +18,4 @@ Puzzle Solver - part of the DDA system, creates a path for the board.
 Requirements:
 
 Unity 2020+
+C# 8
