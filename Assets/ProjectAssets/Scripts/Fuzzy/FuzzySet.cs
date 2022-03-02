@@ -1,6 +1,15 @@
-﻿namespace ProjectAssets.Scripts.Fuzzy
+﻿/* Program Title: Fuzzy Logic Set
+ * Programmers: Rivera, Ron Matthew R.
+ * Date Created: September 20, 2021
+ * Purpose: Gets the Membership a Fuzzy Logic set
+ * Data Structures: Classes, Interfaces, Enums
+ */
+namespace ProjectAssets.Scripts.Fuzzy
 {
     using System;
+    
+    
+
     public class FuzzySet
     {
         // name of the Fuzzy Set

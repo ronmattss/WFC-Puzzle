@@ -1,4 +1,11 @@
-﻿namespace ProjectAssets.Scripts.Fuzzy
+﻿/* Program Title: Inference
+ * Programmers: Rivera, Ron Matthew R.
+ * Date Created: September 20, 2021
+ * Purpose: Translates a given sentence into a logical expression.
+ * Data Structures: Classes, Interfaces, Enums
+ */
+
+namespace ProjectAssets.Scripts.Fuzzy
 {
     using System;
     using UnityEngine;

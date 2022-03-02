@@ -1,10 +1,20 @@
-﻿using System.Collections.Generic;
+﻿/*
+ Title: Cell Script
+ Author: Ron Matthew Rivera
+ Sub-System: WFC 
+ Date Written/Revised: August. 11, 2021
+ Purpose: Creates a cell object that is used to create the puzzle.
+ Data Structures, algorithms, and control: Class, Lists, Heap
+ */
+
+using System.Collections.Generic;
 using System.Linq;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
 
 namespace ProjectAssets.Scripts.Puzzle_Generation
-{
+{ 
+
     
     /// <summary>
     /// Cell class the main component of the puzzle.

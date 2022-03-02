@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ Title: Cell Generator
+ Author: Ron Matthew Rivera
+ Sub-System: Part of Wave Function Collapse Algorithm
+ Date Written/Revised: Aug. 14, 2021
+ Purpose: Creates a grid of cells using the Wave Function Collapse Algorithm
+ Data Structures, algorithms, and control: Heap, Class, Lists, for loops,
+ */
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,6 +20,7 @@ using Debug = UnityEngine.Debug;
 
 namespace ProjectAssets.Scripts.Puzzle_Generation
 {
+
     /// <summary>
     /// Cell Generator using WFC Algorithm
     /// </summary>
@@ -32,12 +41,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         public UnityEvent onApplyConstraints;
         private int _numberOfTries = 10;
 
-
-            private void Awake()
-        {
-            // GenerateLevel On Command
-            // GenerateLevel();
-        }
+        
 
         public void GenerateRandomLevel(int size)
         {

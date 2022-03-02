@@ -751,6 +751,7 @@ MonoBehaviour:
     gamesWon: 0
     levelsPlayed: []
   levelGenerated:
+    seed: 
     won: 0
     boardSize: 0
     allottedTime: 0

@@ -1,7 +1,14 @@
-﻿using ProjectAssets.Scripts.Fuzzy.Helpers;
+﻿/* Program Title: Piecewise Function
+* Programmers: Rivera, Ron Matthew R.
+* Purpose: Creates a Piecewise Function for the Fuzzy Logic System
+* Data Structures: Class
+*/
+using ProjectAssets.Scripts.Fuzzy.Helpers;
 using System;
 namespace ProjectAssets.Scripts.Fuzzy
 {
+    
+
     public class PiecewiseFunction : IMembershipFunction
     {
         protected Point[] points;

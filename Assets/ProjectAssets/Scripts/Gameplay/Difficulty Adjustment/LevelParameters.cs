@@ -1,12 +1,18 @@
-﻿using System;
+﻿/*
+ Title: Level Parameters
+ Author: Ron Matthew Rivera
+ Sub-System: Part of Dynamic Difficulty Adjustment System
+ Date Written/Revised: Nov. 15, 2021
+ Purpose: Class that holds all the parameter calculation for a level
+ Data Structures, algorithms, and control: Class. Lists
+ */
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 {
-    /// <summary>
-    /// This class is responsible for adjusting the difficulty of the game based on the player's performance.
-    /// </summary>
+
     [Serializable]
     public class LevelParameters
     {
@@ -63,8 +69,9 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // y = mx + b
             // where y is the puzzle rating
             // m is the timePercentage
-            // x is the expecteMoves
+            // x is the expectedMoves
             // b is the boardsize
+            
             var y = (timePercentage * boardSize + expectedMoves) * .15; 
            return /*((timePercentage * boardSize) / (expectedMoves * .7)) * 100*/ y;
         }
@@ -184,6 +191,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // the goal of sPath is to guide the player to the exit
 
         }
+        
         private double SetComputeSuggestedPathScore(int suggestedMovePlayerPath,int eMoves,int sugPath)
         {
             var sPath = sugPath;
@@ -226,8 +234,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             return result;
         }
 
-
-        // FUZZY Logic ?
+        
         public double SetPlayerTimeCompletionScore(double remainingTime)
         {
             var playerTime = remainingTime;
@@ -284,9 +291,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             // var thirdEquation = (remainingTime *)
         }
         
-        // fuzzy membership functions
-
-        // fuzzy evaluator 
+ 
         public double EvaluatePlayerMoves(int playerMoves)
         {
             var baseScore = expectedMoves;

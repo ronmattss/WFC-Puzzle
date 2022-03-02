@@ -1,9 +1,19 @@
-﻿using System;
+﻿/*
+ Title: Game Manager
+ Author: Ron Matthew Rivera
+ Sub-System: Game System
+ Date Written/Revised: Dec. 15, 2021
+ Purpose: This script is the main game manager. It handles the game flow and the game state.
+ Data Structures, algorithms, and control: Class. Lists
+ */
+
+using System;
 using System.Collections.Generic;
 using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
 using ProjectAssets.Scripts.Gameplay.Pathfinding;
 using ProjectAssets.Scripts.Player;
 using ProjectAssets.Scripts.Puzzle_Generation;
+using ProjectAssets.Scripts.UI;
 using ProjectAssets.Scripts.Util;
 using ProjectAssets.SFX;
 using TMPro;
@@ -14,10 +24,7 @@ using Random = Unity.Mathematics.Random;
 
 namespace ProjectAssets.Scripts.Gameplay
 {
-    /// <summary>
-    /// Handles the game logic for the game.
-    /// 
-    /// </summary>
+
     public class GameManager : Singleton<GameManager>
 
     {
@@ -25,7 +32,7 @@ namespace ProjectAssets.Scripts.Gameplay
 
         private int boardWidth;
         private int boardHeight;
-        public int solverMoves;
+        
 
 
         [Header("Properties")] 
@@ -54,6 +61,9 @@ namespace ProjectAssets.Scripts.Gameplay
         public CellGenerator levelGenerator; // controls the board
         public int keyPlacementTries = 10;
 
+        [Header("Solver Debugger")]
+        public int solverMoves;
+        
         [Header("in-game cell Objects")] public List<GameObject> cellGameObjects = new List<GameObject>();
         // bruteforce tries 
         
@@ -61,12 +71,7 @@ namespace ProjectAssets.Scripts.Gameplay
         public bool hasDDA = true;
         public int deathCellPercentage = 50;
 
-        /// <summary>
-        /// TODO: Movement with direction constrained
-        /// TWEAK ALL CELLS AFFECTED BY THE PATH?
-        /// Rotation Dilemma: move edge Constraints or just swap it out with other modules?
-        /// If player is in goal, create new board
-        /// </summary>
+
         private void Awake()
         {
             SaveManager.Instance.TryLoadProfile();
@@ -85,9 +90,10 @@ namespace ProjectAssets.Scripts.Gameplay
 
        public void InstantLose()
         {
+
             modifier.ComputeLevelScore();
             SaveManager.Instance.SaveProfile();
-            UIManager.Instance.ShowHideinGameUIGroup();
+            UIManager.Instance.ShowHideInGameUIGroup();
             UIManager.Instance.ShowHidePostFailedLevelGroup();
 
             // ObjectSpawner.Instance.generator.GenerateLevel();
@@ -106,7 +112,7 @@ namespace ProjectAssets.Scripts.Gameplay
                 {
                     modifier.ComputeLevelScore();
                     SaveManager.Instance.SaveProfile();
-                    UIManager.Instance.ShowHideinGameUIGroup();
+                    UIManager.Instance.ShowHideInGameUIGroup();
                     UIManager.Instance.ShowHidePostFailedLevelGroup();
 
                     // ObjectSpawner.Instance.generator.GenerateLevel();
@@ -138,7 +144,7 @@ namespace ProjectAssets.Scripts.Gameplay
             solver.expectedMoves = solverMoves;
             levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHideMainMenuGroup();
-            UIManager.Instance.ShowHideinGameUIGroup();
+            UIManager.Instance.ShowHideInGameUIGroup();
             SoundManager.Instance.PlayGameMusic();
             playerMovement.totalMoves = 0;
         }
@@ -150,7 +156,7 @@ namespace ProjectAssets.Scripts.Gameplay
             solver.expectedMoves = solverMoves;
             levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHidePostLevelGroup();
-            UIManager.Instance.ShowHideinGameUIGroup();
+            UIManager.Instance.ShowHideInGameUIGroup();
             playerMovement.totalMoves = 0;
         }
         public void PostLevelFailedGenerateNewLevel()
@@ -160,7 +166,7 @@ namespace ProjectAssets.Scripts.Gameplay
             solver.expectedMoves = solverMoves;
             levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHidePostFailedLevelGroup();
-            UIManager.Instance.ShowHideinGameUIGroup();
+            UIManager.Instance.ShowHideInGameUIGroup();
             playerMovement.totalMoves = 0;
         }
         public void RegenerateLevelFedGenerateNewLevel()
@@ -173,7 +179,7 @@ namespace ProjectAssets.Scripts.Gameplay
             solver.expectedMoves = solverMoves;
             levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHidePauseMenu();
-            UIManager.Instance.ShowHideinGameUIGroup();
+            UIManager.Instance.ShowHideInGameUIGroup();
             playerMovement.totalMoves = 0;
         }
 
@@ -200,7 +206,7 @@ namespace ProjectAssets.Scripts.Gameplay
             if (modifier.levelGenerated.playerMove == modifier.levelGenerated.expectedMoves -1) modifier.levelGenerated.playerMove = modifier.levelGenerated.expectedMoves;
             modifier.ComputeLevelScore();
             SaveManager.Instance.SaveProfile();
-            UIManager.Instance.ShowHideinGameUIGroup();
+            UIManager.Instance.ShowHideInGameUIGroup();
             UIManager.Instance.ShowHidePostLevelGroup();
                 
             //Stuff Remover
@@ -208,8 +214,6 @@ namespace ProjectAssets.Scripts.Gameplay
             cellGameObjects.Clear();
             RemoveObjects();
                
-                
-                
             playerMovement.totalMoves = 0;
         }
 
@@ -218,9 +222,8 @@ namespace ProjectAssets.Scripts.Gameplay
             for (var i = 0; i < cellGameObjects.Count; i++) Destroy(cellGameObjects[i]);
             cellGameObjects.Clear();
             RemoveObjects();
-               
-                
-                
+
+
             playerMovement.totalMoves = 0;
         }
 
@@ -306,10 +309,6 @@ namespace ProjectAssets.Scripts.Gameplay
         private void ChangeGridColorOfSolvedPath()
         {
             CellVisuals.Instance.GradientPath(solver.cellPath);
-            // foreach (var cell in solver.cellPath)
-            // {
-            //     CellVisuals.Instance.ChangeGridColor(cell,Color.yellow);
-            // }
         }
 
         private void ModifyPathOfEndGoal(bool isOpen)

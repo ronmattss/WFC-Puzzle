@@ -1,7 +1,13 @@
-﻿using ProjectAssets.Scripts.Fuzzy.Helpers;
+﻿/* Program Title: Trapezoid Function
+* Programmers: Rivera, Ron Matthew R.
+* Purpose: Creates a Trapezoid Function for the Fuzzy Logic System
+* Data Structures: Class
+*/
+using ProjectAssets.Scripts.Fuzzy.Helpers;
 
 namespace ProjectAssets.Scripts.Fuzzy
 {
+
     public class TrapezoidFunction : PiecewiseFunction
     {
         public enum EdgeType

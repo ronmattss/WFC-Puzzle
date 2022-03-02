@@ -1,10 +1,16 @@
-﻿using UnityEngine;
+﻿/*
+ Title: Module
+ Author: Ron Matthew Rivera
+ Sub-System: Part of Wave Function Collapse Algorithm
+ Date Written/Revised: Aug. 14, 2021
+ Purpose: This class is used to create a modules for the Wave Function Collapse Algorithm.
+ Data Structures, algorithms, and control: Class,enums,interfaces
+ */
+using UnityEngine;
 
 namespace ProjectAssets.Scripts.Puzzle_Generation
 {
-    /// <summary>
-    /// Class that handles the type of Module or Game Object the cell will be.
-    /// </summary>
+
     public enum ConnectionType
     {
         Blocked,

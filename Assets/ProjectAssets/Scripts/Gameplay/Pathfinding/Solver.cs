@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ Title: Solver
+ Author: Ron Matthew Rivera
+ Sub-System: Part of Puzzle Generation Puzzle Solver
+ Date Written/Revised: Aug. 23, 2021
+ Purpose: Uses the SAW algorithm to solve the puzzle
+ Data Structures, algorithms, and control: Class, Lists, Stacks,
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
@@ -8,9 +16,7 @@ using Random = UnityEngine.Random;
 
 namespace ProjectAssets.Scripts.Gameplay.Pathfinding
 {
-    /// <summary>
-    /// Class that handles that solves the given board using SAW algorithm
-    /// </summary>
+
     public class Solver : MonoBehaviour
     {
         private Cell[,] currentCells;

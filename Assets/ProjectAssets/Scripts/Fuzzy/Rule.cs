@@ -1,8 +1,15 @@
 ﻿
+/* Program Title: Rule
+* Programmers: Rivera, Ron Matthew R.
+* Date Created: September 20, 2021
+* Purpose: Creates Rules for the Fuzzy Logic
+* Data Structures: Class, stack
+*/
 namespace ProjectAssets.Scripts.Fuzzy
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Generic; 
+
     public class Rule
     {
         // name of the rule 

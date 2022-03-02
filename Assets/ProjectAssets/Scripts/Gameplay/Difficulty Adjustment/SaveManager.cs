@@ -1,13 +1,22 @@
-﻿using System.IO;
+﻿/*
+ Title: Save Manager
+ Author: Ron Matthew Rivera
+ Sub-System: Save system
+ Date Written/Revised: Sept. 22, 2021
+ Purpose: Class that handles saving and loading of data on a JSON File
+ Data Structures, algorithms, and control: Class. Lists
+ */
+
+
+using System.IO;
+using ProjectAssets.Scripts.UI;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
 using UnityTemplateProjects.UI;
 
 namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
 {
-    /// <summary>
-    /// Class that handles the Saving and Loading of the Player's Profile
-    /// </summary>
+
     public class SaveManager : Singleton<SaveManager>
     {
         // pass the profile to the difficulty Manager

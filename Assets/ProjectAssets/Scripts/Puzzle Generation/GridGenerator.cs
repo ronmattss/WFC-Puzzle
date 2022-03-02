@@ -1,13 +1,19 @@
-﻿using System.Collections.Generic;
+﻿/*
+ Title: Grid Generator
+ Author: Ron Matthew Rivera
+ Sub-System: Part of Wave Function Collapse Algorithm
+ Date Written/Revised: Aug. 14, 2021
+ Purpose: Creates a grid of tiles based on the inputted parameters
+ Data Structures, algorithms, and control: Class. Arrays, loops,
+ */
+using System.Collections.Generic;
 using ProjectAssets.Scripts.Gameplay;
 using ProjectAssets.Scripts.Util;
 using UnityEngine;
 
 namespace ProjectAssets.Scripts.Puzzle_Generation
 {
-    /// <summary>
-    /// Base Grid and Cell Generator
-    /// </summary>
+
 public class GridGenerator : MonoBehaviour
     {
         public int width;

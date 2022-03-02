@@ -3,8 +3,12 @@
 namespace ProjectAssets.Scripts.Util
 {
     /// <summary>
-    /// Inherit from this base class to create a singleton.
-    /// e.g. public class MyClassName : Singleton<MyClassName> {}
+    /// Title: Singleton Class
+    /// Author: Ron Matthew Rivera
+    /// System Tool: Boilerplate for creating Singleton Scripts
+    ///Date Written/Revised: Aug. 12, 2021
+    ///Purpose: Removes the need to create a new instance of a script everytime you need to access it.
+    /// Data Structures, algorithms, and control: Class, Singleton, MonoBehaviour
     /// </summary>
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
@@ -12,7 +16,7 @@ namespace ProjectAssets.Scripts.Util
         private static bool m_ShuttingDown = false;
         private static object m_Lock = new object();
         private static T m_Instance;
- 
+
         /// <summary>
         /// Access singleton instance through this propriety.
         /// </summary>
@@ -26,14 +30,14 @@ namespace ProjectAssets.Scripts.Util
                                      "' already destroyed. Returning null.");
                     return null;
                 }
- 
+
                 lock (m_Lock)
                 {
                     if (m_Instance == null)
                     {
                         // Search for existing instance.
                         m_Instance = (T)FindObjectOfType(typeof(T));
- 
+
                         // Create new instance if one doesn't already exist.
                         if (m_Instance == null)
                         {
@@ -41,28 +45,27 @@ namespace ProjectAssets.Scripts.Util
                             var singletonObject = new GameObject();
                             m_Instance = singletonObject.AddComponent<T>();
                             singletonObject.name = typeof(T).ToString() + " (Singleton)";
- 
+
                             // Make instance persistent.
                             DontDestroyOnLoad(singletonObject);
                         }
                     }
- 
+
                     return m_Instance;
                 }
             }
         }
- 
- 
+
+
         private void OnApplicationQuit()
         {
             m_ShuttingDown = true;
         }
- 
- 
+
+
         private void OnDestroy()
         {
             m_ShuttingDown = true;
         }
     }
 }
-

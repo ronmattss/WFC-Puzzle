@@ -1,8 +1,14 @@
-﻿namespace ProjectAssets.Scripts.Puzzle_Generation
+﻿/*
+ Title: Edge Filter 
+ Author: Ron Matthew Rivera
+ Sub-System: Core part of Wave Function Collapse Algorithm
+ Date Written/Revised: Aug. 15, 2021
+ Purpose: Filters the edges of a cell
+ Data Structures, algorithms, and control: Class, Lists
+ */
+namespace ProjectAssets.Scripts.Puzzle_Generation
 {
-   /// <summary>
-   /// Filters the edges of the cells in the puzzle.
-   /// </summary>
+
     public class EdgeFilter
     {
 

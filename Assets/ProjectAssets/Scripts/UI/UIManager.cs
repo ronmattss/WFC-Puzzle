@@ -1,31 +1,30 @@
-﻿using System;
+﻿/*
+Title: UIManager 
+Author: Ron Matthew Rivera / Gabriel Reyes
+Game System: Manages all UI in the Game
+Date Written/Revised: Sept. 1, 2021
+Purpose: Class that manages all UI in the game
+Data Structures, algorithms, and control: Classes, Singleton Design Pattern, Unity UI
+*/
 using ProjectAssets.Scripts.Gameplay;
 using ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment;
 using ProjectAssets.Scripts.Util;
 using ProjectAssets.SFX;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-
-namespace UnityTemplateProjects.UI
+namespace ProjectAssets.Scripts.UI
 {
-    /// <summary>
-    /// This class handles every UI in the game.
-    /// Responsible for updating the UI elements.
-    /// </summary>
+
     public class UIManager : Singleton<UIManager>
     {
         // handles UI Objects in the scene
-
-
-        public GameObject createProfileButton;
         public GameObject mainMenuGroup;
         public GameObject pauseMenuGroup;
         public GameObject inGameUIGroup;
         public GameObject postLevelMenuGroup;
         public GameObject postFailedLevelMenuGroup;
-        
         //UI from Main Menu
         public GameObject settingsMenuGroup;
         public GameObject menuCanvas;
@@ -61,7 +60,7 @@ namespace UnityTemplateProjects.UI
         public void PauseUnpause()
         {
             ShowHidePauseMenu(); // disable when playing
-            ShowHideinGameUIGroup();
+            ShowHideInGameUIGroup();
         }
 
         public void ShowHideSettingsGroup() //settings button (from main menu)
@@ -101,7 +100,6 @@ namespace UnityTemplateProjects.UI
             // moves.text = $"{expectedMoves}/{pm}";
             var subtractedExpectedMoves = expectedMoves - 1;
             var percentage = (pm / subtractedExpectedMoves) * 100;
-           // moves.text = pm == 0 ? $" Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}% " : $"Total Tiles: {Mathf.Floor(pm)} \n Explored: {100f}% / {Mathf.Floor(percentage)}%";
             moves.text = $" Total Tiles \n Explored: {pm} ";
 
             
@@ -122,7 +120,7 @@ namespace UnityTemplateProjects.UI
         public void Resume()
         {
             ShowHidePauseMenu(); // disable when playing
-            ShowHideinGameUIGroup();
+            ShowHideInGameUIGroup();
         }
 
         public void ShowHidePauseMenu()
@@ -151,12 +149,10 @@ namespace UnityTemplateProjects.UI
         {
             postFailedLevelMenuGroup.SetActive(!postFailedLevelMenuGroup.activeSelf);
         }
-        public void ShowHideinGameUIGroup()
+        public void ShowHideInGameUIGroup()
         {
             inGameUIGroup.SetActive(!inGameUIGroup.activeSelf);
-            // Pause 
 
-            
             ChangeCurrentRatingText(SaveManager.Instance.playerProfile.currentRating);
             ChangeLevelRatingText(GameManager.Instance.modifier.levelGenerated.levelRating);
 
@@ -166,10 +162,7 @@ namespace UnityTemplateProjects.UI
         }
         public void ShowHideMainMenuGroupFromButton()
         {
-            for (int i = 0; i < GameManager.Instance.cellGameObjects.Count; i++)
-            {
-                Destroy(GameManager.Instance.cellGameObjects[i]);
-            }
+            DestroyCellObjects();
             GameManager.Instance.cellGameObjects.Clear();
             GameManager.Instance.RemoveObjects();
 
@@ -180,10 +173,7 @@ namespace UnityTemplateProjects.UI
         }
         public void ShowHideMainMenuGroupFromFailedButton()
         {
-            for (int i = 0; i < GameManager.Instance.cellGameObjects.Count; i++)
-            {
-                Destroy(GameManager.Instance.cellGameObjects[i]);
-            }
+            DestroyCellObjects();
             GameManager.Instance.cellGameObjects.Clear();
             GameManager.Instance.RemoveObjects();
 
@@ -202,16 +192,22 @@ namespace UnityTemplateProjects.UI
         
         public void ShowHideMainMenuGroupFromPause()
         {
-            for (int i = 0; i < GameManager.Instance.cellGameObjects.Count; i++)
-            {
-                Destroy(GameManager.Instance.cellGameObjects[i]);
-            }
+            DestroyCellObjects();
+
             GameManager.Instance.cellGameObjects.Clear();
             GameManager.Instance.RemoveObjects();
             ShowHidePauseMenu();
             mainMenuGroup.SetActive(!mainMenuGroup.activeSelf);
             SoundManager.Instance.PlayMenuMusic();
 
+        }
+
+        private void DestroyCellObjects()
+        {
+            for (int i = 0; i < GameManager.Instance.cellGameObjects.Count; i++)
+            {
+                Destroy(GameManager.Instance.cellGameObjects[i]);
+            }
         }
     }
 }
