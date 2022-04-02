@@ -1,4 +1,4 @@
-A Procedural Path-Building Puzzle Game for our study
+
 
 # Purpose
 A Procedural Path-Building Puzzle Game for our study
