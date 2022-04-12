@@ -9,6 +9,8 @@
 Fuzzy Logic - Main Difficulty Adjuster
 
 Puzzle Solver - part of the DDA system, creates a path for the board.
+# Playable Demo
+https://shadedgames.itch.io/mpv11d
 
 # Requirements
 Unity 2020+ C# 8
