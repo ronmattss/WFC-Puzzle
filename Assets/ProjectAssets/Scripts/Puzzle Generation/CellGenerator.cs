@@ -58,7 +58,7 @@ namespace ProjectAssets.Scripts.Puzzle_Generation
         }
 
         // used in tools
-        IEnumerator BoardGeneration()
+        private IEnumerator BoardGeneration()
         {
             RemoveGrid();
             GenerateGrid(this);

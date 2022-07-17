@@ -503,7 +503,7 @@ namespace ProjectAssets.Scripts.Gameplay.Difficulty_Adjustment
             return 0;
         }
 
-        public double NextLevelRating()
+        private double NextLevelRating()
         {
             // (LR + PS)/GP + CR
             var currentPlayerRating = levelGenerated.playerRating;

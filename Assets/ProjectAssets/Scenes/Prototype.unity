@@ -172,11 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &380623969 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2130801394616299818, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
-  m_PrefabInstance: {fileID: 2130801394325466443}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &382805330 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2130801394624235545, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
@@ -457,7 +452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521bd083b0b322f4b8c8830297259727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solverMoves: 0
   startPosition: {x: 0, y: 0, z: 0}
   playerPrefab: {fileID: 6484869364922519124, guid: 8a59a2e7124962548939f695fa35b297, type: 3}
   endGoalPrefab: {fileID: 6484869364922519124, guid: 5750518ec954bf44cac03ed5c4c3aacf, type: 3}
@@ -473,6 +467,7 @@ MonoBehaviour:
   solver: {fileID: 1784948916}
   levelGenerator: {fileID: 1605061400}
   keyPlacementTries: 10
+  solverMoves: 0
   cellGameObjects: []
   hasDDA: 1
   deathCellPercentage: 50
@@ -664,7 +659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f0679f259c4b93a4280cc518f0d0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createProfileButton: {fileID: 380623969}
   mainMenuGroup: {fileID: 8148084548799369371}
   pauseMenuGroup: {fileID: 822782313}
   inGameUIGroup: {fileID: 2015142864}
@@ -948,6 +942,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1784948918}
+    - target: {fileID: 2130801394766865781, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2130801394839103332, guid: 9af73bb96791b5244ab7957bd5326b31, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

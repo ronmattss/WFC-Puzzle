@@ -65,8 +65,7 @@ namespace ProjectAssets.Scripts.Gameplay
         public int solverMoves;
         
         [Header("in-game cell Objects")] public List<GameObject> cellGameObjects = new List<GameObject>();
-        // bruteforce tries 
-        
+
         [Header("Build Type")] 
         public bool hasDDA = true;
         public int deathCellPercentage = 50;
@@ -142,6 +141,7 @@ namespace ProjectAssets.Scripts.Gameplay
             modifier.SetupDifficultyParameters();
             solverMoves = modifier.levelGenerated.expectedMoves; // pass the time to the UI and stuff
             solver.expectedMoves = solverMoves;
+            
             levelGenerator.GenerateRandomLevel(modifier.levelGenerated.boardSize);
             UIManager.Instance.ShowHideMainMenuGroup();
             UIManager.Instance.ShowHideInGameUIGroup();
